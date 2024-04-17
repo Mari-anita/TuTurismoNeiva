@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url('/Front-end/Img/catedral.png');
+    background-size: cover;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formulario {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo con opacidad */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    /* Sombra negra */
+}
+
+.input-container {
+    display: flex;
+}
+
+.columna {
+    flex: 1;
+    margin: 0 10px;
+    /* Espacio entre las columnas */
+}
+
+.input-container input,
+.input-container select {
+    width: calc(100% - 20px);
+    /* Ancho del 100% menos el margen de 10px a cada lado */
+    margin-bottom: 10px;
+    /* Espacio entre los inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-container select {
+    cursor: pointer;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.vfinal > a {
+    text-decoration: none;
+    color: #fff;
+}
