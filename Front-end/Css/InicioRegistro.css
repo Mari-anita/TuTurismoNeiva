@@ -23,10 +23,7 @@ h1 {
 .formulario {
     background-color: rgba(0, 0, 0, 0.5);
     /* Fondo con opacidad */
-    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px black;
-    /* Sombra negra */
 }
 
 .input-container {
@@ -35,7 +32,7 @@ h1 {
 
 .columna {
     flex: 1;
-    margin: 0 10px;
+    margin: 20px 0px 0px 15px;
     /* Espacio entre las columnas */
 }
 
@@ -43,7 +40,7 @@ h1 {
 .input-container select {
     width: calc(100% - 20px);
     /* Ancho del 100% menos el margen de 10px a cada lado */
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     /* Espacio entre los inputs */
     padding: 10px;
     border: 1px solid #ccc;
@@ -56,7 +53,7 @@ h1 {
 
 
 button {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     background-color: #007bff;
     color: #fff;
@@ -71,8 +68,9 @@ button:hover {
     background-color: #0056b3;
 }
 
-.vfinal > a {
+.vfinal {
     text-decoration: none;
     color: #fff;
+    text-align: center;
+    margin: 5% 2% 0 0;
 }
-

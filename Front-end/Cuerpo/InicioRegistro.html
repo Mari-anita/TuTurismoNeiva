@@ -16,48 +16,46 @@
 
 <body>
     <div class="container">
-        <div class="container">
-            <form class="formulario">
-                <h1>REGISTRA TUS DATOS PERSONALES</h1>
-                <div class="input-container">
-                    <div class="columna">
-                        <input type="text" placeholder="Primer Nombre" required>
-                        <input type="text" placeholder="Segundo Nombre">
-                        <input type="text" placeholder="Primer Apellido" required>
-                        <input type="text" placeholder="Segundo Apellido">
-                    </div>
-                    <div class="columna">
-                        <select required>
-                            <option value="" disabled selected>Tipo de Documento</option>
-                            <option value="cc">Cédula de Ciudadanía</option>
-                            <option value="ce">Cédula de Extranjería</option>
-                            <option value="ti">Tarjeta de Identidad</option>
-                        </select>
-                        <input type="number" placeholder="Número de Documento" required>
-
-                        <input type="date" placeholder="Fecha de Nacimiento" required>
-                        <select required>
-                            <option value="" disabled selected>Género</option>
-                            <option value="m">Masculino</option>
-                            <option value="f">Femenino</option>
-                            <option value="o">Otro</option>
-                        </select>
-                    </div>
-                    <div class="columna">
-                        <input type="email" placeholder="Correo Electrónico" required>
-                        <input type="tel" placeholder="Teléfono" required>
-                        <input type="password" placeholder="Contraseña" required>
-                        <input type="password" placeholder="Confirmar Contraseña" required>
-                        <button type="submit" href="#">Registrar</button>
-                    </div>
-
+        <!-- <a href="#"><box-icon name='exit' flip='horizontal' color='#ffffff' ></box-icon></a> -->
+        <form class="formulario">
+            <h1>Ingresa tus datos personales</h1>
+            <div class="input-container">
+                <div class="columna">
+                    <input type="text" placeholder="Primer Nombre" required>
+                    <input type="text" placeholder="Segundo Nombre">
+                    <input type="text" placeholder="Primer Apellido" required>
+                    <input type="text" placeholder="Segundo Apellido">
                 </div>
-                <div class="vfinal">
-                    <a href="">Ya tengo cuenta</a>
-                    <a href="">¿Quieres iniciar como invitado?</a>
+                <div class="columna">
+                    <select required>
+                        <option value="" disabled selected>Tipo de Documento</option>
+                        <option value="cc">Cédula de Ciudadanía</option>
+                        <option value="ti">Tarjeta de Identidad</option>
+                        <option value="ce">Cédula de Extranjería</option>
+                    </select>
+                    <input type="number" placeholder="Número de Documento" required>
+
+                    <input type="date" placeholder="Fecha de Nacimiento" required>
+                    <select required>
+                        <option value="" disabled selected>Género</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                        <option value="O">Más</option>
+                    </select>
                 </div>
-            </form>
-        </div>
+                <div class="columna">
+                    <input type="email" placeholder="Correo Electrónico" required>
+                    <input type="tel" placeholder="Teléfono" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" placeholder="Confirmar Contraseña" required>
+                    <button type="submit" href="#">Registrar</button>
+                </div>
+            </div>
+            <div class="vfinal">
+                <a class="vfinal" href="">Ya tengo cuenta</a>
+                <a class="vfinal" href="">¿Quieres iniciar como invitado?</a>
+            </div>
+        </form>
     </div>
 </body>
 
