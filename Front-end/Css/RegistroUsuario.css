@@ -55,22 +55,62 @@ h1 {
 button {
     width: 90%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #a6e151;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #7ed957;
+    transition: background-color 0.3s;
 }
 
 .vfinal {
     text-decoration: none;
     color: #fff;
     text-align: center;
-    margin: 5% 2% 0 0;
+    margin: 5% 2% 2% 0;
+}
+
+label {
+    color: white;
+    font-size: large;
+}
+
+.selector {
+    height: 45px;
+}
+
+.In, .selector {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.486);
+}
+
+.icono {
+    position: fixed;
+    /* Establece la posición fija para que la etiqueta permanezca en la misma ubicación incluso al desplazarse por la página */
+    top: 0;
+    /* Lo posiciona en la parte superior de la pantalla */
+    left: 0;
+    /* Lo posiciona en el lado izquierdo de la pantalla */
+    margin: 20px;
+    /* Agrega un margen de 20px desde el borde superior e izquierdo */
+    z-index: 9999;
+    /* Asegura que la etiqueta esté por encima de otros elementos */
+    font-size: 45px;
+    color: #c1ff72;
+}
+
+.icono:hover {
+    color: #a6e151;
+    transition: color 0.3s;
+}
+
+.vfinal:hover{
+    color: gray;
+    transition: color 0.3s ;
 }

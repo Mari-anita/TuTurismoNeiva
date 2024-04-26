@@ -1,0 +1,15 @@
+body{
+    background-color: blanchedalmond;
+    background-image: url(/Front-end/Img/MonumentoGaitana.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div > .container{
+    width: 100%;
+    margin-right: 0;
+    margin-left: auto;
+}
+.Sombra{
+    background:rgb(0, 0, 0) ;
+}
