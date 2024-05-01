@@ -62,3 +62,24 @@ button:hover{
     color: gray;
     transition: color 0.3s ;
 }
+
+
+.icono {
+    position: fixed;
+    /* Establece la posición fija para que la etiqueta permanezca en la misma ubicación incluso al desplazarse por la página */
+    top: 0;
+    /* Lo posiciona en la parte superior de la pantalla */
+    left: 0;
+    /* Lo posiciona en el lado izquierdo de la pantalla */
+    margin: 20px;
+    /* Agrega un margen de 20px desde el borde superior e izquierdo */
+    z-index: 9999;
+    /* Asegura que la etiqueta esté por encima de otros elementos */
+    font-size: 45px;
+    color: #c1ff72;
+}
+
+.icono:hover {
+    color: #a6e151;
+    transition: color 0.3s;
+}
