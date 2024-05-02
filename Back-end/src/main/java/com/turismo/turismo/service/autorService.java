@@ -17,7 +17,7 @@ public class autorService implements IautorService {
     private Iautor data;
 
     @SuppressWarnings("null")
-    @Override
+    @Override 
     public String save(Autor Autor) {
         data.save(Autor);
         return Autor.getIdAutor();
@@ -41,8 +41,4 @@ public class autorService implements IautorService {
         data.deleteById(id);
         return 1;
     }
-
-
-
-
 }

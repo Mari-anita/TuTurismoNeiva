@@ -1,5 +1,10 @@
 package com.turismo.turismo.interfaces;
 
-public interface Isitio {
+import org.springframework.data.repository.CrudRepository;
+
+import com.turismo.turismo.models.Sitio;
+
+public interface Isitio extends CrudRepository< Sitio, String>  {
+
 
 }

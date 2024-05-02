@@ -1,5 +1,17 @@
 package com.turismo.turismo.interfaceService;
 
-public interface IpqrsfdService {
+import java.util.List;
+import java.util.Optional;
 
+
+import com.turismo.turismo.models.Pqrsfd;
+
+public interface IpqrsfdService {
+    public String save (Pqrsfd Pqrsfd);
+
+    public List<Pqrsfd> findAll();
+
+    public Optional<Pqrsfd> findOne(String id);
+
+    public int delete(String id);
 }

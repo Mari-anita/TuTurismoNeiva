@@ -30,7 +30,6 @@ public class monumentoController {
         return new ResponseEntity<>(Monumento, HttpStatus.OK); 
     }
 
-    
     @GetMapping("/")
     public ResponseEntity<Object> findAll() {
         var listaMonumento = monumentoService.findAll();
@@ -58,12 +57,12 @@ public class monumentoController {
             Monumento.setFechaMonumento(MonumentoUpdate.getFechaMonumento());
             Monumento.setUbicacionMonumento(MonumentoUpdate.getUbicacionMonumento());
             Monumento.setCalificacionMonumento(MonumentoUpdate.getCalificacionMonumento());
-           
+            
             monumentoService.save(Monumento);
             return new ResponseEntity<>(Monumento, HttpStatus.OK);
 
         } else {
-            return new ResponseEntity<>("Error autor NO Encontrado", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Error monumento NO Encontrado", HttpStatus.BAD_REQUEST);
         }
     }
 
