@@ -1,104 +1,59 @@
-.NARPY {
-    position: absolute;
-    /* Para fijar la posición de la imagen */
-    top: 0;
-    /* En la parte superior */
-    right: 50px;
-    /* En el lado izquierdo */
-    width: 6%;
-    /* Ancho deseado */
-    height: auto;
-    /* Altura ajustada automáticamente */
-    z-index: 9999;
-    /* Para asegurarse de que la imagen esté en la parte superior */
-    /*Efecto tridimensional; x,y y Z*/
-    cursor: pointer;
-    background-color: white;
-    border-radius: 100%;
-    background-image: url();
-    background-size: cover;
-}
-
 body {
-    background-image: url();
-    display: flex;
-    justify-content: center;
     background-color: slateblue;
     background-size: cover;
-    min-height: 100vh;
-}
-
-.letra {
-    color: white;
-    font-style: italic;
-}
-
-.Opciones {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content:space-around;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, .2);
-    border-radius: 50px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
-    backdrop-filter: blur(20px);
-    width: 90%;
-
-}
-
-nav a {
-    position: relative;
-    font-size: 1.1em;
-    font-weight: 500;
-    color: white;
-    text-decoration: none;
-    padding: 6px 20px;
-    transition: 1s;
-}
-
-nav a:hover {
-    color: #0ef;
-}
-
-nav a span {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    border-bottom: 2px solid #0ef;
-    border-radius: 15px;
-    transform: scale(0) translateY(50px);
-    opacity: 0;
-    transition: 1s;
 }
 
-nav a:hover span {
-    transform: scale(1) translateY(0);
-    opacity: 1;
+.icono {
+    z-index: 9999;
+    /* Asegura que la etiqueta esté por encima de otros elementos */
+    color: #f9a72b;
+    font-size: 64px;
+    margin-left: 2%;
 }
 
 
+.tit{
+    font-size: 2em;
+    margin-right: 35%;
+    margin-left: 3%;
+}
+
+/* 
+ OPCIONES PARTE SUPERIOR */
+ .Opciones {
+    color: #fff;
+    display: flex;
+    background-color: black;
+    box-shadow: 0px 5px 0px rgba(255, 255, 255);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    position: sticky;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
 
 section {
     min-height: 100vh;
     overflow: hidden;
-    padding: 100px 20px;
+    padding: 20px 20px;
     box-sizing: border-box;
     display:flex; 
     justify-content: space-between;
 }
 
-
+.Buscador{
+    margin-right: 2%;
+}
 
 
 .card {
-    width: 350px;
+    width: 360px;
     height: 450px;
     margin: 20px 40px;
-    display: flex;
+    display: inline-table;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(15px);
@@ -106,7 +61,7 @@ section {
 
 
 .card .images {
-    padding: 20px;
+    text-align: center;
     transition: 0.5s ease-in-out;
 }
 
@@ -115,8 +70,7 @@ section {
 }
 
 .card .images img {
-    max-width: 100%;
-    margin: 0 0 20px;
+    max-width: 60%;
     transition: 0.5s ease-in-out;
 }
 
@@ -128,8 +82,15 @@ section {
 .card .images h3 {
     color: #fff;
     font-size: 1.5em;
+    margin-top: 10%;
 }
 
+
+.img{
+    width: 100%;
+    height: 50% ;
+    border-radius: 40px;
+}
 .card .content {
     justify-content: center;
     align-items: center;
@@ -139,12 +100,6 @@ section {
     visibility: hidden;
 }
 
-.img{
-    width: 100%;
-    height: 50% ;
-    border-radius: 40px;
-}
-
 /*animacion debajo de imagen*/
 .card:hover .content {
     opacity: 1;
@@ -152,24 +107,5 @@ section {
     transform: translateY(-50px);
 }
 
-.card .content .size, .card .color {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 20px;
-}
 
-
-.card .content a {
-    top: 10px;
-    display: inline-block;
-    text-decoration: none;
-    padding: 12px 30px;
-    background: #fff;
-    border-radius: 40px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #111;
-    text-transform: uppercase;
-}
 
