@@ -37,17 +37,31 @@ body {
 
 section {
     min-height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden;  esto sirve al deslizar la imagen quede atra de la barra de los titulos */
     padding: 20px 20px;
     box-sizing: border-box;
     display:flex; 
     justify-content: space-between;
 }
-
 .Buscador{
-    margin-right: 2%;
+    width: auto;
+}
+.lupa{
+    color: #fff;
 }
 
+.inBus{
+    border-radius: 10px 0px 0px 10px;
+}
+
+.titulos{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background-color: #fff;
+    border: 10px solid #f9a72b;
+}
 
 .card {
     width: 360px;
@@ -55,6 +69,7 @@ section {
     margin: 20px 40px;
     display: inline-table;
     background: rgba(255, 255, 255, 0.05);
+    background-color: #fff;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(15px);
 }
@@ -80,7 +95,7 @@ section {
 }
 
 .card .images h3 {
-    color: #fff;
+    color: black;
     font-size: 1.5em;
     margin-top: 10%;
 }
