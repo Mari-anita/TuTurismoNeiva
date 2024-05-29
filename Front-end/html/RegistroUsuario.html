@@ -19,58 +19,40 @@
 
 <body>
     <div class="container">
-        <a class="icono" href=""><i class='bx bx-exit bx-rotate-180'></i></a>
         <form class="formulario">
+            <a class="icono" href=""><i class='bx bx-exit bx-rotate-180'></i></a>
+            <br>
+            <br>
+            <br>
             <h1>Ingresa tus datos personales</h1>
+            
             <div class="input-container">
                 <div class="columna">
-                    <label for="PNombre">Primer Nombre</label>
-                    <input class="In" name="PNombre" type="text" required>
-                    <label for="SNombre">Segundo Nombre</label>
-                    <input class="In" name="SNombre" type="text">
-                    <label for="PApellido">Primer Apellido</label>
-                    <input class="In" name="PApellido" type="text" required>
-                    <label for="SApellido">Segundo Apellido</label>
-                    <input class="In" name="SApellido" type="text">
-                </div>
-                <div class="columna">
-                    <label for="">Tipo De Documento</label>
-                    <select class="selector" required>
-                        <option value="" disabled selected>Seleccione</option>
-                        <option value="CC">Cédula de Ciudadanía</option>
-                        <option value="TI">Tarjeta de Identidad</option>
-                        <option value="CE">Cédula Extranjera</option>
-                    </select>
-                    <label for="NDocumento">Número de Documento</label>
-                    <input class="In" name="NDocumento" type="number" required>
-                    <label for="FNacimiento">Fecha de Nacimiento</label>
-                    <input class="In" name="FNacimiento" type="date" required>
-                    <label for="">GENERO</label>
-                    <select class="selector" required>
-                        <option value="" disabled selected>Seleccione</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                        <option value="LGT">LGTBIQ+</option>
-                    </select>
-                </div>
-                <div class="columna">
+                    <label for="PNombre">Nombre</label>
+                    <input class="In" name="Nombre" type="text" required>
                     <label for="CElectrónico">Correo Electrónico</label>
                     <input class="In" name="CElectrónico" type="email" required>
-                    <label for="Tel">Teléfono</label>
-                    <input class="In" name="Tel" type="tel" required>
+                </div>
+                <div class="columna">
                     <label for="Contra">Contraseña</label>
                     <input class="In" name="Contra" type="password" required>
                     <label for="CContra">Confirmar Contraseña</label>
                     <input class="In" name="CContra" type="password" required>
-                    <button type="submit" href="#">Registrar</button>
+
                 </div>
+            </div>
+            <div class="ByTC">
+                <p>
+                    Al hacer clic en "Registrar", aceptas nuestras <a href="#">Condiciones, la Política de privacidad y la Política de cookies</a> de nuestro sitio web.
+                </p>
+                <button type="submit" href="#">Registrar</button>
             </div>
             <div class="vfinal">
                 <a class="vfinal" href="#">Ya tengo cuenta</a>
-                <a class="vfinal" href="#">¿Quieres iniciar como invitado?</a>
             </div>
         </form>
     </div>
+
 </body>
 
 </html>

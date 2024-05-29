@@ -2,15 +2,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
-    background-image: url('/Front-end/Img/catedral.png');
+
     background-size: cover;
 }
 
 h1 {
     color: #fff;
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 20px;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    font-size: 3rem;
 }
 
 .container {
@@ -32,7 +33,7 @@ h1 {
 
 .columna {
     flex: 1;
-    margin: 20px 0px 0px 15px;
+    margin: 3% 5% 0% 5%;
     /* Espacio entre las columnas */
 }
 
@@ -47,19 +48,21 @@ h1 {
     border-radius: 5px;
 }
 
-.input-container select {
-    cursor: pointer;
+.input-container > div > input{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.486);
 }
 
 
+
 button {
-    width: 90%;
+    width: 30%;
     padding: 10px;
     background-color: #a6e151;
     color: #fff;
     border: none;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 1.6rem;
     cursor: pointer;
 
 }
@@ -69,39 +72,46 @@ button:hover {
     transition: background-color 0.3s;
 }
 
+.ByTC{
+    text-align: center;
+    color: white;
+    margin: 5% 0% 0% 0%;
+}
+
+.ByTC > p > a {
+    text-decoration: none;
+    
+}
+
+.ByTC > p {
+    font-size: 1.4rem;
+    color: white;
+    margin: 0% 4% 3% 4%;
+}
+
 .vfinal {
     text-decoration: none;
     color: #fff;
     text-align: center;
-    margin: 5% 2% 2% 0;
+    margin: 3% 2% 3% 0;
+    font-size: 1.7rem;
 }
 
 label {
     color: white;
-    font-size: large;
+    font-size: xx-large;
 }
 
-.selector {
-    height: 45px;
-}
-
-.In, .selector {
-    color: black;
-    background-color: rgba(255, 255, 255, 0.486);
-}
 
 .icono {
     position: fixed;
     /* Establece la posición fija para que la etiqueta permanezca en la misma ubicación incluso al desplazarse por la página */
-    top: 0;
-    /* Lo posiciona en la parte superior de la pantalla */
-    left: 0;
-    /* Lo posiciona en el lado izquierdo de la pantalla */
+
     margin: 20px;
     /* Agrega un margen de 20px desde el borde superior e izquierdo */
     z-index: 9999;
     /* Asegura que la etiqueta esté por encima de otros elementos */
-    font-size: 45px;
+    font-size: 3rem;
     color: #c1ff72;
 }
 
