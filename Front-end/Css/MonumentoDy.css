@@ -27,25 +27,20 @@ body {
     display: flex;
     background-color: black;
     box-shadow: 0px 5px 0px rgba(255, 255, 255);
-    backdrop-filter: blur(20px);
     z-index: 1000;
     position: sticky;
     max-width: 100%;
     align-items: center;
-    justify-content: space-between;
 }
 
 section {
-    min-height: 100vh;
-    /* overflow: hidden;  esto sirve al deslizar la imagen quede atra de la barra de los titulos */
     padding: 20px 20px;
     box-sizing: border-box;
     display:flex; 
     justify-content: space-between;
 }
-.Buscador{
-    width: auto;
-}
+
+
 .lupa{
     color: #fff;
 }
@@ -57,15 +52,14 @@ section {
 .titulos{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 8%;
     background-color: #fff;
     border: 10px solid #f9a72b;
 }
 
 .card {
-    width: 360px;
-    height: 450px;
+    width: 100%;
+    height: 100%;
     margin: 20px 40px;
     display: inline-table;
     background: rgba(255, 255, 255, 0.05);
@@ -122,5 +116,36 @@ section {
     transform: translateY(-50px);
 }
 
+.fa-heart{
+    position: absolute;
+    right: 5%;
+    bottom: 1%;
+}
+.fa-heart:hover {
+    cursor: pointer;
+    color: red;
+}
 
+.divider {
+    border: 1px solid black;
+}
+
+
+.votar{
+    display: flex;
+}
+
+.fa-star {
+    color: #ccc; /* Color por defecto de las estrellas */
+    cursor: pointer; /* Cambiar cursor a una mano al pasar sobre las estrellas */
+}
+.fa-star.filled {
+    color: gold; /* Color de las estrellas llenas */
+}
+.stars-container {
+    display: flex;
+}
+.star {
+    margin: 0 2px; /* Espacio entre las estrellas */
+}
 
