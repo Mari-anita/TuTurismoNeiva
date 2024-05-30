@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar nuevo monumento</title>
+  <link rel="stylesheet" href="/Front-end/Css/bootstrap.css">
+  <link rel="stylesheet" href="/Front-end/Css/RegistrarNuevoMonumento.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Registrar nuevo monumento</h1>
+
+    <form action="#">
+      
+      <div class="form-group">
+        <label for="nombreSitio">Nombre monumento:</label>
+        <input class="form-control" type="text" id="nombreMonumento" aria-label="default input example">
+        <label for="Autor">Autor</label>
+        <input type="text" id="Autor" name="Autor" required>
+      </div>
+
+
+      <div class="form-group" >
+        <label for="historiaSitio">Historia monumento:</label>
+        <input class="form-control" id="historiaSitio" name="historiaSitio" rows="5" required>
+        
+        <label for="direccionMonumento">Dirección:</label>
+        <input class="form-control" type="text" id="direccionMonumento" name="direccionMonumento" required>
+      </div>
+
+      <div class="form-group">
+        <label for="imagenSitio">Subir foto del sitio turístico:</label>
+        <input class="form-control" type="file" id="fotosSitio" accept="image/*" multiple>
+      </div>
+
+      <div class="form-actions" style="padding-top:2%">
+        <button type="button" class="btn btn-success">Registrar</button>
+        <button type="button" class="btn btn-secondary">Limpiar</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

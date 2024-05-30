@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/Front-end/Img/Neiva.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    text-align: center;
+    margin-top: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px; /* Aumenta el espacio interno del contenedor */
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.title {
+    color: white;
+    font-size: 40px; /* Aumenta el tamaño del título */
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+.btn-deshabilitar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.btn-deshabilitar:hover {
+    background-color: #c82333;
+}
