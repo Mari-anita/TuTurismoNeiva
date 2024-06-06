@@ -8,817 +8,1278 @@
   <script src="../js/bootstrap.js"></script>
   <link rel="stylesheet" href="../Css/bootstrap.css">
   <link rel="stylesheet" href="../Css/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="../js/bootstrap.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
   <div class="background-image">
-  <div class="content">
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container fluid">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              <button  type="button" onclick="location.href='../html/nose.html'">
-                <i class="fa-solid fa-arrow-left"></i>
-              </button>
-            </a>
-          </li>
-        </ul>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="font-size: 40px;"><b>Monumentos</b></a>
+              <a class="nav-link active" aria-current="page" href="#">
+                <button type="button" onclick="location.href='../html/nose.html'">
+                  <i class="fa-solid fa-arrow-left"></i>
+                </button>
+              </a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-            <div class="user">
-              <button class="btn btn-outline-light" type="button">
-                <i class="fa-light fa-user"></i>
+          <div class="collapse navbar-collapse ml-auto" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="font-size: 40px;"><b>Monumentos</b></a>
+              </li>
+            </ul>
+            <form class="d-flex ms-auto">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">
+                <i class="fas fa-search"></i>
               </button>
-                <!--<i class="fa-solid fa-arrow-down"></i>-->
+              <div class="user ms-2">
+                <button class="btn btn-outline-light" type="button">
+                  <i class='bx bx-user-circle bx-lg' style='color:#7ed957;'></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="container-fluid" style="margin-top: 2%;">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-12" >
+            <div class="card">
+              <div class="card-header">
+                <h3>Quinto Centenario</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/quinto_centenario.jpg" alt="Iglesia" width="250px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text1">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/QuintoCentenario.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card">
+              <div class="card-header">
+                <h3>Caballo Colombiano</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/caballo_colombiano.jpg" alt="Iglesia" width="250px" height="317px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/CaballoColombiano.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card">
+              <div class="card-header">
+                <h3>Tambores del Pacandé</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/tambores_pacande.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/TamboresP.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card">
+              <div class="card-header">
+                <h3>Me Llevarás en Ti</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/me_llevaras_en_ti.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/MeLlevarasEnTi.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card">
+              <div class="card-header">
+                <h3>La Llamarada</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/llamarada.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/llamarada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Los Guaduales</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/guaduales.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/guaduales.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>El caracolí</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/caracoli.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/caracoli.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Al Sur</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/alsur.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/Alsur.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Luna Roja</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/lunaroja.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/LunaRoja.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>El Barcino</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/barcino.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/barcino.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Homenaje al Trabajador de La Construcción</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/obrero.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/trabajador.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Vendedor Informal</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/informal.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/informal.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Escultura a La Maternidad</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/maternidad.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Escultura</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/maternidad.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
             </div> 
-          </form> 
-        </div>
-      </div>
-    </nav>
-  <div class="row">
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 9%; margin-left: 3%;">
-      <div class="card" style="width:300px">
-        <div class="card-header">
-          <h3>Monumento Quinto Centenario</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/quinto_centenario.jpg" alt="Iglesia" width="250px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text1">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/mada.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Reloj Analémico Del Sol</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/reloj.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/RelojAnalemico.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>La Gaitana</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/gaitana.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/gaitana.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Los Potros</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/potros.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/potros.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Intihuantana</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/indigena.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/intihuantana.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>La niña Tomando El Vuelo </h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/vuelo.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Escultura</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/vuelo.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Monumento Al Mestizaje</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/mestizaje.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mestizaje.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Monumento Los Amantes</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/amantes.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/amantes.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Monumento La Lavandera</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/lavandera.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/lavandera.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>El Campesino y La Mujer Urbana</h3>
+              </div>
+              <div class="card-body">
+                <img src="../Img/campesino.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/campesino_mujer.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Pentagrama Musical</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/pentagarma.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>La Madre Tierra</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/madre_tierra.JPG" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Monumento Al Zancudo</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/zancudo.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>La Bambuquera</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/bambuquera.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>El Domo de las Antípodas</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/domo.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>El Pescador</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/pescador.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Policías Caídos en Acción</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/policias.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Obelisco Los Mártires</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/martires.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Brillo del sentimiento Pétreo</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/piedra.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Pila o fuente de bronce</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/fuente.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Pedestre General Francisco de Paula Santander</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/santander.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Estatua</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Al Baile San Juanero</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/juanero.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Monumento</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%;">
+            <div class="card" style="width:300px;">
+              <div class="card-header">
+                <h3>Escultura Bailarinas</h3>
+              </div>
+              <div class="card-body">
+                <img src="../img/bailarinas.jpg" alt="Iglesia" width="250px" height="254px">
+              </div>
+              <div class="card-footer">
+                <br>
+                <p class="card-text">Escultura</p>
+                <div style="display: flex; align-items: center;">
+                  <a href="#" style="margin-right: 5px;">Como llegar</a>
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <br>
+                <button type="button" onclick="location.href='../html/mada.html'"
+                        class="btn btn-warning" style="margin-left: 0;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Más detalles <i class="fas fa-info-circle"></i>
+                </button>
+                <div class="vote-section" style="justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <div class="rating">
+                    <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                    <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                  </div>
+                  <i class="favorite fa-solid fa-heart"></i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 9%; margin-left: 1%;">
-      <div class="card" style="width:300px">
-        <div class="card-header">
-          <h3>Monumento Caballo Colombiano</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/caballo_colombiano.jpg" alt="Iglesia" width="250px" height="317px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/mada.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 9%; margin-left: 1%;">
-      <div class="card" style="width:300px">
-        <div class="card-header">
-          <h3>Monumento Tambores del Pacandé</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/tambores_pacande.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/mada.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Me Llevarás en Ti</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/me_llevaras_en_ti.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento La Llamarada</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/llamarada.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Los Guaduales</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/guaduales.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento El caracolí</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/caracoli.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Al Sur</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/alsur.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Luna Roja</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/lunaroja.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento El Barcino</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/barcino.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Homenaje al Trabajador de La Construcción</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/obrero.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento al Vendedor Informal</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/informal.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Escultura a La Maternidad</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/maternidad.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Escultura</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Reloj Analémico Del Sol</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/reloj.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento La Gaitana</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/gaitana.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Los Potros</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/potros.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento  Intihuantana</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/indigena.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Escultura La niña Tomando El Vuelo </h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/vuelo.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Escultura</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Al Mestizaje</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/mestizaje.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Los Amantes</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/amantes.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Homenaje La Lavandera</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/lavandera.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento El Campesino y La Mujer Urbana</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/campesino.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Pentagrama Musical</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/pentagarma.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento a la Madre Tierra</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/madre_tierra.JPG" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Al Zancudo</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/zancudo.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento La Bambuquera</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/bambuquera.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento El Domo de las Antípodas</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/domo.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento El Pescador</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/pescador.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Policías Caídos en Acción</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/policias.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Obelisco Los Mártires</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/martires.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Brillo del sentimiento Pétreo</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/piedra.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento Pila o fuente de bronce</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/fuente.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Estatua Pedestre General Francisco de Paula Santander</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/santander.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Estatua</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 3%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Monumento al Baile San Juanero</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/juanero.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Monumento</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-12" style="margin-top: 2%; margin-left: 1%;">
-      <div class="card" style="width:300px;">
-        <div class="card-header">
-          <h3>Escultura Bailarinas</h3>
-        </div>
-        <div class="card-body">
-          <img src="../img/bailarinas.jpg" alt="Iglesia" width="250px" height="254px">
-        </div>
-        <div class="card-footer">
-          <br>
-          <p class="card-text">Escultura</p>
-          <a href="#">Como llegar</a><i class="fa-solid fa-location-dot"></i>
-          <br>
-          <br>
-          <button type="button" onclick="location.href='../html/nose.html'"
-            class="btn btn-warning d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Más detalles <i class="fas fa-info-circle"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
   </div>
-</div>
+  <script src="../Js/monumentos.js"></script>
 </body>
 
 </html>
