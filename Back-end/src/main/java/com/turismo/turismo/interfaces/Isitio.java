@@ -11,7 +11,7 @@ import com.turismo.turismo.models.Sitio;
 
 @Repository
 public interface Isitio extends CrudRepository< Sitio, String>  {
-    @Query ("SELECT s FROM Sitio s WHERE s.nombreSitio = LIKE %?1%")
+    @Query ("SELECT s FROM Sitio s WHERE s.nombreSitio LIKE %?1%")
     List<Sitio>filtroSitio(String filtro);
 
 

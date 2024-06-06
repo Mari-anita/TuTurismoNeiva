@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TurismoApplication<turismo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.turismo.turismo.TurismoApplication",
+            "projectName": "turismo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

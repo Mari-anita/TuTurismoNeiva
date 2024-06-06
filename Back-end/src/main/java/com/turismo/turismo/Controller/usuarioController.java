@@ -79,7 +79,7 @@ public class usuarioController {
             Usuario.setTipoUsuario(UsuarioUpdate.getTipoUsuario());
             Usuario.setGenero(UsuarioUpdate.getGenero());
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
-            Usuario.setContraseña(UsuarioUpdate.getContraseña());
+            Usuario.setContrasena(UsuarioUpdate.getContrasena());
             Usuario.setTelefono(UsuarioUpdate.getTelefono());
             Usuario.setFechaNacimiento(UsuarioUpdate.getFechaNacimiento());
             Usuario.setEstado(UsuarioUpdate.getEstado());
