@@ -12,6 +12,8 @@ public interface ImonumentoService {
 
     public Optional<Monumento> findOne(String id);
 
+    public List<Monumento> filtroMonumento(String filtro);
+
     public int deleteForever(String id);
 
 }

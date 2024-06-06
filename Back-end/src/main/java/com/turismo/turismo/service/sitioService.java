@@ -24,6 +24,12 @@ public class sitioService implements IsitioService {
     }
 
     @Override
+    public List<Sitio> filtroSitio (String filtro){
+        List<Sitio> listaSitio = data.filtroSitio(filtro);
+        return listaSitio;
+    }
+
+    @Override
     public List<Sitio> findAll() {
         List<Sitio> listaSitio = (List<Sitio>) data.findAll();
         return listaSitio;

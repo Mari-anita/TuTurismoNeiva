@@ -36,6 +36,13 @@ public class monumentoController {
         return new ResponseEntity<>(listaMonumento, HttpStatus.OK);
     }
 
+    @GetMapping("/busquedafiltromonumento/{filtro}")
+    public ResponseEntity<Object> findFiltro(@PathVariable String filtro){
+        var listaMonumento = monumentoService.filtroMonumento(filtro);
+        return new ResponseEntity<>(listaMonumento,HttpStatus.OK);
+
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Object> findOne(@PathVariable String id) {
         var Monumento = monumentoService.findOne(id);

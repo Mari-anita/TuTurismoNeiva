@@ -23,6 +23,13 @@ public class monumentoService implements ImonumentoService  {
     }
 
     @Override
+    public List<Monumento> filtroMonumento (String filtro){
+        List<Monumento> listaMonumento = data.filtroMonumento(filtro);
+        return listaMonumento;
+    }
+
+
+    @Override
     public List<Monumento> findAll() {
         List<Monumento> listaMonumento = (List<Monumento>) data.findAll();
         return listaMonumento;

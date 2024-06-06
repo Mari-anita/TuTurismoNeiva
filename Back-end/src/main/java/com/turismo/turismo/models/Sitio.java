@@ -31,9 +31,6 @@ public class Sitio {
     @Column(name = "horaSitio", nullable = false, length = 36)
     private String horaSitio;
 
-    @Column(name = "categoriaSitio", nullable = false, length = 36)
-    private String categoriaSitio;
-
     @Column(name = "Estado", nullable = false, length = 1)
     private String Estado;
 

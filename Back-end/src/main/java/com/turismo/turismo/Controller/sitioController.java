@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.turismo.turismo.interfaceService.IsitioService;
 import com.turismo.turismo.models.Sitio;
 
+
 @RequestMapping("/api/v1/Sitio/")
 @RestController
 public class sitioController {
@@ -34,6 +35,13 @@ public class sitioController {
         return new ResponseEntity<>(listaSitio, HttpStatus.OK);
     }
 
+    @GetMapping("/busquedafiltro/{filtro}")
+    public ResponseEntity<Object> findFiltro(@PathVariable String filtro){
+        var listaSitio = sitioService.filtroSitio(filtro);
+        return new ResponseEntity<>(listaSitio,HttpStatus.OK);
+
+    }
+  
     @GetMapping("/{id}")
     public ResponseEntity<Object> findOne(@PathVariable String id) {
         var Sitio = sitioService.findOne(id);
@@ -70,8 +78,7 @@ public class sitioController {
 
             Sitio.setNombreSitio(SitioUpdate.getNombreSitio());
             Sitio.setUbicacionSitio(SitioUpdate.getUbicacionSitio());
-            Sitio.setHoraSitio(SitioUpdate.getHoraSitio());
-            Sitio.setCategoriaSitio(SitioUpdate.getCategoriaSitio()); 
+            Sitio.setHoraSitio(SitioUpdate.getHoraSitio()); 
             Sitio.setEstado(SitioUpdate.getEstado());
            
             sitioService.save(Sitio);
