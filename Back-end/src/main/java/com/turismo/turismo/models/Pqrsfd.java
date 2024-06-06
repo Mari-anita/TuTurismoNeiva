@@ -5,7 +5,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "Pqrsfd")
 public class Pqrsfd {
 
@@ -29,54 +38,4 @@ public class Pqrsfd {
     @Column(name = "nombreRadicaPeticion", nullable = false, length = 36)
     private String nombreRadicaPeticion;
 
-    public Pqrsfd() {
-    }
-
-    public String getIdPeticion() {
-        return idPeticion;
-    }
-
-    public void setIdPeticion(String idPeticion) {
-        this.idPeticion = idPeticion;
-    }
-
-    public String getTipoPeticion() {
-        return tipoPeticion;
-    }
-
-    public void setTipoPeticion(String tipoPeticion) {
-        this.tipoPeticion = tipoPeticion;
-    }
-
-    public String getDescripcionPeticion() {
-        return descripcionPeticion;
-    }
-
-    public void setDescripcionPeticion(String descripcionPeticion) {
-        this.descripcionPeticion = descripcionPeticion;
-    }
-
-    public String getAsuntoPeticion() {
-        return asuntoPeticion;
-    }
-
-    public void setAsuntoPeticion(String asuntoPeticion) {
-        this.asuntoPeticion = asuntoPeticion;
-    }
-
-    public String getDocumentoAdjunto() {
-        return documentoAdjunto;
-    }
-
-    public void setDocumentoAdjunto(String documentoAdjunto) {
-        this.documentoAdjunto = documentoAdjunto;
-    }
-
-    public String getNombreRadicaPeticion() {
-        return nombreRadicaPeticion;
-    }
-
-    public void setNombreRadicaPeticion(String nombreRadicaPeticion) {
-        this.nombreRadicaPeticion = nombreRadicaPeticion;
-    }
 }

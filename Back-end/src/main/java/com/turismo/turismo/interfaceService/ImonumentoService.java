@@ -12,6 +12,6 @@ public interface ImonumentoService {
 
     public Optional<Monumento> findOne(String id);
 
-    public int delete(String id);
+    public int deleteForever(String id);
 
 }

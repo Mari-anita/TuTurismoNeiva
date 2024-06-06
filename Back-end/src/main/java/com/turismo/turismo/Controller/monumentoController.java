@@ -42,10 +42,10 @@ public class monumentoController {
         return new ResponseEntity<>(Monumento, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id) {
-    monumentoService.delete(id);
-    return new ResponseEntity<>("Registro eliminado", HttpStatus.OK);
+    @DeleteMapping("/eliminarPermanente/{id}")
+    public ResponseEntity<Object> deleteForever(@PathVariable String id){
+        monumentoService.deleteForever(id);
+        return new ResponseEntity<>("Resgistro eliminado permanentemente",HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

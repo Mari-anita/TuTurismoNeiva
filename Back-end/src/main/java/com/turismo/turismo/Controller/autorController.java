@@ -68,7 +68,4 @@ public class autorController {
             return new ResponseEntity<>("Error autor NO Encontrado", HttpStatus.BAD_REQUEST);
         }
     }
-    
-
-
 }

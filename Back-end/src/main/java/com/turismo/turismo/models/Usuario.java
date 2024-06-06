@@ -7,7 +7,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "Usuario")
 public class Usuario {
 
@@ -52,128 +60,6 @@ public class Usuario {
     @Column(name = "fechaNacimiento", nullable = false, length = 36)
     private Date fechaNacimiento;
 
-    public Usuario() {
-    }
-
-    public Usuario(String idUsuario, String tipoDocumento, String documentoUsuario, String primerNombre,
-            String segundoNombre, String primerApellido, String segundoApellido, String tipoUsuario, String genero,
-            String correoElectronico, String contraseña, String telefono, Date fechaNacimiento) {
-        this.idUsuario = idUsuario;
-        this.tipoDocumento = tipoDocumento;
-        this.documentoUsuario = documentoUsuario;
-        this.primerNombre = primerNombre;
-        this.segundoNombre = segundoNombre;
-        this.primerApellido = primerApellido;
-        this.segundoApellido = segundoApellido;
-        this.tipoUsuario = tipoUsuario;
-        Genero = genero;
-        this.correoElectronico = correoElectronico;
-        Contraseña = contraseña;
-        Telefono = telefono;
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getDocumentoUsuario() {
-        return documentoUsuario;
-    }
-
-    public void setDocumentoUsuario(String documentoUsuario) {
-        this.documentoUsuario = documentoUsuario;
-    }
-
-    public String getPrimerNombre() {
-        return primerNombre;
-    }
-
-    public void setPrimerNombre(String primerNombre) {
-        this.primerNombre = primerNombre;
-    }
-
-    public String getSegundoNombre() {
-        return segundoNombre;
-    }
-
-    public void setSegundoNombre(String segundoNombre) {
-        this.segundoNombre = segundoNombre;
-    }
-
-    public String getPrimerApellido() {
-        return primerApellido;
-    }
-
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return segundoApellido;
-    }
-
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    public String getGenero() {
-        return Genero;
-    }
-
-    public void setGenero(String genero) {
-        Genero = genero;
-    }
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
-    }
-
-    public String getContraseña() {
-        return Contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        Contraseña = contraseña;
-    }
-
-    public String getTelefono() {
-        return Telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        Telefono = telefono;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
+    @Column(name= "Estado", nullable = false, length = 36)
+    private String Estado;
 }

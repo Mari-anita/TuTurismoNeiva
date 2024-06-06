@@ -13,10 +13,9 @@ import com.turismo.turismo.models.Monumento;
 @Service 
 public class monumentoService implements ImonumentoService  {
 
-     @Autowired
+    @Autowired
     private Imonumento data;
 
-    @SuppressWarnings("null")
     @Override 
     public String save(Monumento Monumento) {
         data.save(Monumento);
@@ -37,7 +36,7 @@ public class monumentoService implements ImonumentoService  {
     }
 
     @Override
-    public int delete(String id) {
+    public int deleteForever(String id) {
         data.deleteById(id);
         return 1;
     }
