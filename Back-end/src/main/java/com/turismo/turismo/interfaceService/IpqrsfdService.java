@@ -13,5 +13,5 @@ public interface IpqrsfdService {
 
     public Optional<Pqrsfd> findOne(String id);
 
-    public int delete(String id);
+    public int deleteForever(String id);
 }

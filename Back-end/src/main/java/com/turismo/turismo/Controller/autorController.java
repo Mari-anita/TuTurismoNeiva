@@ -41,10 +41,10 @@ public class autorController {
         return new ResponseEntity<>(Autor, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id) {
-    autorService.delete(id);
-    return new ResponseEntity<>("Registro eliminado", HttpStatus.OK);
+    @DeleteMapping("/eliminarPermanente/{id}")
+    public ResponseEntity<Object> deleteForever(@PathVariable String id) {
+    autorService.deleteForever(id);
+    return new ResponseEntity<>("Registro eliminado permanentemente", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

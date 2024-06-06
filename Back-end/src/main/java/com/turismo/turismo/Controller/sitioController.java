@@ -41,8 +41,25 @@ public class sitioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id) {
-    sitioService.delete(id);
+    public ResponseEntity<Object> delete(@PathVariable String id){
+        var Sitio = sitioService.findOne(id).get();
+        if (Sitio != null){
+            if (Sitio.getEstado().equals("H")){
+                Sitio.setEstado("D");
+                sitioService.save(Sitio);
+                return new ResponseEntity<>("Se ha deshabilitado correctamente",HttpStatus.OK);
+            }else
+            Sitio.setEstado("H");
+            sitioService.save(Sitio);
+            return new ResponseEntity<>("Se ha habilitado correctamente",HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("No se ha encontrado el registro",HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/eliminarPermanente/{id}")
+    public ResponseEntity<Object> deleteForever(@PathVariable String id) {
+    sitioService.deleteForever(id);
     return new ResponseEntity<>("Registro eliminado", HttpStatus.OK);
     }
 
@@ -55,6 +72,7 @@ public class sitioController {
             Sitio.setUbicacionSitio(SitioUpdate.getUbicacionSitio());
             Sitio.setHoraSitio(SitioUpdate.getHoraSitio());
             Sitio.setCategoriaSitio(SitioUpdate.getCategoriaSitio()); 
+            Sitio.setEstado(SitioUpdate.getEstado());
            
             sitioService.save(Sitio);
             return new ResponseEntity<>(Sitio, HttpStatus.OK); 

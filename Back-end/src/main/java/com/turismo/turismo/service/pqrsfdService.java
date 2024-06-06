@@ -38,7 +38,7 @@ public class pqrsfdService implements IpqrsfdService {
     }
 
     @Override
-    public int delete(String id) {
+    public int deleteForever(String id) {
         data.deleteById(id);
         return 1;
     }

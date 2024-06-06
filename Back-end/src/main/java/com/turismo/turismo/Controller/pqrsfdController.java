@@ -43,10 +43,10 @@ public class pqrsfdController {
         return new ResponseEntity<>(Pqrsfd, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id) {
-    pqrsfdService.delete(id);
-    return new ResponseEntity<>("Registro eliminado", HttpStatus.OK);
+    @DeleteMapping("/eliminarPermanente/{id}")
+    public ResponseEntity<Object> deleteForever(@PathVariable String id) {
+    pqrsfdService.deleteForever(id);
+    return new ResponseEntity<>("Registro eliminado permanentemente", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

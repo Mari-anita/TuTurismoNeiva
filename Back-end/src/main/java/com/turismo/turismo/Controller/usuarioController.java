@@ -43,8 +43,25 @@ public class usuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id) {
-    usuarioService.delete(id);
+    public ResponseEntity<Object> delete(@PathVariable String id){
+        var Usuario = usuarioService.findOne(id).get();
+        if (Usuario != null){
+            if(Usuario.getEstado().equals("H")){
+                Usuario.setEstado("D");
+                usuarioService.save(Usuario);
+                return new ResponseEntity<>("Se ha desabilitado correctamente",HttpStatus.OK);
+            }else
+            Usuario.setEstado("H");
+            usuarioService.save(Usuario);
+            return new ResponseEntity<>("Se ha habilitado correctamente", HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("No se encontro registro",HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/eliminarPermanente{id}")
+    public ResponseEntity<Object> deleteForever(@PathVariable String id) {
+    usuarioService.deleteForever(id);
     return new ResponseEntity<>("Registro eliminado", HttpStatus.OK);
     }
 
@@ -65,6 +82,7 @@ public class usuarioController {
             Usuario.setContraseña(UsuarioUpdate.getContraseña());
             Usuario.setTelefono(UsuarioUpdate.getTelefono());
             Usuario.setFechaNacimiento(UsuarioUpdate.getFechaNacimiento());
+            Usuario.setEstado(UsuarioUpdate.getEstado());
 
            
             usuarioService.save(Usuario);

@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +27,10 @@ public class Pqrsfd {
 
     @Column(name = "tipoPeticion", nullable = false, length = 36)
     private String tipoPeticion;
+
+    @ManyToOne
+    @JoinColumn(name ="idUsuario")
+    private Usuario Usuario;
 
     @Column(name = "descripcionPeticion", nullable = false, length = 36)
     private String descripcionPeticion;

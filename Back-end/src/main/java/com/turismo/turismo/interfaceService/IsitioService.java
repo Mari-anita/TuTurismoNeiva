@@ -13,5 +13,5 @@ public interface IsitioService {
 
     public Optional<Sitio> findOne(String id);
 
-    public int delete(String id);
+    public int deleteForever(String id);
 }

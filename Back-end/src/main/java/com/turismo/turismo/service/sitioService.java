@@ -37,7 +37,7 @@ public class sitioService implements IsitioService {
     }
 
     @Override
-    public int delete(String id) {
+    public int deleteForever(String id) {
         data.deleteById(id);
         return 1;
     }
