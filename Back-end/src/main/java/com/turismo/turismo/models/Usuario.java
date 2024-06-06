@@ -30,17 +30,11 @@ public class Usuario {
     @Column(name = "documentoUsuario", nullable = false, length = 11)
     private String documentoUsuario;
 
-    @Column(name = "primerNombre", nullable = false, length = 36)
-    private String primerNombre;
+    @Column(name = "Nombres", nullable = false, length = 36)
+    private String Nombres;
 
-    @Column(name = "segundoNombre", nullable = false, length = 36)
-    private String segundoNombre;
-
-    @Column(name = "primerApellido", nullable = false, length = 36)
-    private String primerApellido;
-
-    @Column(name = "segundoApellido", nullable = false, length = 36)
-    private String segundoApellido;
+    @Column(name = "Apellidos", nullable = false, length = 36)
+    private String Apellidos;
 
     @Column(name = "tipoUsuario", nullable = false, length = 36)
     private String tipoUsuario;
@@ -53,6 +47,9 @@ public class Usuario {
 
     @Column(name = "Contrasena", nullable = false, length = 36)
     private String Contrasena;
+
+    @Column(name = "confirmarContrasena", nullable = false, length = 36)
+    private String confirmarContrasena;
 
     @Column(name = "Telefono", nullable = false, length = 36)
     private String Telefono;

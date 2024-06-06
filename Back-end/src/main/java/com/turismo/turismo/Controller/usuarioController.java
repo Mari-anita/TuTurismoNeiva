@@ -72,14 +72,13 @@ public class usuarioController {
 
             Usuario.setTipoDocumento(UsuarioUpdate.getTipoDocumento());
             Usuario.setDocumentoUsuario(UsuarioUpdate.getDocumentoUsuario());
-            Usuario.setPrimerNombre(UsuarioUpdate.getPrimerNombre());
-            Usuario.setSegundoNombre(UsuarioUpdate.getSegundoNombre());
-            Usuario.setPrimerApellido(UsuarioUpdate.getPrimerApellido());
-            Usuario.setSegundoApellido(UsuarioUpdate.getSegundoApellido());
+            Usuario.setNombres(UsuarioUpdate.getNombres());
+            Usuario.setApellidos(UsuarioUpdate.getApellidos());
             Usuario.setTipoUsuario(UsuarioUpdate.getTipoUsuario());
             Usuario.setGenero(UsuarioUpdate.getGenero());
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
             Usuario.setContrasena(UsuarioUpdate.getContrasena());
+            Usuario.setConfirmarContrasena(UsuarioUpdate.getConfirmarContrasena());
             Usuario.setTelefono(UsuarioUpdate.getTelefono());
             Usuario.setFechaNacimiento(UsuarioUpdate.getFechaNacimiento());
             Usuario.setEstado(UsuarioUpdate.getEstado());
