@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('/Front-end/Img/monumentos.jpg');
+    background-image: url();
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -9,8 +9,8 @@ body {
 
 .container {
     width: 70%;
-    margin: 100px auto 0; /* Ajusta el margen superior según sea necesario */
-    padding: 20px;
+    margin: 2% auto 0; /* Ajusta el margen superior según sea necesario */
+    padding: 2%;
     background-color: rgba(0, 0, 0, 0.5); /* Negro con 50% de opacidad */
     border-radius: 5px;
     color: white; /* Texto en color blanco para contrastar con el fondo negro */
@@ -19,7 +19,14 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    
 }
+
+p {
+    text-align: center;
+    padding: 5%;
+}
+
 
 .form-group {
     margin-bottom: 15px;
@@ -57,11 +64,12 @@ select:focus {
 button {
     background-color: #4caf50;
     color: white;
-    padding: 15px 22px;
+    padding: 17px 25px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 50%;
 }
 
 button:hover {
