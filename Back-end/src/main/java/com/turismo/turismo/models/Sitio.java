@@ -31,7 +31,7 @@ public class Sitio {
     @Column(name = "horaSitio", nullable = false, length = 36)
     private String horaSitio;
 
-    @Column(name = "Estado", nullable = false, length = 1)
-    private String Estado;
+    @Column(name = "estado", nullable = false, length = 1)
+    private String estado;
 
 }

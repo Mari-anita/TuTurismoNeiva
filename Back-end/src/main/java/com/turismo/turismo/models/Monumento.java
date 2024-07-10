@@ -37,7 +37,7 @@ public class Monumento {
     @Column(name = "calificacionMonumento", nullable = false, length = 36)
     private Date  calificacionMonumento;
 
-    @Column(name= "Estado", nullable = false,length = 1)
-    private String Estado;
+    @Column(name= "estado", nullable = false,length = 1)
+    private String estado;
 
 }
