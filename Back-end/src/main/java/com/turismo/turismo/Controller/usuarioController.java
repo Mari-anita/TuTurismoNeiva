@@ -25,6 +25,18 @@ public class usuarioController {
 
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Usuario") Usuario Usuario) {
+
+        if (Usuario.getNombreCompleto().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        
+        if (Usuario.getCorreoElectronico().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        // Verificar unicidad del correo electrónico
+        if (usuarioService.findBycorreoElectronico(Usuario.getCorreoElectronico()).isPresent()) {
+            return new ResponseEntity<>("El correo electrónico ya está registrado", HttpStatus.BAD_REQUEST);
+        }
         
         usuarioService.save(Usuario);
         return new ResponseEntity<>(Usuario, HttpStatus.OK); 
@@ -69,7 +81,6 @@ public class usuarioController {
     public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("Usuario") Usuario UsuarioUpdate) {
         var Usuario = usuarioService.findOne(id).get();
         if (Usuario != null) {
-
             Usuario.setTipoDocumento(UsuarioUpdate.getTipoDocumento());
             Usuario.setDocumentoUsuario(UsuarioUpdate.getDocumentoUsuario());
             Usuario.setNombreCompleto(UsuarioUpdate.getNombreCompleto());

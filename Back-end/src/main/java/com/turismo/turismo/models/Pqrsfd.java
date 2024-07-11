@@ -1,5 +1,7 @@
 package com.turismo.turismo.models;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,23 +27,23 @@ public class Pqrsfd {
     @Column(name = "idPeticion", nullable = false, length = 36)
     private String idPeticion;
 
-    @Column(name = "tipoPeticion", nullable = false, length = 36)
-    private String tipoPeticion;
-
     @ManyToOne
     @JoinColumn(name ="idUsuario")
     private Usuario Usuario;
 
-    @Column(name = "descripcionPeticion", nullable = false, length = 36)
+    @ManyToOne
+    @JoinColumn(name="idRespuesta")
+    private Respuesta Respuesta;
+
+    @Column(name = "tipoPeticion", nullable = false, length = 10)
+    private String tipoPeticion;
+
+    @Column(name = "fechaRadicado", nullable = false, length = 20)
+    private Date fechaRadicado;
+
+    @Column(name = "descripcionPeticion", nullable = false, length = 350)
     private String descripcionPeticion;
 
-    @Column(name = "asuntoPeticion", nullable = false, length = 36)
-    private String asuntoPeticion;
-
-    @Column(name = "documentoAdjunto", nullable = false, length = 36)
-    private String documentoAdjunto;
-
-    @Column(name = "nombreRadicaPeticion", nullable = false, length = 36)
-    private String nombreRadicaPeticion;
-
+    @Column(name = "estado", nullable = false, length = 10)
+    private String estado;
 }

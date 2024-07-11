@@ -1,5 +1,7 @@
 package com.turismo.turismo.models;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,28 +24,19 @@ public class Autor {
     @Column(name = "idAutor", nullable = false, length = 36)
     private String idAutor;
 
-    @Column(name = "documentoAutor", nullable = false, length = 11) 
-    private String documentoAutor;
+    @Column(name = "nombreCompletoAutor", nullable = false, length = 60)
+    private String nombreCompletoAutor;
 
-    @Column(name = "primerNombre", nullable = false, length = 36)
-    private String primerNombre;
+    @Column(name = "fechaNacimiento", nullable = false, length = 36)
+    private Date fechaNacimiento;
 
-    @Column(name = "segundoNombre", nullable = false, length = 36)
-    private String segundoNombre;
+    @Column(name = "fechaMuerte", nullable = false, length = 36)
+    private Date fechaMuerte;
 
-    @Column(name = "primerApellido", nullable = false, length = 36)
-    private String primerApellido;
+    @Column(name = "bibliografiaAutor", nullable = false, length = 200)
+    private Date bibliografiaAutor;
 
-    @Column(name = "segundoApellido", nullable = false, length = 36)
-    private String segundoApellido;
-
-    @Column(name = "direccionAutor", nullable = false, length = 100)
-    private String direccionAutor;
-
-    @Column(name = "correoAutor", nullable = false, length = 36)
-    private String correoAutor;
-
-    @Column(name = "telefonoAutor", nullable = false, length = 36)
-    private String telefonoAutor;
+    @Column(name = "imagenAutor", nullable = false, length = 36)
+    private String imagenAutor;
 
 }

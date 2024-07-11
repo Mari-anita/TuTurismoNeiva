@@ -19,4 +19,6 @@ public interface IusuarioService {
 
     public List<Usuario> FiltrarnombreCompleto(String nombreCompleto);
 
+    public Optional<Usuario> findBycorreoElectronico(String correoElectronico);
+
 }

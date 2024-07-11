@@ -53,4 +53,10 @@ public class usuarioService implements IusuarioService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'FiltrarnombreCompleto'");
     }
+
+    @Override
+    public Optional<Usuario> findBycorreoElectronico(String correoElectronico) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findBycorreoElectronico'");
+    }
 }
