@@ -1,6 +1,5 @@
 package com.turismo.turismo.models;
 
-import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,36 +26,27 @@ public class Usuario {
     @Column(name = "tipoDocumento", nullable = false, length = 11)
     private String tipoDocumento;
 
-    @Column(name = "documentoUsuario", nullable = false, length = 11)
+    @Column(name = "documentoUsuario", nullable = false, length = 13)
     private String documentoUsuario;
 
-    @Column(name = "Nombres", nullable = false, length = 36)
-    private String Nombres;
-
-    @Column(name = "Apellidos", nullable = false, length = 36)
-    private String Apellidos;
+    @Column(name = "nombreCompleto", nullable = false, length = 55)
+    private String nombreCompleto;
 
     @Column(name = "tipoUsuario", nullable = false, length = 36)
     private String tipoUsuario;
 
-    @Column(name = "Genero", nullable = false, length = 36)
-    private String Genero;
-
-    @Column(name = "correoElectronico", nullable = false, length = 36)
+    @Column(name = "correoElectronico", nullable = false, length = 100)
     private String correoElectronico;
 
-    @Column(name = "Contrasena", nullable = false, length = 36)
-    private String Contrasena;
+    @Column(name = "contra", nullable = false, length = 36)
+    private String contra;
 
-    @Column(name = "confirmarContrasena", nullable = false, length = 36)
-    private String confirmarContrasena;
+    @Column(name = "coContra", nullable = false, length = 36)
+    private String coContra;
 
-    @Column(name = "Telefono", nullable = false, length = 36)
-    private String Telefono;
+    @Column(name = "telefono", nullable = false, length = 15)
+    private String telefono;
 
-    @Column(name = "fechaNacimiento", nullable = false, length = 36)
-    private Date fechaNacimiento;
-
-    @Column(name= "Estado", nullable = false, length = 36)
-    private String Estado;
+    @Column(name= "estado", nullable = false, length = 10)
+    private String estado;
 }

@@ -72,17 +72,13 @@ public class usuarioController {
 
             Usuario.setTipoDocumento(UsuarioUpdate.getTipoDocumento());
             Usuario.setDocumentoUsuario(UsuarioUpdate.getDocumentoUsuario());
-            Usuario.setNombres(UsuarioUpdate.getNombres());
-            Usuario.setApellidos(UsuarioUpdate.getApellidos());
+            Usuario.setNombreCompleto(UsuarioUpdate.getNombreCompleto());
             Usuario.setTipoUsuario(UsuarioUpdate.getTipoUsuario());
-            Usuario.setGenero(UsuarioUpdate.getGenero());
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
-            Usuario.setContrasena(UsuarioUpdate.getContrasena());
-            Usuario.setConfirmarContrasena(UsuarioUpdate.getConfirmarContrasena());
+            Usuario.setContra(UsuarioUpdate.getContra());
+            Usuario.setCoContra(UsuarioUpdate.getCoContra());
             Usuario.setTelefono(UsuarioUpdate.getTelefono());
-            Usuario.setFechaNacimiento(UsuarioUpdate.getFechaNacimiento());
             Usuario.setEstado(UsuarioUpdate.getEstado());
-
            
             usuarioService.save(Usuario);
             return new ResponseEntity<>(Usuario, HttpStatus.OK);

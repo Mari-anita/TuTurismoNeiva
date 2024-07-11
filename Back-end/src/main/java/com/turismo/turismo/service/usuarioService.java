@@ -24,7 +24,7 @@ public class usuarioService implements IusuarioService {
     }
 
     @Override
-    public List<Usuario> findAll() {
+    public List<Usuario> findAll() {  ///MOSTRAR TODA LA LISTA
         List<Usuario> listaUsuario = (List<Usuario>) data.findAll();
         return listaUsuario;
     }
@@ -37,8 +37,20 @@ public class usuarioService implements IusuarioService {
     }
 
     @Override
-    public int deleteForever(String id) {
+    public int deleteForever(String id) {  //ELIMINAR POR ID
         data.deleteById(id);
         return 1;
+    }
+
+    @Override
+    public List<Usuario> FiltrarcorreoElectronico(String correoElectronico) {  //FILTRAR POR CORREO
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'FiltrarcorreoElectronico'");
+    }
+
+    @Override
+    public List<Usuario> FiltrarnombreCompleto(String nombreCompleto) {  //FILTRAR POR NOMBRE COMPLETO
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'FiltrarnombreCompleto'");
     }
 }

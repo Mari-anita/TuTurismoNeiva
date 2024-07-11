@@ -21,38 +21,37 @@
     <div class="container">
         <form class="formulario">
             <a class="icono" href=""><i class='bx bx-exit bx-rotate-180'></i></a>
-            <br>
-            <br>
-            <br>
             <h1>Ingresa tus datos personales</h1>
             
             <div class="input-container">
                 <div class="columna">
-                    <label for="PNombre">Nombre</label>
-                    <input class="In" name="Nombre" type="text" required>
-                    <label for="CElectrónico">Correo Electrónico</label>
-                    <input class="In" name="CElectrónico" type="email" required>
+                    <label for="nombreCompleto">Nombre Completo: </label>
+                    <input class="In" name="nombreCompleto" id="nombreCompleto" type="text" required>
+
+                    <label for="correoElectronico">Correo Electrónico: </label>
+                    <input class="In" name="correoElectronico" id="correoElectronico" type="email" required>
                 </div>
                 <div class="columna">
-                    <label for="Contra">Contraseña</label>
-                    <input class="In" name="Contra" type="password" required>
-                    <label for="CContra">Confirmar Contraseña</label>
-                    <input class="In" name="CContra" type="password" required>
+                    <label for="contra">Contraseña: </label>
+                    <input class="In" name="contra" id="contra" type="password" required>
+
+                    <label for="coContra">Confirmar Contraseña: </label>
+                    <input class="In" name="coContra" id="coContra" type="password" required>
 
                 </div>
             </div>
             <div class="ByTC">
                 <p>
-                    Al hacer clic en "Registrar", aceptas nuestras <a href="#">Condiciones, la Política de privacidad y la Política de cookies</a> de nuestro sitio web.
+                    Al hacer clic en 'Registrar', estás aceptando nuestras <a href="#">Terminos y Condiciones, Política de Privacidad, Política de Cookies y Asuntos legales</a> de nuestro sitio web.
                 </p>
-                <button type="submit" href="#">Registrar</button>
+                <button type="submit" href="#" onclick="RegistroUsuario()">Registrar</button>
             </div>
             <div class="vfinal">
                 <a class="vfinal" href="#">Ya tengo cuenta</a>
             </div>
         </form>
     </div>
-
+    <script src="/Front-end/Js/RegistroUsuario.js"></script>
 </body>
 
 </html>

@@ -15,4 +15,8 @@ public interface IusuarioService {
 
     public int deleteForever(String id);
 
+    public List<Usuario> FiltrarcorreoElectronico(String correoElectronico);
+
+    public List<Usuario> FiltrarnombreCompleto(String nombreCompleto);
+
 }
