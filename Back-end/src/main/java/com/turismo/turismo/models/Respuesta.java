@@ -1,5 +1,7 @@
 package com.turismo.turismo.models;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +34,6 @@ public class Respuesta {
     private String textoRespuesta;
 
     @Column(name="fechaRespuesta", nullable = false, length=30)
-    private String fechaRespuesta;
+    private Date fechaRespuesta;
 
 }

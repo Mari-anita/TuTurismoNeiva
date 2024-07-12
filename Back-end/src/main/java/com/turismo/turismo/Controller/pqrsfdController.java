@@ -55,10 +55,12 @@ public class pqrsfdController {
         if (Pqrsfd!= null) {
 
             Pqrsfd.setTipoPeticion(PqrsfdUpdate.getTipoPeticion());
+            Pqrsfd.setFechaRadicado(PqrsfdUpdate.getFechaRadicado());
             Pqrsfd.setDescripcionPeticion(PqrsfdUpdate.getDescripcionPeticion());
-            Pqrsfd.setAsuntoPeticion(PqrsfdUpdate.getAsuntoPeticion());
-            Pqrsfd.setDocumentoAdjunto(PqrsfdUpdate.getDocumentoAdjunto());
-            Pqrsfd.setNombreRadicaPeticion(PqrsfdUpdate.getNombreRadicaPeticion()); 
+            Pqrsfd.setEstado(PqrsfdUpdate.getEstado());
+            Pqrsfd.setUsuario(PqrsfdUpdate.getUsuario());
+            Pqrsfd.setRespuesta(PqrsfdUpdate.getRespuesta());
+         
            
             pqrsfdService.save(Pqrsfd);
             return new ResponseEntity<>(Pqrsfd, HttpStatus.OK); 

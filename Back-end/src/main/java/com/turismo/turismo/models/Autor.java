@@ -34,7 +34,7 @@ public class Autor {
     private Date fechaMuerte;
 
     @Column(name = "bibliografiaAutor", nullable = false, length = 200)
-    private Date bibliografiaAutor;
+    private String bibliografiaAutor;
 
     @Column(name = "imagenAutor", nullable = false, length = 36)
     private String imagenAutor;

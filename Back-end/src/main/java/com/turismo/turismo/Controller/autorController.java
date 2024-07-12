@@ -52,15 +52,12 @@ public class autorController {
         var Autor = autorService.findOne(id).get();
         if (Autor != null) {
 
-            Autor.setDocumentoAutor(AutorUpdate.getDocumentoAutor());
-            Autor.setPrimerNombre(AutorUpdate.getPrimerNombre());
-            Autor.setSegundoNombre(AutorUpdate.getSegundoNombre());
-            Autor.setPrimerApellido(AutorUpdate.getPrimerApellido());
-            Autor.setSegundoApellido(AutorUpdate.getSegundoApellido());
-            Autor.setDireccionAutor(AutorUpdate.getDireccionAutor());
-            Autor.setCorreoAutor(AutorUpdate.getCorreoAutor());
-            Autor.setTelefonoAutor(AutorUpdate.getTelefonoAutor());
-          
+            Autor.setNombreCompletoAutor(AutorUpdate.getNombreCompletoAutor());
+            Autor.setFechaNacimiento(AutorUpdate.getFechaNacimiento());
+            Autor.setFechaMuerte(AutorUpdate.getFechaMuerte());
+            Autor.setBibliografiaAutor(AutorUpdate.getBibliografiaAutor());
+            Autor.setImagenAutor(AutorUpdate.getImagenAutor());
+        
             autorService.save(Autor);
             return new ResponseEntity<>(Autor, HttpStatus.OK);
 
