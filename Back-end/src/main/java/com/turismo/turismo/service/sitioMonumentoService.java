@@ -24,8 +24,8 @@ public class sitioMonumentoService implements IsitioMonumentoService {
 
     @Override
     public List<SitioMonumento> findAll() {
-        List<SitioMonumento> listaRespuesta = (List<SitioMonumento>) data.findAll();
-        return listaRespuesta;
+        List<SitioMonumento> ListaSitioMonumento = (List<SitioMonumento>) data.findAll();
+        return ListaSitioMonumento;
     }
 
     @Override
@@ -38,6 +38,18 @@ public class sitioMonumentoService implements IsitioMonumentoService {
     public int deleteForever(String id) {
         data.deleteById(id);
         return 1;
+    }
+
+    @Override
+    public List<SitioMonumento> FiltrarnombreSitioMonumento(String nombreSitioMonumento) {
+        List<SitioMonumento> ListaSitioMonumento = data.FiltrarnombreSitioMonumento(nombreSitioMonumento);
+        return ListaSitioMonumento;
+    }
+
+    @Override
+    public List<SitioMonumento> FiltrardireccionSitioMonumento(String direccionSitioMonumento) {
+        List<SitioMonumento> ListaSitioMonumento = data.FiltrardireccionSitioMonumento(direccionSitioMonumento);
+        return ListaSitioMonumento;
     }
 
 }

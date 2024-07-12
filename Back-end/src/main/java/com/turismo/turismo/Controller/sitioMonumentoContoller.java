@@ -1,5 +1,7 @@
 package com.turismo.turismo.Controller;
 
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,19 +18,55 @@ import com.turismo.turismo.interfaceService.IsitioMonumentoService;
 import com.turismo.turismo.models.SitioMonumento;
 
 
-
 @RequestMapping("/api/v1/SitioMonumento")
 @RestController
 public class sitioMonumentoContoller {
 
-     @Autowired
+    @Autowired
     private IsitioMonumentoService sitioMonumentoService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save (@ModelAttribute("SitioMonumento") SitioMonumento SitioMonumento) {
+    public ResponseEntity<Object> save(@ModelAttribute("SitioMonumento") SitioMonumento SitioMonumento) {
+
+        // VALIDACIONES
+
+        if (SitioMonumento.getNombreSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (SitioMonumento.getUbicacionSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
         
+        if (SitioMonumento.getDireccionSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (SitioMonumento.getDescripcionSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (SitioMonumento.getDetalladaSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (SitioMonumento.getHorarioSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        // if (SitioMonumento.getFechaCreacionSitioMonumento() == null || SitioMonumento.getFechaCreacionSitioMonumento() < new Date() ) {
+        //     return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        // }
+
+        if (SitioMonumento.getFechaModificacionSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (SitioMonumento.getContactoSitioMonumento().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
         sitioMonumentoService.save(SitioMonumento);
-        return new ResponseEntity<>(SitioMonumento, HttpStatus.OK); 
+        return new ResponseEntity<>(SitioMonumento, HttpStatus.OK);
     }
 
     @GetMapping("/")
@@ -45,14 +83,15 @@ public class sitioMonumentoContoller {
 
     @DeleteMapping("/eliminarPermanente/{id}")
     public ResponseEntity<Object> deleteForever(@PathVariable String id) {
-    sitioMonumentoService.deleteForever(id);
-    return new ResponseEntity<>("Registro eliminado permanentemente", HttpStatus.OK);
+        sitioMonumentoService.deleteForever(id);
+        return new ResponseEntity<>("Registro eliminado permanentemente", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("SitioMonumento") SitioMonumento SitioMonumentoUpdate) {
+    public ResponseEntity<Object> update(@PathVariable String id,
+            @ModelAttribute("SitioMonumento") SitioMonumento SitioMonumentoUpdate) {
         var SitioMonumento = sitioMonumentoService.findOne(id).get();
-        if (SitioMonumento!= null) {
+        if (SitioMonumento != null) {
 
             SitioMonumento.setNombreSitioMonumento(SitioMonumentoUpdate.getNombreSitioMonumento());
             SitioMonumento.setUbicacionSitioMonumento(SitioMonumentoUpdate.getUbicacionSitioMonumento());
@@ -62,18 +101,17 @@ public class sitioMonumentoContoller {
             SitioMonumento.setDetalladaSitioMonumento(SitioMonumentoUpdate.getDetalladaSitioMonumento());
             SitioMonumento.setHorarioSitioMonumento(SitioMonumentoUpdate.getHorarioSitioMonumento());
             SitioMonumento.setFechaCreacionSitioMonumento(SitioMonumentoUpdate.getFechaCreacionSitioMonumento());
-            SitioMonumento.setFechaModificacionSitioMonumento(SitioMonumentoUpdate.getFechaModificacionSitioMonumento());
+            SitioMonumento
+                    .setFechaModificacionSitioMonumento(SitioMonumentoUpdate.getFechaModificacionSitioMonumento());
             SitioMonumento.setAutor(SitioMonumentoUpdate.getAutor());
             SitioMonumento.setContactoSitioMonumento(SitioMonumentoUpdate.getContactoSitioMonumento());
 
-
             sitioMonumentoService.save(SitioMonumento);
-            return new ResponseEntity<>(SitioMonumento, HttpStatus.OK); 
+            return new ResponseEntity<>(SitioMonumento, HttpStatus.OK);
 
         } else {
-            return new ResponseEntity<>("Error Sitio o Monumento NO Encontrado", HttpStatus.BAD_REQUEST); 
+            return new ResponseEntity<>("Error Sitio o Monumento NO Encontrado", HttpStatus.BAD_REQUEST);
         }
     }
-
 
 }

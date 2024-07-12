@@ -27,7 +27,7 @@ public class usuarioController {
     public ResponseEntity<Object> save (@ModelAttribute("Usuario") Usuario Usuario) {
 
         //VALIDACIONESSSSSSS
-
+       
         if (Usuario.getNombreCompleto().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
@@ -65,11 +65,6 @@ public class usuarioController {
         }
         
         if (Usuario.getEstado().equals("")) {
-            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
-        }
-
-        Boolean mayorYmenor = Usuario.isMayorYmenor();
-        if (mayorYmenor == null) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
         

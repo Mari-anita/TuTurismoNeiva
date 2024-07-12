@@ -15,4 +15,8 @@ public interface IsitioMonumentoService {
 
     public int deleteForever(String id);
 
+    public List<SitioMonumento> FiltrarnombreSitioMonumento(String nombreSitioMonumento);
+
+    public List<SitioMonumento> FiltrardireccionSitioMonumento(String direccionSitioMonumento);
+
 }

@@ -23,10 +23,10 @@ public class SitioMonumento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name="idSitioMonumento", nullable = false, length = 36)
+    @Column(name="idSitioMonumento", nullable = false, length = 36)     //FILTRAR
     private String idSitioMonumento;
 
-    @Column(name="nombreSitioMonumento", nullable = false, length = 60)
+    @Column(name="nombreSitioMonumento", nullable = false, length = 60)  //FILTRAR
     private String nombreSitioMonumento;
 
     @Column(name="ubicacionSitioMonumento", nullable = false, length = 60)
@@ -35,10 +35,10 @@ public class SitioMonumento {
     @Column(name="calificacionSitioMonumento", nullable = false, length = 60)
     private String calificacionSitioMonumento;
 
-    @Column(name="direccionSitioMonumento", nullable = false, length = 100)
+    @Column(name="direccionSitioMonumento", nullable = false, length = 100)     //FILTRAR
     private String direccionSitioMonumento;
 
-    @Column(name="descripcionSitioMonumento", nullable = false, length = 60)
+    @Column(name="descripcionSitioMonumento", nullable = false, length = 300)
     private String descripcionSitioMonumento;
 
     @Column(name="detalladaSitioMonumento", nullable = false, length = 120)
