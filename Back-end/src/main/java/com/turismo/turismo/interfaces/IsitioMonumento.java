@@ -1,5 +1,9 @@
 package com.turismo.turismo.interfaces;
 
-public interface IsitioMonumento {
+import org.springframework.data.repository.CrudRepository;
+
+import com.turismo.turismo.models.SitioMonumento;
+
+public interface IsitioMonumento extends CrudRepository< SitioMonumento, String> {
 
 }

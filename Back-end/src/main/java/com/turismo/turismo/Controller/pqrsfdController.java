@@ -21,10 +21,10 @@ import com.turismo.turismo.models.Pqrsfd;
 @RestController
 public class pqrsfdController {
 
-     @Autowired
+    @Autowired
     private IpqrsfdService pqrsfdService;
 
-      @PostMapping("/")
+    @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Pqrsfd") Pqrsfd Pqrsfd) {
         
         pqrsfdService.save(Pqrsfd);

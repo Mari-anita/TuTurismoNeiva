@@ -16,7 +16,6 @@ public class respuestaService implements IrespuestaService {
     @Autowired
     private Irespuesta data;
 
-    @SuppressWarnings("null")
     @Override 
     public String save(Respuesta Respuesta) {
         data.save(Respuesta);
@@ -31,7 +30,6 @@ public class respuestaService implements IrespuestaService {
 
     @Override
     public Optional<Respuesta> findOne(String id) {
-        @SuppressWarnings("null")
         Optional<Respuesta> Respuesta = data.findById(id);
         return Respuesta; 
     }
