@@ -21,4 +21,6 @@ public interface IusuarioService {
 
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico);
 
+    public Optional<Usuario> findBytelefono(String telefono);
+
 }

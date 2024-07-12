@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,12 @@
         <div class="container_form container-signup">
             <form action="#" class="form" id="formulario">
                 <h2 class="form_title">Registrar</h2>
-                <input type="text" placeholder="User" class="input">
-                <input type="email" placeholder="email" class="input">
-                <input type="password" placeholder="password" class="input">
-                <button class="btn">Registrar</button>
+                <input type="text" id="nombreCompleto" placeholder="Nombre completo" class="input">
+                <input type="email" id="correoElectronico" placeholder="Correo electronico" class="input">
+                <input type="text" id="telefono" placeholder="Telefono" class="input">
+                <input type="password" id="contra" placeholder="Contraseña" class="input">
+                <input type="password" id="coContra" placeholder="Confirmar contraseña" class="input">
+                <button class="btn" onclick="registroUsuario()">Registrar</button>
             </form>
         </div>
 

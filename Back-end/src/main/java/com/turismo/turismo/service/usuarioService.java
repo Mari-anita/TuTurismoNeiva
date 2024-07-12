@@ -44,19 +44,23 @@ public class usuarioService implements IusuarioService {
 
     @Override
     public List<Usuario> FiltrarcorreoElectronico(String correoElectronico) {  //FILTRAR POR CORREO
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'FiltrarcorreoElectronico'");
+        List<Usuario> ListaUsuario = data.FiltrarcorreoElectronico(correoElectronico);
+        return ListaUsuario;
     }
 
     @Override
     public List<Usuario> FiltrarnombreCompleto(String nombreCompleto) {  //FILTRAR POR NOMBRE COMPLETO
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'FiltrarnombreCompleto'");
+        List<Usuario> ListaUsuario = data.FiltrarnombreCompleto(nombreCompleto);
+        return ListaUsuario;
     }
 
     @Override
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findBycorreoElectronico'");
+        return data.findBycorreoElectronico(correoElectronico);
+    }
+
+    @Override
+    public Optional<Usuario> findBytelefono(String telefono) {
+        return data.findBytelefono(telefono);
     }
 }

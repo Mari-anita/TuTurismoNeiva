@@ -35,9 +35,6 @@ public class Usuario {
     @Column(name = "telefono", nullable = false, length = 15)
     private String telefono;                                                //NO SE PUEDE REPETIR
 
-    @Column(name = "tipoUsuario", nullable = false, length = 36)
-    private String tipoUsuario;
-
     @Column(name = "contra", nullable = false, length = 36)
     private String contra;
 
@@ -46,4 +43,7 @@ public class Usuario {
 
     @Column(name= "estado", nullable = false, length = 10)
     private String estado;
+
+    @Column(name="mayorYmenor", nullable = false, length = 2)
+    private boolean mayorYmenor;
 }

@@ -26,6 +26,8 @@ public class usuarioController {
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Usuario") Usuario Usuario) {
 
+        //VALIDACIONESSSSSSS
+
         if (Usuario.getNombreCompleto().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
@@ -33,9 +35,42 @@ public class usuarioController {
         if (Usuario.getCorreoElectronico().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
-        // Verificar unicidad del correo electrónico
+
+        if (Usuario.getCorreoElectronico().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        // VERIFICA SI EL CORREO ELECTRONICO YA SÉ ENCUENTRA EN NUESTRA BASE DE DATOS
         if (usuarioService.findBycorreoElectronico(Usuario.getCorreoElectronico()).isPresent()) {
             return new ResponseEntity<>("El correo electrónico ya está registrado", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Usuario.getAutenticarCorreo().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Usuario.getTelefono().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (usuarioService.findBytelefono(Usuario.getTelefono()).isPresent()) {
+            return new ResponseEntity<>("El correo electrónico ya está registrado", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Usuario.getContra().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Usuario.getCoContra().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        
+        if (Usuario.getEstado().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        Boolean mayorYmenor = Usuario.isMayorYmenor();
+        if (mayorYmenor == null) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
         
         usuarioService.save(Usuario);
@@ -81,16 +116,14 @@ public class usuarioController {
     public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("Usuario") Usuario UsuarioUpdate) {
         var Usuario = usuarioService.findOne(id).get();
         if (Usuario != null) {
-            Usuario.setTipoDocumento(UsuarioUpdate.getTipoDocumento());
-            Usuario.setDocumentoUsuario(UsuarioUpdate.getDocumentoUsuario());
             Usuario.setNombreCompleto(UsuarioUpdate.getNombreCompleto());
-            Usuario.setTipoUsuario(UsuarioUpdate.getTipoUsuario());
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
+            Usuario.setAutenticarCorreo(UsuarioUpdate.getAutenticarCorreo());
+            Usuario.setTelefono(UsuarioUpdate.getTelefono());
             Usuario.setContra(UsuarioUpdate.getContra());
             Usuario.setCoContra(UsuarioUpdate.getCoContra());
-            Usuario.setTelefono(UsuarioUpdate.getTelefono());
             Usuario.setEstado(UsuarioUpdate.getEstado());
-           
+            Usuario.setMayorYmenor(UsuarioUpdate.isMayorYmenor());
             usuarioService.save(Usuario);
             return new ResponseEntity<>(Usuario, HttpStatus.OK);
 
