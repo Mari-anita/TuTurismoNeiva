@@ -16,7 +16,6 @@ public class autorService implements IautorService {
     @Autowired
     private Iautor data;
 
-    @SuppressWarnings("null")
     @Override 
     public String save(Autor Autor) {
         data.save(Autor);
@@ -31,7 +30,6 @@ public class autorService implements IautorService {
 
     @Override
     public Optional<Autor> findOne(String id) {
-        @SuppressWarnings("null")
         Optional<Autor> Autor = data.findById(id);
         return Autor;
     }

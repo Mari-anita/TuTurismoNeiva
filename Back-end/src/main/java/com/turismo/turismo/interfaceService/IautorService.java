@@ -14,6 +14,4 @@ public interface IautorService {
 
     public int deleteForever(String id);
     
-
-
 }

@@ -17,7 +17,6 @@ public class pqrsfdService implements IpqrsfdService {
      @Autowired
     private Ipqrsfd data;
 
-    @SuppressWarnings("null")
     @Override 
     public String save(Pqrsfd Pqrsfd) {
         data.save(Pqrsfd);
@@ -32,7 +31,6 @@ public class pqrsfdService implements IpqrsfdService {
 
     @Override
     public Optional<Pqrsfd> findOne(String id) {
-        @SuppressWarnings("null")
         Optional<Pqrsfd> Pqrsfd = data.findById(id);
         return Pqrsfd; 
     }
