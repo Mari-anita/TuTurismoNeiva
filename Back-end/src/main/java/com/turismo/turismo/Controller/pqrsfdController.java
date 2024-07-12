@@ -54,13 +54,12 @@ public class pqrsfdController {
         var Pqrsfd = pqrsfdService.findOne(id).get();
         if (Pqrsfd!= null) {
 
+            Pqrsfd.setUsuario(PqrsfdUpdate.getUsuario());
+            Pqrsfd.setRespuesta(PqrsfdUpdate.getRespuesta());
             Pqrsfd.setTipoPeticion(PqrsfdUpdate.getTipoPeticion());
             Pqrsfd.setFechaRadicado(PqrsfdUpdate.getFechaRadicado());
             Pqrsfd.setDescripcionPeticion(PqrsfdUpdate.getDescripcionPeticion());
             Pqrsfd.setEstado(PqrsfdUpdate.getEstado());
-            Pqrsfd.setUsuario(PqrsfdUpdate.getUsuario());
-            Pqrsfd.setRespuesta(PqrsfdUpdate.getRespuesta());
-         
            
             pqrsfdService.save(Pqrsfd);
             return new ResponseEntity<>(Pqrsfd, HttpStatus.OK); 
