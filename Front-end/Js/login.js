@@ -107,3 +107,125 @@ function registroUsuario() {
         }
     });
 }
+
+
+//VALIDACIONES
+
+//VERIFICAR EN LA BASE DE DATOS
+
+function verificarCorreoElectronico(CorreoElectronico, callback) {
+    $.ajax({
+        url: 'var url = "http://localhost:8080/api/v1/Usuario/existsByCorreoElectronico/' + CorreoElectronico,
+        type: 'GET',
+        success: function(response) {
+            callback(response); // Suponiendo que la respuesta es true o false
+        },
+        error: function(xhr, status, error) {
+            console.error('VERIFICANDO QUE NO TENGAMOS DATOS REPETIDOS', error);
+            callback(false); // Suponer que no existe en caso de error
+        }
+    });
+}
+
+
+//CAMPOS  
+
+function ValidarCampos() {
+    var nombreCompleto = document.getElementById("nombreCompleto");
+    return ValidarnombreCompleto(nombreCompleto);
+}
+
+function ValidarnombreCompleto(CuadroNumero) {
+    var Valor = CuadroNumero.value;
+    var Valido = true;
+
+    if (Valor.length < 3 || Valor.length > 60) {
+        Valido = false;
+    }
+    if (Valido) {
+        CuadroNumero.className = "form-control is-valid";
+    } else {
+        CuadroNumero.className = "form-control is-invalid";
+    }
+    return Valido;
+}
+
+function ValidarCamposcorreoElectronico() {
+    var correoElectronico = document.getElementById("correoElectronico");
+    return ValidarcorreoElectronico(correoElectronico);
+}
+
+function ValidarcorreoElectronico(CuadroNumero) {
+    var Valor = CuadroNumero.value;
+    var Valido = true;
+
+    if (Valor.length < 3 || Valor.length > 100) {
+        Valido = false;
+    }
+    if (Valido) {
+        CuadroNumero.className = "form-control is-valid";
+    } else {
+        CuadroNumero.className = "form-control is-invalid";
+    }
+    return Valido;
+}
+
+function ValidarCampostelefono() {
+    var telefono = document.getElementById("telefono");
+    return Validartelefono(telefono);
+}
+
+function Validartelefono(CuadroNumero) {
+    var Valor = CuadroNumero.value;
+    var Valido = true;
+
+    if (Valor.length < 3 || Valor.length > 15) {
+        Valido = false;
+    }
+    if (Valido) {
+        CuadroNumero.className = "form-control is-valid";
+    } else {
+        CuadroNumero.className = "form-control is-invalid";
+    }
+    return Valido;
+}
+
+function ValidarCamposcontra() {
+    var contra = document.getElementById("contra");
+    return Validarcontra(contra);
+}
+
+function Validarcontra(CuadroNumero) {
+    var Valor = CuadroNumero.value;
+    var Valido = true;
+
+    if (Valor.length < 5 || Valor.length > 36) {
+        Valido = false;
+    }
+    if (Valido) {
+        CuadroNumero.className = "form-control is-valid";
+    } else {
+        CuadroNumero.className = "form-control is-invalid";
+    }
+    return Valido;
+}
+
+function ValidarCamposcoContra() {
+    var coContra = document.getElementById("coContra");
+    return ValidarcoContra(coContra);
+}
+
+function ValidarcoContra(CuadroNumero) {
+    var Valor = CuadroNumero.value;
+    var Valido = true;
+
+    if (Valor.length < 1 || Valor.length > 36) {
+        Valido = false;
+    }
+    if (Valido) {
+        CuadroNumero.className = "form-select is-valid";
+    } else {
+        CuadroNumero.className = "form-select is-invalid";
+    }
+    return Valido;
+}

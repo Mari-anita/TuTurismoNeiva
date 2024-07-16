@@ -1,21 +1,54 @@
-body{
-    align-items: center;
-    background-color: white;
-    background: url(/Front-end/Img/catedral.png);
-    background-attachment:fixed ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: grid;
-    height: 100vh;
-    place-items: center;
-    overflow: hidden;
+/*INICIO DE ENCABEZADO*/
+.DECZO {
+    display: flex;
+    background-color: #26282E;
 }
 
-.form_title{
-    font-weight: 300;
-    margin: 0;
-    margin-bottom: 1.25rem;
+.DECZO>a {
+    width: 10%;
+}
+
+.DECZO>a>img {
+    width: 60%;
+}
+
+.DECZO>nav {
+    width: 90%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.DECZO>nav>a,
+.DECZO>nav>i {
+    /*, PUEDE AGREGAR */
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    margin: 0% 5% 0% 0%;
+}
+
+@media (max-width: 768px) {
+    /*PARA QUE SE ADAPTE A UNA PANTALLA MENOR*/
+
+    .DECZO>nav>a,
+    .DECZO>nav>a>i {
+        font-size: 3.7vw;
+        /* Tamaño de la fuente basado en el ancho de la pantalla */
+    }
+}
+
+/*TERMINA ENCABEZADO*/
+
+/*INICIO CONTAINER*/
+.form_title{ 
+    font-weight: bold;
+    margin: 0% 0% 0% 0%;
+}
+
+.form_title2{ 
+    font-weight: bold;
+    margin: 20% 0% 15% 0%;
 }
 
 .link{
@@ -25,47 +58,145 @@ body{
     text-decoration: none;
 }
 
-.container{
+.container{ 
     background-color: white;
+    /*AQUI SE PONE LA FOTO*/
     border-radius: 0.7rem;
     box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25), 0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-    height: 420px ;
-    max-width: 758px ;
+    height: 600px;
+    max-width: 900px;
+    /*O_o*/
     overflow: hidden;
     position: relative;
     width: 100%;
+    margin: 5% auto auto auto;
 }
 
 .container_form{
     height: 100%;
+    /*BAJA EL LOGIN HASTA QUE SALGA POR DENTRO DEL CONTAINER*/
     position: absolute;
+    /*DEJA REMONTADO LOS DOS LOGIN*/
     top: 0;
+    /*HABIITADO POR POSITION ABSOLUTE Y LO SUBE */
     transition: all 0.6s ease-in-out;
+    /*DURACION EN LA QUE APAREZCA EL REGISTRAR Y LOGIN*/
 }
 
 .container-signin{
     left: 0;
+    /*PEGAMOS LA CAJA AL LATERAL IZQUIERDO*/
     width: 50%;
+    /*EL ANCHO DE LA CAJA DE INICIO SESION*/
     z-index: 2;
+    /*QUEDA POR DEBAJO DEL REGISTRAR*/
 }
 
 .container.right-panel-active .container-signin{
     transform: translateX(100%);
+    /*MANDA AL CONTAINER Y EL INICIO SESION A LA POSICION 100 DE X*/
 }
 
 .container-signup{
     left: 0;
+    /*HACE QUE SE MEPEGUE AL LATERAL IZQUIERDO*/
     width: 50%;
+    /*ES EL ANCHO DEL */
     z-index: 1;
+    /*TRIDIMENCION HACE QUE EL REGISTRO QUEDE ENCIMA*/
     opacity: 0;
+    /*0OPASIDAD 0 : SE DESAPARECE */
 }
 
 .container.right-panel-active .container-signup{
     animation: show 0.6;
+    /*ESTA TRANSICIÓN MANDA A LA POSITION X 100*/
     opacity: 1;
+    /* OPACIDAD 1, APARECE*/
     transform: translateX(100%);
+    /* HACE QUE EL CONTAINER TOME EL 100% LA POSICION X */
+    /*TAMBIEN MANDA AL REGISTRAR PARA LA POSITION 100 EN LA TABLA X*/
     z-index: 5;
+    /*QUE SE POSICIONE 5 VECES ENCIMA DE CUALQUIER COSA*/
 }
+
+.form{
+    /*PONER A PRUEBA ESE PADDING Y TEXT*/
+    background-color: #26282E;
+    display: flex;
+    /*ESTE FELX HACE QUE EL INICIO DE SESION QUEDE BIEN CENTRADO*/
+    align-items: center;
+    /*HACE QUE NO OCUPE TODO EL ANCHO DEL CONTAINER, SINO EN EL CENTRO*/
+    flex-direction: column;
+    /*ESTE FLEX DIRECCIONA A QUE SE UBIQUEN DE FORMA COLUMNA*/
+    padding: 0 3rem;
+    height: 100%;
+    /*LA CAJA DEL FORMULARIO OCUPA EL 100% DE LARGO*/
+    text-align: center;
+    color: white;
+}
+
+.OVTC,
+.form>p>a {
+    color: white;
+    font-size: 0.9rem;
+    margin: 1.5rem;
+    text-decoration: none;
+}
+
+.OVTC:hover,
+.form>p>a:hover {
+    color: aqua;
+    /*COLOR AL PONER EL CURSOR ENCIMA DEL REGISTRO Y OLVIDE TU CONTRA*/
+}
+
+.btn{
+    background-color: #FFBD59;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    /*HACE QUE LA LETRA SEA GRUESA*/
+    letter-spacing: 0.1rem;
+    /*HACE QUE LAS LETRAS DE LOS BOTONES TOMEN UN ESPACIO */
+    padding: 0.9rem 4rem;
+    text-transform: uppercase;
+    /*HACE QUE LAS LETRAS SEAN MAYUSCULAS*/
+    transition: transform 80ms ease-in;
+}
+
+.input{
+    background-color: #26282E;
+    color: white;
+    border: 1px solid #FFBD59;
+    padding: 0.9rem 0.9rem;
+    /*HACE QUE EL INPUT SE ANCHE*/
+    margin: 0% 0% 5% 0%;
+    /*ESPACIO ENTRE LOS INPUT*/
+    width: 100%;
+    /*TOMA TODO EL ANCHO DE LOS INPUT*/
+}
+
+.CIP { /*CAJA DEL INPUT CONTRASEÑA*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.CIP>i { /*OJO INPUT CONTRA*/
+    position: absolute;
+    /*POSICION DEL OJO DE CONTRASEÑA, ABSOLUTE PARA QUE QUEDE ENCIMA DEL INPUT*/
+    top: 35%;
+    /*HACE QUE BAJE EL 50% DE LA PARTE DE ARRIBA*/
+    right: 10px;
+    transform: translateY(-50%);
+    /*SUBE A LA MITAD*/
+    cursor: pointer;
+    color: #ffffff;
+    /* Color del icono */
+}
+
 
 .container_overlay{
     height: 100%;
@@ -76,36 +207,61 @@ body{
     transition: transform 0.6s ease-in-out;
     width: 50%;
     z-index: 100;
+    background-image: url(/Front-end/Img/ImagenesTuTurismoNeivaREALES/fondoiglesia.jpg);
+    background-repeat: no-repeat;
+    /*HACE QUE LA IMAGEN NO SE REPITA*/
+    background-size: cover;
+    /*HACE QUE TODA LA IMAGEN ENCAJE EN EL CONTAINER*/
 }
 
 .container.right-panel-active .container_overlay{
     transform: translateX(-100%);
+    /*EL DCPBT QUEDABA ENCIMA DE TODO POR SU POSITION ABSOLUTE, ENTONCES
+    EL TRANSFORM TRASLATE X -100 HACE QUE ESE CONTAINER SE DESPLIEGUE EN POSITION X NEGATIVO DE LA TABLA*/
 }
 
 .overlay{
-    background-color: #008997;
-    background: url(/Front-end/Img/catedral.png);
+    /* background-color: #008997;
+    background-image: url(/Front-end/Img/ImagenesTuTurismoNeivaREALES/fondoiglesia.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     height: 100%;
+    /*EL LARGO DEl CONTAINER DE LOS BOTONES */
     left: -100%;
+    /*MANDAMOS LOS BOTOS A LA IZQUIERDA*/
     position: relative;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
     width: 200%;
+    /*HACE QUE OCUPE EL ANCHO DE LOS DOS CONTAINER INICIO Y REGISTRO*/
 }
 
 .container.right-panel-active .overlay{
     transform: translateX(50%);
 }
 
+.btn:active { /**/
+    /*EL ACTIVE APLICA MIENTRAS EL USUARIO HACE CLIC EN UN BOTON Y MANTIENE PRESIONADO EL BOTO DEL MOUSE*/
+    transform: scale(0.95);
+    /*HACE UNA ANIMACION QUE PARECE QUE LA LETRA DE LOS BOTONES SE ESTE HUNDIENDO*/
+}
+
+.btn:focus { /**/
+    /*FOCUS: SE APLICA CUANDO EL USUARIO INTERACTUA CON LOS BOTONES Y PARA ESO VAMOS A USA JS*/
+    outline: none;
+    /*ELIMINA EL CONTORNO*/
+}
+
+
 .overlay_panel{
     align-items: center;
     display: flex;
     flex-direction: column;
+    /*SE CREA UN FLEX Y PONEMOS EL BOTON EN DIRECCION DE COLUMNA*/
     height: 100%;
     justify-content: center;
+    /*CENTRAMOS EL BOTON*/
     position: absolute;
     text-align: center;
     top: 0;
@@ -131,58 +287,18 @@ body{
     transform: translateX(20%);
 }
 
-.btn{
-    background-color: blue;
-    background-image: linear-gradient(90deg blue 0% #008997 74%);
-    border-radius: 20px;
-    border: 1px solid blue;
-    color: white;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: bold;
-    letter-spacing: 0.1rem;
-    padding: 0.9rem 4rem;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-}
-
-.form > .btn{
-    margin-top: 1.5rem;
-}
-
-.btn:active{
-    transform: scale(0.95);
-}
-.btn:focus{
-    outline: none;
-}
-.form{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 3rem;
-    height: 100%;
-    text-align: center;
-}
-
-.input{
-    background-color: white;
-    border: 1px solid black;
-    padding: 0.9rem 0.9rem;
-    margin: 0.5rem 0;
-    width: 100%;
-}
 
 @keyframes show{
     0%,
-    49.99%(
+    49.99%{
         opacity: 0;
         z-index: 1;
-    )
+    }
     50%,
-    100%(
+    100%{
         opacity: 1;
         z-index: 5;
-    )
-}
+    }
+} 
+
+/*FIN CONTAINER*/
