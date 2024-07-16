@@ -143,9 +143,9 @@ function ValidarnombreCompleto(CuadroNumero) {
         Valido = false;
     }
     if (Valido) {
-        CuadroNumero.className = "form-control is-valid";
+        CuadroNumero.className = " input form-control is-valid";
     } else {
-        CuadroNumero.className = "form-control is-invalid";
+        CuadroNumero.className = "input form-control is-invalid";
     }
     return Valido;
 }
@@ -163,9 +163,9 @@ function ValidarcorreoElectronico(CuadroNumero) {
         Valido = false;
     }
     if (Valido) {
-        CuadroNumero.className = "form-control is-valid";
+        CuadroNumero.className = "input form-control is-valid";
     } else {
-        CuadroNumero.className = "form-control is-invalid";
+        CuadroNumero.className = "input form-control is-invalid";
     }
     return Valido;
 }
@@ -183,9 +183,9 @@ function Validartelefono(CuadroNumero) {
         Valido = false;
     }
     if (Valido) {
-        CuadroNumero.className = "form-control is-valid";
+        CuadroNumero.className = "input form-control is-valid";
     } else {
-        CuadroNumero.className = "form-control is-invalid";
+        CuadroNumero.className = "input form-control is-invalid";
     }
     return Valido;
 }
@@ -203,9 +203,9 @@ function Validarcontra(CuadroNumero) {
         Valido = false;
     }
     if (Valido) {
-        CuadroNumero.className = "form-control is-valid";
+        CuadroNumero.className = "input form-control is-valid";
     } else {
-        CuadroNumero.className = "form-control is-invalid";
+        CuadroNumero.className = "input form-control is-invalid";
     }
     return Valido;
 }
@@ -223,9 +223,9 @@ function ValidarcoContra(CuadroNumero) {
         Valido = false;
     }
     if (Valido) {
-        CuadroNumero.className = "form-select is-valid";
+        CuadroNumero.className = "input form-select is-valid";
     } else {
-        CuadroNumero.className = "form-select is-invalid";
+        CuadroNumero.className = "input form-select is-invalid";
     }
     return Valido;
 }
