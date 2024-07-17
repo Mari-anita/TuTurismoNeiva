@@ -13,8 +13,6 @@ public interface IusuarioService {
 
     public Optional<Usuario> findOne(String id);
 
-    public int deleteForever(String id);
-
     public List<Usuario> FiltrarcorreoElectronico(String correoElectronico);
 
     public List<Usuario> FiltrarnombreCompleto(String nombreCompleto);

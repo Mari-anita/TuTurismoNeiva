@@ -39,9 +39,6 @@ public class usuarioController {
             return new ResponseEntity<>("El correo electrónico ya está registrado", HttpStatus.BAD_REQUEST);
         }
 
-        if (Usuario.getAutenticarCorreo().equals("")) {
-            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
-        }
 
         if (Usuario.getContra().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
@@ -51,12 +48,19 @@ public class usuarioController {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
 
-        if (Usuario.getEstado().equals("")) {
-            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
-        }
+        // if (Usuario.getEstado().equals("")) {
+        //     return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
+        // }
 
         usuarioService.save(Usuario);
         return new ResponseEntity<>(Usuario, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/")
+    public ResponseEntity<Object> findAll() {
+        var ListaUsuario = usuarioService.findAll();
+        return new ResponseEntity<>(ListaUsuario, HttpStatus.OK);
     }
 
     @GetMapping("FiltrarnombreCompleto/{nombreCompleto}")
@@ -68,12 +72,6 @@ public class usuarioController {
     @GetMapping("FiltrarcorreoElectronico/{correoElectronico}")
     public ResponseEntity<Object> findcorreoElectronico(@PathVariable String correoElectronico) {
         var listaUsuario = usuarioService.FiltrarcorreoElectronico(correoElectronico);
-        return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
-    }
-
-    @GetMapping("/")
-    public ResponseEntity<Object> findAll() {
-        var listaUsuario = usuarioService.findAll();
         return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
     }
 
@@ -89,28 +87,23 @@ public class usuarioController {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id) {
-        var Usuario = usuarioService.findOne(id).get();
-        if (Usuario != null) {
-            if (Usuario.getEstado().equals("H")) {
-                Usuario.setEstado("D");
-                usuarioService.save(Usuario);
-                return new ResponseEntity<>("Se ha desabilitado correctamente", HttpStatus.OK);
-            } else
-                Usuario.setEstado("H");
-            usuarioService.save(Usuario);
-            return new ResponseEntity<>("Se ha habilitado correctamente", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("No se encontro registro", HttpStatus.OK);
-        }
-    }
+    // @DeleteMapping("/{id}")
+    // public ResponseEntity<Object> delete(@PathVariable String id) {
+    //     var Usuario = usuarioService.findOne(id).get();
+    //     if (Usuario != null) {
+    //         if (Usuario.getEstado().equals("H")) {
+    //             Usuario.setEstado("D");
+    //             usuarioService.save(Usuario);
+    //             return new ResponseEntity<>("Se ha desabilitado correctamente", HttpStatus.OK);
+    //         } else
+    //             Usuario.setEstado("H");
+    //         usuarioService.save(Usuario);
+    //         return new ResponseEntity<>("Se ha habilitado correctamente", HttpStatus.OK);
+    //     } else {
+    //         return new ResponseEntity<>("No se encontro registro", HttpStatus.OK);
+    //     }
+    // }
 
-    @DeleteMapping("/eliminarPermanente{id}")
-    public ResponseEntity<Object> deleteForever(@PathVariable String id) {
-        usuarioService.deleteForever(id);
-        return new ResponseEntity<>("Registro eliminado", HttpStatus.OK);
-    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("Usuario") Usuario UsuarioUpdate) {
@@ -118,11 +111,10 @@ public class usuarioController {
         if (Usuario != null) {
             Usuario.setNombreCompleto(UsuarioUpdate.getNombreCompleto());
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
-            Usuario.setAutenticarCorreo(UsuarioUpdate.getAutenticarCorreo());
             Usuario.setContra(UsuarioUpdate.getContra());
             Usuario.setCoContra(UsuarioUpdate.getCoContra());
-            Usuario.setEstado(UsuarioUpdate.getEstado());
-            Usuario.setMayorYmenor(UsuarioUpdate.isMayorYmenor());
+            // Usuario.setEstado(UsuarioUpdate.getEstado());
+            // Usuario.setMayorYmenor(UsuarioUpdate.isMayorYmenor());
             usuarioService.save(Usuario);
             return new ResponseEntity<>(Usuario, HttpStatus.OK);
 

@@ -27,10 +27,7 @@ public class Usuario {
     private String nombreCompleto;
 
     @Column(name = "correoElectronico", nullable = false, length = 100)
-    private String correoElectronico;                                       //NO SE PUEDE REPETIR
-
-    @Column(name = "autenticarCorreo", nullable = false, length = 100)
-    private String autenticarCorreo;
+    private String correoElectronico;                               
 
     @Column(name = "contra", nullable = false, length = 36)
     private String contra;
@@ -38,9 +35,4 @@ public class Usuario {
     @Column(name = "coContra", nullable = false, length = 36)
     private String coContra;
 
-    @Column(name= "estado", nullable = false, length = 10)
-    private String estado;
-
-    @Column(name="mayorYmenor", nullable = false, length = 2)
-    private boolean mayorYmenor;
 }

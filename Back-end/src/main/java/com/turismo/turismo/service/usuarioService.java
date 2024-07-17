@@ -16,7 +16,6 @@ public class usuarioService implements IusuarioService {
     @Autowired
     private Iusuario data;
 
-    @SuppressWarnings("null")
     @Override 
     public String save(Usuario Usuario) {
         data.save(Usuario);
@@ -31,15 +30,8 @@ public class usuarioService implements IusuarioService {
 
     @Override
     public Optional<Usuario> findOne(String id) {
-        @SuppressWarnings("null")
         Optional<Usuario> Usuario = data.findById(id);
         return Usuario; 
-    }
-
-    @Override
-    public int deleteForever(String id) {  //ELIMINAR POR ID
-        data.deleteById(id);
-        return 1;
     }
 
     @Override
