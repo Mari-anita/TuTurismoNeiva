@@ -1,3 +1,4 @@
+//ANIMACION DEL BOTON QUE HACE LA ACCIÓN DE CAMBIAR
 const inp = document.getElementById("signin");
 const up = document.getElementById("signup");
 const PrimerForm = document.getElementById("formulario");
@@ -16,7 +17,30 @@ up.addEventListener("click", () => {
 PrimerForm.addEventListener("submit", (e) => e.preventDefault());
 SegundoForm.addEventListener("submit", (e) => e.preventDefault());
 
+//FIN 
+//INICIO DE ANIMACION DE CONTRASEÑA EYES
+document.querySelectorAll('.CIP > i').forEach(icon => {
+    icon.addEventListener('click', function () {
+        const input = this.previousElementSibling;
 
+        if (input.type === 'password') {
+            input.type = 'text';
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        } else {
+            input.type = 'password';
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        }
+
+        // Animación de cambio de tipo de input
+        input.classList.add('input-animation');
+        setTimeout(() => {
+            input.classList.remove('input-animation');
+        }, 300); // La duración de la animación debe coincidir con la definida en CSS
+    });
+});
+//FIN ANIMACION
 
 //REGISTRAR USUARIO
 
@@ -26,13 +50,11 @@ var BRegistrarUsuario = true;
 function registroUsuario() {
     var nombreCompleto = document.getElementById("nombreCompleto");
     var correoElectronico = document.getElementById("correoElectronico");
-    var telefono = document.getElementById("telefono");
     var contra = document.getElementById("contra");
     var coContra = document.getElementById("coContra");
 
     if (!ValidarnombreCompleto(nombreCompleto) ||
         !ValidarcorreoElectronico(correoElectronico) ||
-        !Validartelefono(telefono) ||
         !Validarcontra(contra) ||
         !ValidarcoContra(coContra)) {
         Swal.fire({
@@ -46,7 +68,6 @@ function registroUsuario() {
     var forData = {
         "nombreCompleto": nombreCompleto.value,
         "correoElectronico": correoElectronico.value,
-        "telefono": telefono.value,
         "contra": contra.value,
         "coContra": coContra.value,
     };
@@ -72,7 +93,7 @@ function registroUsuario() {
                 text: "¡El correo electrónico ya está registrado!",
                 icon: "error"
             });
-        }else {
+        } else {
             if (ValidarCampos()) {
                 $.ajax({
                     url: urlLocal,
@@ -113,14 +134,14 @@ function registroUsuario() {
 
 //VERIFICAR EN LA BASE DE DATOS
 
-function verificarCorreoElectronico(CorreoElectronico, callback) {
+function verificarcorreoElectronico(correoElectronico, callback) {
     $.ajax({
-        url: 'var url = "http://localhost:8080/api/v1/Usuario/existsByCorreoElectronico/' + CorreoElectronico,
+        url: 'var url = "http://localhost:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico,
         type: 'GET',
-        success: function(response) {
+        success: function (response) {
             callback(response); // Suponiendo que la respuesta es true o false
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error('VERIFICANDO QUE NO TENGAMOS DATOS REPETIDOS', error);
             callback(false); // Suponer que no existe en caso de error
         }
@@ -170,25 +191,6 @@ function ValidarcorreoElectronico(CuadroNumero) {
     return Valido;
 }
 
-function ValidarCampostelefono() {
-    var telefono = document.getElementById("telefono");
-    return Validartelefono(telefono);
-}
-
-function Validartelefono(CuadroNumero) {
-    var Valor = CuadroNumero.value;
-    var Valido = true;
-
-    if (Valor.length < 3 || Valor.length > 15) {
-        Valido = false;
-    }
-    if (Valido) {
-        CuadroNumero.className = "input form-control is-valid";
-    } else {
-        CuadroNumero.className = "input form-control is-invalid";
-    }
-    return Valido;
-}
 
 function ValidarCamposcontra() {
     var contra = document.getElementById("contra");

@@ -32,9 +32,6 @@ public class Usuario {
     @Column(name = "autenticarCorreo", nullable = false, length = 100)
     private String autenticarCorreo;
 
-    @Column(name = "telefono", nullable = false, length = 15)
-    private String telefono;                                                //NO SE PUEDE REPETIR
-
     @Column(name = "contra", nullable = false, length = 36)
     private String contra;
 

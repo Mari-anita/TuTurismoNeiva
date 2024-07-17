@@ -25,8 +25,8 @@ public class usuarioService implements IusuarioService {
 
     @Override
     public List<Usuario> findAll() {  ///MOSTRAR TODA LA LISTA
-        List<Usuario> listaUsuario = (List<Usuario>) data.findAll();
-        return listaUsuario;
+        List<Usuario> ListaUsuario = (List<Usuario>) data.findAll();
+        return ListaUsuario;
     }
 
     @Override
@@ -57,10 +57,5 @@ public class usuarioService implements IusuarioService {
     @Override
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico) {
         return data.findBycorreoElectronico(correoElectronico);
-    }
-
-    @Override
-    public Optional<Usuario> findBytelefono(String telefono) {
-        return data.findBytelefono(telefono);
     }
 }

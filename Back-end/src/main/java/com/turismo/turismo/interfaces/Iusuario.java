@@ -19,7 +19,6 @@ public interface Iusuario extends CrudRepository<Usuario, String> {
     @Query("SELECT u FROM Usuario u WHERE u.correoElectronico = ?1")
     Optional<Usuario> findBycorreoElectronico(String correoElectronico);
 
-    @Query("SELECT u FROM Usuario u WHERE u.telefono = ?1")
-    Optional<Usuario> findBytelefono(String telefono);
+
 
 }
