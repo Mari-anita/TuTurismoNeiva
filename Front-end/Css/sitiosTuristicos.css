@@ -1,0 +1,9 @@
+.RCRC{
+    display: flex;
+    justify-content: space-between;
+}
+
+.RCRC > input{
+    border-radius: 15px;
+    border: 1px solid #ffbd59;
+}
