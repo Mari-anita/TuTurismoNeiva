@@ -29,6 +29,13 @@ public class autorService implements IautorService {
     }
 
     @Override
+    public List<Autor> FiltrarnombreCompletoAutor(String nombreCompletoAutor){
+        List<Autor> listaAutor = data.FiltrarnombreCompletoAutor(nombreCompletoAutor);
+        return listaAutor;
+
+    }
+
+    @Override
     public Optional<Autor> findOne(String id) {
         Optional<Autor> Autor = data.findById(id);
         return Autor;

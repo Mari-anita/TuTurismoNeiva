@@ -12,6 +12,8 @@ public interface IautorService {
 
     public Optional<Autor> findOne(String id);
 
+    public List<Autor> FiltrarnombreCompletoAutor(String nombreCompletoAutor);
+
     public int deleteForever(String id);
     
 }

@@ -29,6 +29,12 @@ public class autorController {
         return new ResponseEntity<>(Autor, HttpStatus.OK);
     }
 
+    @GetMapping("FiltrarnombreCompletoAutor/{nombreCompletoAutor}")
+    public ResponseEntity<Object> findnombreCompletoAutor(@PathVariable String nombreCompletoAutor) {
+        var listaAutor = autorService.FiltrarnombreCompletoAutor(nombreCompletoAutor);
+        return new ResponseEntity<>(listaAutor, HttpStatus.OK);
+    }
+
     @GetMapping("/")
     public ResponseEntity<Object> findAll() {
         var listaAutor = autorService.findAll();
