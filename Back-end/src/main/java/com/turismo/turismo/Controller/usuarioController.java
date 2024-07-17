@@ -34,10 +34,6 @@ public class usuarioController {
         if (Usuario.getCorreoElectronico().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
-
-        if (Usuario.getCorreoElectronico().equals("")) {
-            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
-        }
         // VERIFICA SI EL CORREO ELECTRONICO YA SÉ ENCUENTRA EN NUESTRA BASE DE DATOS
         if (usuarioService.findBycorreoElectronico(Usuario.getCorreoElectronico()).isPresent()) {
             return new ResponseEntity<>("El correo electrónico ya está registrado", HttpStatus.BAD_REQUEST);
