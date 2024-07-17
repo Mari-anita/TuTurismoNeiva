@@ -26,7 +26,23 @@ public class pqrsfdController {
 
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Pqrsfd") Pqrsfd Pqrsfd) {
-        
+        //validaciones
+        if(Pqrsfd.getTipoPeticion().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Pqrsfd.getFechaRadicado().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Pqrsfd.getDescripcionPeticion().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Pqrsfd.getEstado().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
         pqrsfdService.save(Pqrsfd);
         return new ResponseEntity<>(Pqrsfd, HttpStatus.OK); 
     }

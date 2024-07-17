@@ -25,7 +25,16 @@ public class respuestaController {
 
      @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Respuesta") Respuesta Respuesta) {
-        
+        //Validaciones
+
+        if(Respuesta.getTextoRespuesta().equals("")){
+            return new ResponseEntity<>("Este campo es obligatrio", HttpStatus.BAD_REQUEST);
+        }
+
+        if(Respuesta.getFechaRespuesta().equals("")){
+            return new ResponseEntity<>("Este campo es obligatrio", HttpStatus.BAD_REQUEST);
+        }
+
         respuestaService.save(Respuesta);
         return new ResponseEntity<>(Respuesta, HttpStatus.OK); 
     }

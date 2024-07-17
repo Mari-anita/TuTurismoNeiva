@@ -25,7 +25,7 @@ public class Pqrsfd {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "idPeticion", nullable = false, length = 36)
-    private String idPeticion;
+    private String idPeticion;        
 
     @ManyToOne
     @JoinColumn(name ="idUsuario")

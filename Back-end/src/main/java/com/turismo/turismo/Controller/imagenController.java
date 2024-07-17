@@ -25,7 +25,11 @@ public class imagenController {
 
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Imagen") Imagen Imagen) {
-        
+
+        if(Imagen.getImagen().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
         imagenService.save(Imagen);
         return new ResponseEntity<>(Imagen, HttpStatus.OK);
     }
