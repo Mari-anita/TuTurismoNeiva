@@ -75,8 +75,6 @@ span {
   background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   transform: rotateY(320deg) translateZ(430px); }
 
-
-
 @keyframes rotate360 {
   from {
     transform: rotateY(0deg);
@@ -84,6 +82,50 @@ span {
   to {
     transform: rotateY(-360deg);
   }
+}
+
+<!--Nav-->
+.dropbtn {
+  background-color: #000000;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border-bottom: #3e8e41 1px solid;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+
+  display: none;
+  position: absolute;
+  background-color: #262930;
+  border-radius: 8px;
+  border: 1px solid rgb(173, 173, 173);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f160}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ffffff4e;
 }
 </style>
 <body>
@@ -98,11 +140,11 @@ span {
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-3 mb-lg-0" style="margin-left: 49%;">
               <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-                <div class="w3-dropdown-click">
-                  <button onclick="myFunction()" class="w3-button w3-dark" style="color: white; font-size: 25px;"><b>Inicio</b></button>
-                  <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="background-color: #262930;">
-                    <a href="#" class="w3-bar-item w3-button" style="color: white; font-size: 12px;"><b>Sitios Turísticos</b></a>
-                    <a href="#" class="w3-bar-item w3-button" style="color: white; font-size: 12px;"><b>Monumentos</b></a>
+                <div class="dropdown">
+                  <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
+                  <div class="dropdown-content" style="justify-content: center;">
+                  <a href="#">Sitios Turísticos</a>
+                  <a href="#">Monumentos</a>
                   </div>
                 </div>
               </li>
@@ -116,24 +158,23 @@ span {
                 <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
               </li>
               <li class="nav-item" style="margin-top: 1.5%;">
-                <div class="w3-dropdown-click">
-                  <button onclick="myFunctionIdioma()" class="w3-button w3-dark" style="color: white; font-size: 25px;"><b>Idioma</b></button>
-                  <div id="Idioma" class="w3-dropdown-content w3-bar-block w3-border" style="background-color: #262930;">
-                    <a href="#" class="w3-bar-item w3-button" style="color: white; font-size: 12px;"><b>Español</b></a>
-                    <a href="#" class="w3-bar-item w3-button" style="color: white; font-size: 12px;"><b>Inglés</b></a>
+                <div class="dropdown">
+                  <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
+                  <div class="dropdown-content" style="justify-content: center;">
+                  <a href="#">Español</a>
+                  <a href="#">Inglés</a>
                   </div>
                 </div>
-                  <a class="nav-link" href="#" aria-disabled="true" style="color: white; font-size: 25px"><b></b></a>
               </li>
               <li class="nav-item" style=" margin-top: 1.5%;">
-                  <div class="w3-dropdown-click">
-                    <button onclick="myFunctionMenu()" class="w3-button w3-dark" style="color: white; font-size: 25px; padding-right: 10%"><box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon></button>
-                    <div id="Menu" class="w3-dropdown-content w3-bar-block w3-border" style="background-color: #262930;">
-                      <a href="../Front-end/html/RegistroUsuario.html" class="w3-bar-item w3-button" style="color: white; font-size: 12px;"><b>Iniciar Sesión</b></a>   
-                      <a href="../Front-end/html/RegistroUsuario.html" class="w3-bar-item w3-button" style="color: white; font-size: 12px;"><b>Registrarse</b></a>
-                      <a href="#" class="w3-bar-item w3-button" style="color: white; font-size: 12px;"><b>Ayuda</b></a>
-                    </div>
+                <div class="dropdown">
+                  <button class="dropbtn btn" style="color: white; font-size: 25px"><b><box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon></b></button>
+                  <div class="dropdown-content" style="justify-content: center;">
+                  <a href="#">Iniciar Sesión</a>
+                  <a href="#">Registrarse</a>
+                  <a href="#">Ayuda</a>
                   </div>
+                </div>
               </li>
             </ul>
           </div>
@@ -231,34 +272,5 @@ span {
           <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva </p>
         </footer>
       </div>
-
-      <script>
-        function myFunction() {
-          var x = document.getElementById("Demo");
-          if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-          } else { 
-            x.className = x.className.replace(" w3-show", "");
-          }
-        }
-
-        function myFunctionMenu() {
-          var x = document.getElementById("Menu");
-          if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-          } else { 
-            x.className = x.className.replace(" w3-show", "");
-          }
-        }
-
-        function myFunctionIdioma() {
-          var x = document.getElementById("Idioma");
-          if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-          } else { 
-            x.className = x.className.replace(" w3-show", "");
-          }
-        }
-        </script>
 </body>
 </html>
