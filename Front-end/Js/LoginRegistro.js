@@ -231,3 +231,37 @@ function ValidarcoContra(CuadroNumero) {
     }
     return Valido;
 }
+
+
+
+//MOSTRAR LA TABLA DE LOS USUARIOS 
+
+function listarUsuario (){
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (result){
+            var cuerpoTabla = document.getElementById("cuerpoTabla");
+            cuerpoTabla.innerHTML = "";
+
+            for (var i=0; i < result.length; i++ ){
+                var trRegistro = document.createElement("tr");
+                trRegistro.innerHTML = `
+                <td>${result[i]["idUsuario"]}</td>
+                <td class="text-center align-middle">${result[i]["nombreCompeto"]}</td>
+                <td class="text-center align-middle">${result[i]["correoElectronico"]}</td>
+                <td class="text-center align-middle">${result[i]["contra"]}</td>
+                <td class="text-center align-middle">${result[i]["coContra"]}</td>
+                <td class="text-center align-middle">
+                    <i class="btn fas fa-edit Editar"  onclick="BRegistrarUsuario=false;"   data-id="${result[i]["idUsuario"]}"></i>
+                    <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idUsuario"]}"></i>
+                </td>
+            `;
+            cuerpoTabla.appendChild(trRegistro);
+            }
+        },
+        error: function(error){
+            alert("ERROR en la petición" + error);
+        }
+    });
+}
