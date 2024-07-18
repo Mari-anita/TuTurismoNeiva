@@ -59,7 +59,7 @@ function registroUsuario() {
         !ValidarcoContra(coContra)) {
         Swal.fire({
             title: "¡Error!",
-            text: "¡Llene todos los campos correctamente!1",
+            text: "¡Llene todos los campos correctamente!",
             icon: "error"
         });
         return;

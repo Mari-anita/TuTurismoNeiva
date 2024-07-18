@@ -116,8 +116,99 @@
         text-decoration: none;
         color: #fff;
     }
+
+    <!--Nav-->
+.dropbtn {
+  background-color: #000000;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border-bottom: #3e8e41 1px solid;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+
+  display: none;
+  position: absolute;
+  background-color: #262930;
+  border-radius: 8px;
+  border: 1px solid rgb(173, 173, 173);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f160}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 </style>
 <body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid" style="height: 60px;">
+            <a class="navbar-brand" href="../Front-end/index.html">
+            <img src="../Img/logo.png" alt="" width="25%">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-3 mb-lg-0" style="margin-left: 56%;">
+              <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+                <div class="dropdown">
+                  <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
+                  <div class="dropdown-content" style="justify-content: center;">
+                  <a href="#">Sitios Turísticos</a>
+                  <a href="#">Monumentos</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+                <a class="nav-link" href="#" style="color: white; font-size: 25px"><b>Nosotros</b></a>
+              </li>
+              <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+                <a class="nav-link" href="#" style="color: white; font-size: 25px"><b>Contacto</b></a>
+              </li>
+              <li class="nav-item" style=" margin-top: 1.5%;">
+                <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
+              </li>
+              <li class="nav-item" style="margin-top: 1.5%;">
+                <div class="dropdown">
+                  <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
+                  <div class="dropdown-content" style="justify-content: center;">
+                  <a href="#">Español</a>
+                  <a href="#">Inglés</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item" style=" margin-top: 1.5%;">
+                <div class="dropdown">
+                  <button class="dropbtn btn" style="color: white; font-size: 25px"><b><box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon></b></button>
+                  <div class="dropdown-content" style="justify-content: center;">
+                  <a href="../Front-end/html/RegistroUsuario.html">Iniciar Sesión</a>
+                  <a href="../Front-end/html/RegistroUsuario.html">Registrarse</a>
+                  <a href="#">Ayuda</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <div class="container">
         <div class="container">
             <form class="formulario">

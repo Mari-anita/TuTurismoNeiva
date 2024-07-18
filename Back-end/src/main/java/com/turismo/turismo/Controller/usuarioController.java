@@ -25,7 +25,7 @@ public class usuarioController {
     @PostMapping("/")
     public ResponseEntity<Object> save(@ModelAttribute("Usuario") Usuario Usuario) {
 
-        // VALIDACIONESSSSSSS
+        // VALIDACIONES
 
         if (Usuario.getNombreCompleto().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
