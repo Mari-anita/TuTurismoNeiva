@@ -19,10 +19,9 @@ public class emailController {
     @GetMapping("/enviar-correo")
     public String enviarCorreoInicio() {
        try{
-        String destinatario="maidyladino04@gmail.com";
-        String asunto="correo";
+        String destinatario="tuturismoneiva@gmail.com";
+        String asunto="¡Bienvenid@ a TuTurismo Neiva!";
         String cuerpo=""
-        +"<p>Estimado Usuario,</p>\r\n"
         + "    <p>Nos complace darte la bienvenida a TuTurismo Neiva, la plataforma ideal para descubrir los encantos de Neiva.</p>"
         + "    <p>En TuTurismoNeiva encontrarás todo lo que necesitas para conocer la cultura Neivana, desde información sobre lugares de interés y su ubicación.</p>"
         + "    <p>¡Estamos seguros de que TuTurismo Neiva te ayudará a vivir una experiencia inolvidable en Neiva!</p>"
