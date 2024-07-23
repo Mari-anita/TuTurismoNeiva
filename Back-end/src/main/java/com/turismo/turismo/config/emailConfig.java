@@ -17,7 +17,7 @@ public class emailConfig {
 		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(587);
 		mailSender.setUsername("tuturismoneiva@gmail.com");
-		mailSender.setPassword("");
+		mailSender.setPassword("rfed uezy pqli unqd");
 		
 		Properties properties=mailSender.getJavaMailProperties();
 		properties.put("mail.smtp.auth", "true");
