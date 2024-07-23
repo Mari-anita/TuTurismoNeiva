@@ -88,7 +88,7 @@ function registroUsuario() {
                         }).then(function () {
                             // Aquí puedes agregar más acciones después del registro exitoso
                             $('#exampleModal').modal('hide');
-                            ListarUsuario();
+                            listarUsuario();
                         });
                     },
                     error: function (xhr, status, error) {
@@ -113,7 +113,7 @@ function registroUsuario() {
 
 //VALIDACIONES
 
-//VERIFICAR EN LA BASE DE DATOS
+//VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
 function verificarcorreoElectronico(correoElectronico, callback) {
     $.ajax({
@@ -130,7 +130,7 @@ function verificarcorreoElectronico(correoElectronico, callback) {
 }
 
 
-//CAMPOS  
+//CAMPOS VALIDACIONES
 
 function ValidarCampos() {
     var nombreCompleto = document.getElementById("nombreCompleto");
@@ -229,7 +229,7 @@ function listarUsuario (){
                 var trRegistro = document.createElement("tr");
                 trRegistro.innerHTML = `
                 <td>${result[i]["idUsuario"]}</td>
-                <td class="text-center align-middle">${result[i]["nombreCompeto"]}</td>
+                <td class="text-center align-middle">${result[i]["nombreCompleto"]}</td>
                 <td class="text-center align-middle">${result[i]["correoElectronico"]}</td>
                 <td class="text-center align-middle">${result[i]["contra"]}</td>
                 <td class="text-center align-middle">${result[i]["coContra"]}</td>
@@ -245,4 +245,76 @@ function listarUsuario (){
             alert("ERROR en la petición" + error);
         }
     });
+}
+
+//FILTOS
+
+function FiltrarnombreCompleto(nombreCompleto){
+    if (nombreCompleto == '') {
+        listarUsuario();
+    } else{
+        $.ajax({
+            url: "http://localhost:8080/api/v1/Usuario/FiltrarnombreCompleto/" + nombreCompleto,
+            type: "GET",
+            success: function (result){
+                var cuerpoTabla = document.getElementById("cuerpoTabla");
+                cuerpoTabla.innerHTML="";
+                for(var i = 0; i < result.length; i++){
+                    var trRegistro = document.createElement("tr");
+                    trRegistro.innerHTML = `
+                        <td>${result[i]["idUsuario"]}</td>
+                        <td class="text-center align-middle">${result[i]["nombreCompleto"]}</td>
+                        <td class="text-center align-middle">${result[i]["correoElectronico"]}</td>
+                        <td class="text-center align-middle">${result[i]["contra"]}</td>
+                        <td class="text-center align-middle">${result[i]["coContra"]}</td>
+                        <td class="text-center align-middle">
+                            <i class="btn fas fa-edit Editar"  onclick="BRegistrarLibro=false;"   data-id="${result[i]["idUsuario"]}"></i>
+                            <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idUsuario"]}"></i>
+                        </td>
+                    
+                    `;
+                    cuerpoTabla.appendChild(trRegistro);
+                }
+            },
+            error: function (error){
+                alert("ERROR en la petición" + error);
+            }
+        });
+    }
+
+}
+
+function FiltrarcorreoElectronico(correoElectronico){
+    if (correoElectronico == '') {
+        listarUsuario();
+    } else{
+        $.ajax({
+            url: "http://localhost:8080/api/v1/Usuario/FiltrarcorreoElectronico/" + correoElectronico,
+            type: "GET",
+            success: function (result){
+                var cuerpoTabla = document.getElementById("cuerpoTabla");
+                cuerpoTabla.innerHTML="";
+                for(var i = 0; i < result.length; i++){
+                    var trRegistro = document.createElement("tr");
+                    trRegistro.innerHTML = `
+                        <td>${result[i]["idUsuario"]}</td>
+                        <td class="text-center align-middle">${result[i]["nombreCompleto"]}</td>
+                        <td class="text-center align-middle">${result[i]["correoElectronico"]}</td>
+                        <td class="text-center align-middle">${result[i]["contra"]}</td>
+                        <td class="text-center align-middle">${result[i]["coContra"]}</td>
+                        <td class="text-center align-middle">
+                            <i class="btn fas fa-edit Editar"  onclick="BRegistrarLibro=false;"   data-id="${result[i]["idUsuario"]}"></i>
+                            <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idUsuario"]}"></i>
+                        </td>
+                    
+                    `;
+                    cuerpoTabla.appendChild(trRegistro);
+                }
+            },
+            error: function (error){
+                alert("ERROR en la petición" + error);
+            }
+        });
+    }
+
 }
