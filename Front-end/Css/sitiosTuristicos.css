@@ -1,9 +1,111 @@
-.RCRC{
+.RCRC {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.RCRC > input{
+
+.votar {
+    /*CLASE DE LAS ESTRELLAS*/
+    display: flex;
+}
+
+.fa-star {
+    color: #ccc;
+    /* Color por defecto de las estrellas */
+    cursor: pointer;
+    /* Cambiar cursor a una mano al pasar sobre las estrellas */
+}
+
+.fa-star.filled {
+    color: gold;
+    /* Color de las estrellas llenas */
+}
+
+.stars-container {
+    display: flex;
+}
+
+.star {
+    margin: 0 2px;
+    /* Espacio entre las estrellas */
+}
+
+.fa-heart:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.CJULM {
+    display: flex;
+    justify-content: space-between;
+    margin: 10% 0% 0% 0%;
+}
+
+/* ANIMACION DE LA CARTAS E IMAGENES */
+
+/* CSS para el diseño de la tarjeta y el carrusel */
+
+.card {
+    width: 18rem;
+    margin: 1rem;
+    position: relative; /* Necesario para posicionar los botones dentro de la tarjeta */
+    border: 3px solid #ffbd59 !important;
+    border-radius: 15px !important;
+}
+
+.image-container-wrapper {
+    position: relative; /* Posición relativa para los botones */
+}
+
+.image-container {
+    display: flex;
+    overflow: hidden; /* Oculta el contenido que se desborda del contenedor */
+    width: 100%;
+    height: 200px; /* Ajusta la altura según sea necesario */
+}
+
+.card-img-top {
+    min-width: 100%; /* Cada imagen ocupa el 100% del contenedor */
+}
+
+.imgcarru{
+    width: 70% !important;
+    margin: 10% 0% 0% 14% !important;
+}
+
+.fa-solid{
+    color: #ffbd59;
+    font-size: 1.8rem;
+}
+
+.BTTLT{
+    text-decoration: none !important;
+    text-transform: none;
+    color: white !important;
+    background-color: #ffbd59;
     border-radius: 15px;
-    border: 1px solid #ffbd59;
+
+
+}
+
+
+/*INICIO DE LUPA EN INPUT*/
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="search"] {
+    width: 100%;
+    padding: 5px 100px 10px 10px;
+    border: 2px solid #ffbd59;
+    border-radius: 15px;
+}
+
+.search-container box-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
 }

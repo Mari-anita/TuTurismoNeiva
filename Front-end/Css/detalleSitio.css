@@ -1,0 +1,13 @@
+.CDC{
+    display: flex;
+}
+
+.imgcarrusel{
+    width: 50% !important;
+}
+
+.fa-circle-left{
+    font-size: 2.7rem;
+    margin: 2% 0% 2% 0%;
+    color: #FFBD59;
+}
