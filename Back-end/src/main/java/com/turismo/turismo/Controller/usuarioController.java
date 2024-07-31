@@ -3,7 +3,7 @@ package com.turismo.turismo.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-// import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -154,23 +154,11 @@ public class usuarioController {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<Object> delete(@PathVariable String id) {
-    // var Usuario = usuarioService.findOne(id).get();
-    // if (Usuario != null) {
-    // if (Usuario.getEstado().equals("H")) {
-    // Usuario.setEstado("D");
-    // usuarioService.save(Usuario);
-    // return new ResponseEntity<>("Se ha desabilitado correctamente",
-    // HttpStatus.OK);
-    // } else
-    // Usuario.setEstado("H");
-    // usuarioService.save(Usuario);
-    // return new ResponseEntity<>("Se ha habilitado correctamente", HttpStatus.OK);
-    // } else {
-    // return new ResponseEntity<>("No se encontro registro", HttpStatus.OK);
-    // }
-    // }
+    @DeleteMapping("/Eliminar/{id}")
+    public ResponseEntity<Object> delete(@PathVariable String id){
+        usuarioService.delete(id);
+        return new ResponseEntity<>("Registro Eliminado", HttpStatus.OK);
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("Usuario") Usuario UsuarioUpdate) {
@@ -180,8 +168,6 @@ public class usuarioController {
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
             Usuario.setContra(UsuarioUpdate.getContra());
             Usuario.setCoContra(UsuarioUpdate.getCoContra());
-            // Usuario.setEstado(UsuarioUpdate.getEstado());
-            // Usuario.setMayorYmenor(UsuarioUpdate.isMayorYmenor());
             usuarioService.save(Usuario);
             return new ResponseEntity<>(Usuario, HttpStatus.OK);
 

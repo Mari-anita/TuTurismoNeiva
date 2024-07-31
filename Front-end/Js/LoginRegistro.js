@@ -268,7 +268,7 @@ function FiltrarnombreCompleto(nombreCompleto){
                         <td class="text-center align-middle">${result[i]["contra"]}</td>
                         <td class="text-center align-middle">${result[i]["coContra"]}</td>
                         <td class="text-center align-middle">
-                            <i class="btn fas fa-edit Editar"  onclick="BRegistrarLibro=false;"   data-id="${result[i]["idUsuario"]}"></i>
+                            <i class="btn fas fa-edit Editar"  onclick="BRegistrarUsuario=false;"   data-id="${result[i]["idUsuario"]}"></i>
                             <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idUsuario"]}"></i>
                         </td>
                     
@@ -303,7 +303,7 @@ function FiltrarcorreoElectronico(correoElectronico){
                         <td class="text-center align-middle">${result[i]["contra"]}</td>
                         <td class="text-center align-middle">${result[i]["coContra"]}</td>
                         <td class="text-center align-middle">
-                            <i class="btn fas fa-edit Editar"  onclick="BRegistrarLibro=false;"   data-id="${result[i]["idUsuario"]}"></i>
+                            <i class="btn fas fa-edit Editar"  onclick="BRegistrarUsuario=false;"   data-id="${result[i]["idUsuario"]}"></i>
                             <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idUsuario"]}"></i>
                         </td>
                     
@@ -317,4 +317,137 @@ function FiltrarcorreoElectronico(correoElectronico){
         });
     }
 
+}
+
+//LIMPIAR INPUT
+
+// function Limpiar(){
+//     document.getElementById("nombreCompleto").value = "";
+//     document.getElementById("nombreCompleto").className = "form-control";
+//     document.getElementById("correoElectronico").value = "";
+//     document.getElementById("correoElectronico").className = "form-control";
+//     document.getElementById("contra").value = "";
+//     document.getElementById("contra").className = "form-control";
+//     document.getElementById("coContra").value = "";
+//     document.getElementById("coContra").className = "form-control";
+// }
+
+
+
+
+
+
+//FUNCION DE BORRAR Y EDITAR
+
+
+var idUsuario = "";
+
+$(document).on("click", ".Eliminar", function() {
+    var idUsuario = $(this).data("id"); //PENDIENTE CAMBIARLO SINO FUNCIONA
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¿Deseas eliminar este cliente?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: url + "Eliminar/" + idUsuario,
+                type:"DELETE",
+                success: function(Eliminar){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Registro Eliminado",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    listarUsuario();
+                }, 
+                error: function(xhr,status, error ){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'No se logro eliminar'
+                    });
+                }
+            });
+        }
+    });
+});
+
+
+$(document).on("click", ".Editar", function(){
+    // Limpiar();
+    idUsuario = $(this).data("id");
+    $.ajax({
+        url: url + idUsuario,
+        type: "GET",
+        success: function (Usuario){
+            document.getElementById("nombreCompleto").value=Usuario.nombreCompleto;
+            document.getElementById("correoElectronico").value=Usuario.correoElectronico;
+            document.getElementById("contra").value=Usuario.contra;
+            document.getElementById("coContra").value=Usuario.coContras;
+            $('#exampleModal').modal('show');
+        },
+        error: function(error){
+            alert("Error al obtener los datos del usuario: " + error.statusText);
+        }
+    });
+});
+
+function ConsultarUsuario(id){
+    $.ajax({
+        url: url + id,
+        type:"GET",
+        success: function (result){
+            document.getElementById("nombreCompleto").value = result["nombreCompleto"];
+            document.getElementById("correoElectronico").value = result["correoElectronico"];
+            document.getElementById("contra").value = result["contra"];
+            document.getElementById("coContra").value = result["coContra"];
+        }
+    });
+}
+
+function ActualizarUsuario(){
+    var idUsuario = document.getElementById("idUsuario").value;
+    let formData = {
+        "nombreCompleto": document.getElementById("nombreCompleto").value,
+        "correoElectronico": document.getElementById("correoElectronico").value,
+        "contra": document.getElementById("contra").value,
+        "coContra": document.getElementById("coContra").value
+    };
+
+    if(ValidarCampos){
+        $.ajax({
+            url: url + idUsuario,
+            type: "PUT",
+            data: formData,
+            success: function (result){
+                Swal.fire({
+                    title: "¡Excelente!",
+                    text: "Se guardó correctamente",
+                    icon: "success"
+                });
+                listarUsuario();
+            },
+            error: function (error){
+                Swal.fire({
+                    title: "¡Error!",
+                    text: "No se guardó",
+                    icon: "error"
+                });
+            }
+
+        });
+    } else{
+        Swal.fire({
+            title: "¡Error!",
+            text: "Llene todos los campos correctamente",
+            icon: "error"
+        });
+    }
 }

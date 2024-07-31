@@ -19,5 +19,6 @@ public interface IusuarioService {
 
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico);
 
+    public boolean delete(String id);
 
 }

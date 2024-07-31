@@ -50,4 +50,13 @@ public class usuarioService implements IusuarioService {
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico) {
         return data.findBycorreoElectronico(correoElectronico);
     }
+    @Override
+    public boolean delete(String id) {
+        if (data.existsById(id)) {
+            data.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
