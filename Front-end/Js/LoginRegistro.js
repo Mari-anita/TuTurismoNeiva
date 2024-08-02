@@ -23,6 +23,21 @@ document.querySelectorAll('.CIP > i').forEach(icon => {
 });
 //FIN ANIMACION
 
+// Validación de correo electrónico
+function ValidarcorreoElectronico(correoElectronico) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/i;
+    // La primera validación verifica el formato y el dominio
+    if (emailRegex.test(correoElectronico)) {
+        // Verifica que haya al menos un punto en el dominio
+        var domainPart = correoElectronico.split('@')[1];
+        if (domainPart && domainPart.split('.').length > 1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 //REGISTRAR USUARIO
 
 var url = "http://localhost:8080/api/v1/Usuario/";
@@ -33,6 +48,8 @@ function registroUsuario() {
     var correoElectronico = document.getElementById("correoElectronico");
     var contra = document.getElementById("contra");
     var coContra = document.getElementById("coContra");
+
+
 
     if (!ValidarnombreCompleto(nombreCompleto) ||
         !ValidarcorreoElectronico(correoElectronico) ||
@@ -94,7 +111,7 @@ function registroUsuario() {
                     error: function (xhr, status, error) {
                         Swal.fire({
                             title: "Error",
-                            text: "Hubo un problema al guardar el usuario",
+                            text: "No lograste registrar los datos",
                             icon: "error"
                         });
                     }
@@ -111,13 +128,16 @@ function registroUsuario() {
 }
 
 
+
+
 //VALIDACIONES
 
 //VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
 function verificarcorreoElectronico(correoElectronico, callback) {
+    var url = 'http://localhost:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
     $.ajax({
-        url: 'var url = "http://localhost:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico,
+        url: url,
         type: 'GET',
         success: function (response) {
             callback(response); // Suponiendo que la respuesta es true o false
@@ -128,6 +148,7 @@ function verificarcorreoElectronico(correoElectronico, callback) {
         }
     });
 }
+
 
 
 //CAMPOS VALIDACIONES
@@ -217,15 +238,15 @@ function ValidarcoContra(CuadroNumero) {
 
 //MOSTRAR LA TABLA DE LOS USUARIOS 
 
-function listarUsuario (){
+function listarUsuario() {
     $.ajax({
         url: url,
         type: "GET",
-        success: function (result){
+        success: function (result) {
             var cuerpoTabla = document.getElementById("cuerpoTabla");
             cuerpoTabla.innerHTML = "";
 
-            for (var i=0; i < result.length; i++ ){
+            for (var i = 0; i < result.length; i++) {
                 var trRegistro = document.createElement("tr");
                 trRegistro.innerHTML = `
                 <td>${result[i]["idUsuario"]}</td>
@@ -238,10 +259,10 @@ function listarUsuario (){
                     <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idUsuario"]}"></i>
                 </td>
             `;
-            cuerpoTabla.appendChild(trRegistro);
+                cuerpoTabla.appendChild(trRegistro);
             }
         },
-        error: function(error){
+        error: function (error) {
             alert("ERROR en la petición" + error);
         }
     });
@@ -249,17 +270,17 @@ function listarUsuario (){
 
 //FILTOS
 
-function FiltrarnombreCompleto(nombreCompleto){
+function FiltrarnombreCompleto(nombreCompleto) {
     if (nombreCompleto == '') {
         listarUsuario();
-    } else{
+    } else {
         $.ajax({
             url: "http://localhost:8080/api/v1/Usuario/FiltrarnombreCompleto/" + nombreCompleto,
             type: "GET",
-            success: function (result){
+            success: function (result) {
                 var cuerpoTabla = document.getElementById("cuerpoTabla");
-                cuerpoTabla.innerHTML="";
-                for(var i = 0; i < result.length; i++){
+                cuerpoTabla.innerHTML = "";
+                for (var i = 0; i < result.length; i++) {
                     var trRegistro = document.createElement("tr");
                     trRegistro.innerHTML = `
                         <td>${result[i]["idUsuario"]}</td>
@@ -276,7 +297,7 @@ function FiltrarnombreCompleto(nombreCompleto){
                     cuerpoTabla.appendChild(trRegistro);
                 }
             },
-            error: function (error){
+            error: function (error) {
                 alert("ERROR en la petición" + error);
             }
         });
@@ -284,17 +305,17 @@ function FiltrarnombreCompleto(nombreCompleto){
 
 }
 
-function FiltrarcorreoElectronico(correoElectronico){
+function FiltrarcorreoElectronico(correoElectronico) {
     if (correoElectronico == '') {
         listarUsuario();
-    } else{
+    } else {
         $.ajax({
             url: "http://localhost:8080/api/v1/Usuario/FiltrarcorreoElectronico/" + correoElectronico,
             type: "GET",
-            success: function (result){
+            success: function (result) {
                 var cuerpoTabla = document.getElementById("cuerpoTabla");
-                cuerpoTabla.innerHTML="";
-                for(var i = 0; i < result.length; i++){
+                cuerpoTabla.innerHTML = "";
+                for (var i = 0; i < result.length; i++) {
                     var trRegistro = document.createElement("tr");
                     trRegistro.innerHTML = `
                         <td>${result[i]["idUsuario"]}</td>
@@ -311,7 +332,7 @@ function FiltrarcorreoElectronico(correoElectronico){
                     cuerpoTabla.appendChild(trRegistro);
                 }
             },
-            error: function (error){
+            error: function (error) {
                 alert("ERROR en la petición" + error);
             }
         });
@@ -342,7 +363,7 @@ function FiltrarcorreoElectronico(correoElectronico){
 
 var idUsuario = "";
 
-$(document).on("click", ".Eliminar", function() {
+$(document).on("click", ".Eliminar", function () {
     var idUsuario = $(this).data("id"); //PENDIENTE CAMBIARLO SINO FUNCIONA
     Swal.fire({
         title: '¿Estás seguro?',
@@ -356,8 +377,8 @@ $(document).on("click", ".Eliminar", function() {
         if (result.isConfirmed) {
             $.ajax({
                 url: url + "Eliminar/" + idUsuario,
-                type:"DELETE",
-                success: function(Eliminar){
+                type: "DELETE",
+                success: function (Eliminar) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -366,8 +387,8 @@ $(document).on("click", ".Eliminar", function() {
                         timer: 1500
                     });
                     listarUsuario();
-                }, 
-                error: function(xhr,status, error ){
+                },
+                error: function (xhr, status, error) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
@@ -380,30 +401,30 @@ $(document).on("click", ".Eliminar", function() {
 });
 
 
-$(document).on("click", ".Editar", function(){
+$(document).on("click", ".Editar", function () {
     // Limpiar();
     idUsuario = $(this).data("id");
     $.ajax({
         url: url + idUsuario,
         type: "GET",
-        success: function (Usuario){
-            document.getElementById("nombreCompleto").value=Usuario.nombreCompleto;
-            document.getElementById("correoElectronico").value=Usuario.correoElectronico;
-            document.getElementById("contra").value=Usuario.contra;
-            document.getElementById("coContra").value=Usuario.coContras;
-            $('#exampleModal').modal('show');
+        success: function (Usuario) {
+            document.getElementById("nombreCompleto").value = Usuario.nombreCompleto;
+            document.getElementById("correoElectronico").value = Usuario.correoElectronico;
+            document.getElementById("contra").value = Usuario.contra;
+            document.getElementById("coContra").value = Usuario.coContra;
+            $('#editUserModal').modal('show');
         },
-        error: function(error){
+        error: function (error) {
             alert("Error al obtener los datos del usuario: " + error.statusText);
         }
     });
 });
 
-function ConsultarUsuario(id){
+function ConsultarUsuario(id) {
     $.ajax({
         url: url + id,
-        type:"GET",
-        success: function (result){
+        type: "GET",
+        success: function (result) {
             document.getElementById("nombreCompleto").value = result["nombreCompleto"];
             document.getElementById("correoElectronico").value = result["correoElectronico"];
             document.getElementById("contra").value = result["contra"];
@@ -412,7 +433,7 @@ function ConsultarUsuario(id){
     });
 }
 
-function ActualizarUsuario(){
+function ActualizarUsuario() {
     var idUsuario = document.getElementById("idUsuario").value;
     let formData = {
         "nombreCompleto": document.getElementById("nombreCompleto").value,
@@ -421,12 +442,12 @@ function ActualizarUsuario(){
         "coContra": document.getElementById("coContra").value
     };
 
-    if(ValidarCampos){
+    if (ValidarCampos) {
         $.ajax({
             url: url + idUsuario,
             type: "PUT",
             data: formData,
-            success: function (result){
+            success: function (result) {
                 Swal.fire({
                     title: "¡Excelente!",
                     text: "Se guardó correctamente",
@@ -434,7 +455,7 @@ function ActualizarUsuario(){
                 });
                 listarUsuario();
             },
-            error: function (error){
+            error: function (error) {
                 Swal.fire({
                     title: "¡Error!",
                     text: "No se guardó",
@@ -443,7 +464,7 @@ function ActualizarUsuario(){
             }
 
         });
-    } else{
+    } else {
         Swal.fire({
             title: "¡Error!",
             text: "Llene todos los campos correctamente",

@@ -1,5 +1,8 @@
 package com.turismo.turismo.Controller;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +38,17 @@ public class usuarioController {
         if (Usuario.getCorreoElectronico().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
+        
+        String correoElectronico = Usuario.getCorreoElectronico();
+        // Expresión regular para validar el correo electrónico
+        String emailRegex = "^[^\\s@]+@[^\\s@]+\\.(com|es|org|net)$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(correoElectronico);
+
+        if (!matcher.matches()) {
+            return new ResponseEntity<>("Esto no es un correo electrónico válido", HttpStatus.BAD_REQUEST);
+        }
+
         // VERIFICA SI EL CORREO ELECTRONICO YA SÉ ENCUENTRA EN NUESTRA BASE DE DATOS
         if (usuarioService.findBycorreoElectronico(Usuario.getCorreoElectronico()).isPresent()) {
             return new ResponseEntity<>("El correo electrónico ya está registrado", HttpStatus.BAD_REQUEST);
@@ -74,14 +88,14 @@ public class usuarioController {
         mensaje.setEstado("success");
         mensaje.setMensaje("");
 
-        if (contra.length() < 8 || contra.length() > 16) {
+        if (contra.length() < 8 || contra.length() > 25) {
             mensaje.setEstado("error");
             mensaje.setMensaje("La contraseña es inferior a 8 caracteres");
         }
 
-        if (contra.length() > 16) {
+        if (contra.length() > 25) {
             mensaje.setEstado("error");
-            mensaje.setMensaje("La contraseña es mayor a 16 caracteres");
+            mensaje.setMensaje("La contraseña es mayor a 25 caracteres");
         }
 
         // Validación de números
@@ -155,7 +169,7 @@ public class usuarioController {
     }
 
     @DeleteMapping("/Eliminar/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id){
+    public ResponseEntity<Object> delete(@PathVariable String id) {
         usuarioService.delete(id);
         return new ResponseEntity<>("Registro Eliminado", HttpStatus.OK);
     }
