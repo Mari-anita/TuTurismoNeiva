@@ -49,8 +49,6 @@ function registroUsuario() {
     var contra = document.getElementById("contra");
     var coContra = document.getElementById("coContra");
 
-
-
     if (!ValidarnombreCompleto(nombreCompleto) ||
         !ValidarcorreoElectronico(correoElectronico) ||
         !Validarcontra(contra) ||
@@ -62,6 +60,28 @@ function registroUsuario() {
         });
         return;
     }
+
+    // Validación del correo electrónico
+    if (!validarCorreoElectronico(correoElectronico.value)) {
+        return;
+    }
+
+    // Validaciones de la contraseña
+    var resultadoValidacion = validarContrasena(contra.value);
+    if (resultadoValidacion.estado === "error") {
+        return;
+    }
+
+    if (contra.value !== coContra.value) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Las contraseñas no coinciden",
+        });
+        return;
+    }
+
+
 
     var forData = {
         "nombreCompleto": nombreCompleto.value,
@@ -131,6 +151,86 @@ function registroUsuario() {
 
 
 //VALIDACIONES
+
+function validarCorreoElectronico(correoElectronico) {
+    // Expresión regular para validar el correo electrónico
+    var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/;
+    if (!emailRegex.test(correoElectronico)) {
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "No lo sé Rick, tu correo electronico parece falso",
+        });
+        return false;
+    }
+    return true;
+}
+
+
+function validarContrasena(contra) {
+    let estado = "success";
+    let mensaje = "";
+
+    if (contra.length < 8 || contra.length > 25) {
+        estado = "error";
+        mensaje = "La contraseña debe tener entre 8 y 25 caracteres";
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: mensaje,
+        });
+        return { estado, mensaje };
+    }
+
+    if (!/\d/.test(contra)) {
+        estado = "error";
+        mensaje = "La contraseña debe contener al menos un número";
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: mensaje,
+        });
+        return { estado, mensaje };
+    }
+
+    if (!/[A-Z]/.test(contra)) {
+        estado = "error";
+        mensaje = "La contraseña debe contener al menos una letra mayúscula";
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: mensaje,
+        });
+        return { estado, mensaje };
+    }
+
+    if (!/[a-z]/.test(contra)) {
+        estado = "error";
+        mensaje = "La contraseña debe contener al menos una letra minúscula";
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: mensaje,
+        });
+        return { estado, mensaje };
+    }
+
+    const simbolosPermitidos = /[@.$%&]/;
+    if (!simbolosPermitidos.test(contra)) {
+        estado = "error";
+        mensaje = "La contraseña debe contener al menos uno de los siguientes símbolos: @, ., $, %, &";
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: mensaje,
+        });
+        return { estado, mensaje };
+    }
+
+    mensaje = "La contraseña es válida";
+    return { estado, mensaje };
+}
+
 
 //VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
