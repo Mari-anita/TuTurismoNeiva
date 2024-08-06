@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Usuarios Registrados</title>
+    <title>Imágenes Registrados</title>
     <link rel="stylesheet" href="/Front-end/Css/bootstrap.css">
-    <link rel="stylesheet" href="../Css/CurdListaUsuario.css">
+    <link rel="stylesheet" href="../Css/CrudListaImagenes.css">
     <script src="../Js/bootstrap.js"></script>
     <link rel="stylesheet" href="/Front-end/Css/bootstrap.css">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -20,7 +20,7 @@
     <script src="../Js/LoginRegistro.js"></script>
 </head>
 
-<body onload="listarUsuario()">
+<body onload="listarImagen()">
     <div class="container" style="padding-left: 0; margin-left: 0">
         <div class="sidebar">
             <a href="/Front-end/index.html"><li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
@@ -36,7 +36,7 @@
                 <br>
                 <div class="icono">
                     <li class="nav"><box-icon name='user' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%;"><a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a></li>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%;"><a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon size="100px"></box-icon></li>
@@ -52,19 +52,20 @@
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='images' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"> <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html"> Imágenes</a></li>
+                    <li class="nav-item nav-link active " style="display: flex; align-items: center; width: 100%; height: 7%"> <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html"> Imágenes</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a></li>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a></li>
                 </div>
+            </ul>
             </ul>
         </div>
         <div class="content">
 
             <div class=" mb-3" style="display: flex; margin: left 20%; ">
-                <h2 >Usuarios Registrados</h2>
-                <div class="input-group" style="width: 40%; margin: 0% 0% 0% 20%">
+                <h2 >Imágenes Registradas</h2>
+                <div class="input-group" style="width: 39%; margin: 0% 0% 0% 20%">
                     <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...."aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li></button>
                 </div>
@@ -72,11 +73,9 @@
             <table class=" table table-hover table-striped ">
                 <div class="colorTabla">
                     <tr>
-                        <th class="Center">ID</th>
-                        <th class="Center">Nombre Completo</th>
-                        <th class="Center">Correo Electronico</th>
-                        <th class="Center">Contraseña</th>
-                        <th class="Center">Confirmar Contraseña</th>
+                        <th class="Center">Id imagen</th>
+                        <th class="Center">Id sitio / monumento</th>
+                        <th class="Center">Imagen</th>
                         <th class="Center">Acciones</th>
                     </tr>
                 </div>
@@ -85,8 +84,6 @@
             </table>
         </div>
     </div>
-    <script src="/Front-end/Js/MonumentoDy.js"></script>
-    <script src="/Front-end/Js/LoginRegistro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

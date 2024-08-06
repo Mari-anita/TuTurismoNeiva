@@ -74,6 +74,7 @@ span {
   background-image: url("");
   transform: rotateY(320deg) translateZ(430px); }
 
+  
 @keyframes rotate360 {
   from {
     transform: rotateY(0deg);
@@ -134,13 +135,13 @@ span {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-3 mb-lg-0" style="margin-left: 56%;">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
               <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
               <div class="dropdown-content" style="justify-content: center;">
-              <a href="/Front-end/html/sitiosTuristicos.html">Sitios Turísticos</a>
-              <a href="/Front-end/html/MonumentoDy.html">Monumentos</a>
+                <a href="/Front-end/html/sitiosTuristicos.html">Sitios Turísticos</a>
+                <a href="/Front-end/html/MonumentoDy.html">Monumentos</a>
               </div>
             </div>
           </li>
@@ -151,32 +152,28 @@ span {
             <a class="nav-link" href="#" style="color: white; font-size: 25px"><b>Contacto</b></a>
           </li>
           <li class="nav-item" style=" margin-top: 1.5%;">
-            
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
           </li>
-          <li class="nav-item" style="margin-top: 1.5%;">
-            <div class="dropdown">
-              <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
-              <div class="dropdown-content" style="justify-content: center;">
+          <li class="nav-item dropdown" style="margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
+            <div class="dropdown-content" style="justify-content: center;">
               <a href="#">Español</a>
               <a href="#">Inglés</a>
-              </div>
             </div>
           </li>
-          <li class="nav-item" style=" margin-top: 1.5%;">
-            <div class="dropdown">
-              <button class="dropbtn btn" style="color: white; font-size: 25px"><b><box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon></b></button>
-              <div class="dropdown-content" style="justify-content: center;">
+          <li class="nav-item dropdown" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px"><b><box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon></b></button>
+            <div class="dropdown-content" style="justify-content: center;">
               <a href="../Front-end/html/RegistroUsuario.html">Iniciar Sesión</a>
               <a href="../Front-end/html/RegistroUsuario.html">Registrarse</a>
               <a href="#">Ayuda</a>
-              </div>
             </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  
   <div class="container-fluid" style="background-color:white;padding: 12%;">
     <div class="row">
       <div class="col-6">
@@ -203,20 +200,40 @@ span {
       <h1 style="color: white; text-align: center; margin-top: 3%; width: 40%; margin-left: 30%; font-size: 40px"><b>Sitios turísticos y monumentos de Neiva más visitados</b></h1>
       <div class="container">
         <div class="carousel">
-          <div class="carousel__face"><span style="color: white;">Centro de Convenciones</span></div>
-          <div class="carousel__face"><span style="color: white;">Amantes</span></div>
-          <div class="carousel__face"><span style="color: white;">Luna Roja</span></div>
-          <div class="carousel__face"><span style="color: white;">Los potros</span></div>
-          <div class="carousel__face"><span style="color: white;">El Mohán</span></div>
-          <div class="carousel__face" style="color: white;"><span>La Gaitana</span></div>
-          <div class="carousel__face" style="color: white;"><span>La catedral</span></div>
-          <div class="carousel__face" style="color: white;"><span>Parque Santander</span></div>
-          <div class="carousel__face" style="color: white;"><span>Parque Leesburg</span></div>
+          <div class="carousel__face">
+            <img src="./Img/bailando en la gaitana.png" alt="Centro de Convenciones" style="width: 100%;">
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/puente.jpg" alt="Amantes" style="width: 100%;">
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/ferrocarril.jpg" alt="Luna Roja" style="width: 100%;">
+
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/obrero.jpg" alt="Los potros" style="width: 100%;">
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/madre_tierra.JPG" alt="El Mohán" style="width: 100%;">
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/me_llevaras_en_ti.jpg" alt="La Gaitana" style="width: 100%;">
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/parque_niños.jpg" alt="La catedral" style="width: 100%;">
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/caracoli.jpg" alt="Parque Santander" style="width: 100%;">
+          </div>
+          <div class="carousel__face">
+            <img src="./Img/malecon.jpg" alt="Parque Leesburg" style="width: 100%;">
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!--Neiva-Huila-->
 <div class="container-fluid" style="background-color: #262930; margin-top: 25%">
@@ -263,16 +280,21 @@ span {
 <!--Footer-->
 <div class="container-fluid">
   <footer class="py-3">
-    <ul class="nav border-bottom mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-1" ><box-icon name='phone' type='solid' color='#ffffff' ></box-icon></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-1"><box-icon name='gmail' type='logo' color='#ffffff' ></box-icon></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-1"><box-icon name='instagram' type='logo' color='#ffffff' ></box-icon></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-3" style="color: white;"><b>Términos y condiciones</b></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-3" style="color: white;"><b>Política de privacidad</b></a></li>
+    <ul class="nav border-bottom mb-3 justify-content-between">
+      <div class="d-flex">
+        <li class="nav-item"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
+        <li class="nav-item"><a class="nav-link px-1"><box-icon name='phone' type='solid' color='#ffffff'></box-icon></a></li>
+        <li class="nav-item"><a class="nav-link px-1"><box-icon name='gmail' type='logo' color='#ffffff'></box-icon></a></li>
+        <li class="nav-item"><a class="nav-link px-1"><box-icon name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+      </div>
+      <div class="d-flex">
+        <li class="nav-item"><a href=".." class="nav-link px-2" style="color: white;"><b>Términos y condiciones</b></a></li>
+        <li class="nav-item"><a href=".." class="nav-link px-2" style="color: white;"><b>Política de privacidad</b></a></li>
+      </div>
     </ul>
-    <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva </p>
+    <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
   </footer>
 </div>
+
 </body>
 </html>

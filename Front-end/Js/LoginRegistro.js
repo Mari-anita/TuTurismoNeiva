@@ -229,7 +229,7 @@ function listarUsuario (){
                 var trRegistro = document.createElement("tr");
                 trRegistro.innerHTML = `
                 <td>${result[i]["idUsuario"]}</td>
-                <td class="text-center align-middle">${result[i]["nombreCompeto"]}</td>
+                <td class="text-center align-middle">${result[i]["nombreCompleto"]}</td>
                 <td class="text-center align-middle">${result[i]["correoElectronico"]}</td>
                 <td class="text-center align-middle">${result[i]["contra"]}</td>
                 <td class="text-center align-middle">${result[i]["coContra"]}</td>

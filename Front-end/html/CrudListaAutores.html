@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Usuarios Registrados</title>
+    <title>Autores Registrados</title>
     <link rel="stylesheet" href="/Front-end/Css/bootstrap.css">
-    <link rel="stylesheet" href="../Css/CurdListaUsuario.css">
+    <link rel="stylesheet" href="../Css/CrudListaAutores.css">
     <script src="../Js/bootstrap.js"></script>
     <link rel="stylesheet" href="/Front-end/Css/bootstrap.css">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -16,18 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="../Js/LoginRegistro.js"></script>
 </head>
 
-<body onload="listarUsuario()">
+<body>
     <div class="container" style="padding-left: 0; margin-left: 0">
         <div class="sidebar">
-            <a href="/Front-end/index.html"><li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
-                color='#ffbd59' size="30px"></box-icon></li></a>
-            
-            <li class="nav " style="align-items: center; width: 100%; height: 7%; margin-left: 30%"><box-icon
-                    name='user-circle' type='solid' color='#ffbd59' size="100px"></box-icon></li>
+            <li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle' color='#ffbd59' size="30px"></box-icon></li>
+            <li class="nav " style="align-items: center; width: 100%; height: 7%; margin-left: 30%"><box-icon name='user-circle' type='solid' color='#ffbd59' size="100px"></box-icon></li>
             <br>
             <br>
             <br>
@@ -36,7 +31,7 @@
                 <br>
                 <div class="icono">
                     <li class="nav"><box-icon name='user' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%;"><a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a></li>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%;"><a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon size="100px"></box-icon></li>
@@ -44,7 +39,7 @@
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='book' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a></li>
+                    <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='chat' color='#ffffff'></box-icon size="100px"></li>
@@ -59,46 +54,51 @@
                     <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a></li>
                 </div>
             </ul>
+            </ul>
         </div>
         <div class="content">
 
             <div class=" mb-3" style="display: flex; margin: left 20%; ">
-                <h2 >Usuarios Registrados</h2>
-                <div class="input-group" style="width: 40%; margin: 0% 0% 0% 20%">
+                <h2 >Autores Registrados</h2>
+                <div class="input-group" style="width: 38%; margin: 0% 0% 0% 20%">
                     <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...."aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li></button>
                 </div>
             </div>
+
+            <!-- <div class="form-actions" style="padding-top:7%">
+                <button type="button" class="btn btn-success ">Agregar</button>
+            </div> -->
             <table class=" table table-hover table-striped ">
                 <div class="colorTabla">
                     <tr>
-                        <th class="Center">ID</th>
-                        <th class="Center">Nombre Completo</th>
-                        <th class="Center">Correo Electronico</th>
-                        <th class="Center">Contraseña</th>
-                        <th class="Center">Confirmar Contraseña</th>
-                        <th class="Center">Acciones</th>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Fecha nacimiento</th>
+                        <th>Fecha difusión</th>
+                        <th>Biografia</th>
+                        <th>Acciones</th>
                     </tr>
                 </div>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>acdfvsdv</td>
+                        <td>vdvsdv</td>
+                        <td>svdsvdvbd</td>
+                        <td>vsdvd</td>
+                        <td>
+                            <i class="fa-solid fa-eye"></i>
+                            <i class="fa-solid fa-trash" style="color: #dc041a;"></i>
+                        </td>
+                    </tr>
+                </tbody>
                 <tbody id="cuerpoTabla"></tbody>
                 <!-- Las filas de la tabla se agregarán dinámicamente con JavaScript -->
             </table>
+            <button href="./CrudRegistrarAutor.html" type="button" class="btn btn-success " style="margin: 0% 0% 0% 117%;  " >Agregar</button>
         </div>
     </div>
-    <script src="/Front-end/Js/MonumentoDy.js"></script>
-    <script src="/Front-end/Js/LoginRegistro.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-        
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 
 </html>
