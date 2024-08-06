@@ -16,6 +16,7 @@ import com.turismo.turismo.interfaceService.IempresaService;
 import com.turismo.turismo.models.Empresa;
 
 
+
 @RequestMapping("/api/v1/Empresa/")
 @RestController
 public class empresaController {
@@ -25,6 +26,38 @@ public class empresaController {
 
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Empresa") Empresa Empresa){
+        //Validaciones
+        if (Empresa.getNombreEmpresa().equals("")) {
+            return new ResponseEntity<>("El campo nombre de empresa es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Empresa.getCorreoElectronico().equals("")) {
+            return new ResponseEntity<>("El campo correo electronico es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Empresa.getTipoEmpresa().equals("")){
+            return new ResponseEntity<>("El campo tipo empresa es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if(Empresa.getNombreRepresentante().equals("")){
+            return new ResponseEntity<>("El campo nombre representante es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Empresa.getDireccion().equals("")){
+            return new ResponseEntity<>("El campo direccion es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Empresa.getServicios().equals("")){
+            return new ResponseEntity<>("El campo servicios es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if(Empresa.getNit().equals("")){
+            return new ResponseEntity<>("El campo nit es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if(Empresa.getTelefono().equals("")){
+            return new ResponseEntity<>("El campo teléfono es obligatorio",HttpStatus.BAD_REQUEST);
+        }
 
         empresaService.save(Empresa);
         return new ResponseEntity<>(Empresa, HttpStatus.OK);
