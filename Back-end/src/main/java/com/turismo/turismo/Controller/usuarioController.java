@@ -180,6 +180,7 @@ public class usuarioController {
         if (Usuario != null) {
             Usuario.setNombreCompleto(UsuarioUpdate.getNombreCompleto());
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
+            Usuario.setTelefono(UsuarioUpdate.getTelefono());
             Usuario.setContra(UsuarioUpdate.getContra());
             Usuario.setCoContra(UsuarioUpdate.getCoContra());
             usuarioService.save(Usuario);
