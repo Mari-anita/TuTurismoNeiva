@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.turismo.turismo.interfaceService.IempresaService;
 import com.turismo.turismo.models.Empresa;
 
-
-
 @RequestMapping("/api/v1/Empresa/")
 @RestController
 public class empresaController {
