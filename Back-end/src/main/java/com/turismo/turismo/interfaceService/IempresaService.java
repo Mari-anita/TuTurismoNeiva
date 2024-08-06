@@ -12,6 +12,8 @@ public interface IempresaService {
 
     public Optional<Empresa> findOne(String id);
 
-    public int deleteForever(String id);
+    public Optional<Empresa> findBycorreoElectronico(String correoElectronico);
+
+    public boolean delete(String id);
 
 }

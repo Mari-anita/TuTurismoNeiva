@@ -1,5 +1,8 @@
 package com.turismo.turismo.Controller;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +34,21 @@ public class empresaController {
 
         if (Empresa.getCorreoElectronico().equals("")) {
             return new ResponseEntity<>("El campo correo electronico es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        String correoElectronico = Empresa.getCorreoElectronico();
+        //expresion para validar el correo
+        String emailRegex = "^[^\\s@]+@[^\\s@]+\\.(com|es|org|net)$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(correoElectronico);
+
+        if(!matcher.matches()){
+            return new ResponseEntity<>("Verifica tu correo electrónico parece no válido",HttpStatus.BAD_REQUEST);
+        }
+
+        //Verificar si el correo ya se encuentra registrado
+        if(empresaService.findBycorreoElectronico(Empresa.getCorreoElectronico()).isPresent()){
+            return new ResponseEntity<>("El correo electrónico ya se encuentra registrado",HttpStatus.BAD_REQUEST);
         }
 
         if (Empresa.getTipoEmpresa().equals("")){
@@ -68,9 +86,9 @@ public class empresaController {
     }
 
     @DeleteMapping("/eliminarPermanente/{id}")
-    public ResponseEntity<Object>deleteForever(@PathVariable String id){
-        empresaService.deleteForever(id);
-        return new ResponseEntity<>("Registro eliminado permanentemente",HttpStatus.OK);
+    public ResponseEntity<Object>delete(@PathVariable String id){
+        empresaService.delete(id);
+        return new ResponseEntity<>("Registro eliminado",HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

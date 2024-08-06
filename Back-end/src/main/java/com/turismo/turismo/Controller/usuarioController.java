@@ -46,7 +46,7 @@ public class usuarioController {
         Matcher matcher = pattern.matcher(correoElectronico);
 
         if (!matcher.matches()) {
-            return new ResponseEntity<>("Verifica tu correo electrónico parace no válido", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Verifica tu correo electrónico parece no válido", HttpStatus.BAD_REQUEST);
         }
 
         // VERIFICA SI EL CORREO ELECTRONICO YA SÉ ENCUENTRA EN NUESTRA BASE DE DATOS

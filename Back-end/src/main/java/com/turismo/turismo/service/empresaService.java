@@ -35,8 +35,19 @@ public class empresaService implements IempresaService {
     }
 
     @Override
-    public int deleteForever(String id){
-        data.deleteById(id);
-        return 1;
+    public Optional<Empresa> findBycorreoElectronico(String correoElectronico){
+        return data.findBycorreoElectronico(correoElectronico);
+    }
+
+  
+    @Override
+    public boolean delete(String id){
+         if(data.existsById(id)){
+            data.deleteById(id);
+            return true;
+        }else{
+            return false;
+
+        } 
     }
 }
