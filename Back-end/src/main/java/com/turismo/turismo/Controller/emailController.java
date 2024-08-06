@@ -50,7 +50,7 @@ public class emailController {
         + "    <p>Estimado/a [Nombre del Cliente],</p>"
         + "    <p>Hemos recibido tu solicitud para restablecer la contraseña de tu cuenta en Tuturismo Neiva. Para proceder con el cambio de contraseña, por favor sigue el enlace a continuación:</p>"
         + "    <p>[Enlace]</p>"
-        + "    <p>Este enlace es válido por [X horas] para garantizar la seguridad de tu cuenta. Si no solicitaste un cambio de contraseña, por favor ignora este mensaje.</p>"
+        + "    <p>Este enlace es válido por 15 minutos para garantizar la seguridad de tu cuenta. Si no solicitaste un cambio de contraseña, por favor ignora este mensaje.</p>"
         + "    <p>Gracias por utilizar Tuturismo Neiva.</p>";
         
             var retorno=enviarCorreo(destinatario,asunto,cuerpo);
