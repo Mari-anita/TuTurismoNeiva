@@ -134,3 +134,26 @@ tr:hover {
     margin-block: 10px;
 }
 
+.CIP { /*CAJA DEL INPUT CONTRASEÑA*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.CIP>i { /*OJO INPUT CONTRA*/
+    position: absolute;
+    /*POSICION DEL OJO DE CONTRASEÑA, ABSOLUTE PARA QUE QUEDE ENCIMA DEL INPUT*/
+    top: 70%;
+    /*HACE QUE BAJE EL 50% DE LA PARTE DE ARRIBA*/
+    right: 10px;
+    transform: translateY(-50%);
+    /*SUBE A LA MITAD*/
+    cursor: pointer;
+    color: #000000;
+    /* Color del icono */
+}
+
+/* GUARDAR CAMBIOS EDITAR */
+.GCE{ 
+    background-color: #FFBF59;
+}

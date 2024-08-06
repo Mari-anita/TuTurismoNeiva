@@ -1,9 +1,12 @@
 package com.turismo.turismo.Controller;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-// import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.turismo.turismo.interfaceService.IusuarioService;
 import com.turismo.turismo.models.Usuario;
+import com.turismo.turismo.models.mensaje;
 
 @RequestMapping("/api/v1/Usuario/")
 @RestController
@@ -34,11 +38,21 @@ public class usuarioController {
         if (Usuario.getCorreoElectronico().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
+        
+        String correoElectronico = Usuario.getCorreoElectronico();
+        // Expresión regular para validar el correo electrónico
+        String emailRegex = "^[^\\s@]+@[^\\s@]+\\.(com|es|org|net)$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(correoElectronico);
+
+        if (!matcher.matches()) {
+            return new ResponseEntity<>("Verifica tu correo electrónico parace no válido", HttpStatus.BAD_REQUEST);
+        }
+
         // VERIFICA SI EL CORREO ELECTRONICO YA SÉ ENCUENTRA EN NUESTRA BASE DE DATOS
         if (usuarioService.findBycorreoElectronico(Usuario.getCorreoElectronico()).isPresent()) {
             return new ResponseEntity<>("El correo electrónico ya está registrado", HttpStatus.BAD_REQUEST);
         }
-
 
         if (Usuario.getContra().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
@@ -48,14 +62,81 @@ public class usuarioController {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
 
-        // if (Usuario.getEstado().equals("")) {
-        //     return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
-        // }
-
+        if (!Usuario.getContra().equals(Usuario.getCoContra())) {
+            return new ResponseEntity<>("Las contraseñas no coinciden", HttpStatus.BAD_REQUEST);
+        }
+        var mensajeContrasena = validarContrasena(Usuario.getContra());
+        if (mensajeContrasena.getEstado() == "error") {
+            return new ResponseEntity<>(mensajeContrasena.getMensaje(), HttpStatus.BAD_REQUEST);
+        }
+        // antes guardar
         usuarioService.save(Usuario);
         return new ResponseEntity<>(Usuario, HttpStatus.OK);
     }
 
+    private mensaje validarContrasena(String contra) {
+        /*
+         * longitud minima= 8
+         * logitud maxima=16
+         * números minimo=1
+         * mayúscula=1
+         * minuscula=1
+         * simbolos=1
+         * simbolos aceptados=@,.$%&
+         */
+        var mensaje = new mensaje();
+        mensaje.setEstado("success");
+        mensaje.setMensaje("");
+
+        if (contra.length() < 8 || contra.length() > 25) {
+            mensaje.setEstado("error");
+            mensaje.setMensaje("La contraseña es inferior a 8 caracteres");
+        }
+
+        if (contra.length() > 25) {
+            mensaje.setEstado("error");
+            mensaje.setMensaje("La contraseña es mayor a 25 caracteres");
+        }
+
+        // Validación de números
+        if (!contra.matches(".*\\d.*")) {
+            mensaje.setEstado("error");
+            mensaje.setMensaje("La contraseña debe contener al menos un número");
+        }
+
+        // Validación de mayúscula
+        if (!contra.matches(".*[A-Z].*")) {
+            mensaje.setEstado("error");
+            mensaje.setMensaje("La contraseña debe contener al menos una letra mayúscula");
+            return mensaje;
+        }
+
+        // Validación de minúscula
+        if (!contra.matches(".*[a-z].*")) {
+            mensaje.setEstado("error");
+            mensaje.setMensaje("La contraseña debe contener al menos una letra minúscula");
+            return mensaje;
+        }
+
+        // Validación de símbolos
+        boolean tieneSimbolo = false;
+        char[] simbolosPermitidos = { '@', '.', '$', '%', '&' };
+
+        for (char simbolo : simbolosPermitidos) {
+            if (contra.indexOf(simbolo) != -1) {
+                tieneSimbolo = true;
+                break;
+            }
+        }
+
+        if (!tieneSimbolo) {
+            mensaje.setEstado("error");
+            mensaje.setMensaje("La contraseña debe contener al menos uno de los siguientes símbolos: @, ., $, %, &");
+        }
+
+        return mensaje;
+
+    }
 
     @GetMapping("/")
     public ResponseEntity<Object> findAll() {
@@ -87,23 +168,11 @@ public class usuarioController {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<Object> delete(@PathVariable String id) {
-    //     var Usuario = usuarioService.findOne(id).get();
-    //     if (Usuario != null) {
-    //         if (Usuario.getEstado().equals("H")) {
-    //             Usuario.setEstado("D");
-    //             usuarioService.save(Usuario);
-    //             return new ResponseEntity<>("Se ha desabilitado correctamente", HttpStatus.OK);
-    //         } else
-    //             Usuario.setEstado("H");
-    //         usuarioService.save(Usuario);
-    //         return new ResponseEntity<>("Se ha habilitado correctamente", HttpStatus.OK);
-    //     } else {
-    //         return new ResponseEntity<>("No se encontro registro", HttpStatus.OK);
-    //     }
-    // }
-
+    @DeleteMapping("/Eliminar/{id}")
+    public ResponseEntity<Object> delete(@PathVariable String id) {
+        usuarioService.delete(id);
+        return new ResponseEntity<>("Registro Eliminado", HttpStatus.OK);
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("Usuario") Usuario UsuarioUpdate) {
@@ -113,8 +182,6 @@ public class usuarioController {
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
             Usuario.setContra(UsuarioUpdate.getContra());
             Usuario.setCoContra(UsuarioUpdate.getCoContra());
-            // Usuario.setEstado(UsuarioUpdate.getEstado());
-            // Usuario.setMayorYmenor(UsuarioUpdate.isMayorYmenor());
             usuarioService.save(Usuario);
             return new ResponseEntity<>(Usuario, HttpStatus.OK);
 

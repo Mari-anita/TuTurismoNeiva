@@ -30,6 +30,10 @@ public class Comentarios {
     @JoinColumn(name ="idUsuario")
     private Usuario Usuario;
 
+    @ManyToOne
+    @JoinColumn(name = "idSitioMonumento")
+    private SitioMonumento SitioMonumento;
+
     @Column(name = "comentario", nullable = false, length = 36)
     private String comentario;
 
