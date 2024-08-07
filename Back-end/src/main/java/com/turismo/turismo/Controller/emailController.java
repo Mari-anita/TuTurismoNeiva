@@ -19,23 +19,23 @@ public class emailController {
     @GetMapping("/enviar-correo-registro")
     public String enviarCorreoRegistro() {
        try{
-        String destinatario="tuturismoneiva@gmail.com";
-        String asunto="¡Bienvenid@ a TuTurismo Neiva!";
-        String cuerpo=""
-        + "    <p>Nos complace darte la bienvenida a TuTurismo Neiva, la plataforma ideal para descubrir los encantos de Neiva.</p>"
-        + "    <p>En TuTurismoNeiva encontrarás todo lo que necesitas para conocer la cultura Neivana, desde información sobre lugares de interés y su ubicación.</p>"
-        + "    <p>¡Estamos seguros de que TuTurismo Neiva te ayudará a vivir una experiencia inolvidable en Neiva!</p>"
-        + "    <p>¡No dudes en contactarnos si tienes alguna pregunta!</p>"
-        + "    <p>Gracias por unirte a nosotros.No olvides seguirnos en nuestras redes sociales.</p>";
+            String destinatario="tuturismoneiva@gmail.com";
+            String asunto="¡Bienvenid@ a TuTurismo Neiva!";
+            String cuerpo=""
+            + "    <p>Nos complace darte la bienvenida a TuTurismo Neiva, la plataforma ideal para descubrir los encantos de Neiva.</p>"
+            + "    <p>En TuTurismoNeiva encontrarás todo lo que necesitas para conocer la cultura Neivana, desde información sobre lugares de interés y su ubicación.</p>"
+            + "    <p>¡Estamos seguros de que TuTurismo Neiva te ayudará a vivir una experiencia inolvidable en Neiva!</p>"
+            + "    <p>¡No dudes en contactarnos si tienes alguna pregunta!</p>"
+            + "    <p>Gracias por unirte a nosotros.No olvides seguirnos en nuestras redes sociales.</p>";
         
             var retorno=enviarCorreo(destinatario,asunto,cuerpo);
             if(retorno) {
                 return "se envió correctamente";
             }else {
-                return "No se pudo envíar";
+                    return "No se pudo envíar";
             }
 
-            }catch (Exception e) {
+        }catch (Exception e) {
             // TODO: handle exception
             return "Error al envíar "+e.getMessage();
         }
