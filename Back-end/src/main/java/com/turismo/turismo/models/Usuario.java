@@ -28,19 +28,11 @@ public class Usuario {
     @Column(name = "correoElectronico", nullable = false, length = 100)
     private String correoElectronico;
 
-    @Column(name = "telefono", nullable = false, length = 15)
-    private String telefono;
-
     @Column(name = "contra", nullable = false, length = 36)
     private String contra;
 
     @Column(name = "coContra", nullable = false, length = 36)
     private String coContra;
-
-    // Expresión regular para validar la contraseña (al menos 8 caracteres, con
-    // números y letras)
-    // private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$";
-
     
 
 }

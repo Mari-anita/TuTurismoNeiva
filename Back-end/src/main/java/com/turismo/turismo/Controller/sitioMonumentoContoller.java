@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class sitioMonumentoContoller {
     private IsitioMonumentoService sitioMonumentoService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save(@ModelAttribute("SitioMonumento") SitioMonumento SitioMonumento) {
+    public ResponseEntity<Object> save(@RequestBody SitioMonumento SitioMonumento) {
 
         // VALIDACIONES
 
@@ -87,7 +88,7 @@ public class sitioMonumentoContoller {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable String id,
-            @ModelAttribute("SitioMonumento") SitioMonumento SitioMonumentoUpdate) {
+            @RequestBody SitioMonumento SitioMonumentoUpdate) {
         var SitioMonumento = sitioMonumentoService.findOne(id).get();
         if (SitioMonumento != null) {
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,7 @@ public class usuarioController {
     private IusuarioService usuarioService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save(@ModelAttribute("Usuario") Usuario Usuario) {
+    public ResponseEntity<Object> save(@RequestBody Usuario Usuario) {
 
         // VALIDACIONES
 
@@ -175,12 +176,11 @@ public class usuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("Usuario") Usuario UsuarioUpdate) {
+    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody Usuario UsuarioUpdate) {
         var Usuario = usuarioService.findOne(id).get();
         if (Usuario != null) {
             Usuario.setNombreCompleto(UsuarioUpdate.getNombreCompleto());
             Usuario.setCorreoElectronico(UsuarioUpdate.getCorreoElectronico());
-            Usuario.setTelefono(UsuarioUpdate.getTelefono());
             Usuario.setContra(UsuarioUpdate.getContra());
             Usuario.setCoContra(UsuarioUpdate.getCoContra());
             usuarioService.save(Usuario);

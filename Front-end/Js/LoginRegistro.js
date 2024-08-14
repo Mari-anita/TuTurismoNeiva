@@ -83,7 +83,7 @@ function registroUsuario() {
 
 
 
-    var forData = {
+    var formData = {
         "nombreCompleto": nombreCompleto.value,
         "correoElectronico": correoElectronico.value,
         "contra": contra.value,
@@ -115,8 +115,8 @@ function registroUsuario() {
             if (ValidarCampos()) {
                 $.ajax({
                     url: urlLocal,
-                    type: metodo,
-                    data: forData,
+                    contentType:"application/json",
+                    data: JSON.stringify(formData),
                     success: function (response) {
                         Swal.fire({
                             title: "Éxito",
