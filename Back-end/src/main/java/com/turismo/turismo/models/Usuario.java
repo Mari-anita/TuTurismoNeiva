@@ -33,6 +33,11 @@ public class Usuario {
 
     @Column(name = "coContra", nullable = false, length = 36)
     private String coContra;
+
+    // Expresión regular para validar la contraseña (al menos 8 caracteres, con
+    // números y letras)
+    // private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$";
+
     
 
 }

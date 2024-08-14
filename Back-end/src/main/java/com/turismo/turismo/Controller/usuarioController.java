@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,7 +19,7 @@ import com.turismo.turismo.interfaceService.IusuarioService;
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.models.mensaje;
 
-@RequestMapping("/api/v1/Usuario/")
+@RequestMapping("/api/v1/Usuario")
 @RestController
 public class usuarioController {
 
