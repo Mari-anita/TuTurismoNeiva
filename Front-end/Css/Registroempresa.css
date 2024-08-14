@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-size: cover;
+    background-image: url(/Front-end/Img/Fondo.png);
+    justify-content: center;
+}
+
+< !--Nav-->.dropbtn {
+    background-color: #000000;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border-bottom: #3e8e41 1px solid;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+
+    display: none;
+    position: absolute;
+    background-color: #262930;
+    border-radius: 8px;
+    border: 1px solid rgb(173, 173, 173);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f160
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+div h1 {
+    text-align: center;
+    padding-bottom: 3%;
+    font-weight: bold;
+    color: white;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formulario {
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 5px;
+    width: 200%;
+}
+
+.back-button box-icon {
+    width: 35px;
+    /* Aumenta el ancho del ícono */
+    height: 35px;
+    /* Aumenta la altura del ícono */
+}
+
+
+.input-container {
+    display: flex;
+}
+
+label {
+    color: #ffffff;
+    /* Color del texto */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    margin-bottom: 0.0px;
+    /* Margen inferior para separar el texto del campo de entrada */
+    display: block;
+    /* Hacer que cada label ocupe una línea completa */
+    font-weight: bold;
+    /* Negrita */
+}
+
+.columna {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.input-container input,
+.input-container select {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+button {
+    width: 90%;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button {
+    background-color: #ff9900;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 250px;
+    margin: auto;
+
+}
+
+form button:hover {
+    background-color: #c27503;
+}
+
+
+/* .vfinal>a {
+    text-decoration: none;
+    color: #fff;
+} */
