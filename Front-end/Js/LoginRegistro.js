@@ -114,6 +114,13 @@ function registroUsuario() {
         } else {
             if (ValidarCampos()) {
                 $.ajax({
+                    //método de envío
+                    //POST
+                    //GET
+                    //DELETE
+                    //PUT
+                    //al no definir por defecto se realiza por GET
+                    type:metodo,
                     url: urlLocal,
                     contentType:"application/json",
                     data: JSON.stringify(formData),
