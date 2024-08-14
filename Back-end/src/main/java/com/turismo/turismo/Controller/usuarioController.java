@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.turismo.turismo.interfaceService.IusuarioService;
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.models.mensaje;
+import com.turismo.turismo.service.emailService;
 
 @RequestMapping("/api/v1/Usuario")
 @RestController
@@ -25,6 +26,9 @@ public class usuarioController {
 
     @Autowired
     private IusuarioService usuarioService;
+
+    @Autowired
+    private emailService emailService;
 
     @PostMapping("/")
     public ResponseEntity<Object> save(@RequestBody Usuario Usuario) {
@@ -71,6 +75,8 @@ public class usuarioController {
         }
         // antes guardar
         usuarioService.save(Usuario);
+        emailService.enviarCorreoBienvenida(Usuario.getCorreoElectronico());
+
         return new ResponseEntity<>(Usuario, HttpStatus.OK);
     }
 
