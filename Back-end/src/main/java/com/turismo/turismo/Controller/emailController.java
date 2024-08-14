@@ -45,7 +45,7 @@ public class emailController {
     public String enviarCorreoRecuperar() {
        try{
         String destinatario="tuturismoneiva@gmail.com";
-        String asunto="Instrucciones para Restablecer tu Contraseña en Tuturismo Neiva";
+        String asunto="Restablecer tu Contraseña en Tuturismo Neiva";
         String cuerpo=""
         + "    <p>Estimado/a [Nombre del Cliente],</p>"
         + "    <p>Hemos recibido tu solicitud para restablecer la contraseña de tu cuenta en Tuturismo Neiva. Para proceder con el cambio de contraseña, por favor sigue el enlace a continuación:</p>"
