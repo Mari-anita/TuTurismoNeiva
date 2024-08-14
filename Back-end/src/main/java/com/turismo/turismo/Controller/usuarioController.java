@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,7 @@ import com.turismo.turismo.interfaceService.IusuarioService;
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.models.mensaje;
 
-@RequestMapping("/api/v1/Usuario/")
+@RequestMapping("/api/v1/Usuario")
 @RestController
 public class usuarioController {
 
@@ -27,7 +28,7 @@ public class usuarioController {
     private IusuarioService usuarioService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save(@ModelAttribute("Usuario") Usuario Usuario) {
+    public ResponseEntity<Object> save(@RequestBody Usuario Usuario) {
 
         // VALIDACIONES
 
