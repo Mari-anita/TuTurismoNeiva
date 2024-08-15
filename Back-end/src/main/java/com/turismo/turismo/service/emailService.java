@@ -14,9 +14,9 @@ public class emailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public String enviarCorreoBienvenida(String destinatario){
+    public String enviarCorreoBienvenida(String destinatario, String nombreCompleto){
         try{
-            String asunto="¡Bienvenid@ a TuTurismo Neiva!";
+            String asunto="¡Bienvenid@  "+ nombreCompleto +"  a TuTurismo Neiva!";
             String cuerpo="" 
             + "<body style=\"font-family: Arial, sans-serif; \">\r\n"
             +"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js\"></script>"
@@ -25,8 +25,8 @@ public class emailService {
             + " <img src=\"https://i.postimg.cc/vTxcSyPm/logo.png\" alt=\"TuTurismoNeiva Logo\" style=\"max-width: 100px; margin-right: 90%;\">\r\n" 
             + "</div>\r\n" 
             + "<div class=\"content\" style=\" text-align: center; color: #333;\">\r\n" 
-            + "<h1 style=\"font-size: 24px; font-weight: bold; margin-bottom: 20px;\">¡Hola [nombre usuario]!</h1>\r\n" 
-            + "<p style=\"font-size: 16px; margin-bottom: 20px;\">Nos complace darte la bienvenida a TuTurismoNeiva, la plataforma ideal para descubrir los encantos de la ciudad de Neiva.En TuTurismoNeiva encontrarás todo lo que necesitas para conocer la cultura Neivana, desde información sobre lugares de interés hasta su ubicación. ¡Estamos seguros de que TuTurismoNeiva te ayudará a vivir una experiencia inolvidable en la ciudad! ¡No dudes en contactarnos si tienes alguna pregunta! Gracias por unirte a nosotros. No olvides seguirnos en nuestras redes sociales.</p>\r\n" 
+            + "<h1 style=\"font-size: 24px; font-weight: bold; margin-bottom: 20px;\">¡Hola " + nombreCompleto +  "!</h1>\r\n" 
+            + "<p style=\"font-size: 16px; margin-bottom: 20px;\"> Nos complace darte la bienvenida a TuTurismoNeiva, la plataforma ideal para descubrir los encantos de la ciudad de Neiva.En TuTurismoNeiva encontrarás todo lo que necesitas para conocer la cultura Neivana, desde información sobre lugares de interés hasta su ubicación. ¡Estamos seguros de que TuTurismoNeiva te ayudará a vivir una experiencia inolvidable en la ciudad! ¡No dudes en contactarnos si tienes alguna pregunta! Gracias por unirte a nosotros. No olvides seguirnos en nuestras redes sociales.</p>\r\n" 
             + "<br>TuTurismo Neiva\r\n" 
             + "</div>\r\n" 
             + "<div class=\"footer\" style=\"background-color: #333; color: #fff; padding: 10px; text-align: center; margin-top: 20px;\">\r\n" 

@@ -75,7 +75,7 @@ public class usuarioController {
         }
         // antes guardar
         usuarioService.save(Usuario);
-        emailService.enviarCorreoBienvenida(Usuario.getCorreoElectronico());
+        emailService.enviarCorreoBienvenida(Usuario.getCorreoElectronico(),Usuario.getNombreCompleto());
 
         return new ResponseEntity<>(Usuario, HttpStatus.OK);
     }
