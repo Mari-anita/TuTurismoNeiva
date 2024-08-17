@@ -206,7 +206,7 @@
     cursor: pointer;
     color: #ffffff;
     /* Color del icono */
-}
+}                                                                                               
 
 /*ANIMACION DE CONTRASEÑA*/
 @keyframes inputToggleAnimation {  /*HACE QUE EL INPUT HAGA SALTO AL UNDIR EN EL EYE*/
