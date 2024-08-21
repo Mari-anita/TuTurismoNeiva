@@ -40,7 +40,7 @@ function ValidarcorreoElectronico(correoElectronico) {
 
 //REGISTRAR USUARIO
 
-var url = "http://10.192.80.164:8080/api/v1/Usuario/";
+//var url = "http://10.192.80.164:8080/api/v1/Usuario/";
 var BRegistrarUsuario = true;
 
 function registroUsuario() {
@@ -96,7 +96,7 @@ function registroUsuario() {
 
     if (BRegistrarUsuario == true) {
         metodo = "POST";
-        urlLocal = url;
+        urlLocal = urlUsuario;
         textoimprimir = "Felicidades, Registrado con éxito!";
     } else {
         metodo = "PUT";
@@ -242,7 +242,8 @@ function validarContrasena(contra) {
 //VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
 function verificarcorreoElectronico(correoElectronico, callback) {
-    var url = 'http://10.192.80.164:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
+    //var url = 'http://10.192.80.164:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
+    var url = urlUsuario + 'existsBycorreoElectronico/' + correoElectronico;
     $.ajax({
         url: url,
         type: 'GET',
@@ -347,7 +348,7 @@ function ValidarcoContra(CuadroNumero) {
 
 function listarUsuario() {
     $.ajax({
-        url: url,
+        url: urlUsuario,
         type: "GET",
         success: function (result) {
             var cuerpoTabla = document.getElementById("cuerpoTabla");
@@ -382,7 +383,8 @@ function FiltrarnombreCompleto(nombreCompleto) {
         listarUsuario();
     } else {
         $.ajax({
-            url: "http://10.192.80.164:8080/api/v1/Usuario/FiltrarnombreCompleto/" + nombreCompleto,
+           // url: "http://10.192.80.164:8080/api/v1/Usuario/FiltrarnombreCompleto/" + nombreCompleto,
+            var url = urlUsuario + 'FiltrarnombreCompleto/'  + nombreCompleto;
             type: "GET",
             success: function (result) {
                 var cuerpoTabla = document.getElementById("cuerpoTabla");
