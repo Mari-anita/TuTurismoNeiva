@@ -150,15 +150,9 @@ public class usuarioController {
         return new ResponseEntity<>(ListaUsuario, HttpStatus.OK);
     }
 
-    @GetMapping("FiltrarnombreCompleto/{nombreCompleto}")
-    public ResponseEntity<Object> findnombreCompleto(@PathVariable String nombreCompleto) {
-        var listaUsuario = usuarioService.FiltrarnombreCompleto(nombreCompleto);
-        return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
-    }
-
-    @GetMapping("FiltrarcorreoElectronico/{correoElectronico}")
-    public ResponseEntity<Object> findcorreoElectronico(@PathVariable String correoElectronico) {
-        var listaUsuario = usuarioService.FiltrarcorreoElectronico(correoElectronico);
+    @GetMapping("Filtros/{filtros}")
+    public ResponseEntity<Object> findfiltros(@PathVariable String filtros) {
+        var listaUsuario = usuarioService.Filtros(filtros);
         return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
     }
 
