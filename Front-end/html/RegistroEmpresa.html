@@ -161,7 +161,7 @@
               />
             </div>
             <div class="columna2">
-              <label for="correo,">Correo electronico</label>
+              <label for="correo,">Correo electrónico</label>
               <input
                 class="regis"
                 type="email"
@@ -187,7 +187,7 @@
                   color: white;
                 "
               />
-              <label for="telefono,">Telefono</label>
+              <label for="telefono,">Teléfono</label>
               <input
                 class="regis"
                 type="number"
@@ -203,19 +203,26 @@
             </div>
 
             <div class="columna3">
-              <label for="tipo_empresa,">Tipo empresa</label>
-              <input
+              <label for="tipo_empresa">Tipo empresa</label>
+              <select
+                id="tipo_empresa"
                 class="regis"
-                type="text"
-                placeholder=""
                 required=""
                 style="
                   margin-top: 25px;
                   border-color: #ff9900;
                   background-color: #1c1c1c;
                   color: white;
+                  padding: 5px;
                 "
-              />
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="hotel">Hotel</option>
+                <option value="restaurante">Restaurante</option>
+                <option value="tienda">Tienda</option>
+                <option value="supermercado">Supermercado</option>
+              </select>
+
               <label for="servicios,">Servicios</label>
               <input
                 class="regis"
