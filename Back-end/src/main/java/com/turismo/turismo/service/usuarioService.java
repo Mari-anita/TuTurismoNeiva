@@ -35,14 +35,8 @@ public class usuarioService implements IusuarioService {
     }
 
     @Override
-    public List<Usuario> FiltrarcorreoElectronico(String correoElectronico) {  //FILTRAR POR CORREO
-        List<Usuario> ListaUsuario = data.FiltrarcorreoElectronico(correoElectronico);
-        return ListaUsuario;
-    }
-
-    @Override
-    public List<Usuario> FiltrarnombreCompleto(String nombreCompleto) {  //FILTRAR POR NOMBRE COMPLETO
-        List<Usuario> ListaUsuario = data.FiltrarnombreCompleto(nombreCompleto);
+    public List<Usuario> Filtros(String filtros) {  //FILTRAR POR NOMBRE COMPLETO
+        List<Usuario> ListaUsuario = data.Filtros(filtros);
         return ListaUsuario;
     }
 
