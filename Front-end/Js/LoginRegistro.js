@@ -40,7 +40,6 @@ function ValidarcorreoElectronico(correoElectronico) {
 
 //REGISTRAR USUARIO
 
-//var url = "http://10.192.80.164:8080/api/v1/Usuario/";
 var BRegistrarUsuario = true;
 
 function registroUsuario() {
@@ -100,7 +99,7 @@ function registroUsuario() {
         textoimprimir = "Felicidades, Registrado con éxito!";
     } else {
         metodo = "PUT";
-        urlLocal = url + idUsuario;
+        urlLocal = urlUsuario + idUsuario;
         textoimprimir = "Felicidades, Guardado con éxito!";
     }
 
@@ -120,9 +119,9 @@ function registroUsuario() {
                     //DELETE
                     //PUT
                     //al no definir por defecto se realiza por GET
-                    type:metodo,
-                    url: urlLocal,
-                    contentType:"application/json",
+                    type: metodo,
+                    url: urlUsuario,
+                    contentType: "application/json",
                     data: JSON.stringify(formData),
                     success: function (response) {
                         Swal.fire({
@@ -242,10 +241,10 @@ function validarContrasena(contra) {
 //VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
 function verificarcorreoElectronico(correoElectronico, callback) {
-    //var url = 'http://10.192.80.164:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
-    var url = urlUsuario + 'existsBycorreoElectronico/' + correoElectronico;
+    // var url = 'http://10.192.66.33:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
+    // var url = urlUsuario + "existsBycorreoElectronico/" + correoElectronico;
     $.ajax({
-        url: url,
+        url: urlUsuario + "existsBycorreoElectronico/" + correoElectronico,
         type: 'GET',
         success: function (response) {
             callback(response); // Suponiendo que la respuesta es true o false
@@ -383,8 +382,7 @@ function FiltrarnombreCompleto(nombreCompleto) {
         listarUsuario();
     } else {
         $.ajax({
-           // url: "http://10.192.80.164:8080/api/v1/Usuario/FiltrarnombreCompleto/" + nombreCompleto,
-            var url = urlUsuario + 'FiltrarnombreCompleto/'  + nombreCompleto;
+            url: urlUsuario + "FiltrarnombreCompleto/" + nombreCompleto,
             type: "GET",
             success: function (result) {
                 var cuerpoTabla = document.getElementById("cuerpoTabla");
@@ -419,7 +417,7 @@ function FiltrarcorreoElectronico(correoElectronico) {
         listarUsuario();
     } else {
         $.ajax({
-            url: "http://10.192.80.164:8080/api/v1/Usuario/FiltrarcorreoElectronico/" + correoElectronico,
+            url: urlUsuario + "FiltrarcorreoElectronico/" + correoElectronico,
             type: "GET",
             success: function (result) {
                 var cuerpoTabla = document.getElementById("cuerpoTabla");
@@ -485,7 +483,7 @@ $(document).on("click", ".Eliminar", function () {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: url + "Eliminar/" + idUsuario,
+                url: urlUsuario + "Eliminar/" + idUsuario,
                 type: "DELETE",
                 success: function (Eliminar) {
                     Swal.fire({
@@ -514,7 +512,7 @@ $(document).on("click", ".Editar", function () {
     // Limpiar();
     idUsuario = $(this).data("id");
     $.ajax({
-        url: url + idUsuario,
+        url: urlUsuario + idUsuario,
         type: "GET",
         success: function (Usuario) {
             document.getElementById("nombreCompleto").value = Usuario.nombreCompleto;
@@ -531,7 +529,7 @@ $(document).on("click", ".Editar", function () {
 
 function ConsultarUsuario(id) {
     $.ajax({
-        url: url + id,
+        url: urlUsuario + id,
         type: "GET",
         success: function (result) {
             document.getElementById("nombreCompleto").value = result["nombreCompleto"];
@@ -553,7 +551,7 @@ function ActualizarUsuario() {
 
     if (ValidarCampos) {
         $.ajax({
-            url: url + idUsuario,
+            url: urlUsuario + idUsuario,
             type: "PUT",
             data: formData,
             success: function (result) {

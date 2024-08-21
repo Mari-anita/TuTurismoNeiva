@@ -16,8 +16,9 @@ public class corsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         //permite solicitudes desde todos los origenes 
-        //config.addAllowedOrigin(*);
-        config.addAllowedOrigin("http://127.0.0.1:5501/");
+        config.addAllowedOrigin("*");
+        // config.addAllowedOrigin("http://127.0.0.1:5501/");
+        // config.addAllowedOrigin("http://10.192.80.164:8080/");
 
         //permite solicitudes con estos metodos HTTP
         config.addAllowedMethod("GET");
