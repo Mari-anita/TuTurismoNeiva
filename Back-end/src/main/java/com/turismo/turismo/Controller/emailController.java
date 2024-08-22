@@ -41,6 +41,36 @@ public class emailController {
         }
     }
 
+    @GetMapping("/enviar-correo-confirmar-empresa")
+    public String enviarCorreoConfirmarSolicitud(){
+        try{
+            String destinatario ="tuturismoneiva@gmail.com";
+            String asunto="Confirmación de su solicitud";
+            String cuerpo=""
+            +"<p>Estimado/a [Nombre del Usuario],</p>"
+            +"<p>Espero que se encuentre bien.</p>"
+            +"<p>TuTurismo Neiva le agradece por ponerse en contacto con nosotros. Quería informarle que hemos recibido su </p>"
+            +"<p>solicitud y estamos en proceso de revisar la información que nos proporcionó.</p>"
+            +"<p>Una vez que hayamos revisado todo detenidamente, le enviaremos un correo con nuestra respuesta.</p>"
+            +"<p>Agradecemos su paciencia y comprensión. Si tiene alguna pregunta adicional mientras tanto, no</p>"
+            +"<p>dude en ponerse en contacto con nosotros.</p>"
+            +"<p>Gracias por unirte a nosotros.No olvides seguirnos en nuestras redes sociales</p>";
+            
+            
+            
+            var retorno=enviarCorreo(destinatario,asunto,cuerpo);
+            if(retorno) {
+                return "se envió correctamente";
+            }else {
+                    return "No se pudo envíar";
+            }
+
+        }catch (Exception e) {
+            // TODO: handle exception
+            return "Error al envíar "+e.getMessage();
+        }
+    }
+
     @GetMapping("/enviar-correo-recuperar")
     public String enviarCorreoRecuperar() {
        try{

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/Registroempresa.css" />
+    <title>Pqrsfd</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+          <form class="formulario" enctype="multipart/form-data">
+            <a href="#" class="back-button"
+              ><box-icon name="left-arrow-circle" color="#ffab2d"></box-icon
+            ></a>
+            <h1>Ingresa los datos de tu PQRSFD</h1>
+            <div class="input-container">
+              <div class="columna1" style="width: 50%; float: left; padding: 20px;">
+                <label for="motivo,">Seleccione el motivo de su mensaje</label>
+                <select id="motivo" class="form-control">
+                  <option value="" selected disabled>Seleccione un motivo</option>
+                  <option value="Quejas">Quejas</option>
+                  <option value="Peticiones">Peticiones</option>
+                  <option value="Reclamos">Reclamos</option>
+                  <option value="Solicitudes">Solicitudes</option>
+                  <option value="Felicitaciones">Felicitaciones</option>
+                  <option value="Denuncias">Denuncias</option>
+                </select>
+                <label for="telefono,">Telefono</label>
+                <input
+                  class="regis"
+                  type="number"
+                  placeholder=""
+                  required=""
+                  style="
+                    margin-top: 25px;
+                    border-color: #ff9900;
+                    background-color: #1c1c1c;
+                    color: white;
+                  "
+                />
+                <label for="nombre_apellido,">Nombre y apellido</label>
+                <input
+                  class="regis"
+                  type="text"
+                  placeholder=""
+                  required=""
+                  style="
+                    margin-top: 25px;
+                    border-color: #ff9900;
+                    background-color: #1c1c1c;
+                    color: white;
+                  "
+                />
+                <label for="estado,">Estado</label>
+                <select id="motivo" class="form-control">
+                  <option value="" selected disabled>Seleccione una opcion</option>
+                  <option value="Radicado">Radicado</option>
+                  <option value="Cancelado">Cancelado</option>
+                  <option value="Aceptado">Aceptado</option>
+                  <option value="Rechazado">Rechazado</option>
+                  <option value="Respondido">Respondido</option>
+                  <option value="Anulado">Anulado</option>
+                </select>
+              </div>
+              <div class="columna2" style="width: 50%; float: left; padding: 20px;">
+                <label for="tipo_doc,">Tipo de documento</label>
+                <select id="motivo" class="form-control">
+                  <option value="" selected disabled>Seleccione una opcion</option>
+                  <option value="Tarjeta">Tarjeta de identidad</option>
+                  <option value="Cedula">Cedula de ciudadania</option>
+                  <option value="Extranjeria">Cedula de extranjeria</option>
+                </select>
+                <label for="correo,">Correo electronico</label>
+                <input
+                  class="regis"
+                  type="email"
+                  placeholder=""
+                  required=""
+                  style="
+                    margin-top: 25px;
+                    border-color: #ff9900;
+                    background-color: #1c1c1c;
+                    color: white;
+                  "
+                />
+                <label for="mensaje,">Mensaje</label>
+                <input
+                  class="regis"
+                  type="text"
+                  placeholder=""
+                  required=""
+                  style="
+                    margin-top: 25px;
+                    border-color: #ff9900;
+                    background-color: #1c1c1c;
+                    color: white;
+                  "
+                />
+                <label for="documentos,">Anexar documentos</label>
+                <input type="file" name="documentos" id="documentos">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    </body>
+  </html>
