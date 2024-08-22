@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.turismo.turismo.interfaceService.IempresaService;
 import com.turismo.turismo.models.Empresa;
+import com.turismo.turismo.service.emailService;
 
 @RequestMapping("/api/v1/Empresa/")
 @RestController
@@ -24,6 +25,9 @@ public class empresaController {
 
     @Autowired
     private IempresaService empresaService;
+
+    @Autowired
+    private emailService emailService;
 
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Empresa") Empresa Empresa){
@@ -71,11 +75,16 @@ public class empresaController {
             return new ResponseEntity<>("El campo nit es obligatorio", HttpStatus.BAD_REQUEST);
         }
 
+        if(!Empresa.getNit().matches("\\d{9}")){
+            return new ResponseEntity<>("El NIT debe contener exactamente 9 dígitos numéricos", HttpStatus.BAD_REQUEST);
+        }
+        
         if(Empresa.getTelefono().equals("")){
             return new ResponseEntity<>("El campo teléfono es obligatorio",HttpStatus.BAD_REQUEST);
         }
 
         empresaService.save(Empresa);
+        emailService.enviarCorreoSolicitudEmpresa(Empresa.getCorreoElectronico());
         return new ResponseEntity<>(Empresa, HttpStatus.OK);
     }
 
