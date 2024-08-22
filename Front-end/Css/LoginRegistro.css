@@ -148,11 +148,11 @@
     text-decoration: none;
 }
 
-.OVTC:hover,
+/*.OVTC:hover,
 .form>p>a:hover {
     color: #08a8c3;
-    /*COLOR AL PONER EL CURSOR ENCIMA DEL REGISTRO Y OLVIDE TU CONTRA*/
-}
+    /*COLOR AL PONER EL CURSOR ENCIMA DEL REGISTRO Y OLVIDE TU CONTRA
+}*/
 
 .btn{
     background-color: #FFBD59;
