@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +19,7 @@ import com.turismo.turismo.interfaceService.IempresaService;
 import com.turismo.turismo.models.Empresa;
 import com.turismo.turismo.service.emailService;
 
-@RequestMapping("/api/v1/Empresa/")
+@RequestMapping("/api/v1/Empresa")
 @RestController
 public class empresaController {
 
@@ -30,7 +30,7 @@ public class empresaController {
     private emailService emailService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save (@ModelAttribute("Empresa") Empresa Empresa){
+    public ResponseEntity<Object> save (@RequestBody Empresa Empresa){
         //Validaciones
         if (Empresa.getNombreEmpresa().equals("")) {
             return new ResponseEntity<>("El campo nombre de empresa es obligatorio", HttpStatus.BAD_REQUEST);
@@ -88,6 +88,12 @@ public class empresaController {
         return new ResponseEntity<>(Empresa, HttpStatus.OK);
     }
 
+    @GetMapping("/")
+    public ResponseEntity<Object> findAll() {
+        var ListaEmpresa = empresaService.findAll();
+        return new ResponseEntity<>(ListaEmpresa, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Object> findOne(@PathVariable String id){
         var Empresa = empresaService.findOne(id);
@@ -101,7 +107,7 @@ public class empresaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id, @ModelAttribute("Empresa") Empresa EmpresaUpdate){
+    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody Empresa EmpresaUpdate){
         var Empresa = empresaService.findOne(id).get();
         if (Empresa != null){
 
