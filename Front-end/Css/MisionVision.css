@@ -11,7 +11,7 @@ body {
     background-image: url(/Front-end/Img/Fondo.png);
     justify-content: center;
 }
-}
+
 
 < !--Nav-->.dropbtn {
     background-color: #000000;
@@ -47,9 +47,15 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f160
+    background-color:  rgba(236, 166, 16, 0.973);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.nav-item:hover {
+    background-color: rgba(236, 166, 16, 0.973);
+    border-radius:8px;
+    margin: 8px;
+   }
