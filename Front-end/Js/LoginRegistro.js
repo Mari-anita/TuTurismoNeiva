@@ -40,37 +40,22 @@ function ValidarcorreoElectronico(correoElectronico) {
 //VALIDACIONES 
 document.getElementById("nombreCompleto").addEventListener("keypress", soloLetras);
 document.getElementById("correoElectronico").addEventListener("keypress", letrasycorreo);
+document.getElementById("contra").addEventListener("keypress", clave)
+document.getElementById("coContra").addEventListener("keypress", clave)
 
 // Asignar los manejadores de eventos al campo de entrada
 const nombrecapo = document.getElementById("nombreCompleto");
-nombrecapo.addEventListener("keydown", validarEntrada);
 nombrecapo.addEventListener("paste", evitarPegar); // Previene el pegado
 nombrecapo.addEventListener("drop", evitarArrastrar); // Previene el arrastre y soltar
 
 function evitarPegar(event) {
     event.preventDefault(); // Previene el pegado
-    alert("No está permitido pegar contenido en este campo.");
 }
 
 function evitarArrastrar(event) {
     event.preventDefault(); // Previene el arrastre y soltar
-    alert("No está permitido arrastrar y soltar contenido en este campo.");
 }
 
-function validarEntrada(event) {
-    const caracter = event.key;
-    console.log("Carácter presionado:", caracter);
-
-    if (
-        letrasPermitidas.includes(caracter) ||
-        numerosPermitidos.includes(caracter) ||
-        signosPermitidos.includes(caracter)
-    ) {
-        return; // Permite la entrada
-    } else {
-        event.preventDefault(); // Previene la entrada de caracteres no permitidos
-    }
-}
 //este metodo solo permite letras
 const letrasPermitidas = [
     'A', 'Á', 'B', 'C', 'D', 'E', 'É', 'F', 'G', 'H', 'I', 'Í', 'J', 'K', 'L', 'M',
@@ -82,7 +67,7 @@ const numerosPermitidos = [
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ''
 ];
 const signosPermitidos = [
-    '.', ',', '@', '_', '-', ''
+    '.', ',', '@', '_', '-', '', '$', '%', '&'
 ];
 
 // FORMA CORTA
@@ -96,16 +81,28 @@ function soloLetras(event) {
     }
 }
 
-// FORMA CORTA
 function letrasycorreo(event) {
-    if (letrasPermitidas.includes(caracter) || numerosPermitidos.includes(caracter) || signosPermitidos.includes(caracter)) {
-        // Si el carácter es válido, no hacemos nada y permitimos la entrada
-        return;
-    } else {
-        // Si el carácter no es válido, prevenimos la entrada
-        event.preventDefault();
-    }
+    // Obtener el carácter presionado
+    const caracter = event.key;
 
+    // Verificar si el carácter está permitido
+    if (letrasPermitidas.includes(caracter) || numerosPermitidos.includes(caracter) || signosPermitidos.includes(caracter)) {
+        return; // Permitimos la entrada
+    } else {
+        event.preventDefault(); // Prevenimos la entrada
+    }
+}
+
+function clave(event) {
+    // Obtener el carácter presionado
+    const caracter = event.key;
+
+    // Verificar si el carácter está permitido
+    if (letrasPermitidas.includes(caracter) || numerosPermitidos.includes(caracter) || signosPermitidos.includes(caracter)) {
+        return; // Permitimos la entrada
+    } else {
+        event.preventDefault(); // Prevenimos la entrada
+    }
 }
 
 
