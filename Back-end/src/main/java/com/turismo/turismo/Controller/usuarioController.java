@@ -35,6 +35,7 @@ public class usuarioController {
 
         // VALIDACIONES
 
+
         if (Usuario.getNombreCompleto().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
@@ -73,12 +74,22 @@ public class usuarioController {
         if (mensajeContrasena.getEstado() == "error") {
             return new ResponseEntity<>(mensajeContrasena.getMensaje(), HttpStatus.BAD_REQUEST);
         }
+        //VALIDACION DE LOS INPUT NO COPIAR NI PEGAR, LETRAS PERMITIDAS
+        String nombreCompletoRegex="^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ\\s]+$";
+        Pattern nombrePattern = Pattern.compile(nombreCompletoRegex);
+        Matcher nombreMatcher= nombrePattern.matcher(Usuario.getNombreCompleto());
+        if(!nombreMatcher.matches()){
+            return new ResponseEntity<>("El nombre completo solo puede contener letras y espacios", HttpStatus.BAD_REQUEST);
+        }
+
         // antes guardar
         usuarioService.save(Usuario);
         emailService.enviarCorreoBienvenida(Usuario.getCorreoElectronico(),Usuario.getNombreCompleto());
 
         return new ResponseEntity<>(Usuario, HttpStatus.OK);
     }
+
+    
 
     private mensaje validarContrasena(String contra) {
         /*

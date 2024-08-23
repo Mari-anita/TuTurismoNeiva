@@ -43,10 +43,22 @@ document.getElementById("correoElectronico").addEventListener("keypress", letras
 document.getElementById("contra").addEventListener("keypress", clave)
 document.getElementById("coContra").addEventListener("keypress", clave)
 
+
 // Asignar los manejadores de eventos al campo de entrada
 const nombrecapo = document.getElementById("nombreCompleto");
+const correovalidar = document.getElementById("correoElectronico");
+const nopegueclave = document.getElementById("contra");
+const Snopegueclave = document.getElementById("coContra");
+
 nombrecapo.addEventListener("paste", evitarPegar); // Previene el pegado
 nombrecapo.addEventListener("drop", evitarArrastrar); // Previene el arrastre y soltar
+correovalidar.addEventListener("paste", evitarPegar); // Previene el pegado
+correovalidar.addEventListener("drop", evitarArrastrar); // Previene el arrastre y soltar
+nopegueclave.addEventListener("paste", evitarPegar); // Previene el pegado
+nopegueclave.addEventListener("drop", evitarArrastrar); // Previene el arrastre y soltar
+Snopegueclave.addEventListener("paste", evitarPegar); // Previene el pegado
+Snopegueclave.addEventListener("drop", evitarArrastrar); // Previene el arrastre y soltar
+
 
 function evitarPegar(event) {
     event.preventDefault(); // Previene el pegado
