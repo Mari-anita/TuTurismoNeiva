@@ -35,7 +35,6 @@ public class usuarioController {
 
         // VALIDACIONES
 
-
         if (Usuario.getNombreCompleto().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
@@ -43,7 +42,7 @@ public class usuarioController {
         if (Usuario.getCorreoElectronico().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
-        
+
         String correoElectronico = Usuario.getCorreoElectronico();
         // Expresión regular para validar el correo electrónico
         String emailRegex = "^[^\\s@]+@[^\\s@]+\\.(com|es|org|net)$";
@@ -74,22 +73,46 @@ public class usuarioController {
         if (mensajeContrasena.getEstado() == "error") {
             return new ResponseEntity<>(mensajeContrasena.getMensaje(), HttpStatus.BAD_REQUEST);
         }
-        //VALIDACION DE LOS INPUT NO COPIAR NI PEGAR, LETRAS PERMITIDAS
-        String nombreCompletoRegex="^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ\\s]+$";
+        // VALIDACION DE LOS INPUT NO COPIAR NI PEGAR, LETRAS PERMITIDAS
+        String nombreCompletoRegex = "^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ\\s]+$";
         Pattern nombrePattern = Pattern.compile(nombreCompletoRegex);
-        Matcher nombreMatcher= nombrePattern.matcher(Usuario.getNombreCompleto());
-        if(!nombreMatcher.matches()){
-            return new ResponseEntity<>("El nombre completo solo puede contener letras y espacios", HttpStatus.BAD_REQUEST);
+        Matcher nombreMatcher = nombrePattern.matcher(Usuario.getNombreCompleto());
+        if (!nombreMatcher.matches()) {
+            return new ResponseEntity<>("El nombre completo solo puede contener letras y espacios",
+                    HttpStatus.BAD_REQUEST);
+        }
+
+        String contraRegex = "^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ0-9.,@_\\-$%&\\s]+$";
+        Pattern contraPattern = Pattern.compile(contraRegex);
+        Matcher contraMatcher = contraPattern.matcher(Usuario.getContra());
+
+        if (!contraMatcher.matches()) {return new ResponseEntity<>("la contraseña solo puede contener letras, números y ciertos signos permitidos",HttpStatus.BAD_REQUEST);
+        }
+        String coContraRegex = "^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ0-9.,@_\\-$%&\\s]+$";
+        Pattern coContraPattern = Pattern.compile(coContraRegex);
+        Matcher coContraMatcher = coContraPattern.matcher(Usuario.getCoContra());
+
+        if (!coContraMatcher.matches()) {return new ResponseEntity<>("la contraseña solo puede contener letras, números y ciertos signos permitidos",HttpStatus.BAD_REQUEST);
+        }
+
+        // Signos no permitidos
+        String signosNoPermitidos = " \"<>{}[]?¿¡!|";
+
+        // Construcción de la expresión regular para excluir los signos no permitidos
+        String CorreoElectroRegex = "^[^" + signosNoPermitidos + "]*$";
+        Pattern CorreoElectroPattern = Pattern.compile(CorreoElectroRegex);
+        Matcher CorreoElectroMatcher = CorreoElectroPattern.matcher(Usuario.getCorreoElectronico());
+
+        if (!CorreoElectroMatcher.matches()) {
+            return new ResponseEntity<>("El correo electronico contiene caracteres no permitidos", HttpStatus.BAD_REQUEST);
         }
 
         // antes guardar
         usuarioService.save(Usuario);
-        emailService.enviarCorreoBienvenida(Usuario.getCorreoElectronico(),Usuario.getNombreCompleto());
+        emailService.enviarCorreoBienvenida(Usuario.getCorreoElectronico(), Usuario.getNombreCompleto());
 
         return new ResponseEntity<>(Usuario, HttpStatus.OK);
     }
-
-    
 
     private mensaje validarContrasena(String contra) {
         /*
