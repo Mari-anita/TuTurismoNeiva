@@ -24,7 +24,27 @@ public class autorController {
 
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Autor") Autor Autor) {
-        
+        //Validaciones
+        if (Autor.getNombreCompletoAutor().equals("")) {
+            return new ResponseEntity<>("El campo nombre del autor es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Autor.getFechaNacimiento().equals("")) {
+            return new ResponseEntity<>("El campo fecha de nacimiento es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Autor.getFechaMuerte().equals("")) {
+            return new ResponseEntity<>("El campo fecha de muerte es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Autor.getBibliografiaAutor().equals("")) {
+            return new ResponseEntity<>("El campo bibliografia es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Autor.getImagenAutor().equals("")) {
+            return new ResponseEntity<>("El campo imagen del autor es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
         autorService.save(Autor);
         return new ResponseEntity<>(Autor, HttpStatus.OK);
     }

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import com.turismo.turismo.models.Usuario;
+import com.turismo.turismo.models.authResponse;
+import com.turismo.turismo.models.registroRequest;
 
 public interface IusuarioService {
 
@@ -18,5 +20,7 @@ public interface IusuarioService {
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico);
 
     public boolean delete(String id);
+
+    public authResponse registro(registroRequest request);
 
 }

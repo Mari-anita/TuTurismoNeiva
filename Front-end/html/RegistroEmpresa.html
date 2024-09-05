@@ -75,13 +75,150 @@
       </div>
     </div>
   </nav>
-  <div class="container">
+
     <div class="container">
       <form class="formulario">
         <a href="../index.html" class="back-button"><box-icon name="left-arrow-circle" color="#ffab2d"></box-icon></a>
         <h1>Ingresa los datos de tu empresa</h1>
-        <div class="input-container">
-          <div class="columna1" style="margin-left: 15%">
+        <div class="row">
+          <div class="col col-x1-4 col-md-4 col-12">
+            <label for="nombre_empresa,">Nombre de la empresa</label>
+            <input  id="nombreEmpresa" class="form-control" type="text" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />
+
+            <label for="dirección,">Dirección</label>
+            <input id="direccion" class="form-control" type="text" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />
+
+            <label for="nit,">NIT</label>
+            <input id="nit" class="form-control" type="text" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />
+          </div>
+          <div class="col col-x1-4 col-md-4 col-12">
+
+            <label for="nombre_representante,">Nombre representante</label>
+            <input id="nombreRepresentante" class="form-control" type="text" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " /> 
+
+            <label for="telefono,">Teléfono</label>
+            <input id="telefono" class="form-control" type="number" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                  " />
+
+            <label for="servicios,">Servicios</label>
+            <input id="servicios" class="form-control" type="text" placeholder="" required="" style="
+                 margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />              
+          </div>
+
+          <div class="col col-x1-4 col-md-4 col-12">
+
+           <label for="correo,">Correo electrónico</label>
+           <input id="correoElectronico" class="form-control" type="email" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />
+
+            <label for="tipo_empresa">Tipo empresa</label>
+            <select id="tipoEmpresa" class="form-control" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                  padding: 5px;
+                ">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="hotel">Hotel</option>
+              <option value="restaurante">Restaurante</option>
+              <option value="tienda">Tienda</option>
+              <option value="supermercado">Supermercado</option>
+            </select>   
+            
+            <button type="button" onclick="registroFormularioEmpresa()">Registro empresa</button>
+                
+          </div>
+          <!-- <div class="col col-x1-4 col-md-6 col-12">
+            <label for="correo,">Correo electrónico</label>
+            <input id="correoElectronico" class="form-control" type="email" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />
+          </div>
+
+          <div class="col col-x1-4 col-md-6 col-12">
+            <label for="dirección,">Dirección</label>
+            <input id="direccion" class="form-control" type="text" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />       
+          </div>
+
+          <div class="col col-x1-4 col-md-6 col-12">
+            <label for="telefono,">Teléfono</label>
+            <input id="telefono" class="form-control" type="number" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />
+          </div>
+
+          <div class="col col-x1-4 col-md-6 col-12">
+            <label for="tipo_empresa">Tipo empresa</label>
+            <select id="tipoEmpresa" class="form-control" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                  padding: 5px;
+                ">
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="hotel">Hotel</option>
+              <option value="restaurante">Restaurante</option>
+              <option value="tienda">Tienda</option>
+              <option value="supermercado">Supermercado</option>
+            </select>            
+          </div>
+
+          <div class="col col-x1-4 col-md-6 col-12">
+            <label for="servicios,">Servicios</label>
+            <input id="servicios" class="form-control" type="text" placeholder="" required="" style="
+                  margin-top: 25px;
+                  border-color: #ff9900;
+                  background-color: #1c1c1c;
+                  color: white;
+                " />       
+          </div> -->
+          
+          <!-- <div class="columna1" style="margin-left: 15%">
             <label for="nombre_empresa,">Nombre de la empresa</label>
             <input  id="nombreEmpresa" class="input" type="text" placeholder="" required="" style="
                   margin-top: 25px;
@@ -150,10 +287,10 @@
                   border-color: #ff9900;
                   background-color: #1c1c1c;
                   color: white;
-                " />
+                " /> 
 
             <button type="button" onclick="registroFormularioEmpresa()">Registro empresa</button>
-          </div>
+          </div>-->
         </div>
         <div style="width: 85%; padding-left: 15%">
           <h2 style="
@@ -169,7 +306,7 @@
         </div>
       </form>
     </div>
-  </div>
+
 
   <script src="/Front-end/Js/config.js"></script>
   <script src="/Front-end/Js/Empresa.js"></script>

@@ -10,6 +10,8 @@ body {
     z-index: -1;
     background-image: url(/Front-end/Img/Fondo.png);
     justify-content: center;
+    background-color: #ffbd59;
+    margin-right: 0px !important;
 }
 
 
@@ -47,7 +49,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color:  rgba(236, 166, 16, 0.973);
+    background-color:  #858483;
 }
 
 .dropdown:hover .dropdown-content {
@@ -55,7 +57,7 @@ body {
 }
 
 .nav-item:hover {
-    background-color: rgba(236, 166, 16, 0.973);
+    background-color: #858483;
     border-radius:8px;
     margin: 8px;
    }

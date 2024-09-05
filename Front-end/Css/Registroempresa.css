@@ -128,9 +128,7 @@ form button {
     padding: 10px;
     border-radius: 20px;
     cursor: pointer;
-    width: 250px;
-    margin: auto;
-
+    margin: 13% 0% 0% 6%;
 }
 
 form button:hover {

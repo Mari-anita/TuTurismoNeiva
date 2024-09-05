@@ -138,7 +138,7 @@
   }
 
   .dropdown-content a:hover {
-    background-color: rgba(236, 166, 16, 0.973);
+    background-color: #858483;
   }
 
   .dropdown:hover .dropdown-content {
@@ -146,10 +146,17 @@
   }
 
   .nav-item:hover {
-    background-color: rgba(236, 166, 16, 0.973);
+    background-color: #666666;
     border-radius:8px;
     margin: 8px;
    }
+   
+   .nav-item-fo-P > a > b:hover{ 
+      color: #ffbd59;
+   }
+
+   
+
 
 </style>
 
@@ -163,8 +170,8 @@
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="margin-left: 23vw;">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto" >
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
               <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
@@ -181,7 +188,7 @@
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"><b>Contacto</b></a>
           </li>
-          <li class="nav-item" style=" margin-top: 1.5%;">
+          <li class="nav-item-S" style=" margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
           </li>
           <li class="nav-item dropdown" style="margin-top: 1.5%;">
@@ -191,7 +198,7 @@
               <a href="#">Inglés</a>
             </div>
           </li>
-          <li class="nav-item dropdown" style=" margin-top: 1.5%;">
+          <li class="nav-item-U dropdown" style=" margin-top: 1.5%;">
             <button class="dropbtn btn" style="color: white; font-size: 25px"><b><box-icon name='user-circle'
                   type='solid' color='#ffbd59' size="39px"></box-icon></b></button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
@@ -224,7 +231,7 @@
     <img src="../Front-end/Img/circulo peque.png" alt="" style="width: 1.5%; position:absolute; top:15%; right:94%">
     <img src="../Front-end/Img/circulo peque.png" alt="" style="width: 1.5%; position:absolute; top:75%; left:95%">
     <img src="../Front-end/Img/circle-svgrepo-com.png" alt=""
-      style="position: absolute; width: 5%; top: 83%; left: 50%">
+      style="position: absolute; width: 5%; top: 77%; left: 50%">
     <img src="../Front-end/Img/circle-svgrepo-com.png" alt=""
       style="position: absolute; width: 3%; top: 15%; left: 87%">
   </div>
@@ -332,18 +339,18 @@
         <footer class="py-3">
           <ul class="nav border-bottom mb-3 justify-content-between">
             <div class="d-flex">
-              <li class="nav-item"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-              <li class="nav-item"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' type='solid'
+              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' type='solid'
                     color='#ffffff'></box-icon></a></li>
-              <li class="nav-item"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
-                    name='gmail' type='logo' color='#ffffff'></box-icon></a></li>
-              <li class="nav-item"><a class="nav-link px-1"><box-icon name='instagram' type='logo'
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                    name='gmail' type='logo' class="gmail" color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1"><box-icon class="ig" name='instagram' type='logo'
                     color='#ffffff'></box-icon></a></li>
             </div>
             <div class="d-flex">
-              <li class="nav-item"><a href="#" class="nav-link px-2" style="color: #feffff;"><b>Pqrsfd</b></a></li>
-              <li class="nav-item"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
-                  style="color: #2ed4f1;"><b>Términos y condiciones</b></a></li>
+              <li class="nav-item-fo-P "><a href="#" class="nav-link px-2 pqrsfd" style="color: #feffff ; "><b>Pqrsfd</b></a></li>
+              <li class="nav-item-fo-P"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
+                  style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
             </div>
           </ul>
           <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
