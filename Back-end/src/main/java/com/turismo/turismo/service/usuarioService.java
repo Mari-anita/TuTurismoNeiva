@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.turismo.turismo.interfaceService.IusuarioService;
 import com.turismo.turismo.interfaces.Iusuario;
 import com.turismo.turismo.models.Usuario;
+import com.turismo.turismo.models.authResponse;
+import com.turismo.turismo.models.registroRequest;
 
 @Service
 public class usuarioService implements IusuarioService {
@@ -52,5 +54,11 @@ public class usuarioService implements IusuarioService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public authResponse registro(registroRequest request) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'registro'");
     }
 }
