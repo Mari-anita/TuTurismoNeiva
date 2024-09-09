@@ -160,7 +160,7 @@ public class usuarioController {
 
         // Validación de símbolos
         boolean tieneSimbolo = false;
-        char[] simbolosPermitidos = { '@', '.', '$', '%', '&' };
+        char[] simbolosPermitidos = { '@', '.', '$', '%', '&', '*', '-', '_'};
 
         for (char simbolo : simbolosPermitidos) {
             if (contra.indexOf(simbolo) != -1) {
