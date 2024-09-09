@@ -24,7 +24,7 @@
 <body>
   <div class=" col-12  DECZO">
     <a href="/Front-end/index.html"><img src="/Front-end/Img/logo.png" alt="ICONO"></a>
-    <nav>
+    <nav> 
       <a href="/Front-end/index.html">Inicio</a>
       <a href="../html/MisionVision.html">Nosotros</a>
       <a href="#">Contacto</a>
@@ -36,57 +36,66 @@
     <div style="width: 50%;">
       <a href="../html/sitiosTuristicos.html"><i class="fa-regular fa-circle-left" style="font-size: 1.8rem;"></i></a>
     </div>
-
-    <div class="CDC">
-      <div class="col-4" >
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/Front-end/Img/campesino.jpg" class="d-block imgcarrusel" alt="..." style="margin: 0% 0% 0% 20%;">
-            </div>
-            <div class="carousel-item">
-              <img src="/Front-end/Img/campesino.jpg" class="d-block imgcarrusel" alt="..." style="margin: 0% 0% 0% 20%;">
-            </div>
-            <div class="carousel-item">
-              <img src="/Front-end/Img/campesino.jpg" class="d-block imgcarrusel" alt="..." style="margin: 0% 0% 0% 20%;">
-            </div>
+    <h4 ><b>Al Sur</b></h4>
+    <div style="width: 100%; display: flex;">
+      
+      <div style="width: 40%;" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="/Front-end/Img/alsur.jpg" class="d-block w-100" alt="..." style="width: 70%!important; margin: 10% 0% 0% 15%; ">
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="/Front-end/Img/alsur.jpg" class="d-block w-100" alt="..." style="width: 70%!important; margin: 10% 0% 0% 15%; ">
+          </div>
+          <div class="carousel-item">
+            <img src="/Front-end/Img/alsur.jpg" class="d-block w-100" alt="..." style="width: 70%!important; margin: 10% 0% 0% 15%; ">
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <box-icon name='chevron-left' type='solid' class="carousel-control-prev-icon" aria-hidden="true" ></box-icon>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <box-icon class="carousel-control-next-icon" type='solid' aria-hidden="true" name='chevron-right' ></box-icon>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <div class="col-3" >
-        <div style="display: flex; align-items: center; justify-content:space-between;  font-size:1.8rem; color:#000000;">
-          <h2>Nombre Sitios</h2>
-          <i class="fa-solid fa-volume-high"></i>
+      <div  class="DESCRIP" >
+        <div style="display: flex;">
+          <h4><b>Descripción</b></h4>
+          <i class="fa-solid fa-volume-high" style="color: #FFBD59;"></i>
         </div>
-        <textarea placeholder="Descripción" name="" id="" cols="30" rows="10" style="border:2px solid black;"></textarea>
-      </div>
-      <div class="col-4">
-        <h2>Detalle</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam dolor laboriosam officiis repellendus modi
-          veritatis possimus inventore exercitationem temporibus, a nobis maxime quo perspiciatis sequi dolore quaerat?
-          Neque, a repudiandae?</p>
+        <p >El monumento publico llamado al “Al Sur”  se encuentra ubicado en la carrera 7 con Calle 2 sur, glorieta cerca al al Terminal de transportes de la ciudad de Neiva.   Esta obra ganadora de la primera convocatoria del concurso Ciudad Villamil. Elaborada por el maestro Segundo Arístides Huertas. La escultura está elaborada bajo la técnica de lámina de hierro, soldada en oxidación sobre una base de concreto.  La escultura es una representación abstracta y simplificada del tema musical  del maestro Villamil.  La obra narra los diferentes paisajes huilenses y el amor por su tierra. Representa las grandes alturas y bellos paisajes del Departamento como son el Nevado del Huila y el Cerro de Pacandé con su majestuosa vegetación</p>
       </div>
     </div>
-  </div>
-  <div class="container-fluid CDC">
-    <div style=" width: 50%;" ><div style="text-align: center;"><img src="/Front-end/Img/Mapa.jpg" style="width: 70%; border: 2px solid black; margin: 3% 0% 0% 0%;" alt=""></div></div>
-    <div style=" width: 50%;">
-      <h3>Cuéntanos qué tal te pareció este monumento</h3>
-      <input style="width: 40%; border: 2px solid #FFBD59; border-radius: 7px;" type="text" placeholder="Comentario...">
-    </div>
-  </div>
 
 
+
+    <section id="contacto"></section>
+      <!--Footer-->
+      <div class="">
+        <footer class="py-3">
+          <ul class="nav border-bottom mb-3 justify-content-between">
+            <div class="d-flex">
+              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' type='solid'
+                    color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                    name='gmail' type='logo' class="gmail" color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1"><box-icon class="ig" name='instagram' type='logo'
+                    color='#ffffff'></box-icon></a></li>
+            </div>
+            <div class="d-flex">
+              <li class="nav-item-fo-P "><a href="#" class="nav-link px-2 pqrsfd" style="color: #feffff ; "><b>Pqrsfd</b></a></li>
+              <li class="nav-item-fo-P"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
+                  style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+            </div>
+          </ul>
+          <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+        </footer>
+      </div>
+    </section>
+  </div>
 
 
 

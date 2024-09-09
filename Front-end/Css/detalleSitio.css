@@ -3,7 +3,7 @@
 }
 
 .imgcarrusel{
-    width: 50% !important;
+    width: 30% !important;
 }
 
 .fa-circle-left{
@@ -12,3 +12,14 @@
     color: #FFBD59;
 }
 
+.DESCRIP{
+    margin: 0% 0% 0% 5%;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.DESCRIP > div > i{
+    font-size: 1.8rem;
+    margin: 1% 0% 0% 80%;
+}
