@@ -320,11 +320,11 @@ function validarContrasena(contra) {
 
 //VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
-function verificarcorreoElectronico(correoElectronico, callback) {
     // var url = 'http://10.192.66.33:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
     // var url = urlUsuario + "existsBycorreoElectronico/" + correoElectronico;
+function verificarcorreoElectronico(correoElectronico, callback) {
     $.ajax({
-        url: urlUsuario + "existsBycorreoElectronico/" + correoElectronico,
+        url: urlExitsCorreo + "existsBycorreoElectronico/" + correoElectronico,
         type: 'GET',
         success: function (response) {
             callback(response); // Suponiendo que la respuesta es true o false
