@@ -4,103 +4,116 @@ body {
     font-family: sans-serif;
     background-size: cover;
     background-image: url(/Front-end/Img/Fondo.png);
+    display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el fondo cubra la pantalla completa */
 }
-/*INICIO DE ENCABEZADO*/
+
+/* INICIO DE ENCABEZADO */
 .DECZO {
     display: flex;
     background-color: #26282E;
     height: 7.5vh;
+    width: 100%;
+    position: fixed; /* Fija el encabezado en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que el encabezado esté sobre otros elementos */
 }
 
-.DECZO>a {
+.DECZO > a {
     width: 10%;
 }
 
-.DECZO>a>img {
+.DECZO > a > img {
     width: 75%;
     transform: translateY(-25%);
 }
 
-.DECZO>nav {
+.DECZO > nav {
     width: 90%;
     display: flex;
     justify-content: end;
     align-items: center;
 }
 
-.DECZO>nav>a,
-.DECZO>nav>i {
-    /*, PUEDE AGREGAR */
+.DECZO > nav > a,
+.DECZO > nav > i {
     text-decoration: none;
     color: white;
     font-size: 1.8rem;
-    margin: 0% 2% 0% 0%;
+    margin: 0 2% 0 0;
     font-weight: bold;
 }
 
-div h1 {
+h1 {
     text-align: center;
     padding-bottom: 3%;
     font-weight: bold;
     color: white;
 }
 
-
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    /*height: 100vh;*/
+    align-items: flex-start; /* Ajusta la alineación vertical */
+    width: 100%;
+    padding-top: 8vh; /* Para evitar que el formulario se esconda debajo del encabezado */
+    padding-bottom: 50px; /* Asegura que haya espacio para el footer */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
 }
 
 .formulario {
     background-color: #1c1c1c;
     padding: 30px;
     border-radius: 5px;
-    width: 200%;
+    width: 80%; /* Ajusta el ancho del formulario */
+    max-width: 900px; /* Limita el ancho máximo para pantallas grandes */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Añade una sombra para dar profundidad */
 }
 
 .back-button box-icon {
     width: 35px;
-    /* Aumenta el ancho del ícono */
     height: 35px;
-    /* Aumenta la altura del ícono */
 }
-
 
 .input-container {
     display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en diferentes líneas si es necesario */
 }
 
 label {
     color: #ffffff;
-    /* Color del texto */
     font-size: 16px;
-    /* Tamaño de la fuente */
-    margin-bottom: 0.0px;
-    /* Margen inferior para separar el texto del campo de entrada */
+    margin-bottom: 5px;
     display: block;
-    /* Hacer que cada label ocupe una línea completa */
     font-weight: bold;
-    /* Negrita */
 }
 
-.columna {
+.input-container .columna1,
+.input-container .columna2 {
     flex: 1;
     margin: 0 10px;
 }
 
 .input-container input,
-.input-container select {
+.input-container select,
+.input-container textarea {
     width: calc(100% - 20px);
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #333; /* Ajusta el fondo para que coincida con el tema oscuro */
+    color: white; /* Ajusta el color del texto */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
 }
 
-
+textarea {
+    height: 150px; /* Ajusta la altura del campo de texto */
+    resize: vertical; /* Permite que el usuario ajuste la altura */
+}
 
 button {
     width: 90%;
@@ -128,11 +141,6 @@ form button:hover {
 
 .nav-item:hover {
     background-color: rgba(236, 166, 16, 0.973);
-    border-radius:8px;
+    border-radius: 8px;
     margin: 8px;
-   }
-
-/* .vfinal>a {
-    text-decoration: none;
-    color: #fff;
-} */
+}
