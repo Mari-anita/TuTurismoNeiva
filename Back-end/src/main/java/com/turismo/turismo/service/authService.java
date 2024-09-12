@@ -7,7 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import org.springframework.security.core.userdetails.UserDetails;
 import com.turismo.turismo.interfaceService.IusuarioService;
 import com.turismo.turismo.interfaces.Iusuario;
 import com.turismo.turismo.models.Usuario;
@@ -27,6 +27,7 @@ public class authService implements IusuarioService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
+    //METODO PARA REGISTRAR EL USUARIO
     @Override
     public authResponse registro(registroRequest request){
         Usuario userData = Usuario.builder()
@@ -40,6 +41,29 @@ public class authService implements IusuarioService {
         return authResponse.builder()
         .Token(jwtService.getToken(userData))
         .build();
+    }
+
+    //METODO PARA INICIAR SESION
+    public authResponse login(loginRequest request){
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getCorreoElectronico(), request.getContra()));
+        Usuario usuario = findBycorreoElectronico(request.getCorreoElectronico()).orElseThrow();
+        String Token = jwtService.getToken(usuario);
+        return authResponse.builder().Token(Token).build();
+    }
+    
+
+    //METODO DUPLICADO DE INICIO D SESION, PARA VERIFICAR EL TOKEN
+    public Optional<authResponse> verificarToken(String Token){
+        try{//  VERIFICAMOS EL TOKEN USANDO EL JWT
+            UserDetails userdetails = dataUser.findByCorreoElectronico(jwtService.getCorreoElectronicoFromToken(Token)).orElse(null);
+            if(userdetails != null && jwtService.isTokenValid(Token, userdetails)){
+                return Optional.of(authResponse.builder().Token(Token).build());
+            }
+        }catch(Exception e){
+            //MANEJAR CUALQUIER EXCEPCION QUE PUEDA OCURRIR DURANTE LA VERIFICACION DEL TOKEN
+            e.printStackTrace();
+        }
+        return Optional.empty();//TOKEN NO VALIDO o NO REGISTRADO
     }
 
 
@@ -78,12 +102,5 @@ public class authService implements IusuarioService {
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
-    public authResponse login(loginRequest request){
-        authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(request.getCorreoElectronico(), request.getContra()));
-            Usuario usuario = findBycorreoElectronico(request.getCorreoElectronico()).orElseThrow();
-            String Token = jwtService.getToken(usuario);
-            return authResponse.builder().Token(Token).build();
-    }
-    
+
 }

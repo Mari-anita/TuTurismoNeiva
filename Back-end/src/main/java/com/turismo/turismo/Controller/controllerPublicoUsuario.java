@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -27,10 +28,23 @@ public class controllerPublicoUsuario {
 
     private final authService authService;
 
+    public AuthController(AuthService authService){
+        this.authService = authService;
+    }
+
     @GetMapping("login/")
     public ResponseEntity<authResponse> login(@RequestBody loginRequest request) {
-        authResponse response = authService.login(request);
-        return new ResponseEntity<authResponse>(response, HttpStatus.OK);
+        authResponse response = new authResponse();
+        // authService.login(request);
+        Optional<authResponse> authResult = authService.verificarToken(request.getToken()); //Validamos desde el loginRequest
+
+        if(authResult.isPresent()){ //Token valido se permite el acceso
+            response.setMensaje("Acceso Permitido");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else{
+            response.getMensaje("ACCESO NEGADO. POR FAVOR, REGISTRESE");
+            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED)
+        }
     }
 
     @PostMapping("registro/")

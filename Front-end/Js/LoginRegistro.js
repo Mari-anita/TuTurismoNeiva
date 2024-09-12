@@ -128,6 +128,7 @@ function registroUsuario() {
     var contra = document.getElementById("contra");
     var coContra = document.getElementById("coContra");
 
+    // Validación de campos
     if (!ValidarnombreCompleto(nombreCompleto) ||
         !ValidarcorreoElectronico(correoElectronico) ||
         !Validarcontra(contra) ||
@@ -160,8 +161,6 @@ function registroUsuario() {
         return;
     }
 
-
-
     var formData = {
         "nombreCompleto": nombreCompleto.value,
         "correoElectronico": correoElectronico.value,
@@ -169,68 +168,58 @@ function registroUsuario() {
         "coContra": coContra.value,
     };
 
-    var metodo = "";
-    var urlLocal = "";
-    var textoimprimir = "";
+    var metodo = BRegistrarUsuario ? "POST" : "PUT";
+    var urlLocal = BRegistrarUsuario ? urlUsuario : urlUsuario + idUsuario;
+    var textoimprimir = BRegistrarUsuario ? "Felicidades, Registrado con éxito!" : "Felicidades, Guardado con éxito!";
 
-    if (BRegistrarUsuario == true) {
-        metodo = "POST";
-        urlLocal = urlUsuario;
-        textoimprimir = "Felicidades, Registrado con éxito!";
-    } else {
-        metodo = "PUT";
-        urlLocal = urlUsuario + idUsuario;
-        textoimprimir = "Felicidades, Guardado con éxito!";
-    }
+    // Enviar datos al servidor
+    if (ValidarCampos()) {
+        $.ajax({
+            type: metodo,
+            url: urlUsuarioPublico +"registro/",
+            contentType: "application/json",
+            data: JSON.stringify(formData),
+            success: function (response) {
+                // Si el servidor devuelve un token, lo almacenamos
+                if (response.token) {
+                    // Guardar el token en localStorage
+                    localStorage.setItem('token', response.token);
+                    
 
-    verificarcorreoElectronico(correoElectronico.value, function (exists) {
-        if (exists && BRegistrarUsuario == true) {
-            Swal.fire({
-                title: "Error",
-                text: "¡El correo electrónico ya está registrado!",
-                icon: "error"
-            });
-        } else {
-            if (ValidarCampos()) {
-                $.ajax({
-                    //método de envío
-                    //POST
-                    //GET
-                    //DELETE
-                    //PUT
-                    //al no definir por defecto se realiza por GET
-                    type: metodo,
-                    url: urlUsuario,
-                    contentType: "application/json",
-                    data: JSON.stringify(formData),
-                    success: function (response) {
-                        Swal.fire({
-                            title: "Éxito",
-                            text: textoimprimir,
-                            icon: "success"
-                        }).then(function () {
-                            // Aquí puedes agregar más acciones después del registro exitoso
-                            $('#exampleModal').modal('hide');
-                            listarUsuario();
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        Swal.fire({
-                            title: "Error",
-                            text: "No lograste registrar los datos",
-                            icon: "error"
-                        });
-                    }
-                });
-            } else {
+                    Swal.fire({
+                        title: "Éxito",
+                        text: textoimprimir,
+                        icon: "success"
+                    }).then(function () {
+                        // Aquí puedes agregar más acciones después del registro exitoso
+                        $('#exampleModal').modal('hide');
+                        listarUsuario();
+                        // Redirigir a una página protegida
+                        window.location.href = '/pagina-protegida';
+                    });
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: "No se recibió un token del servidor.",
+                        icon: "error"
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
                 Swal.fire({
                     title: "Error",
-                    text: "¡Llene todos los campos correctamente!",
+                    text: "No lograste registrar los datos",
                     icon: "error"
                 });
             }
-        }
-    });
+        });
+    } else {
+        Swal.fire({
+            title: "Error",
+            text: "¡Llene todos los campos correctamente!",
+            icon: "error"
+        });
+    }
 }
 
 
@@ -322,20 +311,49 @@ function validarContrasena(contra) {
 
     // var url = 'http://10.192.66.33:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
     // var url = urlUsuario + "existsBycorreoElectronico/" + correoElectronico;
-function verificarcorreoElectronico(correoElectronico, callback) {
+// function verificarcorreoElectronico(correoElectronico, callback) {
+//     $.ajax({
+//         url: urlExitsCorreo + "existsBycorreoElectronico/" + correoElectronico,
+//         type: 'GET',
+//         success: function (response) {
+//             callback(response); // Suponiendo que la respuesta es true o false
+//         },
+//         error: function (xhr, status, error) {
+//             console.error('VERIFICANDO QUE NO TENGAMOS DATOS REPETIDOS', error);
+//             callback(false); // Suponer que no existe en caso de error
+//         }
+//     });
+// }
+
+function verificarToken(callback) {
     $.ajax({
-        url: urlExitsCorreo + "existsBycorreoElectronico/" + correoElectronico,
+        url: urlTokenService + "generateToken", // Endpoint para generar el token
         type: 'GET',
         success: function (response) {
-            callback(response); // Suponiendo que la respuesta es true o false
+            if (response && response.token) {
+                callback(true); // Si se genera un token válido
+            } else {
+                callback(false); // Si el token es null, no se permite el registro
+            }
         },
         error: function (xhr, status, error) {
-            console.error('VERIFICANDO QUE NO TENGAMOS DATOS REPETIDOS', error);
-            callback(false); // Suponer que no existe en caso de error
+            console.error('Error al generar el token', error);
+            callback(false); // En caso de error, se asume que no se puede continuar
         }
     });
 }
 
+// Llamada a la función
+verificarToken(function (esValido) {
+    if (esValido) {
+        console.log("Token generado correctamente, se puede proceder con el registro.");
+        // Aquí puedes continuar con el proceso de registro
+    } else {
+        console.warn("El correo electrónico ya está registrado o hubo un error.");
+        // Mostrar mensaje de error al usuario
+        alert("Este correo electrónico ya está registrado. Por favor, use otro correo.");
+    }
+});
 
 
 //CAMPOS VALIDACIONES

@@ -60,15 +60,16 @@ div h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*height: 100vh;*/
+    height: 100vh;
 }
 
 .formulario {
     background-color: #1c1c1c;
-    padding: 30px;
     border-radius: 5px;
-    width: 200%;
+    height: 70vh;
+    margin: 5% 0% 0% 0% ;
 }
+
 
 .back-button box-icon {
     width: 35px;
@@ -139,9 +140,45 @@ form button:hover {
     background-color: rgba(236, 166, 16, 0.973);
     border-radius:8px;
     margin: 8px;
-   }
+}
 
-/* .vfinal>a {
-    text-decoration: none;
-    color: #fff;
-} */
+.white-container {
+    background: white;
+    border-radius: 5px; 
+    width: 40%;
+    text-align: center;
+}
+.white-container > h1{
+    color: #000000;
+}
+
+.white-container box-icon {
+    font-size: 100%; 
+    color: #ff9900;
+    margin-bottom: 20px;
+    height: 100%;
+    width: 30%;
+    height: 30%;
+}
+.white-container>hr{
+    margin:auto;
+    width: 70%; 
+    border: 90;
+    border-top: 3px solid #ff9900; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.white-container>h4{
+    margin:5%;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    gap: 8px ;
+    padding: 0;
+}
+
+
+
