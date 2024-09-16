@@ -60,14 +60,15 @@ div h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
+    gap: 5%;
 }
 
 .formulario {
     background-color: #1c1c1c;
     border-radius: 5px;
-    height: 70vh;
-    margin: 5% 0% 0% 0% ;
+    height: auto;
+    margin: 5% 5% 0% 0% ;
 }
 
 
@@ -138,47 +139,66 @@ form button:hover {
 
 .nav-item:hover {
     background-color: rgba(236, 166, 16, 0.973);
-    border-radius:8px;
+    border-radius: 8px;
     margin: 8px;
 }
 
-.white-container {
-    background: white;
-    border-radius: 5px; 
+button {
     width: 40%;
-    text-align: center;
-}
-.white-container > h1{
-    color: #000000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background-color: #ff9900;
+    font-weight: bold;
+    padding: 10px 0;
 }
 
-.white-container box-icon {
-    font-size: 100%; 
-    color: #ff9900;
-    margin-bottom: 20px;
-    height: 100%;
-    width: 30%;
-    height: 30%;
+.BUTON {
+    border-radius: 10px;
+    width: 70%;
+    margin: 4% 0% 7% 15%;
+
 }
-.white-container>hr{
-    margin:auto;
-    width: 70%; 
+
+.BUTON2 {
+    border-radius: 10px;
+    width: 40%;
+    margin: 4% 0% 7% 30%;
+}
+
+.foto {
+    background-color: white;
+    border-radius: 5%;
+    width: 39%;
+    height: 70%;
+
+}
+
+.camera-icon {
+    display: block;
+    margin: 0 auto;
+    width: 90px;
+    height: 90px;
+}
+
+.foto>hr {
+    margin: auto;
+    width: 70%;
     border: 90;
-    border-top: 3px solid #ff9900; 
+    border-top: 3px solid #ff9900;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
 }
 
-.white-container>h4{
-    margin:5%;
-    display: flex;
-    align-items: center ;
-    justify-content: center;
-    gap: 8px ;
-    padding: 0;
+.foto>h3 {
+    text-align: center;
+
 }
 
-
-
+@media (max-width: 1167px) and (max-height: 607px) {
+    .foto {
+         margin: 0% 0% 4% 30%; 
+    }
+}
