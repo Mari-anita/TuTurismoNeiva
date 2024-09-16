@@ -15,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
@@ -28,26 +27,23 @@ public class controllerPublicoUsuario {
 
     private final authService authService;
 
-    public AuthController(AuthService authService){
-        this.authService = authService;
-    }
 
-    @GetMapping("login/")
+    @PostMapping("login/")
     public ResponseEntity<authResponse> login(@RequestBody loginRequest request) {
         authResponse response = new authResponse();
-        // authService.login(request);
+        authService.login(request);
         Optional<authResponse> authResult = authService.verificarToken(request.getToken()); //Validamos desde el loginRequest
 
         if(authResult.isPresent()){ //Token valido se permite el acceso
             response.setMensaje("Acceso Permitido");
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else{
-            response.getMensaje("ACCESO NEGADO. POR FAVOR, REGISTRESE");
-            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED)
+            response.setMensaje("ACCESO NEGADO. POR FAVOR, REGISTRESE");
+            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
         }
     }
 
-    @PostMapping("registro/")
+    @GetMapping("registro/")
     public ResponseEntity<authResponse> registro(@RequestBody registroRequest request) {
         var valido = true;
         authResponse response=new authResponse();
@@ -64,21 +60,23 @@ public class controllerPublicoUsuario {
             return new ResponseEntity<authResponse>(response, HttpStatus.OK);
         } 
         return new ResponseEntity<authResponse>(response, HttpStatus.OK);
-        
     }
 
-    // por seguridad no deberia está r expuesto como end-point
-    // deberia ser private y ser consultado al momento de registrar el usuario
-    // @GetMapping("existsBycorreoElectronico/{correoElectronico}")
-    // public ResponseEntity<authResponse> existByCorreoElectronico(@PathVariable
-    // String correoElectronico) {
-    // authResponse response =
-    // authResponse.existByCorreoElectronico(correoElectronico);
-    // return new ResponseEntity<authResponse>(response, HttpStatus.OK);
-    // }
+    @PostMapping("verificarToken/")
+    public ResponseEntity<authResponse> verificarToken(@RequestBody String Token) {
+        Optional<authResponse> authResult = authService.verificarToken(Token);
+        authResponse response = new authResponse();
 
-    
-
+        if (authResult.isPresent()) {
+            // authResponse response = new authResponse();
+            response.setMensaje("Token válido. Usuario registrado.");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            // authResponse response = new authResponse();
+            response.setMensaje("Token no válido. Por favor, regístrese.");
+            return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+        }
+    }
     /*
      * RECUPERAR CONTRASEÑA
      * VER COMENTARIOS

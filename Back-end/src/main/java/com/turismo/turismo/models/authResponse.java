@@ -22,13 +22,4 @@ public class authResponse {
         this.emailExists = emailExists;
     }
 
-    // public static authResponse existByCorreoElectronico(String correoElectronico)
-    // {
-    // boolean exists = checkEmailInDatabase(correoElectronico); // Implementar este
-    // método según tu lógica de negocio
-    // authResponse response = new authResponse();
-    // response.setEmailExists(exists);
-    // return response;
-    // }
-
 }

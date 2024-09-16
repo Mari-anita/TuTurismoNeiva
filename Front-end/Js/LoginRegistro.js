@@ -325,35 +325,7 @@ function validarContrasena(contra) {
 //     });
 // }
 
-function verificarToken(callback) {
-    $.ajax({
-        url: urlTokenService + "generateToken", // Endpoint para generar el token
-        type: 'GET',
-        success: function (response) {
-            if (response && response.token) {
-                callback(true); // Si se genera un token válido
-            } else {
-                callback(false); // Si el token es null, no se permite el registro
-            }
-        },
-        error: function (xhr, status, error) {
-            console.error('Error al generar el token', error);
-            callback(false); // En caso de error, se asume que no se puede continuar
-        }
-    });
-}
 
-// Llamada a la función
-verificarToken(function (esValido) {
-    if (esValido) {
-        console.log("Token generado correctamente, se puede proceder con el registro.");
-        // Aquí puedes continuar con el proceso de registro
-    } else {
-        console.warn("El correo electrónico ya está registrado o hubo un error.");
-        // Mostrar mensaje de error al usuario
-        alert("Este correo electrónico ya está registrado. Por favor, use otro correo.");
-    }
-});
 
 
 //CAMPOS VALIDACIONES
@@ -643,3 +615,57 @@ function ActualizarUsuario() {
         });
     }
 }
+
+
+//AUTENTICARSE LOGIARSE
+// Función para iniciar sesión y verificar el token del usuario
+async function loginUsuario(correoElectronico, contra) {
+    try {
+        const response = await fetch( urlUsuarioPublico+ 'login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                correoElectronico: correoElectronico,
+                contra: contra,
+            }),
+        });
+
+        // Verifica el contenido de la respuesta
+        const responseText = await response.text();
+        console.log("Respuesta del servidor:", responseText);
+
+        // Intenta convertir a JSON si la respuesta no está vacía
+        const result = responseText ? JSON.parse(responseText) : {};
+
+        if (result.Token) {
+            alert("Acceso permitido. Token válido.");
+            localStorage.setItem('userToken', result.Token);
+            window.location.href = "/dashboard.html";
+        } else {
+            alert("ACCESO DENEGADO. POR FAVOR, REGÍSTRESE.");
+            window.location.href = "/registro.html";
+        }
+    } catch (error) {
+        console.error("Error al intentar iniciar sesión:", error);
+        alert("Hubo un error al intentar iniciar sesión. Inténtelo de nuevo.");
+    }
+}
+
+
+
+// Manejador para el evento de click en el botón de login
+document.getElementById('loginBtn').addEventListener('click', function() {
+    // Obtener los valores de correo y contraseña ingresados por el usuario
+    const correoElectronico = document.getElementById('correoElectronico').value;
+    const contrasena = document.getElementById('contra').value;
+
+    // Verificar que los campos no estén vacíos
+    if (correoElectronico && contra) {
+        // Llamar a la función para iniciar sesión y verificar el token
+        loginUsuario(correoElectronico, contra);
+    } else {
+        alert("Por favor, complete todos los campos.");
+    }
+});

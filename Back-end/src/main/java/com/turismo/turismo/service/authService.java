@@ -52,7 +52,7 @@ public class authService implements IusuarioService {
     }
     
 
-    //METODO DUPLICADO DE INICIO D SESION, PARA VERIFICAR EL TOKEN
+    // //METODO DUPLICADO DE INICIO D SESION, PARA VERIFICAR EL TOKEN
     public Optional<authResponse> verificarToken(String Token){
         try{//  VERIFICAMOS EL TOKEN USANDO EL JWT
             UserDetails userdetails = dataUser.findByCorreoElectronico(jwtService.getCorreoElectronicoFromToken(Token)).orElse(null);
