@@ -60,14 +60,15 @@ div h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
+    gap: 5%;
 }
 
 .formulario {
     background-color: #1c1c1c;
     border-radius: 5px;
-    height: 70vh;
-    margin: 5% 0% 0% 0% ;
+    height: auto;
+    margin: 5% 5% 0% 0% ;
 }
 
 
