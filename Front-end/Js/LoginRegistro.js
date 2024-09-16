@@ -195,7 +195,7 @@ function registroUsuario() {
                         $('#exampleModal').modal('hide');
                         listarUsuario();
                         // Redirigir a una página protegida
-                        window.location.href = '/pagina-protegida';
+                        window.location.href = '/Front-end/html/RegistroUsuario.html';
                     });
                 } else {
                     Swal.fire({
@@ -384,9 +384,9 @@ function Validarcontra(CuadroNumero) {
         Valido = false;
     }
     if (Valido) {
-        CuadroNumero.className = "input form-control is-valid";
+        CuadroNumero.className = "input form-select is-valid";
     } else {
-        CuadroNumero.className = "input form-control is-invalid";
+        CuadroNumero.className = "input form-select is-invalid";
     }
     return Valido;
 }

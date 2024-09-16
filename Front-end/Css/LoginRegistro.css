@@ -332,3 +332,7 @@
 } 
 
 /*FIN CONTAINER*/
+
+.form-select:focus-visible{
+    color: white !important;
+}
