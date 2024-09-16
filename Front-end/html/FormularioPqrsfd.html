@@ -17,6 +17,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
   <title>Registro de pqrsfd</title>
 </head>
 
@@ -51,8 +52,8 @@
           </select>
           <label for="telefono">Teléfono</label>
           <input class="regis" type="number" placeholder="" required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
-          <label for="nombre_apellido">Nombre y apellido</label>
-          <input class="regis" type="text" placeholder="" required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
+          <label for="nombre_apellido" >Nombre y apellido</label>
+          <input class="regis" id="nombre_apellido" type="text" placeholder="Nombre Completo" required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
           <label for="estado">Estado</label>
           <select id="estado" class="form-control">
             <option value="" selected disabled>Seleccione una opción</option>
@@ -66,7 +67,7 @@
           <div class="file-upload-container">
             <label for="documentos">Anexar documentos (solo PDF, máximo 5 MB)</label>
             <input type="file" name="documentos" id="pdfFile" accept="application/pdf">
-            <p id="message" class="error"></p>
+            <button type="button" class="btn-clear" id="clearFile" style="margin-top: 2%; margin-left:3%;">Eliminar PDF</button>
           </div>
         </div>
         <div class="columna2" style="padding: 20px;">
@@ -110,5 +111,4 @@
   </section>
                 
   <script src="../Js/Pqrsfd.js"></script>
-</body>
 </html>
