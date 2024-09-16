@@ -54,8 +54,6 @@ public class controllerPublicoUsuario {
             response.setMensaje("ACCESO DENEGADO. POR FAVOR, REGÍSTRESE");
             return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
         }
-
-
     }
 
     @PostMapping("registro/")

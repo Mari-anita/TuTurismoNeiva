@@ -11,6 +11,7 @@
   <!--Box Icons-->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="Js/LoginRegistro.js"></script>
 </head>
 <style>
   body {
@@ -147,21 +148,22 @@
 
   .nav-item:hover {
     background-color: #666666;
-    border-radius:8px;
+    border-radius: 8px;
     margin: 8px;
-   }
-   
-   .nav-item-fo-P > a > b:hover{ 
-      color: #ffbd59;
-   }
+  }
 
-   
+  .nav-item-fo-P>a>b:hover {
+    color: #ffbd59;
+  }
 
-
+  .menuOculto {
+    display: none;
+  }
 </style>
 
-<body>
-  <nav class="navbar navbar-expand-lg bg-dark" style="position: fixed; top: 0%; width: 100%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
+<body onload="verificacionLogin()">
+  <nav class="navbar navbar-expand-lg bg-dark"
+    style="position: fixed; top: 0%; width: 100%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
     <div class="container-fluid" style="height: 56px;">
       <a class="navbar-brand" href="../Front-end/index.html">
         <img src="../Front-end/Img/logo.png" alt="" width="25%">
@@ -171,7 +173,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="margin-left: 23vw;">
-        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto" >
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
               <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
@@ -190,14 +192,15 @@
           <li class="nav-item-S" style=" margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
           </li>
-          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i class="fa-solid fa-earth-americas" style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
+          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i class="fa-solid fa-earth-americas"
+              style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
             <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
               <a href="#">Español</a>
               <a href="#">Inglés</a>
             </div>
           </li>
-          <li class="nav-item-U dropdown" style=" margin-top: 1.5%;">
+          <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
             <button class="dropbtn btn" style="color: white; font-size: 25px"><b><box-icon name='user-circle'
                   type='solid' color='#ffbd59' size="39px"></box-icon></b></button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
@@ -206,6 +209,18 @@
               <a href="#">Ayuda</a>
             </div>
           </li>
+          <!-- autenticado -->
+          <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px"><b>user name<box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon></b></button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="../Front-end/html/RegistroUsuario.html">Mi Perfil</a>
+              <a href="">Mis Sitios</a>
+              <a href="">Tema</a>
+              <a href="#">Ayuda</a>
+              <a href="../Front-end/html/RegistroUsuario.html">Cerrar sesión</a>
+            </div>
+          </li>
+
         </ul>
       </div>
     </div>
@@ -241,11 +256,13 @@
     <div class="row">
       <div class="col-12">
         <h1 style="color: white; text-align: center; margin-top: 3%; width: 40%; margin-left: 30%; font-size: 40px">
-          <b>Sitios turísticos y monumentos más visitados de la ciudad de Neiva</b></h1>
+          <b>Sitios turísticos y monumentos más visitados de la ciudad de Neiva</b>
+        </h1>
         <div class="container">
           <div class="carousel">
             <div class="carousel__face">
-              <img src="./Img/ImagenesTuTurismoNeivaREALES/20240621_170051.jpg" alt="Centro de Convenciones" style="width: 100%;">
+              <img src="./Img/ImagenesTuTurismoNeivaREALES/20240621_170051.jpg" alt="Centro de Convenciones"
+                style="width: 100%;">
             </div>
             <div class="carousel__face">
               <img src="./Img/ImagenesTuTurismoNeivaREALES/20240621_174535.jpg" alt="Amantes" style="width: 100%;">
@@ -270,7 +287,8 @@
               <img src="./Img/ImagenesTuTurismoNeivaREALES/catedral.jpg" alt="Parque Santander" style="width: 100%;">
             </div>
             <div class="carousel__face">
-              <img src="./Img/ImagenesTuTurismoNeivaREALES/Centro de Convenciones.jpg" alt="Parque Leesburg" style="width: 100%;">
+              <img src="./Img/ImagenesTuTurismoNeivaREALES/Centro de Convenciones.jpg" alt="Parque Leesburg"
+                style="width: 100%;">
             </div>
           </div>
         </div>
@@ -332,24 +350,25 @@
       </div>
     </div>
 
-    <section id="contacto" >
+    <section id="contacto">
       <!--Footer-->
       <div class="container-fluid">
         <footer class="py-3">
           <ul class="nav border-bottom mb-3 justify-content-between">
             <div class="d-flex">
               <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-              <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' type='solid'
-                    color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
+                    type='solid' color='#ffffff'></box-icon></a></li>
               <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
                     name='gmail' type='logo' class="gmail" color='#ffffff'></box-icon></a></li>
               <li class="nav-item-fo-I"><a class="nav-link px-1"><box-icon class="ig" name='instagram' type='logo'
                     color='#ffffff'></box-icon></a></li>
             </div>
             <div class="d-flex">
-              <li class="nav-item-fo-P "><a href="#" class="nav-link px-2 pqrsfd" style="color: #feffff ; "><b>Pqrsfd</b></a></li>
-              <li class="nav-item-fo-P"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
-                  style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+              <li class="nav-item-fo-P "><a href="#" class="nav-link px-2 pqrsfd"
+                  style="color: #feffff ; "><b>Pqrsfd</b></a></li>
+              <li class="nav-item-fo-P"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank"
+                  class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
             </div>
           </ul>
           <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>

@@ -26,6 +26,9 @@ public class SitioMonumento {
     @Column(name="idSitioMonumento", nullable = false, length = 36)     //FILTRAR
     private String idSitioMonumento;
 
+    @Column(name="clasificacionSitioMonumento", nullable = false, length = 1)  //FILTRAR
+    private char clasificacionSitioMonumento;
+
     @Column(name="nombreSitioMonumento", nullable = false, length = 60)  //FILTRAR
     private String nombreSitioMonumento;
 

@@ -646,14 +646,13 @@ async function loginUsuario() {
         // Verificar si la respuesta es exitosa
         if (response.ok) {
             const result = await response.json();
-
             if (result.token) {
                 // Guardar el token en localStorage
                 localStorage.setItem('userToken', result.token);
-
+                
                 // Mostrar mensaje de éxito y redirigir al dashboard
                 alert(result.mensaje);
-                window.location.href = "/dashboard.html";
+                window.location.href = "/Front-end/index.html";
             } else {
                 // Si no se recibe un token, mostrar mensaje de error
                 alert("No se recibió un token válido.");
@@ -676,3 +675,18 @@ async function loginUsuario() {
 document.getElementById('loginBtn').addEventListener('click', function() {
     loginUsuario();
 });
+
+
+function verificacionLogin(){
+
+    if(localStorage.getItem('userToken')=="" || localStorage.getItem('userToken')==null ){
+        //no se ha autenticado
+        document.getElementById("menuAuthenticate").classList.add("menuOculto");
+        document.getElementById("menuNotAuthenticate").classList.remove("menuOculto");
+    }else{
+        //si se ha autenticado
+        document.getElementById("menuNotAuthenticate").classList.add("menuOculto");
+        document.getElementById("menuAuthenticate").classList.remove("menuOculto");
+    }
+
+}
