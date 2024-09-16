@@ -128,6 +128,7 @@ function registroUsuario() {
     var contra = document.getElementById("contra");
     var coContra = document.getElementById("coContra");
 
+    // Validación de campos
     if (!ValidarnombreCompleto(nombreCompleto) ||
         !ValidarcorreoElectronico(correoElectronico) ||
         !Validarcontra(contra) ||
@@ -160,8 +161,6 @@ function registroUsuario() {
         return;
     }
 
-
-
     var formData = {
         "nombreCompleto": nombreCompleto.value,
         "correoElectronico": correoElectronico.value,
@@ -169,68 +168,58 @@ function registroUsuario() {
         "coContra": coContra.value,
     };
 
-    var metodo = "";
-    var urlLocal = "";
-    var textoimprimir = "";
+    var metodo = BRegistrarUsuario ? "POST" : "PUT";
+    var urlLocal = BRegistrarUsuario ? urlUsuario : urlUsuario + idUsuario;
+    var textoimprimir = BRegistrarUsuario ? "Felicidades, Registrado con éxito!" : "Felicidades, Guardado con éxito!";
 
-    if (BRegistrarUsuario == true) {
-        metodo = "POST";
-        urlLocal = urlUsuario;
-        textoimprimir = "Felicidades, Registrado con éxito!";
-    } else {
-        metodo = "PUT";
-        urlLocal = urlUsuario + idUsuario;
-        textoimprimir = "Felicidades, Guardado con éxito!";
-    }
+    // Enviar datos al servidor
+    if (ValidarCampos()) {
+        $.ajax({
+            type: metodo,
+            url: urlUsuarioPublico +"registro/",
+            contentType: "application/json",
+            data: JSON.stringify(formData),
+            success: function (response) {
+                // Si el servidor devuelve un token, lo almacenamos
+                if (response.token) {
+                    // Guardar el token en localStorage
+                    localStorage.setItem('token', response.token);
+                    
 
-    verificarcorreoElectronico(correoElectronico.value, function (exists) {
-        if (exists && BRegistrarUsuario == true) {
-            Swal.fire({
-                title: "Error",
-                text: "¡El correo electrónico ya está registrado!",
-                icon: "error"
-            });
-        } else {
-            if (ValidarCampos()) {
-                $.ajax({
-                    //método de envío
-                    //POST
-                    //GET
-                    //DELETE
-                    //PUT
-                    //al no definir por defecto se realiza por GET
-                    type: metodo,
-                    url: urlUsuario,
-                    contentType: "application/json",
-                    data: JSON.stringify(formData),
-                    success: function (response) {
-                        Swal.fire({
-                            title: "Éxito",
-                            text: textoimprimir,
-                            icon: "success"
-                        }).then(function () {
-                            // Aquí puedes agregar más acciones después del registro exitoso
-                            $('#exampleModal').modal('hide');
-                            listarUsuario();
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        Swal.fire({
-                            title: "Error",
-                            text: "No lograste registrar los datos",
-                            icon: "error"
-                        });
-                    }
-                });
-            } else {
+                    Swal.fire({
+                        title: "Éxito",
+                        text: textoimprimir,
+                        icon: "success"
+                    }).then(function () {
+                        // Aquí puedes agregar más acciones después del registro exitoso
+                        $('#exampleModal').modal('hide');
+                        listarUsuario();
+                        // Redirigir a una página protegida
+                        window.location.href = '/pagina-protegida';
+                    });
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: "No se recibió un token del servidor.",
+                        icon: "error"
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
                 Swal.fire({
                     title: "Error",
-                    text: "¡Llene todos los campos correctamente!",
+                    text: "No lograste registrar los datos",
                     icon: "error"
                 });
             }
-        }
-    });
+        });
+    } else {
+        Swal.fire({
+            title: "Error",
+            text: "¡Llene todos los campos correctamente!",
+            icon: "error"
+        });
+    }
 }
 
 
@@ -320,21 +309,22 @@ function validarContrasena(contra) {
 
 //VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
-function verificarcorreoElectronico(correoElectronico, callback) {
     // var url = 'http://10.192.66.33:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
     // var url = urlUsuario + "existsBycorreoElectronico/" + correoElectronico;
-    $.ajax({
-        url: urlUsuario + "existsBycorreoElectronico/" + correoElectronico,
-        type: 'GET',
-        success: function (response) {
-            callback(response); // Suponiendo que la respuesta es true o false
-        },
-        error: function (xhr, status, error) {
-            console.error('VERIFICANDO QUE NO TENGAMOS DATOS REPETIDOS', error);
-            callback(false); // Suponer que no existe en caso de error
-        }
-    });
-}
+// function verificarcorreoElectronico(correoElectronico, callback) {
+//     $.ajax({
+//         url: urlExitsCorreo + "existsBycorreoElectronico/" + correoElectronico,
+//         type: 'GET',
+//         success: function (response) {
+//             callback(response); // Suponiendo que la respuesta es true o false
+//         },
+//         error: function (xhr, status, error) {
+//             console.error('VERIFICANDO QUE NO TENGAMOS DATOS REPETIDOS', error);
+//             callback(false); // Suponer que no existe en caso de error
+//         }
+//     });
+// }
+
 
 
 
@@ -625,3 +615,64 @@ function ActualizarUsuario() {
         });
     }
 }
+
+
+//AUTENTICARSE LOGIARSE
+// Función para iniciar sesión y verificar el token del usuario
+async function loginUsuario() {
+    // Obtener los valores de correo y contraseña desde los campos de entrada
+    var correoElectronico = document.getElementById('correoElectronicologin').value;
+    var contrasena = document.getElementById('contralogin').value;
+
+    // Validar que los campos no estén vacíos
+    if (!correoElectronico || !contrasena) {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+
+    try {
+        // Realizar la petición POST para el login
+        const response = await fetch( urlUsuarioPublico +'login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                correoElectronico: correoElectronico,
+                contra: contrasena,
+            }),
+        });
+
+        // Verificar si la respuesta es exitosa
+        if (response.ok) {
+            const result = await response.json();
+
+            if (result.token) {
+                // Guardar el token en localStorage
+                localStorage.setItem('userToken', result.token);
+
+                // Mostrar mensaje de éxito y redirigir al dashboard
+                alert(result.mensaje);
+                window.location.href = "/dashboard.html";
+            } else {
+                // Si no se recibe un token, mostrar mensaje de error
+                alert("No se recibió un token válido.");
+            }
+        } else if (response.status === 401) {
+            // Si la respuesta es 401 Unauthorized, mostrar mensaje de acceso denegado
+            const result = await response.json();
+            alert(result.mensaje);
+        } else {
+            // Manejar otros estados de respuesta
+            alert("Error al intentar iniciar sesión. Por favor, inténtelo de nuevo.");
+        }
+    } catch (error) {
+        console.error("Error al intentar iniciar sesión:", error);
+        alert("Hubo un error al intentar iniciar sesión. Inténtelo de nuevo.");
+    }
+}
+
+// Manejador del evento de clic en el botón de login
+document.getElementById('loginBtn').addEventListener('click', function() {
+    loginUsuario();
+});

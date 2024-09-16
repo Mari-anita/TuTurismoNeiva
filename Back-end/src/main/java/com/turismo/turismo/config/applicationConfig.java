@@ -27,6 +27,7 @@ public class applicationConfig {
     }
 
 
+    //AQUI NOS PERMITE ENCRIPTAR LA CONTRASEÑA
     @Bean
     public AuthenticationProvider getAuthenticationProvider(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();

@@ -21,5 +21,13 @@ public class controllerUsuario {
     public ResponseEntity<String> profile(@RequestBody String request){
         return new ResponseEntity<String>("ESTE END-POINT es perfil privado", HttpStatus.OK);
     }
+
+    /*
+     * CAMBIAR CONTRASEÑA
+     * ACTUALIZAR PERFIL
+     * REGISTRO INFORMACION SITIOS SOLO ADMIN
+     * PQRS
+     * COMENTARIO
+    */
     
 }

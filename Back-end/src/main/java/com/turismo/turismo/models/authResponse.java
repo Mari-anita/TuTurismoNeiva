@@ -10,5 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class authResponse {
+    private String mensaje;
     private String Token;
+    private boolean emailExists;
+
+    public boolean isEmailExists() {
+        return emailExists;
+    }
+
+    public void setEmailExists(boolean emailExists) {
+        this.emailExists = emailExists;
+    }
+
 }
