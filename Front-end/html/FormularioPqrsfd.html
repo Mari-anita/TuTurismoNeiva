@@ -63,8 +63,11 @@
             <option value="Respondido">Respondido</option>
             <option value="Anulado">Anulado</option>
           </select>
-          <label for="documentos">Anexar documentos</label>
-          <input type="file" name="documentos" id="documentos">
+          <div class="file-upload-container">
+            <label for="documentos">Anexar documentos (solo PDF, máximo 5 MB)</label>
+            <input type="file" name="documentos" id="pdfFile" accept="application/pdf">
+            <p id="message" class="error"></p>
+          </div>
         </div>
         <div class="columna2" style="padding: 20px;">
           <label for="tipo_doc">Tipo de documento</label>
