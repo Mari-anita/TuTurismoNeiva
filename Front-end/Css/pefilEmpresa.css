@@ -67,7 +67,7 @@ div h1 {
     background-color: #1c1c1c;
     border-radius: 5px;
     height: auto;
-    margin: 5% 5% 0% 0% ;
+    margin: 5% 5% 0% 0%;
 }
 
 
@@ -204,12 +204,12 @@ button {
 
 @media (max-width: 1167px) and (max-height: 607px) {
     .foto {
-         margin: 0% 0% 4% 30%; 
+        margin: 0% 0% 4% 30%;
     }
 }
 
 .col-xl-7 {
-    margin-right: 1%; 
+    margin-right: 1%;
 }
 
 .col-xl-5 {
