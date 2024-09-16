@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,20 +31,34 @@ public class controllerPublicoUsuario {
 
     @PostMapping("login/")
     public ResponseEntity<authResponse> login(@RequestBody loginRequest request) {
-        authResponse response = new authResponse();
-        authService.login(request);
-        Optional<authResponse> authResult = authService.verificarToken(request.getToken()); //Validamos desde el loginRequest
+        // authResponse response = new authResponse();
+        // authService.login(request);
+        // Optional<authResponse> authResult = authService.verificarToken(request.getToken()); //Validamos desde el loginRequest
 
-        if(authResult.isPresent()){ //Token valido se permite el acceso
-            response.setMensaje("Acceso Permitido");
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        } else{
-            response.setMensaje("ACCESO NEGADO. POR FAVOR, REGISTRESE");
+        // if(authResult.isPresent()){ //Token valido se permite el acceso
+        //     response.setMensaje("Acceso Permitido");
+        //     return new ResponseEntity<>(response, HttpStatus.OK);
+        // } else{
+        //     response.setMensaje("ACCESO NEGADO. POR FAVOR, REGISTRESE");
+        //     return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+        // }
+        try {
+            // Autentica al usuario y genera el token
+            authResponse authResponse = authService.login(request);
+            authResponse.setMensaje("Acceso Permitido");
+
+            return new ResponseEntity<>(authResponse, HttpStatus.OK);
+        } catch (AuthenticationException e) {
+            // Maneja errores de autenticación
+            authResponse response = new authResponse();
+            response.setMensaje("ACCESO DENEGADO. POR FAVOR, REGÍSTRESE");
             return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
         }
+
+
     }
 
-    @GetMapping("registro/")
+    @PostMapping("registro/")
     public ResponseEntity<authResponse> registro(@RequestBody registroRequest request) {
         var valido = true;
         authResponse response=new authResponse();

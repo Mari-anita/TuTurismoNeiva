@@ -48,7 +48,8 @@ public class authService implements IusuarioService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getCorreoElectronico(), request.getContra()));
         Usuario usuario = findBycorreoElectronico(request.getCorreoElectronico()).orElseThrow();
         String Token = jwtService.getToken(usuario);
-        return authResponse.builder().Token(Token).build();
+        // return authResponse.builder().Token(Token).build();
+        return authResponse.builder().Token(Token).mensaje("Acceso Permitido").emailExists(false).build();
     }
     
 
@@ -57,7 +58,8 @@ public class authService implements IusuarioService {
         try{//  VERIFICAMOS EL TOKEN USANDO EL JWT
             UserDetails userdetails = dataUser.findByCorreoElectronico(jwtService.getCorreoElectronicoFromToken(Token)).orElse(null);
             if(userdetails != null && jwtService.isTokenValid(Token, userdetails)){
-                return Optional.of(authResponse.builder().Token(Token).build());
+                // return Optional.of(authResponse.builder().Token(Token).build());
+                return Optional.of(authResponse.builder().Token(Token).mensaje("Token valido. Usuario Registrado").emailExists(false).build());
             }
         }catch(Exception e){
             //MANEJAR CUALQUIER EXCEPCION QUE PUEDA OCURRIR DURANTE LA VERIFICACION DEL TOKEN

@@ -619,33 +619,52 @@ function ActualizarUsuario() {
 
 //AUTENTICARSE LOGIARSE
 // Función para iniciar sesión y verificar el token del usuario
-async function loginUsuario(correoElectronico, contra) {
+async function loginUsuario() {
+    // Obtener los valores de correo y contraseña desde los campos de entrada
+    var correoElectronico = document.getElementById('correoElectronicologin').value;
+    var contrasena = document.getElementById('contralogin').value;
+
+    // Validar que los campos no estén vacíos
+    if (!correoElectronico || !contrasena) {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+
     try {
-        const response = await fetch( urlUsuarioPublico+ 'login/', {
+        // Realizar la petición POST para el login
+        const response = await fetch( urlUsuarioPublico +'login/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 correoElectronico: correoElectronico,
-                contra: contra,
+                contra: contrasena,
             }),
         });
 
-        // Verifica el contenido de la respuesta
-        const responseText = await response.text();
-        console.log("Respuesta del servidor:", responseText);
+        // Verificar si la respuesta es exitosa
+        if (response.ok) {
+            const result = await response.json();
 
-        // Intenta convertir a JSON si la respuesta no está vacía
-        const result = responseText ? JSON.parse(responseText) : {};
+            if (result.token) {
+                // Guardar el token en localStorage
+                localStorage.setItem('userToken', result.token);
 
-        if (result.Token) {
-            alert("Acceso permitido. Token válido.");
-            localStorage.setItem('userToken', result.Token);
-            window.location.href = "/dashboard.html";
+                // Mostrar mensaje de éxito y redirigir al dashboard
+                alert(result.mensaje);
+                window.location.href = "/dashboard.html";
+            } else {
+                // Si no se recibe un token, mostrar mensaje de error
+                alert("No se recibió un token válido.");
+            }
+        } else if (response.status === 401) {
+            // Si la respuesta es 401 Unauthorized, mostrar mensaje de acceso denegado
+            const result = await response.json();
+            alert(result.mensaje);
         } else {
-            alert("ACCESO DENEGADO. POR FAVOR, REGÍSTRESE.");
-            window.location.href = "/registro.html";
+            // Manejar otros estados de respuesta
+            alert("Error al intentar iniciar sesión. Por favor, inténtelo de nuevo.");
         }
     } catch (error) {
         console.error("Error al intentar iniciar sesión:", error);
@@ -653,19 +672,7 @@ async function loginUsuario(correoElectronico, contra) {
     }
 }
 
-
-
-// Manejador para el evento de click en el botón de login
+// Manejador del evento de clic en el botón de login
 document.getElementById('loginBtn').addEventListener('click', function() {
-    // Obtener los valores de correo y contraseña ingresados por el usuario
-    const correoElectronico = document.getElementById('correoElectronico').value;
-    const contrasena = document.getElementById('contra').value;
-
-    // Verificar que los campos no estén vacíos
-    if (correoElectronico && contra) {
-        // Llamar a la función para iniciar sesión y verificar el token
-        loginUsuario(correoElectronico, contra);
-    } else {
-        alert("Por favor, complete todos los campos.");
-    }
+    loginUsuario();
 });
