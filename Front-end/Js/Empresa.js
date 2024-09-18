@@ -358,29 +358,29 @@ $(document).on("click", ".Eliminar", function () {
 });
 
 
-$(document).on("click", ".Editar", function () {
-    // Limpiar();
-    idEmpresa = $(this).data("id");
-    $.ajax({
-        url: urlEmpresa + idEmpresa,
-        type: "GET",
-        success: function (Empresa) {
-            document.getElementById("nombreEmpresa").value = Empresa.nombreEmpresa;
-            document.getElementById("correoElectronico").value = Empresa.correoElectronico;
-            document.getElementById("tipoEmpresa").value = Empresa.tipoEmpresa;
-            document.getElementById("nombreRepresentante").value = Empresa.nombreRepresentante;
-            document.getElementById("direccion").value = Empresa.direccion;
-            document.getElementById("servicios").value = Empresa.servicios;
-            document.getElementById("nit").value = Empresa.nit;
-            document.getElementById("telefono").value = Empresa.telefono;
+// $(document).on("click", ".Editar", function () {
+//     // Limpiar();
+//     idEmpresa = $(this).data("id");
+//     $.ajax({
+//         url: urlEmpresa + idEmpresa,
+//         type: "GET",
+//         success: function (Empresa) {
+//             document.getElementById("nombreEmpresa").value = Empresa.nombreEmpresa;
+//             document.getElementById("correoElectronico").value = Empresa.correoElectronico;
+//             document.getElementById("tipoEmpresa").value = Empresa.tipoEmpresa;
+//             document.getElementById("nombreRepresentante").value = Empresa.nombreRepresentante;
+//             document.getElementById("direccion").value = Empresa.direccion;
+//             document.getElementById("servicios").value = Empresa.servicios;
+//             document.getElementById("nit").value = Empresa.nit;
+//             document.getElementById("telefono").value = Empresa.telefono;
             
-            $('#editUserModal').modal('show');
-        },
-        error: function (error) {
-            alert("Error al obtener el formulario de datos de la empresa: " + error.statusText);
-        }
-    });
-});
+//             $('#editUserModal').modal('show');
+//         },
+//         error: function (error) {
+//             alert("Error al obtener el formulario de datos de la empresa: " + error.statusText);
+//         }
+//     });
+// });
 
 function ConsultarEmpresa(id) {
     $.ajax({
