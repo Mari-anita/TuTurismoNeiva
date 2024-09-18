@@ -23,6 +23,7 @@ function registroFormularioEmpresa(){
     var nit = document.getElementById("nit");
     var telefono = document.getElementById("telefono");
 
+    // Validar campos del formulario
     if (!ValidarnombreCompletoempresa(nombreEmpresa) ||
         !ValidarcorreoElectronico(correoElectronico) ||
         !ValidartipoEmpresa(tipoEmpresa) ||
@@ -32,14 +33,20 @@ function registroFormularioEmpresa(){
         !Validarnit(nit) ||
         !Validartelefono(telefono)){
         Swal.fire({
-            title: "!Error¡",
-            text: "!Llene todos los campos correctamente¡",
-            icon: "!error¡"
+            title: "¡Error!",
+            text: "¡Llene todos los campos correctamente!",
+            icon: "error"
         });
         return;
     }
 
+    // Validar el correo electrónico
     if(!validarCorreoElectronico(correoElectronico.value)){
+        Swal.fire({
+            title: "¡Error!",
+            text: "¡El correo electrónico no es válido!",
+            icon: "error"
+        });
         return;
     }
     
@@ -47,11 +54,11 @@ function registroFormularioEmpresa(){
         "nombreEmpresa": nombreEmpresa.value,
         "correoElectronico": correoElectronico.value,
         "tipoEmpresa": tipoEmpresa.value,
-        "nombreRepresentante" : nombreEmpresa.value,
-        "direccion" : direccion.value,
-        "servicios" : servicios.value,
-        "nit" : nit.value,
-        "telefono" : telefono.value,
+        "nombreRepresentante": nombreRepresentante.value,
+        "direccion": direccion.value,
+        "servicios": servicios.value,
+        "nit": nit.value,
+        "telefono": telefono.value,
     };
 
     var metodo = "";
@@ -63,54 +70,39 @@ function registroFormularioEmpresa(){
         urlLocal = urlEmpresa;
         textoimprimir = "Felicidades, formulario enviado con éxito";
     }else{
-        metodo ="PUT";
+        metodo = "PUT";
         urlLocal = urlEmpresa + idEmpresa;
         textoimprimir = "Felicidades, guardado con éxito";
     }
 
-    verificarcorreoElectronico(correoElectronico.value, function (exists){
-        if (exists && BRegistrarFormularioEmpresa == true){
+    // Enviar la solicitud AJAX
+    $.ajax({
+        type: metodo,
+        url: urlEmpresa,
+        contentType: "application/json",
+        data: JSON.stringify(formData),
+        success: function (response){
             Swal.fire({
-                title:"Error",
-                text:"!El correo electronico ya está registrado¡",
-                icon:"error",
+                title: "Éxito",
+                text: textoimprimir,
+                icon: "success"
+            }).then(function(){
+                $('#exampleModal').modal('hide');
+                listarEmpresa();
             });
-        }else{
-            if(ValidarCampos()){
-                $.ajax({
-                    type: metodo,
-                    url: urlEmpresa,
-                    contentType: "application/json",
-                    data: JSON.stringify(formData),
-                    success: function (response){
-                        Swal.fire({
-                            title: "Éxito",
-                            text: textoimprimir,
-                            icon: "success"
-                        }).then(function(){
-                            $('#exampleModal').modal('hide');
-                            listarEmpresa();
-                        });
-                    },
-                    error: function (xhr,status,error){
-                        Swal.fire({
-                            title:"Error",
-                            text:"No lograste registrar los datos",
-                            icon:"error"
-                        });
-                    }
-                    
-                });
-            }else{
-                Swal.fire({
-                    title:"Error",
-                    text:"!Llene todos los campos correctamente¡",
-                    icon: "error"
-                });
-            }
+        },
+        error: function (xhr, status, error){
+            Swal.fire({
+                title: "Error",
+                text: "No lograste registrar los datos",
+                icon: "error"
+            });
         }
     });
 }
+
+
+
 
 function validarCorreoElectronico(correoElectronico){
     var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/;
@@ -125,19 +117,7 @@ function validarCorreoElectronico(correoElectronico){
     return true;
 }
 
-function verificarcorreoElectronico(correoElectronico, callback){
-    $.ajax({
-        url: urlEmpresa + "existsBycorreoElectronico/" + correoElectronico,
-        type: 'GET',
-        success: function(response){
-            callback(response);
-        },
-        error: function(xhr,status,error){
-            console.error('verificar datos repetidos',error);
-            callback(false);
-        }
-    });
-}
+
 
 //Validaciones campos
 
@@ -303,40 +283,40 @@ function Validartelefono(CuadroNumero){
 
 //tabla empresa
 
-function listarEmpresa(){
+function listarEmpresa() {
     $.ajax({
-        url:urlEmpresa,
+        url: urlEmpresa,
         type: "GET",
-        sucess: function (result){
+        success: function (result) {
             var cuerpoTabla = document.getElementById("cuerpoTabla");
             cuerpoTabla.innerHTML = " ";
 
-            for(var i= 0; i < result.length; i++) {
+            for (var i = 0; i < result.length; i++) {
                 var trRegistro = document.createElement("tr");
                 trRegistro.innerHTML = `
-                <td>${result[i]["idEmpresa"]}</td>
-                <td class="text-center align-middle">${result[i]["nombreEmpresa"]}</td>
-                <td class="text-center align-middle">${result[i]["correoElectronico"]}</td>
-                <td class="text-center align-middle">${result[i]["tipoEmpresa"]}</td>
-                <td class="text-center align-middle">${result[i]["nombreRepresentante"]}</td>
-                <td class="text-center align-middle">${result[i]["direccion"]}</td>
-                <td class="text-center align-middle">${result[i]["servicios"]}</td>
-                <td class="text-center align-middle">${result[i]["nit"]}</td>
-                <td class="text-center align-middle">${result[i]["telefono"]}</td>
-                <td class="text-center align-middle">
-                    <i class="btn fas fa-edit Editar"  onclick="BRegistrarFormularioEmpresa=false;"   data-id="${result[i]["idEmpresa"]}"></i>
-                    <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idEmpresa"]}"></i>
-                </td>
-            `;
+                    <td>${result[i]["idEmpresa"]}</td>
+                    <td class="text-center align-middle">${result[i]["nombreEmpresa"]}</td>
+                    <td class="text-center align-middle">${result[i]["correoElectronico"]}</td>
+                    <td class="text-center align-middle">${result[i]["tipoEmpresa"]}</td>
+                    <td class="text-center align-middle">${result[i]["nombreRepresentante"]}</td>
+                    <td class="text-center align-middle">${result[i]["direccion"]}</td>
+                    <td class="text-center align-middle">${result[i]["telefono"]}</td>
+                    <td class="text-center align-middle">${result[i]["servicios"]}</td>
+                    <td class="text-center align-middle">${result[i]["nit"]}</td>
+                    <td class="text-center align-middle">
+                        <i class="fa-solid fa-clock Pendiente" onclick="BRegistrarFormularioEmpresa=false;" data-id="${result[i]["idEmpresa"]}"></i>
+                         <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idEmpresa"]}"></i>
+                    </td>
+                `;
                 cuerpoTabla.appendChild(trRegistro);
             }
         },
-        error: function (error){
-            alert("ERROR en la peticion" + error);
-
+        error: function (error) {
+            console.error("ERROR en la petición", error);
         }
     });
 }
+
 
 var idEmpresa = "";
 

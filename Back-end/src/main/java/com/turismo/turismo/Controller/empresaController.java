@@ -19,7 +19,7 @@ import com.turismo.turismo.interfaceService.IempresaService;
 import com.turismo.turismo.models.Empresa;
 import com.turismo.turismo.service.emailService;
 
-@RequestMapping("/api/v1/Empresa")
+@RequestMapping("/api/v1/publico/Empresa")
 @RestController
 public class empresaController {
 
