@@ -81,6 +81,7 @@ body {
 
 
 .content {
+    margin: 3% 0% 0% 25%;
     padding: 26px;
     flex-grow: 1;
 }
