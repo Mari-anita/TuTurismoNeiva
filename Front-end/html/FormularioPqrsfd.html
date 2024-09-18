@@ -51,9 +51,9 @@
             <option value="Denuncias">Denuncias</option>
           </select>
           <label for="telefono">Teléfono</label>
-          <input class="regis" type="number" placeholder="" required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
+          <input class="regis" type="number" placeholder="" class="form-control is-valid" onfocusout="validarTelefono(this); required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
           <label for="nombre_apellido" >Nombre y apellido</label>
-          <input class="regis" id="nombre_apellido" type="text" placeholder="Nombre Completo" required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
+          <input class="regis" id="nombre_apellido" type="text" placeholder="Nombre Completo" class="form-control is-valid" onfocusout="validarNombre(this); required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
           <label for="estado">Estado</label>
           <select id="estado" class="form-control">
             <option value="" selected disabled>Seleccione una opción</option>
@@ -79,11 +79,11 @@
             <option value="Extranjeria">Cédula de extranjería</option>
           </select>
           <label for="correo">Correo electrónico</label>
-          <input class="regis" type="email" placeholder="" required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
+          <input class="regis" type="email" placeholder="" class="form-control is-valid" onfocusout="validarCorreo(this); required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
           <label for="mensaje" style="color: white;">Mensaje</label>
-          <textarea id="mensaje" class="regis" placeholder="" required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;" maxlength="5000"></textarea>
+          <textarea id="mensaje" class="regis" placeholder="" class="form-control is-valid" onfocusout="validarMensaje(this); required style="margin-top: 25px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;" maxlength="5000"></textarea>
           <div id="char-count" style="color: white;">Máximo 5000 caracteres</div> 
-          <button type="button" /*onclick="registroFormularioEmpresa()"*/ style="margin-left: 2%; margin-top:2%">Registrar PQRSFD</button>
+          <button type="button" style="margin-left: 2%; margin-top:2%;" onclick="registrarLibro();">Registrar PQRSFD</button>
         </div>
       </div>
     </form>    

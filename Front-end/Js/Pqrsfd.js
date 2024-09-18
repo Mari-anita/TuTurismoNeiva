@@ -64,3 +64,93 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+function registrarPqrsfd() {
+  var formData = {
+    "telefono": document.getElementById("telefono").value,
+    "nombre_apellido": document.getElementById("nombre_apellido").value,
+    "correo": document.getElementById("correo").value,
+    "mensaje": document.getElementById("mensaje").value,
+  }
+}
+
+if (validarCampos()) {
+  $.ajax({
+      url: url,
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(formData),
+      success: function(result) {
+          Swal.fire({
+              title: "¡Excelente!",
+              text: "Se guardó correctamente",
+              icon: "success"
+          });
+          $('#exampleModal').modal('hide');
+      },
+      error: function(error) {
+          Swal.fire({
+              title: "¡Error!",
+              text: "No se guardó",
+              icon: "error"
+          });
+      }
+  });
+} else {
+  Swal.fire({
+      title: "¡Error!",
+      text: "Llene todos los campos correctamente",
+      icon: "error"
+  });
+}
+
+function validarCampos() {
+  "telefono" = document.getElementById("telefono").value;
+  "nombre_apellido" = document.getElementById("nombre_apellido").value;
+  "correo" = document.getElementById("correo").value;
+  "mensaje" = document.getElementById("mensaje").value;
+
+return validarTelefono(telefono) && validarNombre(nombre_apellido) && validarCorreo(correo) && validarMensaje(mensaje);
+}
+
+function validarTelefono(telefono) {
+var valor = telefono.value.trim();
+var valido = valor.length >=3 && valor.length <=11;
+
+actualizarClaseValidacion(telefono, valido);
+return valido;
+}
+
+function validarNombre(nombre_apellido) {
+var valor = nombre_apellido.value.trim();
+var valido = valor.length >=5 && valor.length <=100;
+
+actualizarClaseValidacion(nombre_apellido, valido);
+return valido;
+}
+
+function validarCorreo(correo) {
+  var valor = correo.value.trim();
+  var valido = valor.length >=5 && valor.length <=100;
+  
+  actualizarClaseValidacion(correo, valido);
+  return valido;
+  }
+
+function validarMensaje(mensaje) {
+var valor = mensaje.value.trim();
+var valido = valor.length >=4 && valor.length <=5000;
+
+actualizarClaseValidacion(mensaje, valido);
+return valido;
+}
+
+function actualizarClaseValidacion(elemento, valido) {
+if (valido) {
+  elemento.classList.remove("is-invalid");
+  elemento.classList.add("is-valid");
+} else {
+  elemento.classList.remove("is-valid");
+  elemento.classList.add("is-invalid");
+}
+}
