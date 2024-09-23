@@ -77,21 +77,21 @@
             <input class="form-control" type="email" id="descripción" aria-label="default input example">
             <br>
             <label for="horario">Horario</label>
-            <input class="form-control" type="email" id="horario" aria-label="default input example">
+            <input class="form-control" type="time" id="horario" aria-label="default input example">
             <br>
             <label for="creacion">Fecha creación</label>
-            <input class="form-control" type="email" id="creacion" aria-label="default input example">
+            <input class="form-control" type="date" id="creacion" aria-label="default input example">
             <br>
             <label for="autor">Autor</label>
-            <input class="form-control" type="email" id="autor" aria-label="default input example">
+            <input class="form-control" type="text" id="autor" aria-label="default input example">
           </div>
 
           <div class="col-6">
             <label for="direccion">Dirección</label>
-            <input class="form-control" type="password" id="contrasena" aria-label="default input example">
+            <input class="form-control" type="text" id="contrasena" aria-label="default input example">
             <br>
             <label for="calificacion">Calificación</label>
-            <input class="form-control" type="password" id="confirmarContrasena" aria-label="default input example">
+            <input class="form-control" type="text" id="confirmarContrasena" aria-label="default input example">
             <br>
             <label for="detallada">Detallada</label>
             <input class="form-control" type="text" id="detallada" aria-label="default input example">
@@ -100,13 +100,12 @@
             <input class="form-control" type="text" id="contacto" aria-label="default input example">
             <br>
             <label for="modificacion">Fecha modificación</label>
-            <input class="form-control" type="text" id="modificacion" aria-label="default input example">
+            <input class="form-control" type="date" id="modificacion" aria-label="default input example">
             <br>
             <div style="margin-left: 50%; margin-top: 10%">
-              <button type="button" class="btn btn-success">Registrar</button>
-              <button type="button" class="btn btn-secondary">Limpiar</button>
+              <button type="button" class="btn btn-success" onclick="registrarSitios();">Registrar</button>
+              <button type="button" class="btn btn-secondary" onclick="limpiar();">Limpiar</button>
             </div>
-
           </div>
         </div>
       </div>
