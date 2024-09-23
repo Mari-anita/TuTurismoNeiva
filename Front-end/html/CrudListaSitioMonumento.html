@@ -18,7 +18,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body onload="listarSitioMonumento();">
     <div class="container" style="padding-left: 0; margin-left: 0">
         <div class="sidebar"
             style="height: 93vh; position: fixed; top: 0%; width: 20%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
@@ -86,7 +86,7 @@
                 <div class="input-group" style="width: 35%; margin: 0% 0% 0% 20%">
                     <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...." aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li></button>
-                    <button type="button" class="btn btn-success " style="margin: 0% 0% 0% 5%; ">Agregar</button>
+                    <button type="button" class="btn btn-success" style="margin: 0% 0% 0% 5%; "><a href="../html/CrudRegistrarSitioMonumento.html" style="text-decoration: none; color:white"><b>Agregar</b></a></button>
                 </div>
             </div>
 
@@ -111,26 +111,12 @@
                         <th>Acciones</th>
                     </tr>
                 </div>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>acdfvsdv</td>
-                        <td>vdvsdv</td>
-                        <td>svdsvdvbd</td>
-                        <td>vsdvd</td>
-                        <td>1</td>
-                        <td>acdfvsdv</td>
-                        <td>vdvsdv</td>
-                        <td>svdsvdvbd</td>
-                        <td>vsdvd</td>
-                        <td>svdsvdvbd</td>
-                        <td>vsdvd</td>
-                        <td>
-                            <i class="fa-solid fa-eye"></i>
-                            <i class="fa-solid fa-trash" style="color: #dc041a;"></i>
-                        </td>
-                    </tr>
+                <tbody id="tablaSitioMonumento">
+
                 </tbody>
+                <!--
+                <i class="fa-solid fa-eye"></i>
+                <i class="fa-solid fa-trash" style="color: #dc041a;"></i>       -->  
             </table>
         </div>
     </div>
