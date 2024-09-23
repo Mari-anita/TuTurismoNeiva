@@ -58,3 +58,5 @@ document.getElementById('searchInput').addEventListener('keydown', function(even
         alert('Buscar: ' + this.value); // Aquí puedes agregar la lógica para la búsqueda
     }
 });
+
+

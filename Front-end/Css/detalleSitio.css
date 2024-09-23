@@ -1,32 +1,32 @@
-.CDC{
+.CDC {
     display: flex;
 }
 
-.imgcarrusel{
+.imgcarrusel {
     width: 30% !important;
 }
 
-.fa-circle-left{
+.fa-circle-left {
     font-size: 2.7rem;
     margin: 2% 0% 2% 0%;
     color: #FFBD59;
 }
 
-.DESCRIP{
+.DESCRIP {
     margin: 0% 0% 0% 10%;
     width: 50%;
     border: 2px solid black;
     border-radius: 10px;
 }
 
-.DESCRIP > div > i{
+.DESCRIP>div>i {
     font-size: 1.8rem;
     margin: 1% 0% 0% 80%;
 }
 
 
 /* IMAGENES DEL CARD */
-.imgcarru{
+.imgcarru {
     width: 20% !important;
     margin: 10% 0% 0% 10% !important;
     min-width: 80%;
@@ -36,10 +36,11 @@
 .Cardos {
     width: 18rem;
     margin: 1rem;
-    position: relative; /* Necesario para posicionar los botones dentro de la tarjeta */
+    position: relative;
+    /* Necesario para posicionar los botones dentro de la tarjeta */
     border: 3px solid #ffbd59 !important;
     border-radius: 15px !important;
-    
+
 }
 
 .fa-heart:hover {
@@ -47,7 +48,7 @@
     color: red;
 }
 
-.fa-solid{
+.fa-solid {
     color: #ff3e3e;
     font-size: 1.3rem;
 }
@@ -79,7 +80,7 @@
     /* Espacio entre las estrellas */
 }
 
-.BTTLT{
+.BTTLT {
     text-decoration: none !important;
     text-transform: none;
     color: white !important;
@@ -87,4 +88,20 @@
     border-radius: 15px;
 
 
+}
+
+
+/* MAPA API */
+
+#map {
+    height: 100%;
+    width: 100%;
+
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
