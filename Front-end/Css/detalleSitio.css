@@ -13,7 +13,7 @@
 }
 
 .DESCRIP{
-    margin: 0% 0% 0% 5%;
+    margin: 0% 0% 0% 10%;
     width: 50%;
     border: 2px solid black;
     border-radius: 10px;
@@ -22,4 +22,69 @@
 .DESCRIP > div > i{
     font-size: 1.8rem;
     margin: 1% 0% 0% 80%;
+}
+
+
+/* IMAGENES DEL CARD */
+.imgcarru{
+    width: 20% !important;
+    margin: 10% 0% 0% 10% !important;
+    min-width: 80%;
+}
+
+
+.Cardos {
+    width: 18rem;
+    margin: 1rem;
+    position: relative; /* Necesario para posicionar los botones dentro de la tarjeta */
+    border: 3px solid #ffbd59 !important;
+    border-radius: 15px !important;
+    
+}
+
+.fa-heart:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.fa-solid{
+    color: #ff3e3e;
+    font-size: 1.3rem;
+}
+
+.CJULM {
+    display: flex;
+    justify-content: space-between;
+    margin: 10% 0% 0% 0%;
+}
+
+.fa-star {
+    color: #ccc;
+    /* Color por defecto de las estrellas */
+    cursor: pointer;
+    /* Cambiar cursor a una mano al pasar sobre las estrellas */
+}
+
+.fa-star.filled {
+    color: gold;
+    /* Color de las estrellas llenas */
+}
+
+.stars-container {
+    display: flex;
+}
+
+.star {
+    margin: 0 2px;
+    /* Espacio entre las estrellas */
+}
+
+.BTTLT{
+    text-decoration: none !important;
+    text-transform: none;
+    color: white !important;
+    background-color: #ffbd59;
+    border-radius: 15px;
+
+
 }

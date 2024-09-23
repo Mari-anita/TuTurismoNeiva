@@ -13,6 +13,7 @@ public class authResponse {
     private String mensaje;
     private String Token;
     private boolean emailExists;
+    private String nombreCompleto;
 
     public boolean isEmailExists() {
         return emailExists;

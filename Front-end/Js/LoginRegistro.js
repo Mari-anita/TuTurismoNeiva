@@ -176,7 +176,7 @@ function registroUsuario() {
     if (ValidarCampos()) {
         $.ajax({
             type: metodo,
-            url: urlUsuarioPublico +"registro/",
+            url: urlUsuarioPublico + "registro/",
             contentType: "application/json",
             data: JSON.stringify(formData),
             success: function (response) {
@@ -184,7 +184,7 @@ function registroUsuario() {
                 if (response.token) {
                     // Guardar el token en localStorage
                     localStorage.setItem('token', response.token);
-                    
+
 
                     Swal.fire({
                         title: "Éxito",
@@ -309,8 +309,8 @@ function validarContrasena(contra) {
 
 //VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
 
-    // var url = 'http://10.192.66.33:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
-    // var url = urlUsuario + "existsBycorreoElectronico/" + correoElectronico;
+// var url = 'http://10.192.66.33:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
+// var url = urlUsuario + "existsBycorreoElectronico/" + correoElectronico;
 // function verificarcorreoElectronico(correoElectronico, callback) {
 //     $.ajax({
 //         url: urlExitsCorreo + "existsBycorreoElectronico/" + correoElectronico,
@@ -618,6 +618,117 @@ function ActualizarUsuario() {
 
 
 //AUTENTICARSE LOGIARSE
+// // Función para iniciar sesión y verificar el token del usuario
+// async function loginUsuario() {
+//     // Obtener los valores de correo y contraseña desde los campos de entrada
+//     var correoElectronico = document.getElementById('correoElectronicologin').value;
+//     var contrasena = document.getElementById('contralogin').value;
+
+//     // Validar que los campos no estén vacíos
+//     if (!correoElectronico || !contrasena) {
+//         alert("Por favor, complete todos los campos.");
+//         return;
+//     }
+
+//     try {
+//         // Realizar la petición POST para el login
+//         const response = await fetch(urlUsuarioPublico + 'login/', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({
+//                 correoElectronico: correoElectronico,
+//                 contra: contrasena,
+//             }),
+//         });
+
+//         // Verificar si la respuesta es exitosa
+//         if (response.ok) {
+//             const result = await response.json();
+//             if (result.token) {
+//                 // Guardar el token en localStorage
+//                 localStorage.setItem('userToken', result.token);
+
+//                 // Mostrar mensaje de éxito y redirigir al dashboard
+//                 alert(result.mensaje);
+//                 window.location.href = "/Front-end/index.html";
+//             } else {
+//                 // Si no se recibe un token, mostrar mensaje de error
+//                 alert("No se recibió un token válido.");
+//             }
+//         } else if (response.status === 401) {
+//             // Si la respuesta es 401 Unauthorized, mostrar mensaje de acceso denegado
+//             const result = await response.json();
+//             alert(result.mensaje);
+//         } else {
+//             // Manejar otros estados de respuesta
+//             alert("Error al intentar iniciar sesión. Por favor, inténtelo de nuevo.");
+//         }
+//     } catch (error) {
+//         console.error("Error al intentar iniciar sesión:", error);
+//         alert("Hubo un error al intentar iniciar sesión. Inténtelo de nuevo.");
+//     }
+// }
+
+// // Manejador del evento de clic en el botón de login
+// document.getElementById('loginBtn').addEventListener('click', function () {
+//     loginUsuario();
+// });
+
+
+
+
+
+// /**
+//  * Función para obtener el nombre completo del usuario autenticado.
+//  * Esta función realiza una petición GET a la API para obtener el nombre del usuario
+//  * basado en el token JWT almacenado en localStorage.
+//  */
+// async function obtenerNombreUsuario() {
+//     // Obtener el token almacenado en localStorage
+//     const token = localStorage.getItem('userToken');
+
+//     // Verificar si el token existe antes de proceder
+//     if (!token) {
+//         console.error("Token no encontrado. El usuario no está autenticado.");
+//         return; // Detener la función si no hay token
+//     }
+
+//     try {
+//         // Realizar la petición GET para obtener los datos del usuario
+//         const response = await fetch(urlUsuarioPublico + 'obtenerNombreUsuario/', {
+//             method: 'GET', // Método GET para obtener datos
+//             headers: {
+//                 'Authorization': 'Bearer ' + token, // Incluir el token en la cabecera Authorization
+//                 'Content-Type': 'application/json' // Tipo de contenido
+//             }
+//         });
+
+//         // Verificar si la respuesta fue exitosa
+//         if (response.ok) {
+//             const result = await response.json(); // Convertir la respuesta a JSON
+//             const nombreCompleto = result.nombreCompleto; // Obtener el nombre completo del authResponse
+
+//             // Guardar el nombre completo en localStorage
+//             localStorage.setItem('nombreCompleto', nombreCompleto);
+//             // Mostrar el nombre en el HTML
+//             document.getElementById('nombreUsuarioDisplay').textContent = nombreCompleto;
+//             // // Mostrar el menú de usuarios autenticados
+//             // document.getElementById('menuAuthenticate').style.display = 'block';
+
+//             // // Ocultar el menú de usuarios no autenticados
+//             // document.getElementById('menuNotAuthenticate').style.display = 'none';
+//         } else {
+//             console.error("Error al obtener el nombre del usuario:", response.statusText);
+//         }
+//     } catch (error) {
+//         console.error("Error al intentar obtener el nombre del usuario:", error);
+//     }
+// }
+
+
+
 // Función para iniciar sesión y verificar el token del usuario
 async function loginUsuario() {
     // Obtener los valores de correo y contraseña desde los campos de entrada
@@ -632,7 +743,7 @@ async function loginUsuario() {
 
     try {
         // Realizar la petición POST para el login
-        const response = await fetch( urlUsuarioPublico +'login/', {
+        const response = await fetch(urlUsuarioPublico + 'login/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -649,7 +760,7 @@ async function loginUsuario() {
             if (result.token) {
                 // Guardar el token en localStorage
                 localStorage.setItem('userToken', result.token);
-                
+                await obtenerNombreUsuario();
                 // Mostrar mensaje de éxito y redirigir al dashboard
                 alert(result.mensaje);
                 window.location.href = "/Front-end/index.html";
@@ -672,21 +783,111 @@ async function loginUsuario() {
 }
 
 // Manejador del evento de clic en el botón de login
-document.getElementById('loginBtn').addEventListener('click', function() {
+document.getElementById('loginBtn').addEventListener('click', function () {
     loginUsuario();
 });
 
 
-function verificacionLogin(){
+/**
+ * Función para obtener el nombre completo del usuario autenticado.
+ * Esta función realiza una petición GET a la API para obtener el nombre del usuario
+ * basado en el token JWT almacenado en localStorage.
+ */
+async function obtenerNombreUsuario() {
+    // Obtener el token almacenado en localStorage
+    const token = localStorage.getItem('userToken');
+    console.log("ENTRO EN EL OBTENERNOMBRE"); // Depuración
 
-    if(localStorage.getItem('userToken')=="" || localStorage.getItem('userToken')==null ){
-        //no se ha autenticado
+    // Verificar si el token existe antes de proceder
+    if (!token) {
+        console.error("Token no encontrado. El usuario no está autenticado.");
+        return; // Detener la función si no hay token
+    }
+
+    try {
+        // Realizar la petición GET para obtener los datos del usuario
+        const response = await fetch(urlUsuarioPublico + 'obtenerNombreUsuario/', {
+            method: 'GET', // Método GET para obtener datos
+            headers: {
+                'Authorization': 'Bearer ' + token, // Incluir el token en la cabecera Authorization
+                'Content-Type': 'application/json' // Tipo de contenido
+            }
+        });
+
+        // Verificar si la respuesta fue exitosa
+        if (response.ok) {
+            const result = await response.json(); // Convertir la respuesta a JSON
+            console.log("Respuesta del servidor para obtenerNombreUsuario:", result); // Depuración
+            const nombreCompleto = result.nombreCompleto; // Obtener el nombre completo del authResponse
+
+            console.log("Nombre Completo obtenido:", nombreCompleto); // Depuración
+
+            if (!nombreCompleto) {
+                console.error("El campo 'nombreCompleto' está vacío en la respuesta.");
+                alert("Error al obtener el nombre del usuario. Por favor, inténtelo de nuevo.");
+                return;
+            }
+            // Guardar el nombre completo en localStorage
+            localStorage.setItem('nombreCompleto', nombreCompleto);
+            // Actualizar la etiqueta <b id="nombreUsuarioDisplay"> con el nombre completo
+            const nombreDisplay = document.getElementById('nombreUsuarioDisplay');
+            if (nombreDisplay) {
+                nombreDisplay.textContent = nombreCompleto;
+            }
+
+            // Mostrar el menú de usuarios autenticados
+            const menuAuthenticate = document.getElementById('menuAuthenticate');
+            if (menuAuthenticate) {
+                menuAuthenticate.style.display = 'block';
+            }
+
+            // Ocultar el menú de usuarios no autenticados
+            const menuNotAuthenticate = document.getElementById('menuNotAuthenticate');
+            if (menuNotAuthenticate) {
+                menuNotAuthenticate.style.display = 'none';
+            }
+
+        } else if (response.status === 401) {
+            // Si la respuesta es 401 Unauthorized, limpiar el almacenamiento y redirigir al login
+            alert("Token inválido o expirado. Por favor, inicie sesión nuevamente.");
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('nombreCompleto');
+            window.location.href = "/Front-end/html/RegistroUsuario.html";
+        } else {
+            // Manejar otros estados de respuesta
+            console.error("DIF Error al obtener el nombre del usuario:", response.statusText);
+            alert("Error al obtener el nombre del usuario. Por favor, inténtelo de nuevo.");
+        }
+    } catch (error) {
+        console.error("Error al intentar obtener el nombre del usuario:", error);
+        alert("Hubo un error al intentar obtener el nombre del usuario. Inténtelo de nuevo.");
+    }
+}
+
+// Función para verificar el estado de autenticación al cargar la página
+function verificacionLogin() {
+    const userToken = localStorage.getItem('userToken');
+    const nombreCompleto = localStorage.getItem('nombreCompleto');
+
+    const isAuthenticated = userToken && nombreCompleto;
+
+    if (!isAuthenticated) {
+        // No se ha autenticado
         document.getElementById("menuAuthenticate").classList.add("menuOculto");
         document.getElementById("menuNotAuthenticate").classList.remove("menuOculto");
-    }else{
-        //si se ha autenticado
+    } else {
+        // Si se ha autenticado
         document.getElementById("menuNotAuthenticate").classList.add("menuOculto");
         document.getElementById("menuAuthenticate").classList.remove("menuOculto");
     }
-
+    // Actualizar la etiqueta <b id="nombreUsuarioDisplay"> con el nombre completo
+    const nombreDisplay = document.getElementById('nombreUsuarioDisplay');
+    if (nombreDisplay) {
+        nombreDisplay.textContent = nombreCompleto;
+    }
 }
+
+// Llama a la función de verificación al cargar la página
+window.onload = verificacionLogin;
+
+
