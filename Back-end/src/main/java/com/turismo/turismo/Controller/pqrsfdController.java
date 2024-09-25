@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.turismo.turismo.interfaceService.IpqrsfdService;
 import com.turismo.turismo.models.Pqrsfd;
 
@@ -27,7 +26,23 @@ public class pqrsfdController {
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Pqrsfd") Pqrsfd Pqrsfd) {
         //validaciones
-        if(Pqrsfd.getTipoPeticion().equals("")){
+        if(Pqrsfd.getTipoDoc().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Pqrsfd.getNumDoc().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Pqrsfd.getNombreApellido().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Pqrsfd.getCorreo().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
+        if(Pqrsfd.getTelefono().equals("")){
             return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
         }
 
@@ -35,11 +50,15 @@ public class pqrsfdController {
             return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
         }
 
+        if(Pqrsfd.getTipoPeticion().equals("")){
+            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        }
+
         if(Pqrsfd.getDescripcionPeticion().equals("")){
             return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
         }
 
-        if(Pqrsfd.getEstado().equals("")){
+        if(Pqrsfd.getDocumentos().equals("")){
             return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
         }
 
@@ -72,10 +91,15 @@ public class pqrsfdController {
 
             Pqrsfd.setUsuario(PqrsfdUpdate.getUsuario());
             Pqrsfd.setRespuesta(PqrsfdUpdate.getRespuesta());
-            Pqrsfd.setTipoPeticion(PqrsfdUpdate.getTipoPeticion());
+            Pqrsfd.setTipoDoc();(PqrsfdUpdate.getTipoDoc());
+            Pqrsfd.setNumDoc(PqrsfdUpdate.getNumDoc());
+            Pqrsfd.setNombreApellido(PqrsfdUpdate.getNombreApellido());
+            Pqrsfd.setCorreo(PqrsfdUpdate.getCorreo());
+            Pqrsfd.setTelefono(PqrsfdUpdate.getTelefono());
             Pqrsfd.setFechaRadicado(PqrsfdUpdate.getFechaRadicado());
+            Pqrsfd.setTipoPeticion(PqrsfdUpdate.getTipoPeticion());
             Pqrsfd.setDescripcionPeticion(PqrsfdUpdate.getDescripcionPeticion());
-            Pqrsfd.setEstado(PqrsfdUpdate.getEstado());
+            Pqrsfd.setDocumentos(PqrsfdUpdate.getDocumentos());
            
             pqrsfdService.save(Pqrsfd);
             return new ResponseEntity<>(Pqrsfd, HttpStatus.OK); 
