@@ -49,15 +49,15 @@
             <option value="Cedula">Cédula de ciudadanía</option>
             <option value="Extranjeria">Cédula de extranjería</option>
           </select>
-          <label for="numDoc">Numero de documento</label>
-          <input class="regis" type="number" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
-          <label for="nombreApellido">Nombre y apellido</label>
-          <input class="regis" id="" type="text" placeholder="Nombre Completo" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
+          <label for="">Numero de documento</label>
+          <input class="regis" id="numDoc" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarNumeroDoc(this);" />
+          <label for="">Nombre y apellido</label>
+          <input class="regis" id="nombreApellido" type="text" placeholder="Nombre Completo" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarNombre(this);"/>
           <label for="correo">Correo electrónico</label>
-          <input class="regis" type="email" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
-          <label for="telefono">Teléfono</label>
-          <input class="regis" type="number" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" /> 
-          <button type="button" /*onclick="registroFormularioEmpresa()"*/ style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
+          <input class="regis" type="email" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarCorreo(this);"/>
+          <label for="">Teléfono</label>
+          <input class="regis" id="telefono" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarTelefono(this);"/> 
+          <button type="submit" onclick="registrarPqrsfd()" style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
         </div>
 
         <div class="columna2" style="padding: 20px;">
@@ -66,8 +66,8 @@
             <input id="custom-date" class="regis" placeholder="Selecciona una fecha" required="" style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;">
             <span class="calendar-icon">&#128197;</span>
           </div>
-          <label for="tipoPeticion">Seleccione el motivo de su mensaje</label>
-          <select id="" class="form-control">
+          <label for="">Seleccione el motivo de su mensaje</label>
+          <select id="tipoPeticion" class="form-control">
             <option value="" selected disabled>Seleccione un motivo</option>
             <option value="Quejas">Quejas</option>
             <option value="Peticiones">Peticiones</option>
@@ -77,7 +77,7 @@
             <option value="Denuncias">Denuncias</option>
           </select>
 
-          <label for="descripcionPeticion" style="color: white;">Mensaje</label>
+          <label for="" style="color: white;">Mensaje</label>
           <div id="char-count" style="color: white;">Máximo 5000 caracteres</div> 
           <textarea id="descripcionPeticion" class="regis" placeholder="" required style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;" maxlength="5000"></textarea>
 
@@ -92,8 +92,6 @@
       </div>
     </form>
   </div>            
-
-  <script src="../Js/Pqrsfd.js"></script>
 
   <section id="contacto" style="margin-top:auto; width:100%;">
     <!--Footer-->
@@ -115,6 +113,9 @@
       </footer>
     </div>
   </section>
+
+  <script src="../Js/Pqrsfd.js"></script>
+
 </body>
 
 </html>

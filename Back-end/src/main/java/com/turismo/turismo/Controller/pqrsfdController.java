@@ -89,9 +89,7 @@ public class pqrsfdController {
         var Pqrsfd = pqrsfdService.findOne(id).get();
         if (Pqrsfd!= null) {
 
-            Pqrsfd.setUsuario(PqrsfdUpdate.getUsuario());
-            Pqrsfd.setRespuesta(PqrsfdUpdate.getRespuesta());
-            Pqrsfd.setTipoDoc();(PqrsfdUpdate.getTipoDoc());
+            Pqrsfd.setTipoDoc(PqrsfdUpdate.getTipoDoc());
             Pqrsfd.setNumDoc(PqrsfdUpdate.getNumDoc());
             Pqrsfd.setNombreApellido(PqrsfdUpdate.getNombreApellido());
             Pqrsfd.setCorreo(PqrsfdUpdate.getCorreo());

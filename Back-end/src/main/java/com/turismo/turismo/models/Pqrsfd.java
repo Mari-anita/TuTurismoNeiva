@@ -27,9 +27,7 @@ public class Pqrsfd {
     @Column(name = "idPeticion", nullable = false, length = 36)
     private String idPeticion;        
 
-    @ManyToOne
-    @JoinColumn(name ="idUsuario")
-    private Usuario Usuario;
+    //Quien responde
 
     @ManyToOne
     @JoinColumn(name="idRespuesta")
@@ -39,7 +37,7 @@ public class Pqrsfd {
     private String tipoDoc;
 
     @Column(name = "numDoc", nullable = false, length = 11)
-    private int numDoc;
+    private String numDoc;
 
     @Column(name = "nombreApellido", nullable = false, length = 200)
     private String nombreApellido;
@@ -48,7 +46,7 @@ public class Pqrsfd {
     private String correo;
 
     @Column(name = "telefono", nullable = false, length = 11)
-    private int telefono;
+    private String telefono;
 
     @Column(name = "fechaRadicado", nullable = false, length = 20)
     private Date fechaRadicado;

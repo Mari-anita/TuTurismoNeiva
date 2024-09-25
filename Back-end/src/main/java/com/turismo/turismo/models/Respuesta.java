@@ -21,6 +21,10 @@ import lombok.NoArgsConstructor;
 @Entity(name="Respuesta")
 public class Respuesta {
 
+    @ManyToOne
+    @JoinColumn(name ="idUsuario")
+    private Usuario Usuario;
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name="idRespuesta", nullable = false, length=36)

@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function registrarPqrsfd() {
   var formData = {
+      "numeroDoc":document.getElementById("numDoc").value,
       "telefono": document.getElementById("telefono").value,
       "nombre_apellido": document.getElementById("nombreApellido").value,
       "correo": document.getElementById("correo").value,
@@ -105,13 +106,25 @@ function registrarPqrsfd() {
 }
 
 function validarCampos() {
+  var numeroDoc = document.getElementById("numDoc").value; // Asegúrate de que el ID es correcto
   var telefono = document.getElementById("telefono").value;
-  var nombre_apellido = document.getElementById("nombreApellido").value; // Asegúrate de que el ID es correcto
+  var nombre_apellido = document.getElementById("nombreApellido").value;
   var correo = document.getElementById("correo").value;
-  var mensaje = document.getElementById("descripcionPeticion").value; // Asegúrate de que el ID es correcto
+  var mensaje = document.getElementById("descripcionPeticion").value;
 
-  return validarTelefono(telefono) && validarNombre(nombre_apellido) && validarCorreo(correo) && validarMensaje(mensaje);
+  return validarNumeroDoc(numeroDoc) && validarTelefono(telefono) &&
+         validarNombre(nombre_apellido) && validarCorreo(correo) && 
+         validarMensaje(mensaje);
 }
+
+function validarNumeroDoc(numDoc) {
+  var valor = numDoc.trim();
+  var valido = valor.length >= 3 && valor.length <= 11;
+
+  actualizarClaseValidacion(document.getElementById("numDoc"), valido);
+  return valido;
+}
+
 
 function validarTelefono(telefono) {
   var valor = telefono.trim();
@@ -121,8 +134,8 @@ function validarTelefono(telefono) {
   return valido;
 }
 
-function validarNombre(nombre_apellido) {
-  var valor = nombre_apellido.trim();
+function validarNombre(nombreApellido) {
+  var valor = nombreApellido.trim();
   var valido = valor.length >= 5 && valor.length <= 100;
 
   actualizarClaseValidacion(document.getElementById("nombreApellido"), valido);
@@ -137,8 +150,8 @@ function validarCorreo(correo) {
   return valido;
 }
 
-function validarMensaje(mensaje) {
-  var valor = mensaje.trim();
+function validarMensaje(descripcionPeticion) {
+  var valor = descripcionPeticion.trim();
   var valido = valor.length >= 4 && valor.length <= 5000;
 
   actualizarClaseValidacion(document.getElementById("descripcionPeticion"), valido);
