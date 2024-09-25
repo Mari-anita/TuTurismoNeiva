@@ -9,6 +9,20 @@
         "empresa":"Are you interested in uploading content about your company with us?",
         "formulario":"Click and fill out the form with your company information so that You can upload your content through us.",
         "movil":"Discover our mobile application!",
-        "codigo":"Scan this QR code to download it and enjoy of all the functionality of our website from your mobile device."
+        "codigo":"Scan this QR code to download it and enjoy of all the functionality of our website from your mobile device.",
+         "tittle":"<b>Start</b>"
+
+    },
+
+    "projects":{
+    "first-project-tittle":"<b>Us</b>",
+    "second-project-tittle":"<b>Contact</b>",
+    "three-project-tittle":"<b>Language</b>",
+    "registro":"User registration",
+    "tema":"Theme",
+    "ayuda":"Help",
+    "sitios":"Tourist Sites",
+    "contactanos":"<b>Contact Us</b>",
+    "terminos":"<b>Terms and conditions</b>"
     }
 }

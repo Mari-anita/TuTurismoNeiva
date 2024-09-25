@@ -289,25 +289,25 @@ body.dark a:hover {
         <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
-              <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
+              <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile" data-value="tittle"><b>Inicio</b></button>
               <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <a href="/Front-end/html/sitiosTuristicos.html">Sitios Turísticos</a>
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios Turísticos</a>
               </div>
             </div>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
-              style="color: white; font-size: 25px"><b>Nosotros</b></a>
+              style="color: white; font-size: 25px" data-section="projects" data-value="first-project-tittle"><b>Nosotros</b></a>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"><b>Contacto</b></a>
+            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"data-section="projects" data-value="second-project-tittle"><b>Contacto</b></a>
           </li>
           <li class="nav-item-S" style=" margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
           </li>
           <li class="nav-item dropdown" style="margin-top: 1.5%;"><i 
               style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
-            <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
+            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects" data-value="three-project-tittle"><b>Idioma</b></button>
             <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
               <div class="flags_item" data-language="es">
                   <img src="/Front-end/Icons/co.svg" alt="Espanol">
@@ -324,15 +324,15 @@ body.dark a:hover {
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="../Front-end/html/RegistroUsuario.html">Registro usuario</a>
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro">Registro usuario</a>
               <div class="dropdown-submenu">
-                <a href="#">Tema</a>
+                <a href="#"data-section="projects" data-value="tema">Tema</a>
                 <div class="submenu-content">
                     <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
                     <input type="checkbox" id="toggle">        
                 </div>
             </div>                     
-              <a href="#">Ayuda</a>
+              <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
             </div>
           </li>
           <!-- autenticado -->
@@ -485,7 +485,7 @@ body.dark a:hover {
         <footer class="py-3">
           <ul class="nav border-bottom mb-3 justify-content-between">
             <div class="d-flex">
-              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
+              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;" data-section="projects" data-value="contactanos"><b>Contáctanos</b></a></li>
               <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
                     type='solid' color='#ffffff'></box-icon></a></li>
               <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
@@ -497,7 +497,7 @@ body.dark a:hover {
               <li class="nav-item-fo-P "><a href="#" class="nav-link px-2 pqrsfd"
                   style="color: #feffff ; "><b>Pqrsfd</b></a></li>
               <li class="nav-item-fo-P"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank"
-                  class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+                  class="nav-link px-2" style="color: #1f8b9e;" data-section="projects" data-value="terminos"><b>Términos y condiciones</b></a></li>
             </div>
           </ul>
           <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
