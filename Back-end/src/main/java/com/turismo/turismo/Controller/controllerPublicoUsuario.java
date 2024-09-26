@@ -1,13 +1,11 @@
 package com.turismo.turismo.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.models.authResponse;
 import com.turismo.turismo.models.loginRequest;
-import com.turismo.turismo.models.nombreUsuario;
 import com.turismo.turismo.models.registroRequest;
 import com.turismo.turismo.service.authService;
 
