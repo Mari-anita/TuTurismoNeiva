@@ -67,9 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function registrarPqrsfd() {
   var formData = {
+      "tipoDoc":document.getElementById("tipoDoc").value,
       "numeroDoc":document.getElementById("numDoc").value,
       "telefono": document.getElementById("telefono").value,
-      "nombre_apellido": document.getElementById("nombreApellido").value,
+      "fechaRadicado": document.getElementById("fechaRadicado").value,
+      "tipoPeticion": document.getElementById("tipoPeticion").value,
+      "nombreApellido": document.getElementById("nombreApellido").value,
       "correo": document.getElementById("correo").value,
       "mensaje": document.getElementById("descripcionPeticion").value, // Asegúrate de que el ID sea correcto
   };
@@ -108,30 +111,70 @@ function registrarPqrsfd() {
 function validarCampos() {
   var numeroDoc = document.getElementById("numDoc").value; // Asegúrate de que el ID es correcto
   var telefono = document.getElementById("telefono").value;
-  var nombre_apellido = document.getElementById("nombreApellido").value;
+  var nombreApellido = document.getElementById("nombreApellido").value;
   var correo = document.getElementById("correo").value;
   var mensaje = document.getElementById("descripcionPeticion").value;
 
   return validarNumeroDoc(numeroDoc) && validarTelefono(telefono) &&
-         validarNombre(nombre_apellido) && validarCorreo(correo) && 
+         validarNombre(nombreApellido) && validarCorreo(correo) && 
          validarMensaje(mensaje);
 }
 
-function validarNumeroDoc(numDoc) {
-  var valor = numDoc.trim();
-  var valido = valor.length >= 3 && valor.length <= 11;
+//validaciones para no aceptar numeros negativos
+function validarNumeroDoc(input) { 
+  var valor = input.value.trim();
+  var errorDiv = document.getElementById("errorNumDoc");
 
-  actualizarClaseValidacion(document.getElementById("numDoc"), valido);
-  return valido;
+  // Limpiar mensajes de error previos
+  errorDiv.textContent = '';
+
+  // Validar si es un número positivo y tiene máximo 11 dígitos
+  if (valor === "" || isNaN(valor) || Number(valor) <= 0) {
+    // Validación de si el valor es vacío, no es un número, o es un número negativo
+    errorDiv.textContent = "Por favor, ingrese un número positivo para el numero de documento.";
+    input.classList.add("is-invalid");
+    return false;
+} else if (valor.length > 11) {
+    errorDiv.textContent = "El número de documento no puede tener más de 11 dígitos.";
+    input.classList.add("is-invalid");
+    return false;
+} else if (valor.length < 11) {
+    errorDiv.textContent = "El número de documento no puede tener menos de 11 dígitos.";
+    input.classList.add("is-invalid");
+    return false;
+} else {
+    input.classList.remove("is-invalid");
+    errorDiv.textContent = ''; // Limpia el mensaje de error
+    return true;
+  }
 }
 
+function validarTelefono(input) {
+  var valor = input.value.trim();
+  var errorDiv = document.getElementById("errorTelefono");
 
-function validarTelefono(telefono) {
-  var valor = telefono.trim();
-  var valido = valor.length >= 3 && valor.length <= 11;
+  // Limpiar mensajes de error previos
+  errorDiv.textContent = '';
 
-  actualizarClaseValidacion(document.getElementById("telefono"), valido);
-  return valido;
+  // Validar si es un número positivo y tiene máximo 11 dígitos
+  if (valor === "" || isNaN(valor) || Number(valor) <= 0) {
+    // Validación de si el valor es vacío, no es un número, o es un número negativo
+    errorDiv.textContent = "Por favor, ingrese un número positivo para el teléfono.";
+    input.classList.add("is-invalid");
+    return false;
+} else if (valor.length > 11) {
+    errorDiv.textContent = "El número de teléfono no puede tener más de 11 dígitos.";
+    input.classList.add("is-invalid");
+    return false;
+} else if (valor.length < 11) {
+    errorDiv.textContent = "El número de teléfono no puede tener menos de 11 dígitos.";
+    input.classList.add("is-invalid");
+    return false;
+} else {
+    input.classList.remove("is-invalid");
+    errorDiv.textContent = ''; // Limpia el mensaje de error
+    return true;
+  }
 }
 
 function validarNombre(nombreApellido) {
@@ -139,14 +182,6 @@ function validarNombre(nombreApellido) {
   var valido = valor.length >= 5 && valor.length <= 100;
 
   actualizarClaseValidacion(document.getElementById("nombreApellido"), valido);
-  return valido;
-}
-
-function validarCorreo(correo) {
-  var valor = correo.trim();
-  var valido = valor.length >= 5 && valor.length <= 100;
-
-  actualizarClaseValidacion(document.getElementById("correo"), valido);
   return valido;
 }
 

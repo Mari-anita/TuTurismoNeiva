@@ -185,3 +185,7 @@ input.regis {
     cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
     margin-bottom: 3%;
 }
+
+.is-invalid {
+    border-color: orange;
+}

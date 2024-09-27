@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
+<script src="sweetalert2/dist/sweetalert2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -34,7 +35,7 @@
   </div>
 
   <!-- Aquí se inserta el formulario -->
-  <div class="container" style="margin-top: 3%; margin-bottom:auto;">
+  <div class="container" style="margin-top: 2.5%; margin-bottom:auto;">
     <form class="formulario" enctype="multipart/form-data">
       <a href="#" class="back-button">
         <box-icon name="left-arrow-circle" color="#ffab2d"></box-icon>
@@ -42,21 +43,24 @@
       <h1 style="color: white;">Ingresa los datos de tu PQRSFD</h1>
       <div class="input-container">
         <div class="columna1" style="padding: 20px;">
-          <label for="tipoDoc">Tipo de documento</label>
-          <select id="" class="form-control">
+          <label for="">Tipo de documento</label>
+          <select id="tipoDoc" class="form-control">
             <option value="" selected disabled>Seleccione una opción</option>
             <option value="Tarjeta">Tarjeta de identidad</option>
             <option value="Cedula">Cédula de ciudadanía</option>
             <option value="Extranjeria">Cédula de extranjería</option>
           </select>
+
           <label for="">Numero de documento</label>
           <input class="regis" id="numDoc" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarNumeroDoc(this);" />
+          <div id="errorNumDoc" style="color: orange;"></div> <!-- Mensaje de error para el número de documento -->
           <label for="">Nombre y apellido</label>
           <input class="regis" id="nombreApellido" type="text" placeholder="Nombre Completo" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarNombre(this);"/>
-          <label for="correo">Correo electrónico</label>
-          <input class="regis" type="email" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarCorreo(this);"/>
+          <label for="">Correo electrónico</label>
+          <input class="regis" id="correo" type="email" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarCorreo(this);"/>
           <label for="">Teléfono</label>
           <input class="regis" id="telefono" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarTelefono(this);"/> 
+          <div id="errorTelefono" style="color: orange;"></div> <!-- Mensaje de error para el telefono -->
           <button type="submit" onclick="registrarPqrsfd()" style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
         </div>
 
