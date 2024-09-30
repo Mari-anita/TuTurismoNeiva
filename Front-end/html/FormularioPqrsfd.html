@@ -5,6 +5,7 @@
   <title>Registro de Pqrsfd</title>
   <link rel="icon" type="image/png" href="/Front-end/Img/logo.png" />
   <link rel="website icon" type="png" href="..//img/Logo.tuturismoneiva.png" />
+  <link rel="stylesheet" href="/Front-end/Css/general.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../Css/pqrsfd.css"/>
@@ -22,16 +23,85 @@
 </head>
 
 <body style="display: flex; flex-direction:column; min-height:100vh;">
-  <div class="col-12 DECZO">
-    <a href="/Front-end/index.html"><img src="/Front-end/Img/logo.png" alt="ICONO"></a>
-    <nav>
-        <a href="/Front-end/index.html" style="font-size: 25px;">Inicio</a>
-        <a href="../html/MisionVision.html" style="font-size: 25px;">Nosotros</a>
-        <a href="#contacto" style="font-size: 25px;">Contacto</a>
-        <a href="#"><i class="fa-solid fa-earth-americas" style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>Idioma</a>
-        <i class="fa-solid fa-circle-user" style="color: #FFBD59; font-size: 2.5rem;"></i>
-    </nav>
-  </div>
+  <nav class="navbar navbar-expand-lg bg-dark"
+    style="position: fixed; top: 0%; width: 100%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
+    <div class="container-fluid" style="height: 56px;">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../Img/logo.png" alt="" width="25%">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="margin-left: 23vw;">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <div class="dropdown">
+              <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile" data-value="tittle"><b>Inicio</b></button>
+              <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios Turísticos</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
+              style="color: white; font-size: 25px" data-section="projects" data-value="first-project-tittle"><b>Nosotros</b></a>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"data-section="projects" data-value="second-project-tittle"><b>Contacto</b></a>
+          </li>
+          <li class="nav-item-S" style=" margin-top: 1.5%;">
+            <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
+          </li>
+          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i 
+              style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
+            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects" data-value="three-project-tittle"><b>Idioma</b></button>
+            <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <div class="flags_item" data-language="es">
+                  <img src="/Front-end/Icons/co.svg" alt="Espanol">
+              </div>
+              <div class="flags_item" data-language="en">
+                  <img src="/Front-end/Icons/ingles.svg" alt="ingles">
+              </div>
+            </div>
+          </li>
+          <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px">
+              <b>
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro">Registro usuario</a>
+              <div class="dropdown-submenu">
+                <a href="#"data-section="projects" data-value="tema">Tema</a>
+                <div class="submenu-content">
+                    <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
+                    <input type="checkbox" id="toggle">        
+                </div>
+            </div>                     
+              <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
+            </div>
+          </li>
+          <!-- autenticado -->
+          <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 1rem">
+              <b id="nombreUsuarioDisplay">
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="./html/PerfilUsurio.html">Mi Perfil</a>
+              <a href="">Mis Sitios</a>
+              <a href="">Tema</a>
+              <a href="#">Ayuda</a>
+              <a href="#" id="logoutBtn">Cerrar sesión</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container" style="margin-top: 2%; margin-bottom:auto;">
     <form class="formulario" enctype="multipart/form-data">
       <a href="#" class="back-button">

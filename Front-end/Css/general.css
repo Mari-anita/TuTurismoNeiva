@@ -1,0 +1,117 @@
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #262930;
+    border-radius: 8px;
+    border: 1px solid rgb(173, 173, 173);
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%; 
+    left: 0; 
+}
+
+.flags {
+  width: 30%;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 50px;
+}
+
+.flags_item {
+  margin: 0 10px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flags_item img {
+  width: 50px; 
+  height: auto; 
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #858483;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-item:hover {
+    background-color: #666666;
+    border-radius: 8px;
+}
+
+.nav-item-fo-P>a>b:hover {
+    color: #ffbd59;
+}
+
+.menuOculto {
+    display: none;
+}
+
+  .dropdown-submenu {
+      position: relative; 
+  }
+
+  .submenu-content a {
+    display: block; /* Hace que el enlace ocupe todo el ancho */
+    padding: 10px 15px; /* Añade espacio interno */
+    text-align: center; /* Centra el texto */
+    min-width: 150px; /* Define un ancho mínimo */
+    border-radius: 5px; /* Opcional: bordes redondeados */
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo inicial */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.submenu-content a:hover {
+    background-color: rgba(76, 72, 72, 0.3); /* Color de fondo al pasar el ratón */
+}
+
+
+  .submenu-content {
+      display: none;
+      position: absolute; 
+      right:100%; 
+      top: 0; 
+      background-color: rgba(0, 0, 0, 0.2) ;
+      border: 1px solid #ccc; 
+      border-radius: 8%;
+      z-index: 1000; 
+  }
+
+  .dropdown-submenu:hover .submenu-content {
+      display: block; 
+  }
+
+#toggle{
+  display: none;
+}
+
+#label_toggle{
+  font-size:3em;
+  color: rebeccapurple;
+  cursor: pointer;
+}
