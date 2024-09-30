@@ -10,6 +10,10 @@ body {
     min-height: 100vh; /* Asegura que el fondo cubra la pantalla completa */
 }
 
+input::placeholder {
+    color: white;
+}
+
 /* INICIO DE ENCABEZADO */
 .DECZO {
     display: flex;

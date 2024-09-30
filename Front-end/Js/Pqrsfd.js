@@ -1,6 +1,6 @@
 // Validación de correo
 function validarCorreo(correo) {
-  var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/i;
+  var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/i; 
   if (emailRegex.test(correo)) {
       var domainPart = correo.split('@')[1];
       if (domainPart && domainPart.split('.').length > 1) {
