@@ -18,8 +18,8 @@ async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
     // Short namespaces can be used.
     map = new Map(document.getElementById("map"), {
-        center: { lat: 4.0953, lng: 75.4880 },
-        zoom: 8,
+        center: { lat: 2.9280, lng: -75.2794 },
+        zoom: 15,
     });
 }
 

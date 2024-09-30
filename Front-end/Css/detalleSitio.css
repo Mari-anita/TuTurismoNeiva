@@ -105,3 +105,104 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* fin mapa */
+
+.DII {
+    background: black;
+    color: white;
+    margin: 2% 0% 2% 4%;
+    width: 85%;
+}
+
+.DII>h2,
+p {
+    margin: 1% 0% 0% 1%;
+}
+
+.CIP {
+    /*CAJA DEL INPUT CONTRASEÑA*/
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.CIP>i {
+    /*OJO INPUT CONTRA*/
+    position: absolute;
+    /*POSICION DEL OJO DE CONTRASEÑA, ABSOLUTE PARA QUE QUEDE ENCIMA DEL INPUT*/
+    top: 42%;
+    /*HACE QUE BAJE EL 50% DE LA PARTE DE ARRIBA*/
+    left: 27%;
+    transform: translateY(-50%);
+    /*SUBE A LA MITAD*/
+    cursor: pointer;
+    color: black;
+    /* Color del icono */
+}
+
+.input {
+    color: black;
+    border: 2px solid #FFBD59;
+    padding: 0.9rem 0.9rem;
+    /*HACE QUE EL INPUT SE ANCHE EL INPUT*/
+    margin: 1% 0% 1% 0%;
+    width: 30%;
+    /*TOMA TODO EL ANCHO DE LOS INPUT*/
+    border-radius: 7px;
+}
+
+/*CONFIGURACION PARA EL NAV*/
+
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    right: 0.5px;
+    display: none;
+    position: absolute;
+    background-color: #262930;
+    border-radius: 8px;
+    border: 1px solid rgb(173, 173, 173);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0.5p;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #858483;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-item:hover {
+    background-color: #666666;
+    border-radius: 8px;
+    margin: 8px;
+}
+
+.nav-item-fo-P>a>b:hover {
+    color: #ffbd59;
+}
+
+.menuOculto {
+    display: none;
+}

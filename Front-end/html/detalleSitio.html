@@ -4,41 +4,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/Front-end/Css/LoginRegistro.css">
+
   <link rel="stylesheet" href="/Front-end/Css/detalleSitio.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/png" href="/Front-end/Img/logo.png">
+  <!-- <link rel="icon" type="image/png" href="/Front-end/Img/logo.png"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Incluye Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Incluye Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+
   <title>TuTurismoNeiva/Detalle</title>
 </head>
 
 <body>
-  <div class=" col-12  DECZO">
-    <a href="/Front-end/index.html"><img src="/Front-end/Img/logo.png" alt="ICONO"></a>
-    <nav>
-      <a href="/Front-end/index.html" style="font-size: 25px;">Inicio</a>
-      <a href="../html/MisionVision.html" style="font-size: 25px;">Nosotros</a>
-      <a href="#contacto" style="font-size: 25px;">Contacto</a>
-      <a href="#"><i class="fa-solid fa-earth-americas"
-          style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>Idioma</a>
-      <i class="fa-solid fa-circle-user" style="color: #FFBD59; font-size: 2.5rem;"></i>
-    </nav>
-  </div>
-  <div class="container-fluid">
-    <div style="width: 50%;">
-      <a href="../html/sitiosTuristicos.html"><i class="fa-regular fa-circle-left" style="font-size: 1.8rem;"></i></a>
+  <nav class="navbar navbar-expand-lg bg-dark"
+  style=" top: 0%; width: 100%;">
+  <div class="container-fluid" style="height: 56px;">
+    <a class="navbar-brand" href="../Front-end/index.html">
+      <img src="/Front-end/Img/logo.png" alt="" width="25%">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="margin-left: 23vw;">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
+        <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+          <div class="dropdown">
+            <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="/Front-end/html/sitiosTuristicos.html">Sitios Turísticos</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+          <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
+            style="color: white; font-size: 25px"><b>Nosotros</b></a>
+        </li>
+        <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+          <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"><b>Contacto</b></a>
+        </li>
+        <li class="nav-item-S" style=" margin-top: 1.5%;">
+          <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
+        </li>
+        <li class="nav-item dropdown" style="margin-top: 1.5%;">
+          <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
+          <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+            <a href="#">Español</a>
+            <a href="#">Inglés</a>
+          </div>
+        </li>
+        <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
+          <button class="dropbtn btn" style="color: white; font-size: 25px">
+            <b>
+              <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+            </b>
+          </button>
+          <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+            <a href="../Front-end/html/RegistroUsuario.html">Registro usuario</a>
+            <a href="#">Ayuda</a>
+          </div>
+        </li>
+        <!-- autenticado -->
+        <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+          <button class="dropbtn btn" style="color: white; font-size: 1rem">
+            <b id="nombreUsuarioDisplay">
+              <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+            </b>
+          </button>
+          <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+            <a href="./html/PerfilUsurio.html">Mi Perfil</a>
+            <a href="">Mis Sitios</a>
+            <a href="">Tema</a>
+            <a href="#">Ayuda</a>
+            <a href="#" id="logoutBtn">Cerrar sesión</a>
+          </div>
+        </li>
+      </ul>
     </div>
-
+  </div>
+</nav>
+ 
+  <div class="container-fluid">
+    <div class="col-12">
+      <a href="../html/sitiosTuristicos.html"><i class="fa-regular fa-circle-left" style="font-size: 2.8rem;"></i></a>
+    </div>
     <div style="width: 100%; display: flex;">
 
       <div style="width: 30%;" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -134,18 +191,30 @@
         </div>
       </div>
     </div>
-    <div>
-      <textarea name="" id="">420</textarea>
+    <div class="DESCRIP DII">
+      <h2><b>Descripción detallada</b></h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum maxime quo culpa perspiciatis, quas velit
+        commodi quibusdam, iure maiores aliquid corrupti molestias inventore obcaecati tenetur, voluptates debitis
+        consequatur rerum nam.</p>
     </div>
-    <h3>SE SUPONE QUE EL MAPA ESTA AQUI</h3>
-    <iframe src="PRUEBA.HTML" width="50%" height="1000px"></iframe>
-      
-
-    </diV>
-    <div>COMENTARIOS</div>
-
+    <div style="margin: 0% 0% 4% 4%; border: 3px solid black">
+      <iframe src="/Front-end/html/mapa.HTML" width="80%" height="800px"></iframe>
+    </div>
+    <diV style="margin: 0% 0% 5% 5%;">
+      <h3><b>Cuéntanos que tal pareció este sitio</b></h3>
+      <div class="CIP">
+        <input class="input" type="text" placeholder="Comenta.." id="coment">
+        <i class="fa-regular fa-paper-plane" onclick="regitroComent()"></i>
+      </div>
+      <div>
+        <img src="" alt="">
+        <i class="fa-regular fa-thumbs-up"></i>
+        <i class="fa-regular fa-thumbs-down"></i>
+      </div>
+    </div>
+  </diV>
   </div>
-  <!-- <section id="contacto" style="background-color: #333; bottom:0; position:absolute; width:100%">
+  <section id="contacto" style="background-color: #333; width:100%">
     <div class="container-fluid">
       <footer class="py-3">
         <ul class="nav border-bottom mb-3 justify-content-between">
@@ -168,15 +237,17 @@
         <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
       </footer>
     </div>
-  </section> -->
+  </section>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    <script src="/Front-end/Js/detalleSitio.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="/Front-end/Js/SitioTuristicos.js"></script>
+
   <!-- <script src="/Front-end/Js/maps.js"></script> -->
 </body>
 
