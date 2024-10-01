@@ -37,31 +37,48 @@
                 <br>
                 <div class="icono">
                     <li class="nav"><box-icon name='user' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%;"><a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%;">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a>
+                    </li>
                 </div>
                 <div class="icono">
-                    <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaSitioMonumento.html">Sitios / Monumentos</a></li>
+                    <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon
+                            size="100px"></box-icon></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white"
+                            href="../html/CrudListaSitioMonumento.html">Sitios / Monumentos</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='book' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a></li>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a>
+                    </li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='chat' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaComentarios.html">Comentarios</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white"
+                            href="../html/CrudListaComentarios.html">Comentarios</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='images' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"> <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html"> Imágenes</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html">
+                            Imágenes</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a>
+                    </li>
                 </div>
                 <div class="icono">
-                    <li class="nav"><box-icon name='building-house'color='#ffffff' size="25px"></box-icon></box-icon></li>
-                    <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaEmpresa.html"> Empresas</a></li>
+                    <li class="nav"><box-icon name='building-house' color='#ffffff' size="25px"></box-icon></box-icon>
+                    </li>
+                    <li class="nav-item nav-link active"
+                        style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white" href="../html/CrudListaEmpresa.html">
+                            Empresas</a></li>
                 </div>
             </ul>
         </div>
@@ -69,14 +86,10 @@
 
             <div class=" mb-3" style="display: flex; margin: left 20%; ">
                 <h2 style="margin: 0% 5% 0% 0%;">Empresas Registradas</h2>
-                <div class="input-group" style="width: 30%; margin: 0% 5% 0% 0%; ">
-                    <input type="text" class="form-control" id="Filtros" placeholder="Buscar por nombre o correo"
-                        aria-label="Buscar...." aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary"
-                        onclick="return Filtros(document.getElementById('Filtros').value)"
-                        type="button" id="button-addon2">
-                        <li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li>
-                    </button>
+                <div class="input-group" style="width: 49%; margin: 0% 0% 0% 13%">
+                    <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...." aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li></button>
+                    <button type="button" class="btn btn-success rounded" style="margin: 0% 0% 0% 5%; "><a href="" style="text-decoration: none; color:white"><b>Agregar</b></a></button>
                 </div>
             </div>
             <table class=" table table-hover table-striped ">
