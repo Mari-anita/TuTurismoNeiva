@@ -1,6 +1,7 @@
 package com.turismo.turismo.models;
 
 import java.sql.Date;
+import java.sql.Time;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -48,7 +49,7 @@ public class SitioMonumento {
     private String detalladaSitioMonumento;
 
     @Column(name="horarioSitioMonumento", nullable = false, length = 60)
-    private String horarioSitioMonumento;
+    private Time horarioSitioMonumento;
 
     @Column(name="fechaCreacionSitioMonumento", nullable = false, length = 60)
     private Date fechaCreacionSitioMonumento;
@@ -61,6 +62,6 @@ public class SitioMonumento {
     private Autor Autor;
 
     @Column(name="contactoSitioMonumento", nullable = false, length = 15)
-    private Date contactoSitioMonumento;
+    private String contactoSitioMonumento;
 
 }
