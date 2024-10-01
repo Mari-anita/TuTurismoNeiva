@@ -1,4 +1,4 @@
-function validarCorreoElectronico(correoElectronico){
+function validarCorreoElectronico(correoElectronico) {
     var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/i;
     // La primera validación verifica el formato y el dominio
     if (emailRegex.test(correoElectronico)) {
@@ -13,7 +13,7 @@ function validarCorreoElectronico(correoElectronico){
 
 var BRegistrarFormularioEmpresa = true;
 
-function registroFormularioEmpresa(){
+function registroFormularioEmpresa() {
     var nombreEmpresa = document.getElementById("nombreEmpresa");
     var correoElectronico = document.getElementById("correoElectronico");
     var tipoEmpresa = document.getElementById("tipoEmpresa");
@@ -28,10 +28,10 @@ function registroFormularioEmpresa(){
         !ValidarcorreoElectronico(correoElectronico) ||
         !ValidartipoEmpresa(tipoEmpresa) ||
         !ValidarnombreRepresentante(nombreRepresentante) ||
-        !Validardireccion(direccion) || 
+        !Validardireccion(direccion) ||
         !Validarservicios(servicios) ||
         !Validarnit(nit) ||
-        !Validartelefono(telefono)){
+        !Validartelefono(telefono)) {
         Swal.fire({
             title: "¡Error!",
             text: "¡Llene todos los campos correctamente!",
@@ -41,7 +41,7 @@ function registroFormularioEmpresa(){
     }
 
     // Validar el correo electrónico
-    if(!validarCorreoElectronico(correoElectronico.value)){
+    if (!validarCorreoElectronico(correoElectronico.value)) {
         Swal.fire({
             title: "¡Error!",
             text: "¡El correo electrónico no es válido!",
@@ -49,7 +49,7 @@ function registroFormularioEmpresa(){
         });
         return;
     }
-    
+
     var formData = {
         "nombreEmpresa": nombreEmpresa.value,
         "correoElectronico": correoElectronico.value,
@@ -65,11 +65,11 @@ function registroFormularioEmpresa(){
     var urlLocal = "";
     var textoimprimir = "";
 
-    if(BRegistrarFormularioEmpresa == true){
+    if (BRegistrarFormularioEmpresa == true) {
         metodo = "POST";
         urlLocal = urlEmpresa;
         textoimprimir = "Felicidades, formulario enviado con éxito";
-    }else{
+    } else {
         metodo = "PUT";
         urlLocal = urlEmpresa + idEmpresa;
         textoimprimir = "Felicidades, guardado con éxito";
@@ -81,17 +81,17 @@ function registroFormularioEmpresa(){
         url: urlEmpresa,
         contentType: "application/json",
         data: JSON.stringify(formData),
-        success: function (response){
+        success: function (response) {
             Swal.fire({
                 title: "Éxito",
                 text: textoimprimir,
                 icon: "success"
-            }).then(function(){
+            }).then(function () {
                 $('#exampleModal').modal('hide');
                 listarEmpresa();
             });
         },
-        error: function (xhr, status, error){
+        error: function (xhr, status, error) {
             Swal.fire({
                 title: "Error",
                 text: "No lograste registrar los datos",
@@ -104,7 +104,7 @@ function registroFormularioEmpresa(){
 
 
 
-function validarCorreoElectronico(correoElectronico){
+function validarCorreoElectronico(correoElectronico) {
     var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/;
     if (!emailRegex.test(correoElectronico)) {
         Swal.fire({
@@ -121,12 +121,12 @@ function validarCorreoElectronico(correoElectronico){
 
 //Validaciones campos
 
-function ValidarCampos(){
+function ValidarCampos() {
     var nombreEmpresa = document.getElementById("nombreEmpresa");
     return ValidarnombreCompletoempresa(nombreEmpresa);
 }
 
-function ValidarnombreCompletoempresa(CuadroNumero){
+function ValidarnombreCompletoempresa(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -141,12 +141,12 @@ function ValidarnombreCompletoempresa(CuadroNumero){
     return Valido;
 }
 
-function ValidarCamposcorreoElectronico(){
+function ValidarCamposcorreoElectronico() {
     var correoElectronico = document.getElementById("correoElectronico");
     return ValidarcorreoElectronico(correoElectronico);
 }
 
-function ValidarcorreoElectronico(CuadroNumero){
+function ValidarcorreoElectronico(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -161,12 +161,12 @@ function ValidarcorreoElectronico(CuadroNumero){
     return Valido;
 }
 
-function ValidarCamposTipoEmpresa(){
+function ValidarCamposTipoEmpresa() {
     var tipoEmpresa = document.getElementById(" tipoEmpresa");
     return ValidartipoEmpresa(tipoEmpresa);
 }
 
-function ValidartipoEmpresa(CuadroNumero){
+function ValidartipoEmpresa(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -181,12 +181,12 @@ function ValidartipoEmpresa(CuadroNumero){
     return Valido;
 }
 
-function ValidarCamposNombreRepresentante(){
+function ValidarCamposNombreRepresentante() {
     var nombreRepresentante = document.getElementById("nombreRepresentante");
     return ValidarnombreRepresentante(nombreRepresentante);
 }
 
-function ValidarnombreRepresentante(CuadroNumero){
+function ValidarnombreRepresentante(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -201,12 +201,12 @@ function ValidarnombreRepresentante(CuadroNumero){
     return Valido;
 }
 
-function ValidarCamposDireccion(){
+function ValidarCamposDireccion() {
     var direccion = document.getElementById("direccion");
-    return Validardireccion (direccion);
+    return Validardireccion(direccion);
 }
 
-function Validardireccion(CuadroNumero){
+function Validardireccion(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -221,12 +221,12 @@ function Validardireccion(CuadroNumero){
     return Valido;
 }
 
-function ValidarCamposServicios(){
+function ValidarCamposServicios() {
     var servicios = document.getElementById("servicios");
     return Validarservicios(servicios);
 }
 
-function Validarservicios(CuadroNumero){
+function Validarservicios(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -241,12 +241,12 @@ function Validarservicios(CuadroNumero){
     return Valido;
 }
 
-function ValidarCamposNit(){
+function ValidarCamposNit() {
     var nit = document.getElementById("nit");
     return Validarnit(nit);
 }
 
-function Validarnit(CuadroNumero){
+function Validarnit(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -261,12 +261,12 @@ function Validarnit(CuadroNumero){
     return Valido;
 }
 
-function ValidarCamposTelefono(){
+function ValidarCamposTelefono() {
     var telefono = document.getElementById("telefono");
     return Validartelefono(telefono);
 }
 
-function Validartelefono(CuadroNumero){
+function Validartelefono(CuadroNumero) {
     var Valor = CuadroNumero.value;
     var Valido = true;
 
@@ -304,8 +304,8 @@ function listarEmpresa() {
                     <td class="text-center align-middle">${result[i]["servicios"]}</td>
                     <td class="text-center align-middle">${result[i]["nit"]}</td>
                     <td class="text-center align-middle">
-                        <i class="fa-solid fa-clock Pendiente" onclick="BRegistrarFormularioEmpresa=false;" data-id="${result[i]["idEmpresa"]}"></i>
-                         <i class="btn fas fa-trash-alt Eliminar" data-id="${result[i]["idEmpresa"]}"></i>
+                        <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-check Aceptar" data-id="${result[i].idEmpresa}" data-nombre="${result[i].nombreEmpresa}" data-correo="${result[i].correoElectronico}" onclick="enviarCorreo(this)"></i></button>
+                        <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-xmark Eliminar" data-id="${result[i]["idEmpresa"]}"></i></button>
                     </td>
                 `;
                 cuerpoTabla.appendChild(trRegistro);
@@ -317,6 +317,54 @@ function listarEmpresa() {
     });
 }
 
+function enviarCorreo(element) {
+    // Extraer los datos del elemento clicado
+    const idEmpresa = element.getAttribute('data-id');
+    const nombreEmpresa = element.getAttribute('data-nombre');
+    const correoElectronico = element.getAttribute('data-correo');
+
+    // Aquí haces la solicitud al backend para enviar el correo
+    const data = {
+        idEmpresa: idEmpresa,
+        nombreEmpresa: nombreEmpresa,
+        correoElectronico: correoElectronico
+    };
+
+    fetch('/api/enviarCorreo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            Swal.fire({
+                title: 'Éxito',
+                text: 'Correo enviado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+        } else {
+            Swal.fire({
+                title: 'Error',
+                text: 'Error al enviar el correo: ' + data.message, 
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        Swal.fire({
+            title: 'Error',
+            text: 'Error al enviar el correo. Intenta de nuevo.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
+    });
+}
 
 var idEmpresa = "";
 
@@ -324,7 +372,7 @@ $(document).on("click", ".Eliminar", function () {
     var idEmpresa = $(this).data("id"); //PENDIENTE CAMBIARLO SINO FUNCIONA
     Swal.fire({
         title: '¿Estás seguro?',
-        text: "¿Deseas eliminar este cliente?",
+        text: "¿Deseas rechazar esta solicitud?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -373,7 +421,7 @@ $(document).on("click", ".Eliminar", function () {
 //             document.getElementById("servicios").value = Empresa.servicios;
 //             document.getElementById("nit").value = Empresa.nit;
 //             document.getElementById("telefono").value = Empresa.telefono;
-            
+
 //             $('#editUserModal').modal('show');
 //         },
 //         error: function (error) {

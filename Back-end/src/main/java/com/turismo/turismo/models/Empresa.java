@@ -47,4 +47,7 @@ public class Empresa {
     @Column(name = "telefono", nullable = false, length = 15)
     private String telefono;
 
+    @Column(name = "password", nullable = false, length = 60)
+    private String password;
+
 }

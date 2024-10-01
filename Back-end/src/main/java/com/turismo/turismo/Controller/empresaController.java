@@ -1,5 +1,6 @@
 package com.turismo.turismo.Controller;
 
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,6 +24,23 @@ import com.turismo.turismo.service.emailService;
 @RestController
 public class empresaController {
 
+    private static int numeroAleatorioEnRango(int minimo,int maximo){
+        return ThreadLocalRandom.current().nextInt(minimo,maximo + 1);
+    }
+
+    private String codigoAleatorio(){
+        int longitud=8;
+        String banco="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String cadena="";
+        for (int x=0; x< longitud; x++){
+            int indiceAleatorio=numeroAleatorioEnRango(0,banco.length()-1);
+            char caracterAleatorio=banco.charAt(indiceAleatorio);
+            cadena += caracterAleatorio;
+        }
+
+        return cadena;
+    }
+    
     @Autowired
     private IempresaService empresaService;
 
@@ -82,6 +100,8 @@ public class empresaController {
         if(Empresa.getTelefono().equals("")){
             return new ResponseEntity<>("El campo teléfono es obligatorio",HttpStatus.BAD_REQUEST);
         }
+
+        Empresa.setPassword(codigoAleatorio());
 
         empresaService.save(Empresa);
         emailService.enviarCorreoSolicitudEmpresa(Empresa.getCorreoElectronico());
