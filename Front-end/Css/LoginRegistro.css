@@ -1,35 +1,4 @@
-/*INICIO DE ENCABEZADO*/
-.DECZO {
-    display: flex;
-    background-color: #26282E;
-    height: 7.5vh;
-}
 
-.DECZO>a {
-    width: 10%;
-}
-
-.DECZO>a>img {
-    width: 75%;
-    transform: translateY(-25%);
-}
-
-.DECZO>nav {
-    width: 90%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-.DECZO>nav>a,
-.DECZO>nav>i {
-    /*, PUEDE AGREGAR */
-    text-decoration: none;
-    color: white;
-    font-size: 1.8rem;
-    margin: 0% 2% 0% 0%;
-    font-weight: bold;
-}
 
 @media (max-width: 768px) {
     /*PARA QUE SE ADAPTE A UNA PANTALLA MENOR*/
@@ -154,7 +123,7 @@
     /*COLOR AL PONER EL CURSOR ENCIMA DEL REGISTRO Y OLVIDE TU CONTRA
 }*/
 
-.btn{
+.btnn{
     background-color: #FFBD59;
     border-radius: 20px;
     color: white;
@@ -170,7 +139,7 @@
     transition: transform 80ms ease-in;
 }
 
-.btn:hover{
+.btnn:hover{
     background-color: #26282E;
     color: white;
     border: 2px solid #FFBD59;
@@ -271,13 +240,13 @@
     transform: translateX(50%);
 }
 
-.btn:active { /**/
+.btnn:active { /**/
     /*EL ACTIVE APLICA MIENTRAS EL USUARIO HACE CLIC EN UN BOTON Y MANTIENE PRESIONADO EL BOTO DEL MOUSE*/
     transform: scale(0.95);
     /*HACE UNA ANIMACION QUE PARECE QUE LA LETRA DE LOS BOTONES SE ESTE HUNDIENDO*/
 }
 
-.btn:focus { /**/
+.btnn:focus { /**/
     /*FOCUS: SE APLICA CUANDO EL USUARIO INTERACTUA CON LOS BOTONES Y PARA ESO VAMOS A USA JS*/
     outline: none;
     /*ELIMINA EL CONTORNO*/

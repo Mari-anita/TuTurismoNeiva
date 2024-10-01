@@ -22,10 +22,13 @@
     <div class="container" style="padding-left: 0; margin-left: 0">
         <div class="sidebar"
             style="height: 93vh; position: fixed; top: 0%; width: 20%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
-            <li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
-                    color='#ffbd59' size="30px"></box-icon></li>
-            <li class="nav " style="align-items: center; width: 100%; height: 7%; margin-left: 30%"><box-icon
-                    name='user-circle' type='solid' color='#ffbd59' size="100px"></box-icon></li>
+            <a href="../index.html">
+                <li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
+                        color='#ffbd59' size="30px"></box-icon></li>
+                    </a>
+                <li class="nav " style="align-items: center; width: 100%; height: 7%; margin-left: 30%"><box-icon
+                        name='user-circle' type='solid' color='#ffbd59' size="100px"></box-icon></li>
+            
             <br>
             <br>
             <br>
@@ -41,15 +44,15 @@
                 <div class="icono">
                     <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon
                             size="100px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                    <li class="nav-item nav-link active"
+                        style="display: flex; align-items: center; width: 100%; height: 7%"><a
                             style="text-decoration: none; color:white"
                             href="../html/CrudListaSitioMonumento.html">Sitios / Monumentos</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='book' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link active"
-                        style="display: flex; align-items: center; width: 100%; height: 7%"><a
-                            style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a>
                     </li>
                 </div>
                 <div class="icono">
@@ -62,7 +65,8 @@
                     <li class="nav"><box-icon name='images' color='#ffffff'></box-icon size="100px"></li>
                     <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%">
                         <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html">
-                            Imágenes</a></li>
+                            Imágenes</a>
+                    </li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
@@ -83,10 +87,15 @@
 
             <div class=" mb-3" style="display: flex; margin: left 20%; ">
                 <h2>Sitios / Monumentos Registrados</h2>
-                <div class="input-group" style="width: 35%; margin: 0% 0% 0% 20%">
-                    <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...." aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li></button>
-                    <button type="button" class="btn btn-success" style="margin: 0% 0% 0% 5%; "><a href="../html/CrudRegistrarSitioMonumento.html" style="text-decoration: none; color:white"><b>Agregar</b></a></button>
+                <div class="input-group" style="width: 40%; margin: 0% 0% 0% 10%">
+                    <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...."
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li>
+                    </button>
+                    <button type="button" class="btn btn-success rounded" style="margin: 0% 0% 0% 5%; "><a
+                            href="../html/CrudRegistrarSitioMonumento.html"
+                            style="text-decoration: none; color:white"><b>Agregar</b></a></button>
                 </div>
             </div>
 
@@ -116,7 +125,7 @@
                 </tbody>
                 <!--
                 <i class="fa-solid fa-eye"></i>
-                <i class="fa-solid fa-trash" style="color: #dc041a;"></i>       -->  
+                <i class="fa-solid fa-trash" style="color: #dc041a;"></i>       -->
             </table>
         </div>
     </div>

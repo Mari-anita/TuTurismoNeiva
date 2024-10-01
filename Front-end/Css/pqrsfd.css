@@ -14,42 +14,6 @@ input::placeholder {
     color: white;
 }
 
-/* INICIO DE ENCABEZADO */
-.DECZO {
-    display: flex;
-    background-color: #26282E;
-    height: 7.5vh;
-    width: 100%;
-    position: fixed; /* Fija el encabezado en la parte superior */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Asegura que el encabezado esté sobre otros elementos */
-}
-
-.DECZO > a {
-    width: 10%;
-}
-
-.DECZO > a > img {
-    width: 75%;
-    transform: translateY(-25%);
-}
-
-.DECZO > nav {
-    width: 90%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-.DECZO > nav > a,
-.DECZO > nav > i {
-    text-decoration: none;
-    color: white;
-    font-size: 1.8rem;
-    margin: 0 2% 0 0;
-    font-weight: bold;
-}
 
 h1 {
     text-align: center;
@@ -119,7 +83,7 @@ textarea {
     resize: vertical; /* Permite que el usuario ajuste la altura */
 }
 
-button {
+.LoginPqrsf {
     width: 94%;
     color: #fff;
     border: none;
@@ -128,7 +92,7 @@ button {
     cursor: pointer;
 }
 
-form button {
+form  .LoginPqrsf {
     background-color: #ff9900;
     font-weight: bold;
     color: #fff;
@@ -139,7 +103,7 @@ form button {
     margin: 0% 0% 0% 6%;
 }
 
-form button:hover {
+form  .LoginPqrsf:hover {
     background-color: #212529;
     border: 1px solid #ff9900;
 }
