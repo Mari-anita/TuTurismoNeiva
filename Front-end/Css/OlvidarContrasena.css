@@ -17,38 +17,6 @@ header {
     padding: 1px 25px;
 }
 
-/*INICIO DE ENCABEZADO*/
-.DECZO {
-    display: flex;
-    background-color: #26282E;
-    height: 7.5vh;
-}
-
-.DECZO>a {
-    width: 10%;
-}
-
-.DECZO>a>img {
-    width: 75%;
-    transform: translateY(-25%);
-}
-
-.DECZO>nav {
-    width: 90%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-.DECZO>nav>a,
-.DECZO>nav>i {
-    /*, PUEDE AGREGAR */
-    text-decoration: none;
-    color: white;
-    font-size: 1.8rem;
-    margin: 0% 2% 0% 0%;
-    font-weight: bold;
-}
 
 main {
     display: flex;
