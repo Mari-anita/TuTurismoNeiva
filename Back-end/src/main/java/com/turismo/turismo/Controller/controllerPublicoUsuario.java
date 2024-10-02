@@ -3,14 +3,17 @@ package com.turismo.turismo.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.turismo.turismo.interfaceService.IusuarioService;
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.models.authResponse;
 import com.turismo.turismo.models.loginRequest;
 import com.turismo.turismo.models.registroRequest;
 import com.turismo.turismo.service.authService;
+import com.turismo.turismo.service.emailService;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -32,6 +35,9 @@ import java.util.Optional;
 public class controllerPublicoUsuario {
 
     private final authService authService;
+
+    @Autowired
+    private emailService emailService;
 
     @PostMapping("login/")
     public ResponseEntity<authResponse> login(@RequestBody loginRequest request) {
@@ -63,6 +69,8 @@ public class controllerPublicoUsuario {
         if (valido) {
             response = authService.registro(request);
             response.setMensaje("Se registró correctamente");
+            //para envíar el correo electronico
+            emailService.enviarCorreoBienvenida(request.getCorreoElectronico(), request.getNombreCompleto());
             return new ResponseEntity<authResponse>(response, HttpStatus.OK);
         }
         return new ResponseEntity<authResponse>(response, HttpStatus.OK);

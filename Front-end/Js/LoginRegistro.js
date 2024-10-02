@@ -234,7 +234,7 @@ function validarCorreoElectronico(correoElectronico) {
         Swal.fire({
             icon: "error",
             title: "Error",
-            text: "No lo sé Rick, tu correo electronico parece falso",
+            text: "Error, tu correo electronico esta incompleto",
         });
         return false;
     }
