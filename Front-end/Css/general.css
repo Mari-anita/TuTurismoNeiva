@@ -115,3 +115,7 @@
   color: rebeccapurple;
   cursor: pointer;
 }
+
+#row{
+  flex-wrap: nowrap !important;
+}

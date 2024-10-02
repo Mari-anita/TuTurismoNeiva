@@ -66,18 +66,25 @@ div h1 {
 .formulario {
     background-color: #1c1c1c;
     border-radius: 5px;
-    width: 50%; /* Cambia el ancho a 50% */
-    max-width: 600px; /* Limita el ancho máximo del contenedor */
-    min-width: 320px; /* Limita el ancho mínimo del contenedor */
-    margin: 5% auto; /* Centra el contenedor en la página */
-    padding: 20px; /* Añade un poco de espacio interno */
+    width: 50%;
+    /* Cambia el ancho a 50% */
+    max-width: 600px;
+    /* Limita el ancho máximo del contenedor */
+    min-width: 320px;
+    /* Limita el ancho mínimo del contenedor */
+    margin: 5% auto;
+    /* Centra el contenedor en la página */
+    padding: 20px;
+    /* Añade un poco de espacio interno */
+    border-radius: 10px;
 }
 
 
 /* Reglas para pantallas más pequeñas (móviles) */
 @media (max-width: 768px) {
     .formulario {
-        width: 80%; /* Ajusta el ancho para pantallas pequeñas */
+        width: 80%;
+        /* Ajusta el ancho para pantallas pequeñas */
         padding: 15px;
     }
 }
@@ -87,6 +94,7 @@ div h1 {
     /* Aumenta el ancho del ícono */
     height: 35px;
     /* Aumenta la altura del ícono */
+    /* margin-bottom:2%; */
 }
 
 
@@ -174,7 +182,7 @@ button {
     border-radius: 10px;
     width: 52%;
     margin: 4% 0% 7% 30%;
-    display: flex;
+    /* display: flex; */
 }
 
 .foto {
@@ -207,7 +215,7 @@ button {
 .foto>h3 {
     text-align: center;
     font-size: 24px;
-    
+
 
 }
 
@@ -229,4 +237,8 @@ button {
 
 .col-xl-5 {
     margin-right: 10%;
+}
+
+.row {
+    flex-wrap: nowrap !important;
 }
