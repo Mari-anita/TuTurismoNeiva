@@ -17,7 +17,11 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
+<style>
+    .nav-item-fo-P>a>b:hover {
+        color: #ffbd59;
+      }
+</style>
 <body onload="listarSitioMonumento();">
     <div class="container" style="padding-left: 0; margin-left: 0">
         <div class="sidebar"
@@ -85,15 +89,15 @@
         </div>
         <div class="content">
 
-            <div class=" mb-3" style="display: flex; margin: left 20%; ">
-                <h2>Sitios / Monumentos Registrados</h2>
-                <div class="input-group" style="width: 40%; margin: 0% 0% 0% 10%">
+            <div class=" mb-3" style="display: flex; margin: left 20%; left: 21%; ">
+                <h2 style="margin: 2% 0% 0% 8%;">Sitios / Monumentos Registrados</h2>
+                <div class="input-group" style="width: 43%; margin: 5% 0% 0% 15%">
                     <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...."
                         aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">
                         <li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li>
                     </button>
-                    <button type="button" class="btn btn-success rounded" style="margin: 0% 0% 0% 5%; "><a
+                    <button type="button" class="btn btn-success rounded" style="margin: 0% 0% 0% 7%; "><a
                             href="../html/CrudRegistrarSitioMonumento.html"
                             style="text-decoration: none; color:white"><b>Agregar</b></a></button>
                 </div>
@@ -102,7 +106,7 @@
             <!-- <div class="form-actions" style="padding-top:7%">
                 <button type="button" class="btn btn-success ">Agregar</button>
             </div> -->
-            <table class=" table table-hover table-striped ">
+            <table class=" table table-hover table-striped " style="margin: 2% 0% 0% 7%;">
                 <div class="colorTabla">
                     <tr>
                         <th>Id</th>
@@ -130,9 +134,35 @@
         </div>
     </div>
 
-    <footer class="py-3">
-        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
-    </footer>
+    <section id="contacto">
+        <!--Footer-->
+        <div class="container-fluid">
+          <footer class="py-3">
+            <ul class="nav border-bottom mb-3 justify-content-between">
+              <div class="d-flex">
+                <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;" data-section="projects"
+                    data-value="contactanos"><b>Contáctanos</b></a></li>
+                <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
+                      color='#ffffff'></box-icon></a></li>
+                <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                      name='envelope' color='#ffffff'></box-icon></a></li>
+                <li class="nav-item-fo-I"><a class="nav-link px-1" href=""><box-icon
+                      name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
+                <li class="nav-item-fo-I"><a class="nav-link px-1"><box-icon class="ig" name='instagram' type='logo'
+                      color='#ffffff'></box-icon></a></li>
+              </div>
+              <div class="d-flex">
+                <li class="nav-item-fo-P "><a href="../Front-end/html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                    style="color: #feffff ; "><b>Pqrsfd</b></a></li>
+                <li class="nav-item-fo-P"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank"
+                    class="nav-link px-2" style="color: #1f8b9e;" data-section="projects"
+                    data-value="terminos"><b>Términos y condiciones</b></a></li>
+              </div>
+            </ul>
+            <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+          </footer>
+        </div>
+      </section>
 </body>
 
 </html>

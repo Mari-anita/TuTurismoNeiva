@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tu Turismo Neiva</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" type="image/png" href="/Front-end/Img/logo.png">
   <link rel="stylesheet" href="../Front-end/Css/bootstrap.css">
   <script src="../Front-end/Js/bootstrap.js"></script>
@@ -19,18 +21,18 @@
 </head>
 <style>
   body {
-      background-color: #ffbd59;
-      margin-right: 0px !important;
-      transform: all 1.5s ease;
+    background-color: #ffbd59;
+    margin-right: 0px !important;
+    transform: all 1.5s ease;
   }
 
   .container {
-      width: 320px;
-      margin: 100px auto 0 auto;
-      perspective: 1000px;
+    width: 320px;
+    margin: 100px auto 0 auto;
+    perspective: 1000px;
   }
 
-.carousel {
+  .carousel {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -100,28 +102,28 @@
     transform: rotateY(320deg) translateZ(430px);
   }
 
-@keyframes rotate360 {
+  @keyframes rotate360 {
     from {
-        transform: rotateY(0deg);
+      transform: rotateY(0deg);
     }
 
     to {
-        transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
     }
-}
+  }
 
-.dropbtn {
+  .dropbtn {
     color: white;
     font-size: 16px;
     cursor: pointer;
-}
+  }
 
-.dropdown {
+  .dropdown {
     position: relative;
     display: inline-block;
-}
+  }
 
-.dropdown-content {
+  .dropdown-content {
     display: none;
     position: absolute;
     background-color: #262930;
@@ -130,153 +132,166 @@
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    top: 100%; 
-    left: 0; 
-}
+    top: 100%;
+    left: 0;
+  }
 
-.flags {
-  width: 30%;
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  gap: 50px;
-}
+  .flags {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
 
-.flags_item {
-  margin: 0 10px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .flags_item {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.flags_item img {
-  width: 50px; 
-  height: auto; 
-  display: block;
-  cursor: pointer;
-}
+  .flags_item img {
+    width: 50px;
+    height: auto;
+    display: block;
+    cursor: pointer;
+  }
 
-.dropdown-content a {
+  .dropdown-content a {
     color: rgb(255, 255, 255);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
+  }
 
-.dropdown-content a:hover {
+  .dropdown-content a:hover {
     background-color: #858483;
-}
+  }
 
-.dropdown:hover .dropdown-content {
+  .dropdown:hover .dropdown-content {
     display: block;
-}
+  }
 
-.nav-item:hover {
+  .nav-item:hover {
     background-color: #666666;
     border-radius: 8px;
-}
+  }
 
-.nav-item-fo-P>a>b:hover {
+  .nav-item-fo-P>a>b:hover {
     color: #ffbd59;
-}
+  }
 
-.menuOculto {
+  .menuOculto {
     display: none;
-}
+  }
 
   .dropdown-submenu {
-      position: relative; 
+    position: relative;
   }
 
   .submenu-content a {
-    display: block; /* Hace que el enlace ocupe todo el ancho */
-    padding: 10px 15px; /* Añade espacio interno */
-    text-align: center; /* Centra el texto */
-    min-width: 150px; /* Define un ancho mínimo */
-    border-radius: 5px; /* Opcional: bordes redondeados */
-    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo inicial */
-    transition: background-color 0.3s; /* Transición suave para el hover */
-}
+    display: block;
+    /* Hace que el enlace ocupe todo el ancho */
+    padding: 10px 15px;
+    /* Añade espacio interno */
+    text-align: center;
+    /* Centra el texto */
+    min-width: 150px;
+    /* Define un ancho mínimo */
+    border-radius: 5px;
+    /* Opcional: bordes redondeados */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Color de fondo inicial */
+    transition: background-color 0.3s;
+    /* Transición suave para el hover */
+  }
 
-.submenu-content a:hover {
-    background-color: rgba(76, 72, 72, 0.3); /* Color de fondo al pasar el ratón */
-}
+  .submenu-content a:hover {
+    background-color: rgba(76, 72, 72, 0.3);
+    /* Color de fondo al pasar el ratón */
+  }
 
 
   .submenu-content {
-      display: none;
-      position: absolute; 
-      right:100%; 
-      top: 0; 
-      background-color: rgba(0, 0, 0, 0.2) ;
-      border: 1px solid #ccc; 
-      border-radius: 8%;
-      z-index: 1000; 
+    display: none;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    border-radius: 8%;
+    z-index: 1000;
   }
 
   .dropdown-submenu:hover .submenu-content {
-      display: block; 
+    display: block;
   }
 
-#toggle{
-  display: none;
-}
+  #toggle {
+    display: none;
+  }
 
-#label_toggle{
-  font-size:3em;
-  color: rebeccapurple;
-  cursor: pointer;
-}
+  #label_toggle {
+    font-size: 3em;
+    color: rebeccapurple;
+    cursor: pointer;
+  }
 
-body.dark {
-    background-color: black; 
-    color: white; 
-}
+  body.dark {
+    background-color: black;
+    color: white;
+  }
 
-body.dark .navbar {
+  body.dark .navbar {
     background-color: #333;
-}
+  }
 
-body.dark .navbar-brand img {
+  body.dark .navbar-brand img {
     filter: invert(1);
-}
+  }
 
-body.dark .dropdown-content {
+  body.dark .dropdown-content {
     background-color: #333;
-}
+  }
 
-body.dark .dropdown-content a {
+  body.dark .dropdown-content a {
     color: white;
-}
+  }
 
-body.dark .dropdown-content a:hover {
+  body.dark .dropdown-content a:hover {
     background-color: #444;
-}
+  }
 
-body.dark .container-fluid {
+  body.dark .container-fluid {
     background-color: #333;
-}
+  }
 
-body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark h5, body.dark h6 {
+  body.dark h1,
+  body.dark h2,
+  body.dark h3,
+  body.dark h4,
+  body.dark h5,
+  body.dark h6 {
     color: white;
-}
+  }
 
-body.dark p {
+  body.dark p {
     color: #ccc;
-}
+  }
 
-body.dark a {
+  body.dark a {
     color: #ccc;
-}
+  }
 
-body.dark a:hover {
+  body.dark a:hover {
     color: white;
-}
+  }
 </style>
 
 <body onload="verificacionLogin()">
   <nav class="navbar navbar-expand-lg bg-dark"
-    style="top: 0%; width: 100%;">
+    style="top: 0%; width: 100%; position: fixed; top: 0%; width: 100%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
     <div class="container-fluid" style="height: 56px;">
       <a class="navbar-brand" href="../Front-end/index.html">
         <img src="../Front-end/Img/logo.png" alt="" width="25%">
@@ -289,31 +304,36 @@ body.dark a:hover {
         <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
-              <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile" data-value="tittle"><b>Inicio</b></button>
+              <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
+                data-value="tittle"><b>Inicio</b></button>
               <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios Turísticos</a>
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios
+                  Turísticos</a>
               </div>
             </div>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
-              style="color: white; font-size: 25px" data-section="projects" data-value="first-project-tittle"><b>Nosotros</b></a>
+              style="color: white; font-size: 25px" data-section="projects"
+              data-value="first-project-tittle"><b>Nosotros</b></a>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"data-section="projects" data-value="second-project-tittle"><b>Contacto</b></a>
+            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
+              data-value="second-project-tittle"><b>Contacto</b></a>
           </li>
           <li class="nav-item-S" style=" margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
           </li>
-          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i 
+          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
               style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
-            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects" data-value="three-project-tittle"><b>Idioma</b></button>
+            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
+              data-value="three-project-tittle"><b>Idioma</b></button>
             <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
               <div class="flags_item" data-language="es">
-                  <img src="/Front-end/Icons/co.svg" alt="Espanol">
+                <img src="/Front-end/Icons/co.svg" alt="Espanol">
               </div>
               <div class="flags_item" data-language="en">
-                  <img src="/Front-end/Icons/ingles.svg" alt="ingles">
+                <img src="/Front-end/Icons/ingles.svg" alt="ingles">
               </div>
             </div>
           </li>
@@ -324,14 +344,15 @@ body.dark a:hover {
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro">Registro usuario</a>
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro">Registro
+                usuario</a>
               <div class="dropdown-submenu">
-                <a href="#"data-section="projects" data-value="tema">Tema</a>
+                <a href="#" data-section="projects" data-value="tema">Tema</a>
                 <div class="submenu-content">
-                    <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
-                    <input type="checkbox" id="toggle">        
+                  <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
+                  <input type="checkbox" id="toggle">
                 </div>
-            </div>                     
+              </div>
               <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
             </div>
           </li>
@@ -358,8 +379,10 @@ body.dark a:hover {
   <div class="container-fluid" style="background-color:white;padding: 12%;">
     <div class="row">
       <div class="col-6">
-        <h1 style="font-size: 70px; width: 80%; color: #262930;" data-section="profile" data-value="rol"><b>¿Deseas conocer la capital opita?</b></h1>
-        <p style="font-size: 25px; width: 90%; color: #262930;"data-section="profile" data-value="description">En TuTurismo Neiva podrás encontrar información sobre
+        <h1 style="font-size: 70px; width: 80%; color: #262930;" data-section="profile" data-value="rol"><b>¿Deseas
+            conocer la capital opita?</b></h1>
+        <p style="font-size: 25px; width: 90%; color: #262930;" data-section="profile" data-value="description">En
+          TuTurismo Neiva podrás encontrar información sobre
           los sitios turísticos y monumentos de Neiva, su ubicación, restaurantes y hoteles que la capital te ofrece.
         </p>
       </div>
@@ -384,7 +407,8 @@ body.dark a:hover {
   <div class="container-fluid" style="background-color: #ffbd59;">
     <div class="row">
       <div class="col-12">
-        <h1 style="color: white; text-align: center; margin-top: 3%; width: 40%; margin-left: 30%; font-size: 40px" data-section="profile" data-value="visitados">
+        <h1 style="color: white; text-align: center; margin-top: 3%; width: 40%; margin-left: 30%; font-size: 40px"
+          data-section="profile" data-value="visitados">
           <b>Sitios turísticos y monumentos más visitados de la ciudad de Neiva</b>
         </h1>
         <div class="container">
@@ -438,11 +462,13 @@ body.dark a:hover {
         <h1 style="color: white;" data-section="profile" data-value="ciudad"><b>Neiva - Huila</b></h1>
         <div style=" width: 60%;">
           <a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Informacion-del-Municipio.aspx"
-            style="color: white;font-size: 17px; text-decoration: none;" data-section="profile" data-value="ubicación">Neiva está ubicada entre la cordillera Central
+            style="color: white;font-size: 17px; text-decoration: none;" data-section="profile"
+            data-value="ubicación">Neiva está ubicada entre la cordillera Central
             y Oriental, en una planicie sobre la margen oriental del río Magdalena,
             en el valle del mismo nombre, cruzada por los Ríos Las Ceibas y el Río del Oro.</p></a>
           <a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Informacion-del-Municipio.aspx"
-            style="color: white;font-size: 17px; text-decoration: none;" data-section="profile" data-value="division">Su división política y administrativa se ha
+            style="color: white;font-size: 17px; text-decoration: none;" data-section="profile" data-value="division">Su
+            división política y administrativa se ha
             estructurado a partir de 10 comunas con 117 barrios y 377 sectores en la zona urbana
             y 8 corregimientos con 61 veredas y 21 sectores en la zona rural, con un área estimada de 4.594 y 150.706
             Hectáreas respectivamente.</a>
@@ -459,8 +485,10 @@ body.dark a:hover {
               type='solid' animation='fade-up' color='#ffffff' size="90px" style="margin-top: 20%;"></box-icon></a>
         </div>
         <div class="col-6" style="margin-top: 10%; margin-bottom: 5%">
-          <h1 style="width: 60%;"data-section="profile" data-value="empresa"><b>¿Te interesa subir contenido de tu empresa con nosotros?</b></h1>
-          <p style="width: 55%; font-size: 20px;" data-section="profile" data-value="formulario">Haz clic y llena el formulario con los datos de tu empresa para que
+          <h1 style="width: 60%;" data-section="profile" data-value="empresa"><b>¿Te interesa subir contenido de tu
+              empresa con nosotros?</b></h1>
+          <p style="width: 55%; font-size: 20px;" data-section="profile" data-value="formulario">Haz clic y llena el
+            formulario con los datos de tu empresa para que
             puedas subir tu contenido a través de nosotros.</p>
         </div>
       </div>
@@ -469,8 +497,10 @@ body.dark a:hover {
     <div class="container-fluid" style="background-color: white; padding-bottom: 10%">
       <div class="row">
         <div class="col-8">
-          <h1 style="padding-left: 50%;" data-section="profile" data-value="movil"><b>¡Descubre nuestra aplicación móvil!</b></h1>
-          <p style="padding-left: 50%; font-size: 20px; width: 100%" data-section="profile" data-value="codigo">Escanea este código QR para descargarla y disfruta
+          <h1 style="padding-left: 50%;" data-section="profile" data-value="movil"><b>¡Descubre nuestra aplicación
+              móvil!</b></h1>
+          <p style="padding-left: 50%; font-size: 20px; width: 100%" data-section="profile" data-value="codigo">Escanea
+            este código QR para descargarla y disfruta
             de toda la funcionalidad de nuestra página web desde tu dispositivo móvil.</p>
         </div>
         <div class="col-4">
@@ -485,11 +515,14 @@ body.dark a:hover {
         <footer class="py-3">
           <ul class="nav border-bottom mb-3 justify-content-between">
             <div class="d-flex">
-              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;" data-section="projects" data-value="contactanos"><b>Contáctanos</b></a></li>
+              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;" data-section="projects"
+                  data-value="contactanos"><b>Contáctanos</b></a></li>
               <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
-                    type='solid' color='#ffffff'></box-icon></a></li>
+                    color='#ffffff'></box-icon></a></li>
               <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
-                    name='gmail' type='logo' class="gmail" color='#ffffff'></box-icon></a></li>
+                    name='envelope' color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href=""><box-icon
+                    name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
               <li class="nav-item-fo-I"><a class="nav-link px-1"><box-icon class="ig" name='instagram' type='logo'
                     color='#ffffff'></box-icon></a></li>
             </div>
@@ -497,7 +530,8 @@ body.dark a:hover {
               <li class="nav-item-fo-P "><a href="../Front-end/html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
                   style="color: #feffff ; "><b>Pqrsfd</b></a></li>
               <li class="nav-item-fo-P"><a href="../Docs/Terminos_y_Condiciones.pdf" target="_blank"
-                  class="nav-link px-2" style="color: #1f8b9e;" data-section="projects" data-value="terminos"><b>Términos y condiciones</b></a></li>
+                  class="nav-link px-2" style="color: #1f8b9e;" data-section="projects"
+                  data-value="terminos"><b>Términos y condiciones</b></a></li>
             </div>
           </ul>
           <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
