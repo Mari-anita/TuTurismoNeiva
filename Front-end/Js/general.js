@@ -19,7 +19,7 @@ async function obtenerNombreUsuario() {
 
     try {
         // Realizar la petición GET para obtener los datos del usuario
-        const response = await fetch(urlUsuarioPublico + 'obtenerNombreUsuario/', {
+        const response = await fetch(urlUsuario + 'obtenerNombreUsuario/', {
             method: 'GET', // Método GET para obtener datos
             headers: {
                 'Authorization': 'Bearer ' + token, // Incluir el token en la cabecera Authorization
@@ -110,10 +110,10 @@ window.onload = verificacionLogin;
  * Funcionalidad para el botón de cerrar sesión
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', function(event) {
+        logoutBtn.addEventListener('click', function (event) {
             event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
             console.log("Botón de cerrar sesión clickeado."); // Depuración
 
@@ -141,5 +141,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     } else {
         console.warn("Elemento con ID 'logoutBtn' no encontrado en el DOM.");
+    }
+});
+
+
+//CUANDO EL USUARIO YA ESTE AUTORIZADO, Y QUIERA IR A REGISTRO
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el token desde el localStorage
+    const token = localStorage.getItem('userToken');
+    
+    // Verificar si el usuario tiene el token y si está en la página de registro
+    if (token && window.location.href === "http://127.0.0.1:5502/Front-end/html/RegistroUsuario.html") {
+        // El usuario está autenticado y está intentando acceder a RegistroUsuario.html, redirigirlo al index.html
+        window.location.href = "/Front-end/index.html";
     }
 });

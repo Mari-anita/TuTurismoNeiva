@@ -41,7 +41,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: rgba(236, 166, 16, 0.973);
+    background-color: #5e695e;
 }
 
 .dropdown:hover .dropdown-content {
@@ -156,7 +156,7 @@ form button:hover {
 }
 
 .nav-item:hover {
-    background-color: rgba(236, 166, 16, 0.973);
+    background-color: #5e695e;
     border-radius: 8px;
     margin: 8px;
 }
