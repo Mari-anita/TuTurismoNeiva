@@ -19,4 +19,8 @@ public interface IsitioMonumentoService {
 
     public List<SitioMonumento> FiltrardireccionSitioMonumento(String direccionSitioMonumento);
 
+    public List<SitioMonumento> consultarSitioMonumento();
+
+    public int guardarImagenJson(SitioMonumento SitioMonumento);
+
 }

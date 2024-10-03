@@ -16,6 +16,11 @@ public class sitioMonumentoService implements IsitioMonumentoService {
      @Autowired
     private IsitioMonumento data;
 
+    @Override
+    public List <SitioMonumento> consultarSitioMonumento(){
+        return (List<SitioMonumento>) data.findAll();
+    }
+
     @Override 
     public String save(SitioMonumento SitioMonumento) {
         data.save(SitioMonumento);
@@ -50,6 +55,16 @@ public class sitioMonumentoService implements IsitioMonumentoService {
     public List<SitioMonumento> FiltrardireccionSitioMonumento(String direccionSitioMonumento) {
         List<SitioMonumento> ListaSitioMonumento = data.FiltrardireccionSitioMonumento(direccionSitioMonumento);
         return ListaSitioMonumento;
+    }
+
+    @Override
+    public int guardarImagenJson(SitioMonumento SitioMonumento) {
+        int res=0;
+        SitioMonumento =data.save(SitioMonumento);
+        if(SitioMonumento.equals(null)) {
+            res=1;
+        }
+        return res;
     }
 
 }

@@ -10,15 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity(name="SitioMonumento")
 public class SitioMonumento {
 
@@ -64,4 +57,157 @@ public class SitioMonumento {
     @Column(name="contactoSitioMonumento", nullable = false, length = 15)
     private String contactoSitioMonumento;
 
+    @Column( name="imagen_base", nullable = true, columnDefinition = "MEDIUMBLOB")
+	private String  imagen_base;
+	@Column( name="imagen_url", nullable = true, length = 35 )
+	private String imagen_url;
+
+    public SitioMonumento() {
+    }
+
+    public SitioMonumento(String idSitioMonumento, char clasificacionSitioMonumento, String nombreSitioMonumento,
+            String ubicacionSitioMonumento, String calificacionSitioMonumento, String direccionSitioMonumento,
+            String descripcionSitioMonumento, String detalladaSitioMonumento, Time horarioSitioMonumento,
+            Date fechaCreacionSitioMonumento, Date fechaModificacionSitioMonumento,
+            com.turismo.turismo.models.Autor autor, String contactoSitioMonumento, String imagen_base,
+            String imagen_url) {
+        this.idSitioMonumento = idSitioMonumento;
+        this.clasificacionSitioMonumento = clasificacionSitioMonumento;
+        this.nombreSitioMonumento = nombreSitioMonumento;
+        this.ubicacionSitioMonumento = ubicacionSitioMonumento;
+        this.calificacionSitioMonumento = calificacionSitioMonumento;
+        this.direccionSitioMonumento = direccionSitioMonumento;
+        this.descripcionSitioMonumento = descripcionSitioMonumento;
+        this.detalladaSitioMonumento = detalladaSitioMonumento;
+        this.horarioSitioMonumento = horarioSitioMonumento;
+        this.fechaCreacionSitioMonumento = fechaCreacionSitioMonumento;
+        this.fechaModificacionSitioMonumento = fechaModificacionSitioMonumento;
+        Autor = autor;
+        this.contactoSitioMonumento = contactoSitioMonumento;
+        this.imagen_base = "data:image/jpeg;base64,"+ imagen_base;
+        this.imagen_url = imagen_url;
+    }
+
+    public String getIdSitioMonumento() {
+        return idSitioMonumento;
+    }
+
+    public void setIdSitioMonumento(String idSitioMonumento) {
+        this.idSitioMonumento = idSitioMonumento;
+    }
+
+    public char getClasificacionSitioMonumento() {
+        return clasificacionSitioMonumento;
+    }
+
+    public void setClasificacionSitioMonumento(char clasificacionSitioMonumento) {
+        this.clasificacionSitioMonumento = clasificacionSitioMonumento;
+    }
+
+    public String getNombreSitioMonumento() {
+        return nombreSitioMonumento;
+    }
+
+    public void setNombreSitioMonumento(String nombreSitioMonumento) {
+        this.nombreSitioMonumento = nombreSitioMonumento;
+    }
+
+    public String getUbicacionSitioMonumento() {
+        return ubicacionSitioMonumento;
+    }
+
+    public void setUbicacionSitioMonumento(String ubicacionSitioMonumento) {
+        this.ubicacionSitioMonumento = ubicacionSitioMonumento;
+    }
+
+    public String getCalificacionSitioMonumento() {
+        return calificacionSitioMonumento;
+    }
+
+    public void setCalificacionSitioMonumento(String calificacionSitioMonumento) {
+        this.calificacionSitioMonumento = calificacionSitioMonumento;
+    }
+
+    public String getDireccionSitioMonumento() {
+        return direccionSitioMonumento;
+    }
+
+    public void setDireccionSitioMonumento(String direccionSitioMonumento) {
+        this.direccionSitioMonumento = direccionSitioMonumento;
+    }
+
+    public String getDescripcionSitioMonumento() {
+        return descripcionSitioMonumento;
+    }
+
+    public void setDescripcionSitioMonumento(String descripcionSitioMonumento) {
+        this.descripcionSitioMonumento = descripcionSitioMonumento;
+    }
+
+    public String getDetalladaSitioMonumento() {
+        return detalladaSitioMonumento;
+    }
+
+    public void setDetalladaSitioMonumento(String detalladaSitioMonumento) {
+        this.detalladaSitioMonumento = detalladaSitioMonumento;
+    }
+
+    public Time getHorarioSitioMonumento() {
+        return horarioSitioMonumento;
+    }
+
+    public void setHorarioSitioMonumento(Time horarioSitioMonumento) {
+        this.horarioSitioMonumento = horarioSitioMonumento;
+    }
+
+    public Date getFechaCreacionSitioMonumento() {
+        return fechaCreacionSitioMonumento;
+    }
+
+    public void setFechaCreacionSitioMonumento(Date fechaCreacionSitioMonumento) {
+        this.fechaCreacionSitioMonumento = fechaCreacionSitioMonumento;
+    }
+
+    public Date getFechaModificacionSitioMonumento() {
+        return fechaModificacionSitioMonumento;
+    }
+
+    public void setFechaModificacionSitioMonumento(Date fechaModificacionSitioMonumento) {
+        this.fechaModificacionSitioMonumento = fechaModificacionSitioMonumento;
+    }
+
+    public Autor getAutor() {
+        return Autor;
+    }
+
+    public void setAutor(Autor autor) {
+        Autor = autor;
+    }
+
+    public String getContactoSitioMonumento() {
+        return contactoSitioMonumento;
+    }
+
+    public void setContactoSitioMonumento(String contactoSitioMonumento) {
+        this.contactoSitioMonumento = contactoSitioMonumento;
+    }
+
+    public String getImagen_base() {
+        return imagen_base;
+    }
+
+    public void setImagen_base(String imagen_base) {
+        this.imagen_base = imagen_base;
+    }
+
+    public String getImagen_url() {
+        return imagen_url;
+    }
+
+    public void setImagen_url(String imagen_url) {
+        this.imagen_url = "data:image/jpeg;base64,"+ imagen_url;
+    }
+
+    
+    
 }
