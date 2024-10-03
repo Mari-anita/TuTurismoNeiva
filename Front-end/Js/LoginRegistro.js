@@ -318,27 +318,6 @@ function validarContrasena(contra) {
 }
 
 
-//VERIFICAR EN LA BASE DE DATOS SI EXISTE CORREO
-
-// var url = 'http://10.192.66.33:8080/api/v1/Usuario/existsBycorreoElectronico/' + correoElectronico;
-// var url = urlUsuario + "existsBycorreoElectronico/" + correoElectronico;
-// function verificarcorreoElectronico(correoElectronico, callback) {
-//     $.ajax({
-//         url: urlExitsCorreo + "existsBycorreoElectronico/" + correoElectronico,
-//         type: 'GET',
-//         success: function (response) {
-//             callback(response); // Suponiendo que la respuesta es true o false
-//         },
-//         error: function (xhr, status, error) {
-//             console.error('VERIFICANDO QUE NO TENGAMOS DATOS REPETIDOS', error);
-//             callback(false); // Suponer que no existe en caso de error
-//         }
-//     });
-// }
-
-
-
-
 //CAMPOS VALIDACIONES
 
 function ValidarCampos() {
