@@ -61,7 +61,7 @@ public class emailService {
     }
 
     public String enviarCorreoSolicitudAceptadaEmpresa(String destinatario, String nombreEmpresa, String correoElectronico,
-            String password) {
+        String password) {
         try {
             String asunto = "¡Bienvenid@ " + nombreEmpresa + " a TuTurismo Neiva!";
             String cuerpo = ""
@@ -70,14 +70,14 @@ public class emailService {
                     + "<div class=\"header\" style=\"background-color: #333; padding: 5px; text-align: center;\">\r\n"
                     + " <img src=\"https://i.postimg.cc/vTxcSyPm/logo.png\" alt=\"TuTurismoNeiva Logo\" style=\"max-width: 100px; margin-right: 90%;\">\r\n"
                     + "</div>\r\n"
-                    + "<div class=\"content\" style=\"text-align: center; color: #333;\">\r\n"
-                    + "<h1 style=\"font-size: 24px; font-weight: bold; margin-bottom: 20px;\">¡Hola " + nombreEmpresa
+                    + "<div class=\"content\" style=\"text-align: center; color: #000000;\">\r\n"
+                    + "<h1 style=\"font-size: 24px; font-weight: bold; color: #000000; margin-bottom: 20px;\">¡Hola " + nombreEmpresa
                     + "!</h1>\r\n"
-                    + "<p style=\"font-size: 16px; margin-bottom: 20px;\">¡Tu solicitud para subir contenido a TuTurismo Neiva ha sido aceptada! A continuación, te proporcionamos los detalles para acceder a la plataforma y comenzar a compartir lo mejor de tu empresa con nuestros usuarios.</p>\r\n"
-                    + "<p style=\"font-size: 16px; margin-bottom: 20px;\">Correo: " + correoElectronico + "</p>\r\n"
-                    + "<p style=\"font-size: 16px; margin-bottom: 20px;\">Contraseña: " + password + "</p>\r\n"
-                    + "<p style=\"font-size: 16px; margin-bottom: 20px;\">Recuerda cambiar tu contraseña en tu primer inicio de sesión para mayor seguridad.</p>\r\n"
-                    + "<p style=\"font-size: 16px; margin-bottom: 20px;\">¡Estamos encantados de tenerte a bordo y esperamos que disfrutes de todas las herramientas que ofrecemos para potenciar tu negocio en la ciudad de Neiva!</p>\r\n"
+                    + "<p style=\"font-size: 16px; color: #000000; margin-bottom: 20px;\">¡Tu solicitud para subir contenido a TuTurismo Neiva ha sido aceptada! A continuación, te proporcionamos los detalles para acceder a la plataforma y comenzar a compartir lo mejor de tu empresa con nuestros usuarios.</p>\r\n"
+                    + "<p style=\"font-size: 16px; color: #000000; margin-bottom: 20px;\">Correo: " + correoElectronico + "</p>\r\n"
+                    + "<p style=\"font-size: 16px; color: #000000; margin-bottom: 20px;\">Contraseña: " + password + "</p>\r\n"
+                    + "<p style=\"font-size: 16px; color: #000000; margin-bottom: 20px;\">Recuerda cambiar tu contraseña en tu primer inicio de sesión para mayor seguridad.</p>\r\n"
+                    + "<p style=\"font-size: 16px; color: #000000; margin-bottom: 20px;\">¡Estamos encantados de tenerte a bordo y esperamos que disfrutes de todas las herramientas que ofrecemos para potenciar tu negocio en la ciudad de Neiva!</p>\r\n"
                     + "</div>\r\n"
                     + "<div class=\"footer\" style=\"background-color: #333; color: #fff; padding: 10px; text-align: center; margin-top: 20px;\">\r\n"
                     + "<a href=\"#\" style=\"color: #fff; text-decoration: none; margin: 0 10px;\">Términos y condiciones</a> | <a href=\"#\" style=\"color: #fff; text-decoration: none; margin: 0 10px;\">Política de privacidad</a>\r\n"
@@ -103,6 +103,45 @@ public class emailService {
         }
     }
 
+
+    public String enviarCorreoSolicitudRechazadaEmpresa(String destinatario, String nombreEmpresa) {
+        try {
+            String asunto = "Solicitud rechazada - TuTurismo Neiva";
+            String cuerpo = ""
+                    + "<body style=\"font-family: Arial, sans-serif; \">\r\n"
+                    + "<div class=\"container\" style=\"width: 70%; background-color: #f4f4f4; margin: 0% 10% 0% 10%; \">\r\n"
+                    + "<div class=\"header\" style=\"background-color: #333; padding: 5px; text-align: center;\">\r\n"
+                    + " <img src=\"https://i.postimg.cc/vTxcSyPm/logo.png\" alt=\"TuTurismoNeiva Logo\" style=\"max-width: 100px; margin-right: 90%;\">\r\n"
+                    + "</div>\r\n"
+                    + "<div class=\"content\" style=\"text-align: center; color: #000000;\">\r\n"
+                    + "<h1 style=\"font-size: 24px; font-weight: bold; margin-bottom: 20px;\">¡Hola " + nombreEmpresa + "!</h1>\r\n"
+                    + "<p style=\"font-size: 16px; color: #000000; margin-bottom: 20px;\">Lamentablemente, tu solicitud para subir contenido a TuTurismo Neiva ha sido rechazada. Esto puede deberse a que el NIT de tu empresa es inválido o a que no cumple con el contenido requerido por nuestra página.</p>\r\n"
+                    + "<p style=\"font-size: 16px; color: #000000; margin-bottom: 20px;\">Si crees que esto es un error o si necesitas más información, no dudes en ponerte en contacto con nosotros.</p>\r\n"
+                    + "</div>\r\n"
+                    + "<div class=\"footer\" style=\"background-color: #333; color: #fff; padding: 10px; text-align: center; margin-top: 20px;\">\r\n"
+                    + "<a href=\"#\" style=\"color: #fff; text-decoration: none; margin: 0 10px;\">Términos y condiciones</a> | <a href=\"#\" style=\"color: #fff; text-decoration: none; margin: 0 10px;\">Política de privacidad</a>\r\n"
+                    + "<div>\r\n"
+                    + "<box-icon name='phone' type='solid' color='#ffffff'></box-icon>\r\n"
+                    + "<box-icon name='gmail' type='logo' color='#f7f5f5'></box-icon>\r\n"
+                    + "<box-icon name='instagram-alt' type='logo' color='#ffffff'></box-icon>\r\n"
+                    + "<box-icon name='tiktok' type='logo' color='#f9f7f7'></box-icon>\r\n"
+                    + "</div>\r\n"
+                    + "</div>\r\n"
+                    + "</div>\r\n"
+                    + "</body>";
+    
+            boolean retorno = enviarCorreo(destinatario, asunto, cuerpo);
+            if (retorno) {
+                return "Correo enviado correctamente.";
+            } else {
+                return "No se pudo enviar el correo.";
+            }
+    
+        } catch (Exception e) {
+            return "Error al enviar el correo: " + e.getMessage();
+        }
+    }
+    
     public String enviarCorreoSolicitudEmpresa(String destinatario) {
         try {
             String asunto = "Solicitud en proceso de TuTurismo Neiva";

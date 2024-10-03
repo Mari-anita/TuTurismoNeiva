@@ -305,7 +305,7 @@ function listarEmpresa() {
                     <td class="text-center align-middle">${result[i]["nit"]}</td>
                     <td class="text-center align-middle">
                         <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-check Aceptar" data-id="${result[i].idEmpresa}" data-nombre="${result[i].nombreEmpresa}" data-correo="${result[i].correoElectronico}" onclick="enviarCorreo(this)"></i></button>
-                        <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-xmark Eliminar" data-id="${result[i]["idEmpresa"]}"></i></button>
+                        <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-xmark Eliminar" data-id="${result[i]["idEmpresa"]}" data-nombre="${result[i].nombreEmpresa}" data-correo="${result[i].correoElectronico} onclick="enviarCorreoRechazo(this)"></i></button>
                     </td>
                 `;
                 cuerpoTabla.appendChild(trRegistro);
@@ -314,55 +314,6 @@ function listarEmpresa() {
         error: function (error) {
             console.error("ERROR en la petición", error);
         }
-    });
-}
-
-function enviarCorreo(element) {
-    // Extraer los datos del elemento clicado
-    const idEmpresa = element.getAttribute('data-id');
-    const nombreEmpresa = element.getAttribute('data-nombre');
-    const correoElectronico = element.getAttribute('data-correo');
-
-    // Aquí haces la solicitud al backend para enviar el correo
-    const data = {
-        idEmpresa: idEmpresa,
-        nombreEmpresa: nombreEmpresa,
-        correoElectronico: correoElectronico
-    };
-
-    fetch('/api/enviarCorreo', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            Swal.fire({
-                title: 'Éxito',
-                text: 'Correo enviado correctamente',
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-            });
-        } else {
-            Swal.fire({
-                title: 'Error',
-                text: 'Error al enviar el correo: ' + data.message, 
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-            });
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        Swal.fire({
-            title: 'Error',
-            text: 'Error al enviar el correo. Intenta de nuevo.',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
     });
 }
 
@@ -490,6 +441,107 @@ function ActualizarEmpresa() {
             icon: "error"
         });
     }
+}
+
+function enviarCorreo(element) {
+    const idEmpresa = element.getAttribute('data-id');
+    const nombreEmpresa = element.getAttribute('data-nombre');
+    const correoElectronico = element.getAttribute('data-correo');
+
+    const data = {
+        idEmpresa: idEmpresa,
+        nombreEmpresa: nombreEmpresa,
+        correoElectronico: correoElectronico
+    };
+
+    fetch( urlEmpresa + 'enviarCorreo', {  
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => { 
+        Swal.fire({
+            title: 'Éxito',
+            text: 'Correo enviado correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        Swal.fire({
+            title: 'Error',
+            text: 'Error al enviar el correo. Intenta de nuevo.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
+    });
+}
+
+function rechazarEmpresa(element) {
+    const idEmpresa = element.getAttribute('data-id');
+    const nombreEmpresa = element.getAttribute('data-nombre');
+    const correoElectronico = element.getAttribute('data-correo');
+
+    const data = {
+        idEmpresa: idEmpresa,
+        correoElectronico: correoElectronico,
+        nombreEmpresa: nombreEmpresa
+    };
+
+    // Mostrar alerta de confirmación
+    Swal.fire({
+        title: '¿Desea rechazar la solicitud?',
+        text: `Está a punto de rechazar la solicitud de ${nombreEmpresa}.`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Rechazar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, enviar la solicitud
+            fetch(urlEmpresa + 'enviarCorreoRechazo', {  
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                Swal.fire({
+                    title: 'Éxito',
+                    text: 'Correo de rechazo enviado correctamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Error al enviar el correo de rechazo. Intenta de nuevo.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            });
+        }
+    });
 }
 
 
