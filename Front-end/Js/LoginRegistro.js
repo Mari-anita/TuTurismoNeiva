@@ -36,6 +36,19 @@ function ValidarcorreoElectronico(correoElectronico) {
     }
     return false;
 }
+// Controlar la entrada de arrobas
+document.getElementById("correoElectronico").addEventListener("keydown", function(event) {
+    // Verificar si la tecla presionada es arroba
+    if (event.key === '@') {
+        var correoElectronicoInput = event.target.value;
+        var arrobaCount = (correoElectronicoInput.match(/@/g) || []).length;
+
+        // Si ya hay una arroba, prevenir la entrada
+        if (arrobaCount >= 1) {
+            event.preventDefault();
+        }
+    }
+});
 
 //VALIDACIONES 
 document.getElementById("nombreCompleto").addEventListener("keypress", soloLetras);
@@ -226,7 +239,6 @@ function registroUsuario() {
 
 
 //VALIDACIONES
-
 function validarCorreoElectronico(correoElectronico) {
     // Expresión regular para validar el correo electrónico
     var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/;
@@ -240,7 +252,6 @@ function validarCorreoElectronico(correoElectronico) {
     }
     return true;
 }
-
 
 function validarContrasena(contra) {
     let estado = "success";

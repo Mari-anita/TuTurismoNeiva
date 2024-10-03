@@ -1,3 +1,47 @@
+var url = "http://localhost:8082/api/v1/Pqrsfd/";
+
+document.getElementById("numDoc").addEventListener("keypress",soloNumeros);
+document.getElementById("telefono").addEventListener("keypress",soloNumeros);
+document.getElementById("nombreApellido").addEventListener("keypress",soloLetras);
+
+//este metodo solo permite numeros
+const numerosPermitidos = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '' 
+];
+
+const letrasPermitidas = [
+    'A', 'Á', 'B', 'C', 'D', 'E', 'É', 'F', 'G', 'H', 'I', 'Í', 'J', 'K', 'L', 'M', 
+    'N', 'Ñ', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'T', 'U', 'Ú', 'Ü', 'V', 'W', 'X', 'Y', 'Z',
+    'a', 'á', 'b', 'c', 'd', 'e', 'é', 'f', 'g', 'h', 'i', 'í', 'j', 'k', 'l', 'm',
+    'n', 'ñ', 'o', 'ó', 'p', 'q', 'r', 's', 't', 'u', 'ú', 'ü', 'v', 'w', 'x', 'y', 'z', ' '
+];
+
+const signosPermitidos = [
+    '.', ',', '@', '_', '-', ''
+];
+
+
+// FORMA CORTA
+function soloNumeros(event) {
+    console.log("Llave presionada: " + event.key);
+    console.log("Codigo tecla: " + event.keyCode);
+
+    if(!(numerosPermitidos.includes(event.key))){
+        event.preventDefault();
+        return;
+    }
+}
+
+function soloLetras(event) {
+    console.log("Llave presionada: " + event.key);
+    console.log("Codigo tecla: " + event.keyCode);
+
+    if(!(letrasPermitidas.includes(event.key))){
+        event.preventDefault();
+        return;
+    }
+}//validaciones de campos
+
 // Validación de correo
 function validarCorreo(correo) {
   var emailRegex = /^[^\s@]+@[^\s@]+\.(com|es|org|net)$/i; 
@@ -9,8 +53,21 @@ function validarCorreo(correo) {
   }
   return false;
 }
+// Controlar la entrada de arrobas
+document.getElementById("correo").addEventListener("keydown", function(event) {
+    // Verificar si la tecla presionada es arroba
+    if (event.key === '@') {
+        var correoInput = event.target.value;
+        var arrobaCount = (correoInput.match(/@/g) || []).length;
 
-// Color del icono de fecha
+        // Si ya hay una arroba, prevenir la entrada
+        if (arrobaCount >= 1) {
+            event.preventDefault();
+        }
+    }
+});
+
+//Color del icono de fecha
 flatpickr("#custom-date", {
   dateFormat: "Y-m-d",
 });
@@ -19,7 +76,7 @@ document.querySelector(".calendar-icon").addEventListener("click", function() {
   document.querySelector("#custom-date")._flatpickr.open();
 });
 
-// Contador de caracteres
+//Contador de caracteres
 document.addEventListener('DOMContentLoaded', () => {
   const textarea = document.getElementById('descripcionPeticion');
   const charCount = document.getElementById('char-count');
@@ -39,13 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
               const file = fileInput.files[0];
               const maxSize = 5 * 1024 * 1024; // 5 MB
               if (file.size > maxSize) {
-                  event.preventDefault();
-                  alert('El archivo debe ser menor de 5 MB.');
-              }
-          }
-      });
-  }
+                event.preventDefault();
+                alert('El archivo debe ser menor de 5 MB.');
+            }
+        }
+    });
+}
 
+//icono de basura
   document.querySelector('.trash-icon').addEventListener('click', function() {
       document.getElementById('pdfFile').value = '';
   });
@@ -65,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+//registro
 function registrarPqrsfd() {
   var formData = {
       "tipoDoc":document.getElementById("tipoDoc").value,
@@ -120,62 +179,21 @@ function validarCampos() {
          validarMensaje(mensaje);
 }
 
-//validaciones para no aceptar numeros negativos
-function validarNumeroDoc(input) { 
-  var valor = input.value.trim();
-  var errorDiv = document.getElementById("errorNumDoc");
-
-  // Limpiar mensajes de error previos
-  errorDiv.textContent = '';
-
-  // Validar si es un número positivo y tiene máximo 11 dígitos
-  if (valor === "" || isNaN(valor) || Number(valor) <= 0) {
-    // Validación de si el valor es vacío, no es un número, o es un número negativo
-    errorDiv.textContent = "Por favor, ingrese un número positivo para el numero de documento.";
-    input.classList.add("is-invalid");
-    return false;
-} else if (valor.length > 11) {
-    errorDiv.textContent = "El número de documento no puede tener más de 11 dígitos.";
-    input.classList.add("is-invalid");
-    return false;
-} else if (valor.length < 11) {
-    errorDiv.textContent = "El número de documento no puede tener menos de 11 dígitos.";
-    input.classList.add("is-invalid");
-    return false;
-} else {
-    input.classList.remove("is-invalid");
-    errorDiv.textContent = ''; // Limpia el mensaje de error
-    return true;
+function validarNumeroDoc(numeroDoc) {
+    var valor = numeroDoc.trim();
+    var valido = valor.length >= 5 && valor.length <= 11;
+  
+    actualizarClaseValidacion(document.getElementById("numeroDoc"), valido);
+    return valido;
   }
-}
 
-function validarTelefono(input) {
-  var valor = input.value.trim();
-  var errorDiv = document.getElementById("errorTelefono");
-
-  // Limpiar mensajes de error previos
-  errorDiv.textContent = '';
-
-  // Validar si es un número positivo y tiene máximo 11 dígitos
-  if (valor === "" || isNaN(valor) || Number(valor) <= 0) {
-    // Validación de si el valor es vacío, no es un número, o es un número negativo
-    errorDiv.textContent = "Por favor, ingrese un número positivo para el teléfono.";
-    input.classList.add("is-invalid");
-    return false;
-} else if (valor.length > 11) {
-    errorDiv.textContent = "El número de teléfono no puede tener más de 11 dígitos.";
-    input.classList.add("is-invalid");
-    return false;
-} else if (valor.length < 11) {
-    errorDiv.textContent = "El número de teléfono no puede tener menos de 11 dígitos.";
-    input.classList.add("is-invalid");
-    return false;
-} else {
-    input.classList.remove("is-invalid");
-    errorDiv.textContent = ''; // Limpia el mensaje de error
-    return true;
+function validarTelefono(telefono) {
+    var valor = telefono.trim();
+    var valido = valor.length >= 5 && valor.length <= 11;
+  
+    actualizarClaseValidacion(document.getElementById("telefono"), valido);
+    return valido;
   }
-}
 
 function validarNombre(nombreApellido) {
   var valor = nombreApellido.trim();
