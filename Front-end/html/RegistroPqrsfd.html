@@ -140,7 +140,6 @@
           <label for="">Teléfono</label>
           <input class="regis" id="telefono" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarTelefono(this);" />
           <div id="errorTelefono" style="color: orange; font-size: 1em;"></div>
-          <button class="LoginPqrsf" type="submit" onclick="registrarPqrsfd()" style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
         </div>
 
         <div class="columna2" style="padding: 20px;">
@@ -164,13 +163,7 @@
           <div id="char-count" style="color: white;">Máximo 5000 caracteres</div>
           <textarea id="descripcionPeticion" class="regis" placeholder="" required style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;" maxlength="5000"></textarea>
 
-          <div class="file-upload-container">
-            <label for="documentos">Anexar documentos (solo PDF, máximo 5 MB)</label>
-            <div class="file-input-container">
-              <input type="file" name="documentos" id="pdfFile" accept="application/pdf">
-              <span class="trash-icon">&#128465;</span>
-            </div>
-          </div>
+          <button class="LoginPqrsf" type="submit" onclick="registrarPqrsfd()" style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
         </div>
       </div>
     </form>
