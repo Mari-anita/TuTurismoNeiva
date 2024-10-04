@@ -1,9 +1,10 @@
-var url = "http://localhost:8082/api/v1/publico/Empresa";
 
 document.getElementById("nombreEmpresa").addEventListener("keypress",soloLetras);
 document.getElementById("direccion").addEventListener("keypress",soloDireccion);
 document.getElementById("nit").addEventListener("keypress",soloNit);
-
+document.getElementById("nombreRepresentante").addEventListener("keypress",soloRepresentante);
+document.getElementById("telefono").addEventListener("keypress",soloTelefono);
+document.getElementById("servicios").addEventListener("keypress",soloServicios);
 //este metodo solo permite numeros
 const numerosPermitidos = [
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '' 
@@ -54,12 +55,41 @@ function soloDireccion(event) {
     }
 }
 
-
 function soloNit(event) {
     console.log("Llave presionada: " + event.key);
     console.log("Codigo tecla: " + event.keyCode);
 
     if(!(nitPermitidos.includes(event.key))){
+        event.preventDefault();
+        return;
+    }
+}
+
+function soloRepresentante(event) {
+    console.log("Llave presionada: " + event.key);
+    console.log("Codigo tecla: " + event.keyCode);
+
+    if(!(letrasPermitidas.includes(event.key))){
+        event.preventDefault();
+        return;
+    }
+}
+
+function soloTelefono(event) {
+    console.log("Llave presionada: " + event.key);
+    console.log("Codigo tecla: " + event.keyCode);
+
+    if(!(numerosPermitidos.includes(event.key))){
+        event.preventDefault();
+        return;
+    }
+}
+
+function soloServicios(event) {
+    console.log("Llave presionada: " + event.key);
+    console.log("Codigo tecla: " + event.keyCode);
+
+    if(!(letrasPermitidas.includes(event.key))){
         event.preventDefault();
         return;
     }
