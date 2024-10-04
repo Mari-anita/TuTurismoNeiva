@@ -388,7 +388,7 @@ function listarEmpresa() {
                     <td class="text-center align-middle">${result[i]["nit"]}</td>
                     <td class="text-center align-middle">
                         <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-check Aceptar" data-id="${result[i].idEmpresa}" data-nombre="${result[i].nombreEmpresa}" data-correo="${result[i].correoElectronico}" onclick="enviarCorreo(this)"></i></button>
-                        <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-xmark Eliminar" data-id="${result[i]["idEmpresa"]}" data-nombre="${result[i].nombreEmpresa}" data-correo="${result[i].correoElectronico} onclick="enviarCorreoRechazo(this)"></i></button>
+                        <button style="border: 2px solid black; border-radius: 15px; background-color: transparent;"><i class="fa-solid fa-xmark Eliminar" data-id="${result[i]["idEmpresa"]}" data-nombre="${result[i].nombreEmpresa}" data-correo="${result[i]["correoElectronico"]}" onclick="enviarCorreoRechazado(this)"></i></button>
                     </td>
                 `;
                 cuerpoTabla.appendChild(trRegistro);
@@ -531,45 +531,64 @@ function enviarCorreo(element) {
     const nombreEmpresa = element.getAttribute('data-nombre');
     const correoElectronico = element.getAttribute('data-correo');
 
-    const data = {
-        idEmpresa: idEmpresa,
-        nombreEmpresa: nombreEmpresa,
-        correoElectronico: correoElectronico
-    };
+    Swal.fire({
+        title: 'Confirmación',
+        text: `¿Deseas aceptar la solicitud de ${nombreEmpresa}?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, enviar',
+        cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const data = {
+                idEmpresa: idEmpresa,
+                nombreEmpresa: nombreEmpresa,
+                correoElectronico: correoElectronico
+            };
 
-    fetch( urlEmpresa + 'enviarCorreo', {  
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+            fetch(urlEmpresa + 'enviarCorreo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                Swal.fire({
+                    title: 'Éxito',
+                    text: 'Correo enviado correctamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Error al enviar el correo. Intenta de nuevo.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            });
+        } else {
+            Swal.fire({
+                title: 'Cancelado',
+                text: 'El envío del correo ha sido cancelado.',
+                icon: 'info',
+                confirmButtonText: 'Aceptar'
+            });
         }
-        return response.json();
-    })
-    .then(data => { 
-        Swal.fire({
-            title: 'Éxito',
-            text: 'Correo enviado correctamente',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-        });
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        Swal.fire({
-            title: 'Error',
-            text: 'Error al enviar el correo. Intenta de nuevo.',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
     });
 }
 
-function rechazarEmpresa(element) {
+
+function enviarCorreoRechazado(element) {
     const idEmpresa = element.getAttribute('data-id');
     const nombreEmpresa = element.getAttribute('data-nombre');
     const correoElectronico = element.getAttribute('data-correo');
