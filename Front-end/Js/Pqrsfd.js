@@ -1,5 +1,4 @@
-var url = "http://localhost:8082/api/v1/Pqrsfd/";
-
+//validaciones de campos
 document.getElementById("numDoc").addEventListener("keypress",soloNumeros);
 document.getElementById("telefono").addEventListener("keypress",soloNumeros);
 document.getElementById("nombreApellido").addEventListener("keypress",soloLetras);
@@ -40,7 +39,7 @@ function soloLetras(event) {
         event.preventDefault();
         return;
     }
-}//validaciones de campos
+}
 
 // Validación de correo
 function validarCorreo(correo) {

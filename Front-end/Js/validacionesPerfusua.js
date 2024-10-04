@@ -1,4 +1,3 @@
-var url = "http://localhost:8082/api/v1/Usuario";
 
 document.getElementById("nombreRepresentante").addEventListener("keypress",soloLetras);
 
