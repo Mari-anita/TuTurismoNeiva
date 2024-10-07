@@ -1,9 +1,11 @@
 package com.turismo.turismo.models;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -45,11 +47,8 @@ public class Pqrsfd {
     @Column(name = "correo", nullable = false, length = 200)
     private String correo;
 
-    @Column(name = "telefono", nullable = false, length = 11)
-    private String telefono;
-
     @Column(name = "fechaRadicado", nullable = false, length = 20)
-    private Date fechaRadicado;
+    private Timestamp fechaRadicado;
 
     @Column(name = "tipoPeticion", nullable = false, length = 10)
     private String tipoPeticion;
@@ -57,8 +56,9 @@ public class Pqrsfd {
     @Column(name = "descripcionPeticion", nullable = false, length = 500)
     private String descripcionPeticion;
 
-    @Column(name = "documentos", nullable = false, length = 10)
-    private String documentos;
+
+    @Enumerated(EnumType.STRING)
+    private role role;  
 
 
     

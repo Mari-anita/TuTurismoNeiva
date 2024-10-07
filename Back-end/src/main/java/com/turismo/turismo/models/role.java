@@ -2,5 +2,7 @@ package com.turismo.turismo.models;
 
 public enum role {
     Admin,
-    Usuario
+    Usuario,
+    Invitado,
+    Empresa
 }

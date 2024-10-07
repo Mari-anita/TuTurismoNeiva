@@ -14,6 +14,7 @@ public class authResponse {
     private String Token;
     private boolean emailExists;
     private String nombreCompleto;
+    private role role;
 
     public boolean isEmailExists() {
         return emailExists;

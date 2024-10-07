@@ -37,18 +37,6 @@ public class jwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        // correoElectronico = jwtService.getCorreoElectronicoFromToken(Token);
-        // if (correoElectronico != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-        //     var userDetails = userDetailsService.loadUserByUsername(correoElectronico);
-        //     if (jwtService.isTokenValid(Token, userDetails)) {
-        //         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails,
-        //                 null, userDetails.getAuthorities());
-        //         authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        //         SecurityContextHolder.getContext().setAuthentication(authToken);
-        //     }
-        // }
-        // filterChain.doFilter(request, response);
-
         try {
             // Obtener el correo electrónico desde el token
             correoElectronico = jwtService.getCorreoElectronicoFromToken(Token);

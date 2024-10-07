@@ -19,13 +19,26 @@ async function obtenerNombreUsuario() {
 
     try {
         // Realizar la petición GET para obtener los datos del usuario
-        const response = await fetch(urlUsuario + 'obtenerNombreUsuario/', {
+        const response = await fetch(urlusuario + 'obtenerNombreUsuario/', {
             method: 'GET', // Método GET para obtener datos
             headers: {
                 'Authorization': 'Bearer ' + token, // Incluir el token en la cabecera Authorization
                 'Content-Type': 'application/json' // Tipo de contenido
             }
         });
+        // let headersList = {
+        //     "Accept": "*/*",
+        //     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        //     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTYW50aWFnb05hcnZhZXpAaG90bWFpbC5jb20iLCJpYXQiOjE3MjgzMzY1NTIsImV4cCI6MTcyODM0MDE1Mn0.MAvIVP8W1wJJpnYklWD_3w6Nu_9gDpGbAMu1FDWAZXs"
+        //    }
+           
+        //    let response = await fetch("http://10.192.66.48:8082/api/v1/usuario/obtenerNombreUsuario/", { 
+        //      method: "GET",
+        //      headers: headersList
+        //    });
+           
+           let data = await response.text();
+           console.log(data);
 
         // Verificar si la respuesta fue exitosa
         if (response.ok) {

@@ -8,6 +8,8 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.turismo.turismo.models.Pqrsfd;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -35,7 +37,25 @@ public class jwtService {
 
     }
 
+    // Método para generar un token JWT usando los datos de Pqrsfd
+    public String getTokenPqrsfd(Pqrsfd pqrsfdData) {
+        HashMap<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("numDoc", pqrsfdData.getNumDoc()); // Agregar el número de documento como claim
+        extraClaims.put("nombreApellido", pqrsfdData.getNombreApellido()); // Agregar nombre y apellido como claim
+        return createToken(extraClaims, pqrsfdData.getCorreo()); // Usamos el correo como subject
+    }
 
+    // Método privado que genera el token
+    private String createToken(HashMap<String, Object> extraClaims, String subject) {
+        return Jwts
+                .builder()
+                .setClaims(extraClaims) // Agregar los claims
+                .setSubject(subject) // El subject será el correo
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // Expira en 1 hora
+                .signWith(getKey(), SignatureAlgorithm.HS256) // Firmamos con el algoritmo HS256
+                .compact();
+    }
 
     private Key getKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secret_key);
@@ -72,4 +92,25 @@ public class jwtService {
         final Claims claims = getAllClaims(Token);
         return claimsResolver.apply(claims);
     }
+
+    public String getNumDocFromToken(String token) {
+        return (String) getAllClaims(token).get("numDoc");
+    }
+
+    public String getNombreApellidoFromToken(String token) {
+        return (String) getAllClaims(token).get("nombreApellido");
+    }
+
+    // Método para extraer el username (correo electrónico) del token JWT
+    public String extractUsername(String token) {
+        // Extrae el claim del subject (nombre de usuario o correo)
+        return getClaims(token, Claims::getSubject);
+    }
+
+    // Método para extraer la fecha de expiración del token JWT
+    public Date extractExpiration(String token) {
+        // Extrae el claim de expiración
+        return getClaims(token, Claims::getExpiration);
+    }
+
 }

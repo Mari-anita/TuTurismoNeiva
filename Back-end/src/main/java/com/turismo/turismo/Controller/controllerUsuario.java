@@ -61,16 +61,18 @@ public class controllerUsuario {
      * }
      */
     @GetMapping("obtenerNombreUsuario/")
-    public ResponseEntity<Map<String, String>> obtenerNombreUsuario(Principal principal) {
+    public ResponseEntity<Map<String, String>> obtenerNombreUsuario() {
         try {
             // Obtener el correo electrónico del usuario autenticado a través del objeto
             // 'Principal'
-            String correoElectronico = principal.getName();
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            Usuario usuario = (Usuario) auth.getPrincipal();
+            // String correoElectronico = principal.getName();
 
             // Buscar el usuario en la base de datos usando su correo electrónico
             // Si no se encuentra, lanzará una excepción UsernameNotFoundException
-            Usuario usuario = authService.findBycorreoElectronico(correoElectronico)
-                    .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+            // Usuario usuario = authService.findBycorreoElectronico(correoElectronico)
+            //         .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
             // Crear un mapa que contendrá la respuesta, solo el nombre completo del usuario
             Map<String, String> response = new HashMap<>();
