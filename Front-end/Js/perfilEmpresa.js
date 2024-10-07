@@ -1,3 +1,4 @@
+document.getElementById("nit").addEventListener("keypress",soloNit);
 document.getElementById("tipoEmpresa").addEventListener("keypress",soloLetras);
 document.getElementById("nombreRepresentante").addEventListener("keypress",soloNombreRep);
 document.getElementById("telefono").addEventListener("keypress",soloNumeros);
@@ -18,7 +19,6 @@ const letrasPermitidas = [
 const signosPermitidos = [
     '.', ',', '@', '_', '-', ''
 ];
-
 
 // FORMA CORTA
 function soloLetras(event) {
@@ -51,7 +51,7 @@ function soloNumeros(event) {
     }
 }
 
-function soloNombreRep(event) {
+function soloServic(event) {
     console.log("Llave presionada: " + event.key);
     console.log("Codigo tecla: " + event.keyCode);
 
@@ -61,7 +61,18 @@ function soloNombreRep(event) {
     }
 }
 
+function soloNit(event) {
+    console.log("Llave presionada: " + event.key);
+    console.log("Codigo tecla: " + event.keyCode);
 
+    if(!(numerosPermitidos.includes(event.key))){
+        event.preventDefault();
+        return;
+    }
+}
+
+
+//otras validaciones
 function confirmDelete() {
     if (confirm("¿Estás seguro de que quieres eliminar la imagen de perfil?")) {
         // Aquí puedes agregar la lógica para eliminar la imagen de perfil
