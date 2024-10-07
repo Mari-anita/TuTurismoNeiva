@@ -65,7 +65,9 @@ function soloNit(event) {
     console.log("Llave presionada: " + event.key);
     console.log("Codigo tecla: " + event.keyCode);
 
-    if(!(numerosPermitidos.includes(event.key))){
+    if(!(numerosPermitidos
+        
+        .includes(event.key))){
         event.preventDefault();
         return;
     }
