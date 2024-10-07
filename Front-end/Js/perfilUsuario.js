@@ -1,38 +1,37 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     const editarFotoBtn = document.getElementById('editarFotoPerfil');
-//     const eliminarFotoBtn = document.getElementById('eliminarFotoPerfil');
-//     const inputFile = document.createElement('input');
-//     inputFile.type = 'file';
-//     inputFile.accept = 'image/*';
+// Función para previsualizar la imagen seleccionada
+function previewImage(event) {
+    const input = event.target;
+    const preview = document.getElementById('preview');
 
-//     // Función para editar la foto de perfil
-//     editarFotoBtn.addEventListener('click', function () {
-//         inputFile.click();  // Simula el clic para seleccionar una imagen
-//     });
+    // Verifica si se ha seleccionado un archivo
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
 
-//     // Evento que se activa al seleccionar un archivo
-//     inputFile.addEventListener('change', function (event) {
-//         const file = event.target.files[0];
-//         if (file) {
-//             const reader = new FileReader();
-//             reader.onload = function (e) {
-//                 // Aquí puedes hacer algo con la nueva imagen seleccionada
-//                 // Por ejemplo, cambiar la foto de perfil visualmente
-//                 const imageUrl = e.target.result;
-//                 document.querySelector('.foto box-icon').style.backgroundImage = `url(${imageUrl})`;
-//                 alert('Foto de perfil cambiada con éxito');
-//             };
-//             reader.readAsDataURL(file);
-//         }
-//     });
+        // Cuando se carga el archivo, se establece la fuente de la imagen
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block'; // Muestra la imagen
+            document.getElementById('camera-icon-container').style.display = 'none'; // Oculta el ícono de la cámara
+        }
 
-//     // Función para eliminar la foto de perfil
-//     eliminarFotoBtn.addEventListener('click', function () {
-//         const confirmacion = confirm('¿Estás seguro de que deseas eliminar la foto de perfil?');
-//         if (confirmacion) {
-//             // Aquí puedes eliminar la foto de perfil
-//             document.querySelector('.foto box-icon').style.backgroundImage = '';
-//             alert('Foto de perfil eliminada');
-//         }
-//     });
-// });
+        reader.readAsDataURL(input.files[0]); // Lee el archivo como una URL de datos
+    }
+}
+
+// Función para confirmar la eliminación de la foto de perfil
+function confirmDelete() {
+    const confirmDelete = confirm("¿Estás seguro de que deseas eliminar la foto de perfil?");
+    if (confirmDelete) {
+        // Reinicia el input de archivo
+        document.getElementById('file-input').value = '';
+        const preview = document.getElementById('preview');
+        preview.style.display = 'none'; // Oculta la imagen
+        document.getElementById('camera-icon-container').style.display = 'block'; // Muestra el ícono de la cámara
+    }
+}
+
+// Función para guardar los cambios
+function saveChanges() {
+    // Aquí puedes implementar la lógica para guardar los cambios, como enviar los datos a un servidor
+    alert("Cambios guardados (funcionalidad no implementada).");
+}

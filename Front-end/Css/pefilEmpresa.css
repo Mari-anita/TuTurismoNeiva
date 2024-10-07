@@ -154,9 +154,13 @@ button {
 }
 
 .BUTON {
+    align-content: center;
+    text-align: center;
     border-radius: 10px;
     width: 70%;
+    height: 50%;
     margin: 4% 0% 7% 15%;
+    background-color: #ff9900;
 
 }
 
