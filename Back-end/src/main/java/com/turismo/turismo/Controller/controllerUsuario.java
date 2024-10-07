@@ -1,10 +1,12 @@
 package com.turismo.turismo.Controller;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,14 +14,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.service.authService;
+import com.turismo.turismo.service.emailService;
+import com.turismo.turismo.service.usuarioService;
 import com.turismo.turismo.interfaceService.IusuarioService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RestController
 @CrossOrigin
@@ -28,6 +36,15 @@ import java.util.Map;
 public class controllerUsuario {
 
     private final authService authService;
+
+    @Autowired 
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private usuarioService usuarioService;
+
+    @Autowired
+    private emailService emailService;
 
     @GetMapping("profile/")
     public ResponseEntity<Usuario> getProfile() {
@@ -83,6 +100,54 @@ public class controllerUsuario {
             // (Internal Server Error)
             return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+    
+    @PutMapping("cambiarContrasena/")
+    public ResponseEntity<String> cambiarContrasena(@RequestBody CambioCotrasenaRequest request) {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    Usuario user = (Usuario) auth.getPrincipal();
+
+    // Verificar que la contraseña antigua sea correcta
+    if (!passwordEncoder.matches(request.getAntiguaContrasena(), user.getContra())) {
+        return ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
+            .body("La contraseña antigua no es correcta");
+    }
+
+    String nuevaContrasena = request.getNuevaContrasena();
+
+    // Verificar que la nueva contraseña no sea igual a la antigua
+    if (passwordEncoder.matches(nuevaContrasena, user.getContra())) {
+        return ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
+            .body("La nueva contraseña no puede ser igual a la antigua");
+    }
+
+    // Verificar que la nueva contraseña coincida con la confirmación
+    if (!nuevaContrasena.equals(request.getConfirmarContrasena())) {
+        return ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
+            .body("La nueva contraseña y la confirmación no coinciden");
+    }
+
+    // Validar el formato de la nueva contraseña
+    String contraRegex = "^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ0-9.,@_\\-$%&\\s]+$";
+    Pattern contraPattern = Pattern.compile(contraRegex);
+    Matcher contraMatcher = contraPattern.matcher(nuevaContrasena);
+
+    if (!contraMatcher.matches()) {
+        return new ResponseEntity<>("La contraseña solo puede contener letras, números y ciertos signos permitidos", HttpStatus.BAD_REQUEST);
+    }
+
+    // Guardar la nueva contraseña encriptada
+    user.setContra(passwordEncoder.encode(nuevaContrasena));
+    usuarioService.save(user);
+
+    // Enviar notificación por correo
+    emailService.enviarNotificacionCambioContra(user.getCorreoElectronico());
+    return ResponseEntity
+        .status(HttpStatus.OK)
+        .body("Contraseña cambiada exitosamente");
     }
 
     /*
