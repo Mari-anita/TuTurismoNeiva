@@ -1,0 +1,217 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-size: cover;
+    background-image: url(/Front-end/Img/Fondo.png);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    top: 0%;
+    z-index: 999; /* Asegurarse de que esté por encima de otros elementos */
+}
+
+.navbar-nav .nav-item {
+    margin-right: 3%;
+    margin-top: 1.5%;
+}
+
+.dropbtn {
+    background-color: #000000;
+    color: white;
+    padding: 16px;
+    font-size: 25px;
+    border-bottom: #3e8e41 1px solid;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #262930;
+    border-radius: 8px;
+    border: 1px solid rgb(173, 173, 173);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(236, 166, 16, 0.973);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 3%;
+    font-weight: bold;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tab {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.tab.active {
+    background-color: #c27503;
+}
+
+.search-bar {
+    margin: 20px 0;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.site-card {
+    background-color: #1c1c1c;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    margin-right: 20px;
+}
+
+.site-image {
+    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    border-radius: 5px;
+}
+
+.site-info {
+    color: white;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+}
+
+header {
+    background-color: #333;
+    padding: 15px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    margin: 0; /* Eliminar margen del título */
+}
+
+.search-bar {
+    display: flex; /* Usar flexbox para la barra de búsqueda */
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 200px; /* Ancho fijo para el campo de búsqueda */
+}
+
+.tabs {
+    display: flex;
+    margin: 20px 0; /* Espaciado superior e inferior para las pestañas */
+}
+
+.tab {
+    background-color: #444;
+    color: #f2f2f2;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: #ffcc00; /* Color de fondo para la pestaña activa */
+}
+
+.container {
+    padding: 20px;
+}
+
+.site-card {
+    background-color: #222;
+    border-radius: 8px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.site-image {
+    width: 100%;
+    height: auto;
+}
+
+.site-info {
+    flex: 1;
+}
+
+.site-info h2 {
+    margin: 0; /* Eliminar margen del título del sitio */
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.heart {
+    margin-left: 5px; /* Espacio entre las estrellas y el corazón */
+}
