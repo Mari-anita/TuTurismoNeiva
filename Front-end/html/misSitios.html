@@ -104,10 +104,10 @@
         </div>
     </nav>
     <div>
-        <header class="rounded" style="margin: 3% 17% 0; background-color: #333; padding: 15px;" >
+        <header class="rounded" style="margin: 3% 17% 0% 17%; background-color: #333;" >
             <nav style="display: flex; justify-content: space-between; align-items: center;">
-                <h1 style="color: white; margin: 0;">Mis sitios</h1>
-                <div class="input-group" style="width: 43%; margin: 5% 0% 0% 15%">
+                <h1 style="color: white; margin: 2% 0% 0% 0%;">Mis sitios</h1>
+                <div class="input-group" style="width: 35%; margin: 0% 10% 0% 3%">
                     <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...."
                         aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">
@@ -122,22 +122,60 @@
             <button class="tab">Monumentos</button>
         </div>
     
-        <div class="container">
-            <div class="border border-warning" style=" margin:0% 78% 0% 0%; display: flex;  border-radius: 8px; padding: 10px; align-items: center;">
-                <div class="image-container" style="width: 100px; height: 100px; overflow: hidden; border-radius: 5px; margin-right: 20px;">
-                    <img src="placeholder.jpg" alt="Foto" class="site-image" style="width: 100%; height: auto;">
-                </div>
-                <div class="site-info" style="flex: 1;">
-                    <h2 style="margin: 0; color: #000000;">El Mohán</h2>
-                    <p style="color: #000000;">Av. circunvalación con calle 10</p>
-                    <a href="#" style="color: #ffcc00;">Más detalles...</a>
-                    <div class="rating" style="display: flex; align-items: center;">
-                        <span style="color: #ffcc00;">★★★★★</span>
-                        <span class="heart" style="margin-left: 5px;">❤️</span>
+        <div class="container-fluid" style="margin-top: 4%;">
+            <div>
+              <div style="display: flex; margin: 4% 0% 0% 17%;">
+                <div class="card">
+                  <!-- Contenedor de imágenes para el carrusel -->
+                  <div class="image-container-wrapper">
+                    <div class="image-container" style="margin: 10% 0% 0% 27%;">
+                      <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="/Front-end/Img/amantes.jpg" class="d-block imgcarru rounded-3" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="/Front-end/Img/bailarinas.jpg" class="d-block imgcarru rounded-3" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="/Front-end/Img/caracoli.jpg" class="d-block imgcarru rounded-3" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide"
+                          data-bs-slide="prev">
+                          <span aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide"
+                          data-bs-slide="next">
+                          <span aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
                     </div>
+                  </div>
+                  <!-- Contenido de la tarjeta -->
+                  <div class="card-body">
+                    <div>
+                      <h6>El Mohan</h6>
+                      <p>Av.circunvalar con calle 10</p>
+                    </div>
+                    <!-- Botón para mostrar más detalles en un modal -->
+                    <button type="button" class="btn" style="background-color: #FFBD59; border-radius:15px;">
+                      <a href="/Front-end/html/detalleSitio.html" class="BTTLT">Más detalle</a>
+                    </button>
+                    <!-- Sección adicional de la tarjeta -->
+                    <div class="CJULM">
+                      <div class="votar"></div>
+                      <i class="fa-regular fa-heart" id="heartIcon"></i>
+                    </div>
+                  </div>
                 </div>
+              </div>
+        
+        
             </div>
-        </div>
+          </div>
     </div>
     
 
