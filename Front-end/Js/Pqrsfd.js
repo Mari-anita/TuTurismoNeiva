@@ -102,120 +102,215 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }
 
-//icono de basura
-  document.querySelector('.trash-icon').addEventListener('click', function() {
-      document.getElementById('pdfFile').value = '';
-  });
+function listarPqrsfd(){
+    //METODO PARA LISTAR LOS CLIENTES
+    //SE CREA LA PETICION AJAX
 
-  const nombreApellidoInput = document.getElementById("nombreApellido"); // Asegúrate de que el ID es correcto
-  if (nombreApellidoInput) {
-      nombreApellidoInput.addEventListener("keypress", Letras);
-  }
+    var urlLocal=url;
+    var filtro=document.getElementById("texto").value
+    if(filtro!="")
+        urlLocal+="busqueda/"+filtro;
 
-  const Permitidas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz áéíóúñÑ'; // Solo letras y espacio
+    $.ajax({
+        url:urlLocal,
+        type:"GET",
+        success: function(result){
+            //success: funcion que se ejecuta
+            //cuando la peticion tiene exito
+            console.log(result);
+    
+            var cuerpoTablaPqrsfd=document.getElementById("cuerpoTablaPqrsfd");
+            //Se limpia el cuepro de la tabla
+            cuerpoTablaPqrsfd.innerHTML="";
+            //se hace un ciclo que recorra l arreglo con los datos
+            for(var i=0; i<result.length;i++){
+                //UNA ETIQUETA tr por cada registro
+                var trResgistro=document.createElement("tr");
 
-  function Letras(event) {
-      const tecla = event.key;
-      if (!Permitidas.includes(tecla)) {
-          event.preventDefault();
-      }
-  }
-});
+                var celdaIdPqrsfd=document.createElement("td");
+                let celdaTipoDoc = document.createElement("td")
+                let celdaNumeroDoc = document.createElement("td")
+                let celdaNombreApe = document.createElement("td")
+                let celdaCorreo = document.createElement("td")
+                let celdaTelefono = document.createElement("td")
+                let celdaFecha = document.createElement("td")
+                let celdaMotivoMens = document.createElement("td")
+                let celdaMensaje = document.createElement("td")
+    
+                celdaIdPqrsfd.innerText=result[i]["idPeticion"];
+                celdaTipoDoc.innerText=result[i]["tipoDoc"];
+                celdaNumeroDoc.innerText=result[i]["numDoc"];
+                celdaNombreApe.innerText=result[i]["nombreApellido"];
+                celdaCorreo.innerText=result[i]["correo"];
+                celdaTelefono.innerText=result[i]["telefono"];
+                celdaFecha.innerText=result[i]["fechaRadicado"];
+                celdaMotivoMens.innerText=result[i]["tipoPeticion"];
+                celdaMensaje.innerText=result[i]["descripcionPeticion"];
+    
+                trResgistro.appendChild(celdaIdPqrsfd);
+                trResgistro.appendChild(celdaTipoDoc);
+                trResgistro.appendChild(celdaNumeroDoc);
+                trResgistro.appendChild(celdaNombreApe);
+                trResgistro.appendChild(celdaCorreo);
+                trResgistro.appendChild(celdaTelefono);
+                trResgistro.appendChild(celdaFecha);
+                trResgistro.appendChild(celdaMotivoMens);
+                trResgistro.appendChild(celdaMensaje);
+                
+                trResgistro.appendChild(celdaOpcion)
+                cuerpoTablaPaciente.appendChild(trResgistro);
 
-//registro
-function registrarPqrsfd() {
-  var formData = {
-      "tipoDoc":document.getElementById("tipoDoc").value,
-      "numeroDoc":document.getElementById("numDoc").value,
-      "telefono": document.getElementById("telefono").value,
-      "fechaRadicado": document.getElementById("fechaRadicado").value,
-      "tipoPeticion": document.getElementById("tipoPeticion").value,
-      "nombreApellido": document.getElementById("nombreApellido").value,
-      "correo": document.getElementById("correo").value,
-      "mensaje": document.getElementById("descripcionPeticion").value, // Asegúrate de que el ID sea correcto
-  };
+               
+                //creamos un td por cada campo de resgistro
+                
+            }
+        },
+        error: function(error){
+            /*
+            ERROR: funcion que se ejecuta cuando la peticion tiene un error
+            */
+            alert("Error en la petición " + error);
+        }
+    });
+    }
 
-  if (validarCampos()) {
-      $.ajax({
-          url: url,
-          type: "POST",
-          contentType: "application/json",
-          data: JSON.stringify(formData),
-          success: function(result) {
-              Swal.fire({
-                  title: "¡Excelente!",
-                  text: "Se guardó correctamente",
-                  icon: "success"
-              });
-              $('#exampleModal').modal('hide');
-          },
-          error: function(error) {
-              Swal.fire({
-                  title: "¡Error!",
-                  text: "No se guardó",
-                  icon: "error"
-              });
-          }
-      });
-  } else {
-      Swal.fire({
-          title: "¡Error!",
-          text: "Llene todos los campos correctamente",
-          icon: "error"
-      });
-  }
-}
-
-function validarCampos() {
-  var numeroDoc = document.getElementById("numDoc").value; // Asegúrate de que el ID es correcto
-  var telefono = document.getElementById("telefono").value;
-  var nombreApellido = document.getElementById("nombreApellido").value;
-  var correo = document.getElementById("correo").value;
-  var mensaje = document.getElementById("descripcionPeticion").value;
-
-  return validarNumeroDoc(numeroDoc) && validarTelefono(telefono) &&
-         validarNombre(nombreApellido) && validarCorreo(correo) && 
-         validarMensaje(mensaje);
-}
-
-function validarNumeroDoc(numeroDoc) {
-    var valor = numeroDoc.trim();
-    var valido = valor.length >= 5 && valor.length <= 11;
+    function registrarPqrsfd() {
   
-    actualizarClaseValidacion(document.getElementById("numeroDoc"), valido);
-    return valido;
-  }
+        let formData={
+            "idPeticion": document.getElementById("idPeticion").value,
+            "tipoDoc": document.getElementById("tipoDoc").value,
+            "numDoc": document.getElementById("numDoc").value,
+            "nombreApellido": document.getElementById("nombreApellido").value,
+            "correo": document.getElementById("correo").value,
+            "telefono": document.getElementById("telefono").value,
+            "fechaRadicado": document.getElementById("fechaRadicado").value,
+            "tipoPeticion": document.getElementById("tipoPeticion").value,
+            "descripcionPeticion": document.getElementById("descripcionPeticion").value
+            
+        };
+    
+        if (validarCampos()) {
+            $.ajax({
+                url:url,
+                type:"POST",
+                data:formData,
+                success: function (result){
+                    //
+                    Swal.fire({
+                        title: "¡Excelente!",
+                        text: "Se guardó correctamente",
+                        icon: "success"
+                      });
+                      limpiarFormulario();// Limpiar el formulario después de un registro exitoso
+                },
+            })
+        }else{
+            Swal.fire({
+                title: "¡Error!",
+                text: "Llene todos los campos correctamente",
+                icon: "error"
+            });
+        }   
+    }
 
-function validarTelefono(telefono) {
-    var valor = telefono.trim();
-    var valido = valor.length >= 5 && valor.length <= 11;
-  
-    actualizarClaseValidacion(document.getElementById("telefono"), valido);
-    return valido;
-  }
+    function limpiarFormulario() {
+        // Limpiar todos los campos del formulario
+        document.getElementById("uploadForm").reset();
+        // Reiniciar clases de validación
+        const inputs = document.querySelectorAll("#uploadForm .form-control");
+        inputs.forEach(input => {
+            input.className = "form-control"; // Reiniciar clase a la predeterminada
+        });
+    }
+        
+    //validación número de documento
+    function validarCampos(){
+        var numDoc = document.getElementById("numDoc");
+        var nombreApellido = document.getElementById("nombreApellido");
+        var correo = document.getElementById("correo");
+        var telefono = document.getElementById("telefono");
+        var descripcionPeticion = document.getElementById("descripcionPeticion");
 
-function validarNombre(nombreApellido) {
-  var valor = nombreApellido.trim();
-  var valido = valor.length >= 5 && valor.length <= 100;
+    return validarNumDoc(numDoc) && validarNombreApe(nombreApellido) && validarCorreoPqrsfd(correo) && 
+    validarTelefonoPqrsfd(telefono) && validarDescripMens(descripcionPeticion);
+    }
+    function validarNumDoc(cuadroNumDocu){
+        var valor=cuadroNumDocu.value;
+        var valido=true;
+        if (valor.length <5 || valor.length> 11){
+         valido=false
+        }
+     
+        if(valido){
+            cuadroNumDocu.className="form-control is-valid";
+        }else{
+            cuadroNumDocu.className="form-control is-invalid";
+        }
+        return valido;
+     }
 
-  actualizarClaseValidacion(document.getElementById("nombreApellido"), valido);
-  return valido;
-}
+     //validación segundo nombre
+    function validarNombreApe(cuadroNombreApe){
+        var valor=cuadroNombreApe.value;
+        var valido=true;
+        if (valor.length <3 || valor.length> 21){
+         valido=false
+        }
+     
+        if(valido){
+            cuadroNombreApe.className="form-control is-valid";
+        }else{
+            cuadroNombreApe.className="form-control is-invalid";
+        }
+        return valido;
+     }
 
-function validarMensaje(descripcionPeticion) {
-  var valor = descripcionPeticion.trim();
-  var valido = valor.length >= 4 && valor.length <= 5000;
+     //validación telefono
+    function validarTelefonoPqrsfd(cuadroTelefonoPqrsfd){
+        var valor=cuadroTelefonoPqrsfd.value;
+        var valido=true;
+        if (valor.length <7 || valor.length> 16){
+         valido=false
+        }
+     
+        if(valido){
+            cuadroTelefonoPqrsfd.className="form-control is-valid";
+        }else{
+            cuadroTelefonoPqrsfd.className="form-control is-invalid";
+        }
+        return valido;
+     }
 
-  actualizarClaseValidacion(document.getElementById("descripcionPeticion"), valido);
-  return valido;
-}
+     //validación correo
+    function validarCorreoPqrsfd(cuadroCorreoPqrsfd){
+        var valor=cuadroCorreoPqrsfd.value;
+        var valido=true;
+        if (valor.length <7 || valor.length> 256){
+         valido=false
+        }
+     
+        if(valido){
+            cuadroCorreoPqrsfd.className="form-control is-valid";
+        }else{
+            cuadroCorreoPqrsfd.className="form-control is-invalid";
+        }
+        return valido;
+    }
 
-function actualizarClaseValidacion(elemento, valido) {
-  if (valido) {
-      elemento.classList.remove("is-invalid");
-      elemento.classList.add("is-valid");
-  } else {
-      elemento.classList.remove("is-valid");
-      elemento.classList.add("is-invalid");
-  }
-}
+        //validación descripcion mensaje
+        function validarDescripMens(cuadroDescripMens){
+            var valor=cuadroDescripMens.value;
+            var valido=true;
+            if (valor.length <7 || valor.length> 256){
+             valido=false
+            }
+         
+            if(valido){
+                cuadroDescripMens.className="form-control is-valid";
+            }else{
+                cuadroDescripMens.className="form-control is-invalid";
+            }
+            return valido;
+        }
+    
+})

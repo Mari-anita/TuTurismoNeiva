@@ -115,7 +115,7 @@
 
   <!-- Aquí se inserta el formulario -->
   <div class="container" style="padding-top: 2%; padding-bottom:2%;">
-    <form class="formulario" enctype="multipart/form-data">
+    <form id="pqrsfdForm" class="formulario"enctype="multipart/form-data">
       <a href="../index.html" class="back-button">
         <box-icon name="left-arrow-circle" color="#ffab2d"></box-icon>
       </a>
@@ -139,7 +139,6 @@
           <input class="regis" id="correo" type="email" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarCorreo(this);" />
           <label for="">Teléfono</label>
           <input class="regis" id="telefono" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarTelefono(this);" />
-          <div id="errorTelefono" style="color: orange; font-size: 1em;"></div>
         </div>
 
         <div class="columna2" style="padding: 20px;">
@@ -163,7 +162,7 @@
           <div id="char-count" style="color: white;">Máximo 5000 caracteres</div>
           <textarea id="descripcionPeticion" class="regis" placeholder="" required style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;" maxlength="5000"></textarea>
 
-          <button class="LoginPqrsf" type="submit" onclick="registrarPqrsfd()" style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
+          <button class="LoginPqrsf" type="button" onclick="registrarPqrsfd()" style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
         </div>
       </div>
     </form>
