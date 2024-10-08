@@ -215,9 +215,9 @@ function listarPqrsfd(){
 
     function limpiarFormulario() {
         // Limpiar todos los campos del formulario
-        document.getElementById("uploadForm").reset();
+        document.getElementById("pqrsfdForm").reset();
         // Reiniciar clases de validación
-        const inputs = document.querySelectorAll("#uploadForm .form-control");
+        const inputs = document.querySelectorAll("#pqrsfdForm .form-control");
         inputs.forEach(input => {
             input.className = "form-control"; // Reiniciar clase a la predeterminada
         });
@@ -227,11 +227,10 @@ function listarPqrsfd(){
     function validarCampos(){
         var numDoc = document.getElementById("numDoc");
         var nombreApellido = document.getElementById("nombreApellido");
-        var correo = document.getElementById("correo");
         var telefono = document.getElementById("telefono");
         var descripcionPeticion = document.getElementById("descripcionPeticion");
 
-    return validarNumDoc(numDoc) && validarNombreApe(nombreApellido) && validarCorreoPqrsfd(correo) && 
+    return validarNumDoc(numDoc) && validarNombreApe(nombreApellido) && 
     validarTelefonoPqrsfd(telefono) && validarDescripMens(descripcionPeticion);
     }
     function validarNumDoc(cuadroNumDocu){
@@ -280,22 +279,6 @@ function listarPqrsfd(){
         }
         return valido;
      }
-
-     //validación correo
-    function validarCorreoPqrsfd(cuadroCorreoPqrsfd){
-        var valor=cuadroCorreoPqrsfd.value;
-        var valido=true;
-        if (valor.length <7 || valor.length> 256){
-         valido=false
-        }
-     
-        if(valido){
-            cuadroCorreoPqrsfd.className="form-control is-valid";
-        }else{
-            cuadroCorreoPqrsfd.className="form-control is-invalid";
-        }
-        return valido;
-    }
 
         //validación descripcion mensaje
         function validarDescripMens(cuadroDescripMens){

@@ -42,7 +42,6 @@ body {
 
 .menu {
     list-style-type: none;
-    padding: 0;
     flex-grow: 1;
     /* Permite que la lista de menús crezca para llenar el espacio disponible */
 }
