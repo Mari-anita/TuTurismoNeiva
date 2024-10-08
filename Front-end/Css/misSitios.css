@@ -164,7 +164,7 @@ nav h1 {
     background-color: #444;
     color: #f2f2f2;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 12px;
     cursor: pointer;
     margin-right: 10px;
     transition: background-color 0.3s;
@@ -214,4 +214,31 @@ nav h1 {
 
 .heart {
     margin-left: 5px; /* Espacio entre las estrellas y el corazón */
+}
+.CJULMS {
+    display: flex;
+    justify-content: space-between;
+    margin: 10% 0% 0% 0%;
+}
+.fa-heart:hover {
+    cursor: pointer;
+    color: red;
+}
+.Cardos {
+    width: 18rem;
+    margin: 1rem;
+    position: relative;
+    /* Necesario para posicionar los botones dentro de la tarjeta */
+    border: 3px solid #ffbd59 !important;
+    border-radius: 15px !important;
+
+}
+.imgcarrusel {
+    width: 30% !important;
+}
+
+.imgcarru {
+    width: 20% !important;
+    margin: 10% 0% 0% 10% !important;
+    min-width: 80%;
 }
