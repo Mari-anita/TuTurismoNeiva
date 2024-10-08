@@ -21,3 +21,23 @@ document.querySelectorAll('.CIP > i').forEach(icon => {
     });
 });
 //FIN ANIMACION
+
+document.querySelectorAll('.toggle-password').forEach(icon => {
+    icon.addEventListener('click', function() {
+        const passwordField = document.getElementById(this.dataset.target);
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+
+        // Cambia el ícono
+        if (type === 'password') {
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        } else {
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        }
+    });
+});
+
+
+
