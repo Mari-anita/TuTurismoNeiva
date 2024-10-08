@@ -178,7 +178,7 @@ function listarPqrsfd() {
 // Asegúrate de definir registrarPqrsfd antes
 var registrarPqrsfd = true; 
 
-function registrarPqrsfd() {
+function registrarPqr() {
 
     let formData = {
         
@@ -195,12 +195,12 @@ function registrarPqrsfd() {
 
     // Define el método que vas a usar para la petición
     var metodo = "POST" ;
-    var textoimprimir = registrarPqrsfd ? "Felicidades, Registrado con éxito!" : "Felicidades, Guardado con éxito!";
+    var textoimprimir = registrarPqr ? "Felicidades, Registrado con éxito!" : "Felicidades, Guardado con éxito!";
 
     if (validarCampos()) {
         $.ajax({
             type: metodo,
-            url: urlPqrsfd + "registro/",
+            url: urlPqrsfd ,
             contentType: "application/json",
             data: JSON.stringify(formData),
             success: function (response) {
