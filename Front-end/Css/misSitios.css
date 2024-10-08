@@ -48,7 +48,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: rgba(236, 166, 16, 0.973);
+    background-color: #eca610f8;
 }
 
 .dropdown:hover .dropdown-content {
@@ -171,7 +171,7 @@ nav h1 {
 }
 
 .tab.active {
-    background-color: #ffcc00; /* Color de fondo para la pestaña activa */
+    background-color: #eca610f8; /* Color de fondo para la pestaña activa */
 }
 
 .container {
