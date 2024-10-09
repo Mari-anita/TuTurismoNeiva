@@ -36,3 +36,5 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("El elemento con id 'flags' no se encontró.");
     }
 });
+
+

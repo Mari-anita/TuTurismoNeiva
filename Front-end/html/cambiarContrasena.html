@@ -2,26 +2,24 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="/Front-end/Img/logo.png">
-    <link rel="website icon" type="png" href="..//img/Logo.tuturismoneiva.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="/Front-end/Css/cambiarContrasena.css">
-     <!--Box Icons-->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <title>Cambiar Contrasena</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/Front-end/Img/logo.png">
+  <link rel="website icon" type="png" href="..//img/Logo.tuturismoneiva.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/Front-end/Css/cambiarContrasena.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!--Box Icons-->
-   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <title>Cambiar Contrasena</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
   <title>Cambiar Contrasena</title>
 </head>
+
 <body style="display: flex; flex-direction:column; min-height:100vh;">
-    <nav class="navbar navbar-expand-lg bg-dark"
+  <nav class="navbar navbar-expand-lg bg-dark"
     style="top: 0%; width: 100%; position: fixed; top: 0%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
     <div class="container-fluid" style="height: 56px;">
       <a class="navbar-brand" href="../index.html">
@@ -75,7 +73,8 @@
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro">Registrarse</a>
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects"
+                data-value="registro">Registrarse</a>
               <div class="dropdown-submenu">
                 <a href="#" data-section="projects" data-value="tema">Tema</a>
                 <div class="submenu-content">
@@ -106,59 +105,70 @@
     </div>
   </nav>
 
-    <div class="container" style="margin-top: 11%; margin-bottom:5%;">
-        <div class="image-section">
-            <img src="/Front-end/Img/iglesia-colonial.jpg" alt="Neiva" class="background-image">
-            <img src="/Front-end/Img/logo.png" alt="Tu Turismo Neiva" class="logo">
-        </div>
-        <div class="form-section">
-            <div class="back-button">
-                <button></button>
-            </div>
-            <h2>Cambiar contraseña</h2>
-            <p>Asegúrate de elegir una contraseña robusta<br> para proteger tu cuenta de accesos no <br>
-                autorizados.</p>
-            <form id="password-form">
-                <div class="input-group">
-                    <label for="new-password">Contraseña nueva</label>
-                    <input type="password" id="new-password" required>
-                    <i class="fa-regular fa-eye-slash"></i>
-                </div>
-                <div class="input-group">
-                    <label for="confirm-password">Confirmación contraseña nueva</label>
-                    <input type="password" id="confirm-password" required>
-                    <i class="fa-regular fa-eye-slash"></i>
-                </div>
-                <button type="submit" class="submit-button">Continuar</button>
-            </form>
-        </div>
+  <div class="container" style="margin-top: 11%; margin-bottom:5%;">
+    <div class="image-section">
+      <img src="/Front-end/Img/iglesia-colonial.jpg" alt="Neiva" class="background-image">
+      <img src="/Front-end/Img/logo.png" alt="Tu Turismo Neiva" class="logo">
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <div class="form-section">
+      <div class="back-button">
+        <button></button>
+      </div>
+      <h2>Cambiar contraseña</h2>
+      <p>Asegúrate de elegir una contraseña robusta<br> para proteger tu cuenta de accesos no <br>
+        autorizados.</p>
+      <form id="password-form">
+        <div class="input-group">
+          <label for="new-password">Contraseña nueva</label>
+          <input type="password" id="new-password" required>
+          <i class="fa-regular fa-eye-slash toggle-password" data-input="new-password"></i>
+        </div>
+        <div class="input-group">
+          <label for="confirm-password">Confirmación contraseña nueva</label>
+          <input type="password" id="confirm-password" required>
+          <i class="fa-regular fa-eye-slash toggle-password" data-input="confirm-password"></i>
+        </div>
 
-        <section id="contacto"  style="margin-top:auto; width:100%">
-            <!--Footer-->
-            <div class="container-fluid" style="background-color: #262930;">
-              <footer class="py-3">
-                <ul class="nav border-bottom mb-3 justify-content-between">
-                  <div class="d-flex">
-                    <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-                    <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'color='#ffffff'></box-icon></a></li>
-                    <li class="nav-item-fo-I"><a class="nav-link px-1"href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff'></box-icon></a></li><li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-                    <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
-                  </div>
-                  <div class="d-flex">
-                    <li class="nav-item-fo-P "><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd" style="color: #feffff ; "><b>Pqrsfd</b></a></li>
-                    <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
-                        style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
-                  </div>
-                </ul>
-                <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
-              </footer>
-            </div>
-          </section>
+        <button type="submit" class="submit-button">Continuar</button>
+      </form>
+    </div>
+  </div>
+  <section id="contacto" style="margin-top:auto; width:100%">
+    <!--Footer-->
+    <div class="container-fluid" style="background-color: #262930;">
+      <footer class="py-3">
+        <ul class="nav border-bottom mb-3 justify-content-between">
+          <div class="d-flex">
+            <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
+                  color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                  name='envelope' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon
+                  name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon
+                  class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+          </div>
+          <div class="d-flex">
+            <li class="nav-item-fo-P "><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                style="color: #feffff ; "><b>Pqrsfd</b></a></li>
+            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
+                class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+          </div>
+        </ul>
+        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+      </footer>
+    </div>
+  </section>
+  <!-- <script src="/Front-end/Js/cambioIdioma.js"></script> -->
+  <script src="/Front-end/Js/cambiarContrasena.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
