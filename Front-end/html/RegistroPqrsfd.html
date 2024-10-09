@@ -16,7 +16,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Registro de Pqrsfd</title>
   <style>
@@ -30,7 +30,7 @@
 
 <body style="display: flex; flex-direction:column; min-height:100vh;">
   <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%; z-index: 999;">
-    <div class="container-fluid" style="height: 72px;">
+    <div class="container-fluid" style="height: 72px; background-color:#1c1c1c;">
       <a class="navbar-brand" href="../index.html">
         <img src="../Img/logo.png" alt="" width="10%">
       </a>
@@ -51,13 +51,12 @@
             </div>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a id="nosotros" class="nav-link" href="../html/MisionVision.html"
-              style="color: white; font-size: 25px" data-section="projects"
-              data-value="first-project-tittle"><b>Nosotros</b></a>
+            <a id="nosotros" class="nav-link" href="../html/MisionVision.html" style="color: white; font-size: 25px"
+              data-section="projects" data-value="first-project-tittle"><b>Nosotros</b></a>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"
-              data-section="projects" data-value="second-project-tittle"><b>Contacto</b></a>
+            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
+              data-value="second-project-tittle"><b>Contacto</b></a>
           </li>
           <li class="nav-item-S" style="margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
@@ -115,7 +114,7 @@
 
   <!-- Aquí se inserta el formulario -->
   <div class="container" style="padding-top: 2%; padding-bottom:2%;">
-    <form id="pqrsfdForm" class="formulario"enctype="multipart/form-data">
+    <form id="pqrsfdForm" class="formulario" enctype="multipart/form-data">
       <a href="../index.html" class="back-button">
         <box-icon name="left-arrow-circle" color="#ffab2d"></box-icon>
       </a>
@@ -131,20 +130,29 @@
           </select>
 
           <label for="">Numero de documento</label>
-          <input class="regis" id="numDoc" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarNumeroDoc(this);" />
+          <input class="regis" id="numDoc" type="text" placeholder="" required
+            style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
+            onfocusout="validarNumeroDoc(this);" />
           <div id="errorNumDoc" style="color: orange; font-size: 1em;"></div>
           <label for="">Nombre y apellido</label>
-          <input class="regis" id="nombreApellido" type="text" placeholder="Nombre Completo" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarNombre(this);" />
+          <input class="regis" id="nombreApellido" type="text" placeholder="Nombre Completo" required
+            style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
+            onfocusout="validarNombre(this);" />
           <label for="">Correo electrónico</label>
-          <input class="regis" id="correo" type="email" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarCorreo(this);" />
+          <input class="regis" id="correo" type="email" placeholder="" required
+            style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
+            onfocusout="validarCorreo(this);" />
           <label for="">Teléfono</label>
-          <input class="regis" id="telefono" type="text" placeholder="" required style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" onfocusout="validarTelefono(this);" />
+          <input class="regis" id="telefono" type="text" placeholder="" required
+            style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
+            onfocusout="validarTelefono(this);" />
         </div>
 
         <div class="columna2" style="padding: 20px;">
           <div class="date-picker-container">
             <label for="fechaRadicado">Fecha de radicado</label>
-            <input id="custom-date" class="regis" placeholder="Selecciona una fecha" required="" style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;">
+            <input id="custom-date" class="regis" placeholder="Selecciona una fecha" required=""
+              style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;">
             <span class="calendar-icon">&#128197;</span>
           </div>
           <label for="">Seleccione el motivo de su mensaje</label>
@@ -160,9 +168,12 @@
 
           <label for="" style="color: white;">Mensaje</label>
           <div id="char-count" style="color: white;">Máximo 5000 caracteres</div>
-          <textarea id="descripcionPeticion" class="regis" placeholder="" required style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;" maxlength="5000"></textarea>
+          <textarea id="descripcionPeticion" class="regis" placeholder="" required
+            style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;"
+            maxlength="5000"></textarea>
 
-          <button class="LoginPqrsf" type="button" onclick="registrarPqrsfd()" style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
+          <button class="LoginPqrsf" type="button" onclick="registrarPqr()"
+            style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
         </div>
       </div>
     </form>
@@ -170,27 +181,34 @@
 
   <section id="contacto" style="margin-top:auto; width:100%;">
     <!--Footer-->
-    <div class="container-fluid" style="background-color: #262930;">
+    <div class="container-fluid" style="background-color: #1c1c1c;">
       <footer class="py-3">
         <ul class="nav border-bottom mb-3 justify-content-between">
           <div class="d-flex">
             <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' type='solid' color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon name='gmail' type='logo' class="gmail" color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
+                  color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                  name='envelope' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon
+                  name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon
+                  class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
           </div>
           <div class="d-flex">
-            <li class="nav-item-fo-P"><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd" style="color: #feffff;"><b>Pqrsfd</b></a></li>
-            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+            <li class="nav-item-fo-P"><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                style="color: #feffff;"><b>Pqrsfd</b></a></li>
+            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
+                class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
           </div>
         </ul>
         <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
       </footer>
     </div>
   </section>
-
+  <script src="../Js/config.js"></script>
   <script src="../Js/Pqrsfd.js"></script>
+
 
 </body>
 

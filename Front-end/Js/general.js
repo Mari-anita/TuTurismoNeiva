@@ -6,6 +6,24 @@
  * Esta función realiza una petición GET a la API para obtener el nombre del usuario
  * basado en el token JWT almacenado en localStorage.
  */
+
+// async function prueba(){
+//     let headersList = {
+        
+        
+//         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjanNhcmFzdHlAZ21haWwuY29tIiwiaWF0IjoxNzI4NDE1NzI5LCJleHAiOjE3Mjg0MTkzMjl9.KRdsvIgG4KoSDqbANdU9z2_bA_OrD2y_EgI9jnZgdck"
+//        }
+       
+//        let response = await fetch("http://10.192.92.92:8082/api/v1/usuario/obtenerNombreUsuario/", { 
+//          method: "GET",
+//          headers: headersList
+//        });
+       
+//        let data = await response.text();
+//        console.log(data);
+       
+// }
+obtenerNombreUsuario();
 async function obtenerNombreUsuario() {
     // Obtener el token almacenado en localStorage
     const token = localStorage.getItem('userToken');
@@ -19,7 +37,8 @@ async function obtenerNombreUsuario() {
 
     try {
         // Realizar la petición GET para obtener los datos del usuario
-        const response = await fetch(urlusuario + 'obtenerNombreUsuario/', {
+        // const response = await fetch(urlusuario + 'obtenerNombreUsuario/', {
+            let response = await fetch("http://10.192.92.92:8082/api/v1/usuario/obtenerNombreUsuario/", { 
             method: 'GET', // Método GET para obtener datos
             headers: {
                 'Authorization': 'Bearer ' + token, // Incluir el token en la cabecera Authorization
@@ -42,7 +61,7 @@ async function obtenerNombreUsuario() {
 
         // Verificar si la respuesta fue exitosa
         if (response.ok) {
-            const result = await response.json(); // Convertir la respuesta a JSON
+            const result =  JSON.parse(data); // Convertir la respuesta a JSON
             console.log("Respuesta del servidor para obtenerNombreUsuario:", result); // Depuración
             const nombreCompleto = result.nombreCompleto; // Obtener el nombre completo del authResponse
 
@@ -93,8 +112,10 @@ async function obtenerNombreUsuario() {
 // Función para verificar el estado de autenticación al cargar la página
 function verificacionLogin() {
     const userToken = localStorage.getItem('userToken');
-    const nombreCompleto = localStorage.getItem('nombreCompleto');
+    var nombreCompleto = localStorage.getItem('nombreCompleto');
 
+    // const isAuthenticated = userToken!="";
+    
     const isAuthenticated = userToken && nombreCompleto;
 
     if (!isAuthenticated) {
