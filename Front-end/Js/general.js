@@ -38,7 +38,7 @@ async function obtenerNombreUsuario() {
     try {
         // Realizar la petición GET para obtener los datos del usuario
         // const response = await fetch(urlusuario + 'obtenerNombreUsuario/', {
-            let response = await fetch("http://10.192.92.92:8082/api/v1/usuario/obtenerNombreUsuario/", { 
+            let response = await fetch("http://10.192.92.118:8082/api/v1/usuario/obtenerNombreUsuario/", { 
             method: 'GET', // Método GET para obtener datos
             headers: {
                 'Authorization': 'Bearer ' + token, // Incluir el token en la cabecera Authorization
