@@ -8,7 +8,6 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.turismo.turismo.models.Pqrsfd;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -35,14 +34,6 @@ public class jwtService {
                 .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
 
-    }
-
-    // Método para generar un token JWT usando los datos de Pqrsfd
-    public String getTokenPqrsfd(Pqrsfd pqrsfdData) {
-        HashMap<String, Object> extraClaims = new HashMap<>();
-        extraClaims.put("numDoc", pqrsfdData.getNumDoc()); // Agregar el número de documento como claim
-        extraClaims.put("nombreApellido", pqrsfdData.getNombreApellido()); // Agregar nombre y apellido como claim
-        return createToken(extraClaims, pqrsfdData.getCorreo()); // Usamos el correo como subject
     }
 
     // Método privado que genera el token
@@ -111,6 +102,13 @@ public class jwtService {
     public Date extractExpiration(String token) {
         // Extrae el claim de expiración
         return getClaims(token, Claims::getExpiration);
+    }
+
+    //SOL VAMOS A PERMITIRQUE EL ADMIN PUEDA MODIFICAR 
+
+    public boolean isAdmin(String token) {
+        String role = getRoleFromToken(token);
+        return role != null && role.contains("Administrador");  // Verificar si el rol es Administrador
     }
 
 }
