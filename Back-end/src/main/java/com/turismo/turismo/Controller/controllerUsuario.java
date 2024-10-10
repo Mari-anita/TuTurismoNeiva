@@ -37,7 +37,7 @@ public class controllerUsuario {
 
     private final authService authService;
 
-    @Autowired 
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -66,13 +66,14 @@ public class controllerUsuario {
             // Obtener el correo electrónico del usuario autenticado a través del objeto
             // 'Principal'
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            System.out.println(auth.getPrincipal());
             Usuario usuario = (Usuario) auth.getPrincipal();
             // String correoElectronico = principal.getName();
 
             // Buscar el usuario en la base de datos usando su correo electrónico
             // Si no se encuentra, lanzará una excepción UsernameNotFoundException
             // Usuario usuario = authService.findBycorreoElectronico(correoElectronico)
-            //         .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+            // .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
             // Crear un mapa que contendrá la respuesta, solo el nombre completo del usuario
             Map<String, String> response = new HashMap<>();
@@ -103,53 +104,58 @@ public class controllerUsuario {
             return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
     @PutMapping("cambiarContrasena/")
     public ResponseEntity<String> cambiarContrasena(@RequestBody CambioCotrasenaRequest request) {
-    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    Usuario user = (Usuario) auth.getPrincipal();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getPrincipal().equals("anonymousUser")) {
+            return ResponseEntity
+                    .status(HttpStatus.UNAUTHORIZED)
+                    .body("El token no es valido");
+        }
 
-    // Verificar que la contraseña antigua sea correcta
-    if (!passwordEncoder.matches(request.getAntiguaContrasena(), user.getContra())) {
-        return ResponseEntity
-            .status(HttpStatus.BAD_REQUEST)
-            .body("La contraseña antigua no es correcta");
-    }
+        Usuario user = (Usuario) auth.getPrincipal();
 
-    String nuevaContrasena = request.getNuevaContrasena();
+        // Verificar que la contraseña antigua sea correcta
+        if (!passwordEncoder.matches(request.getAntiguaContrasena(), user.getContra())) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("La contraseña antigua no es correcta");
+        }
 
-    // Verificar que la nueva contraseña no sea igual a la antigua
-    if (passwordEncoder.matches(nuevaContrasena, user.getContra())) {
-        return ResponseEntity
-            .status(HttpStatus.BAD_REQUEST)
-            .body("La nueva contraseña no puede ser igual a la antigua");
-    }
+        String nuevaContrasena = request.getNuevaContrasena();
 
-    // Verificar que la nueva contraseña coincida con la confirmación
-    if (!nuevaContrasena.equals(request.getConfirmarContrasena())) {
-        return ResponseEntity
-            .status(HttpStatus.BAD_REQUEST)
-            .body("La nueva contraseña y la confirmación no coinciden");
-    }
+        // Verificar que la nueva contraseña no sea igual a la antigua
+        if (passwordEncoder.matches(nuevaContrasena, user.getContra())) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("La nueva contraseña no puede ser igual a la antigua");
+        }
 
-    // Validar el formato de la nueva contraseña
-    String contraRegex = "^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ0-9.,@_\\-$%&\\s]+$";
-    Pattern contraPattern = Pattern.compile(contraRegex);
-    Matcher contraMatcher = contraPattern.matcher(nuevaContrasena);
+        // Verificar que la nueva contraseña coincida con la confirmación
+        if (!nuevaContrasena.equals(request.getConfirmarContrasena())) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("La nueva contraseña y la confirmación no coinciden");
+        }
 
-    if (!contraMatcher.matches()) {
-        return new ResponseEntity<>("La contraseña solo puede contener letras, números y ciertos signos permitidos", HttpStatus.BAD_REQUEST);
-    }
+        // Validar el formato de la nueva contraseña
+        String contraRegex = "^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ0-9.,@_\\-$%&\\s]+$";
+        Pattern contraPattern = Pattern.compile(contraRegex);
+        Matcher contraMatcher = contraPattern.matcher(nuevaContrasena);
 
-    // Guardar la nueva contraseña encriptada
-    user.setContra(passwordEncoder.encode(nuevaContrasena));
-    usuarioService.save(user);
+        if (!contraMatcher.matches()) {
+            return new ResponseEntity<>("La contraseña solo puede contener letras, números y ciertos signos permitidos",
+                    HttpStatus.BAD_REQUEST);
+        }
 
-    // Enviar notificación por correo
-    emailService.enviarNotificacionCambioContra(user.getCorreoElectronico());
-    return ResponseEntity
-        .status(HttpStatus.OK)
-        .body("Contraseña cambiada exitosamente");
+        // Guardar la nueva contraseña encriptada
+        user.setContra(passwordEncoder.encode(nuevaContrasena));
+        usuarioService.save(user);
+
+        // Enviar notificación por correo
+        emailService.enviarNotificacionCambioContra(user.getCorreoElectronico());
+        return ResponseEntity.status(HttpStatus.OK).body("Contraseña cambiada exitosamente");
     }
 
     /*

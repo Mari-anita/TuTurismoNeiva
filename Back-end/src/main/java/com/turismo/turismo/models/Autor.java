@@ -33,8 +33,8 @@ public class Autor {
     @Column(name = "fechaMuerte", nullable = false, length = 36)
     private Date fechaMuerte;
 
-    @Column(name = "bibliografiaAutor", nullable = false, length = 200)
-    private String bibliografiaAutor;
+    @Column(name = "biografiaAutor", nullable = false, length = 200)
+    private String biografiaAutor;
 
     @Column(name = "imagenAutor", nullable = false, length = 36)
     private String imagenAutor;

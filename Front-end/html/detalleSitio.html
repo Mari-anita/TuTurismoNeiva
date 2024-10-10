@@ -102,7 +102,7 @@
     <div style="width: 100%; display: flex;">
 
       <div style="width: 30%;" id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <h4 style="font-size: 2rem; margin:0% 0% 0% 15%;"><b>Al Sur</b></h4>
+        <h4 style="font-size: 2rem; margin:0% 0% 0% 15%;"><b id="nombreSitioMonumento">Al Sur</b></h4>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="10000">
             <img src="/Front-end/Img/alsur.jpg" class="d-block w-100" alt="..."
@@ -130,11 +130,11 @@
       </div>
       <div class="DESCRIP">
         <div>
-          <h4><b>Descripción</b> <i class="fa-solid fa-volume-high" style="color: #FFBD59; margin: 1% 0% 0% 80%;"></i>
+          <h4><b id="descripcion">Descripción</b><i class="fa-solid fa-volume-high" style="color: #FFBD59; margin: 1% 0% 0% 80%;"></i>
           </h4>
 
         </div>
-        <p>
+        <p id="descripcionSitioMonumento">
           El monumento publico llamado al “Al Sur” se encuentra ubicado en la carrera 7 con Calle 2 sur, glorieta cerca
           al al Terminal de transportes de la ciudad de Neiva. Esta obra ganadora de la primera convocatoria del
           concurso Ciudad Villamil. Elaborada por el maestro Segundo Arístides Huertas. La escultura está elaborada bajo
@@ -146,7 +146,7 @@
       </div>
     </div>
     <div>
-      <h2 style="margin: 2% 0% 0% 4%;"><b>Sitios similares</b></h2>
+      <h2 style="margin: 2% 0% 0% 4%;"><b id="sitiosSimilares">Sitios similares</b></h2>
       <div class="card Cardos" style="margin: 0% 0% 0% 4%;">
         <!-- Contenedor de imágenes para el carrusel -->
         <div class="image-container-wrapper">
@@ -179,12 +179,12 @@
         <!-- Contenido de la tarjeta -->
         <div class="card-body">
           <div>
-            <h6>El Mohan</h6>
-            <p>Av.circunvalar con calle 10</p>
+            <h6 id="nombreSitiosSimilares">El Mohan</h6>
+            <p id="ubicacionSitiosSimilares">Av.circunvalar con calle 10</p>
           </div>
           <!-- Botón para mostrar más detalles en un modal -->
           <button type="button" class="btn" style="background-color: #FFBD59; border-radius:15px;">
-            <a href="#" class="BTTLT">Más detalle</a>
+            <a id="detalleSitiosSimilares" class="BTTLT">Más detalle</a>
           </button>
           <!-- Sección adicional de la tarjeta -->
           <div class="CJULM">
@@ -194,9 +194,9 @@
         </div>
       </div>
     </div>
-    <div class="DESCRIP DII">
-      <h2><b>Descripción detallada</b></h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum maxime quo culpa perspiciatis, quas velit
+    <div class="DESCRIP DII" id="">
+      <h2><b id="DescripcionSitiosSimilares">Descripción detallada</b></h2>
+      <p id="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum maxime quo culpa perspiciatis, quas velit
         commodi quibusdam, iure maiores aliquid corrupti molestias inventore obcaecati tenetur, voluptates debitis
         consequatur rerum nam.</p>
     </div>
@@ -204,7 +204,7 @@
       <iframe src="/Front-end/html/mapa.HTML" width="80%" height="800px"></iframe>
     </div>
     <diV style="margin: 0% 0% 5% 5%;">
-      <h3><b>Cuéntanos que tal pareció este sitio</b></h3>
+      <h3><b id="">Cuéntanos que tal pareció este sitio</b></h3>
       <div class="CIP">
         <input class="input" type="text" placeholder="Comenta.." id="coment">
         <i class="fa-regular fa-paper-plane" onclick="regitroComent()"></i>
