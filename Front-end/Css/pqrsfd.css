@@ -125,6 +125,7 @@ input.regis {
     padding-right: 30px; /* Espacio para el icono */
 }
 
+
 .is-invalid {
     border-color: orange;
 }
