@@ -20,8 +20,9 @@
 </head>
 
 <body style="display: flex; flex-direction:column; min-height:100vh;">
-  <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%; z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
-    <div class="container-fluid" style="height: 56px; background-color:#1c1c1c;">
+  <nav class="navbar navbar-expand-lg bg-dark"
+    style="top: 0%; width: 100%; position: fixed; top: 0%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
+    <div class="container-fluid" style="height: 56px;">
       <a class="navbar-brand" href="../index.html">
         <img src="../Img/logo.png" alt="" width="10%">
       </a>
@@ -34,20 +35,22 @@
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
               <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
-                data-value="tittle"><b>Inicio</b></button>
+                data-value="tittle" id="inisio"><b>Inicio</b></button>
               <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" id="lugar-turistico"
+                  data-value="sitios">Sitios
                   Turísticos</a>
               </div>
             </div>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a id="nosotros" class="nav-link" href="../html/MisionVision.html" style="color: white; font-size: 25px"
-              data-section="projects" data-value="first-project-tittle"><b>Nosotros</b></a>
+            <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
+              style="color: white; font-size: 25px" data-section="projects" data-value="first-project-tittle"
+              id="nosotros"><b>Nosotros</b></a>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
-              data-value="second-project-tittle"><b>Contacto</b></a>
+              data-value="second-project-tittle" id="contacto"><b>Contacto</b></a>
           </li>
           <li class="nav-item-S" style=" margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
@@ -55,7 +58,7 @@
           <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
               style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
             <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
-              data-value="three-project-tittle"><b>Idioma</b></button>
+              data-value="three-project-tittle" id="idioma"><b>Idioma</b></button>
             <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
               <div class="flags_item" data-language="es">
                 <img src="/Front-end/Icons/co.svg" alt="Espanol">
@@ -72,28 +75,33 @@
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="./RegistroUsuario.html" data-section="projects" data-value="registro">Registrarse</a>
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro"
+                id="registro">Registrarse</a>
+
               <div class="dropdown-submenu">
-                <a href="#" data-section="projects" data-value="tema">Tema</a>
+                <a href="#" data-section="projects" data-value="tema" id="tema">Tema</a>
+
                 <div class="submenu-content">
                   <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
                   <input type="checkbox" id="toggle">
                 </div>
               </div>
-              <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
+
+              <a href="#" data-section="projects" data-value="ayuda" id="ayuda">Ayuda</a>
             </div>
+
           </li>
           <!-- autenticado -->
           <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
-            <button class="dropbtn btn" style="color: white; font-size: 1rem">
+            <button class="dropbtn btn" style="color: white; font-size: 1rem" bp>
               <b id="nombreUsuarioDisplay">
                 <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="./PerfilUsurio.html">Mi Perfil</a>
-              <a href="#">Mis Sitios</a>
-              <a href="#">Tema</a>
+              <a href="./html/PerfilUsurio.html">Mi Perfil</a>
+              <a href="">Mis Sitios</a>
+              <a href="">Tema</a>
               <a href="#">Ayuda</a>
               <a href="#" id="logoutBtn">Cerrar sesión</a>
             </div>
@@ -104,48 +112,77 @@
   </nav>
   <main style="margin-top: auto;">
     <div class="password-reset-container" style="width: 32%;">
-      <a href="#" class="back-button"><box-icon name="left-arrow-circle" color="#ffab2d"></box-icon></a>
-      <h1>¿Olvidaste tu contraseña?</h1>
-      <p style="width: 80%; margin-left: 9%">
+      <a href="#" class="back-button" id="back-button">
+        <box-icon name="left-arrow-circle" color="#ffab2d"></box-icon>
+      </a>
+      <h1 id="forgot-password-title">¿Olvidaste tu contraseña?</h1>
+      <p id="reset-password-instructions" style="width: 80%; margin-left: 9%">
         Por favor ingrese su dirección de correo. Le enviaremos las
         instrucciones para que pueda restablecer su contraseña.
       </p>
       <form>
-        <label for="email" style="font-size: 20px">Ingresa tu correo electrónico</label>
+        <label for="email" id="email-label" style="font-size: 20px">Ingresa tu correo electrónico</label>
         <input type="email" id="email" name="email" class="input mb-3 col-7" style="margin-left: 20%" />
-        <button type="submit">Recuperar contraseña</button>
+        <button type="submit" id="btn-recover-password">Recuperar contraseña</button>
       </form>
     </div>
   </main>
 
+
+  <section id="contacto" style="margin-top:auto; width:100%">
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: #262930;">
+      <footer class="py-3">
+        <ul class="nav border-bottom mb-3 justify-content-between">
+          <div class="d-flex">
+            <li class="nav-item-fo">
+              <a id="contact-title" class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="tel:3143049933">
+                <box-icon name='phone' color='#ffffff'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com">
+                <box-icon name='envelope' color='#ffffff'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="https://wa.me/573143049933">
+                <box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva">
+                <box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon>
+              </a>
+            </li>
+          </div>
+          <div class="d-flex">
+            <li class="nav-item-fo-P">
+              <a id="pqrsfd-link" href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                style="color: #feffff;">
+                <b>Pqrsfd</b>
+              </a>
+            </li>
+            <li class="nav-item-fo-P">
+              <a id="terms-link" href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
+                style="color: #1f8b9e;">
+                <b>Términos y condiciones</b>
+              </a>
+            </li>
+          </div>
+        </ul>
+        <p id="footer-text" class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+      </footer>
+    </div>
+  </section>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
-  <section id="contacto" style="margin-top:auto;">
-    <!--Footer-->
-    <div class="container-fluid" style="background-color: #1c1c1c;">
-      <footer class="py-3">
-        <ul class="nav border-bottom mb-3 justify-content-between">
-          <div class="d-flex">
-            <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff' ></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
-          </div>
-          <div class="d-flex">
-            <li class="nav-item-fo-P "><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
-                style="color: #feffff ; "><b>Pqrsfd</b></a></li>
-            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
-                class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
-          </div>
-        </ul>
-        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
-      </footer>
-    </div>
-  </section>
+  <script src="/Front-end/Js/cambioIdiomaOlviContra.js"></script>
 
 </body>
 

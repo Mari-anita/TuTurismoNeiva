@@ -22,8 +22,9 @@
 
 <body style="display: flex; flex-direction:column; min-height:100vh;">
 
-  <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%; z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
-    <div class="container-fluid" style="height: 56px; background-color:#1c1c1c;">
+  <nav class="navbar navbar-expand-lg bg-dark"
+    style="top: 0%; width: 100%; position: fixed; top: 0%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
+    <div class="container-fluid" style="height: 56px;">
       <a class="navbar-brand" href="../index.html">
         <img src="../Img/logo.png" alt="" width="10%">
       </a>
@@ -36,21 +37,22 @@
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
               <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
-                data-value="tittle"><b>Inicio</b></button>
+                data-value="tittle" id="inisio"><b>Inicio</b></button>
               <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" id="lugar-turistico"
+                  data-value="sitios">Sitios
                   Turísticos</a>
               </div>
             </div>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a id="nosotros" class="nav-link" href="../html/MisionVision.html"
-              style="color: white; font-size: 25px" data-section="projects"
-              data-value="first-project-tittle"><b>Nosotros</b></a>
+            <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
+              style="color: white; font-size: 25px" data-section="projects" data-value="first-project-tittle"
+              id="nosotros"><b>Nosotros</b></a>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
-              data-value="second-project-tittle"><b>Contacto</b></a>
+              data-value="second-project-tittle" id="contacto"><b>Contacto</b></a>
           </li>
           <li class="nav-item-S" style=" margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
@@ -58,7 +60,7 @@
           <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
               style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
             <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
-              data-value="three-project-tittle"><b>Idioma</b></button>
+              data-value="three-project-tittle" id="idioma"><b>Idioma</b></button>
             <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
               <div class="flags_item" data-language="es">
                 <img src="/Front-end/Icons/co.svg" alt="Espanol">
@@ -75,28 +77,33 @@
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="./RegistroUsuario.html" data-section="projects" data-value="registro">Registrarse</a>
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro"
+                id="registro">Registrarse</a>
+
               <div class="dropdown-submenu">
-                <a href="#" data-section="projects" data-value="tema">Tema</a>
+                <a href="#" data-section="projects" data-value="tema" id="tema">Tema</a>
+
                 <div class="submenu-content">
                   <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
                   <input type="checkbox" id="toggle">
                 </div>
               </div>
-              <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
+
+              <a href="#" data-section="projects" data-value="ayuda" id="ayuda">Ayuda</a>
             </div>
+
           </li>
           <!-- autenticado -->
           <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
-            <button class="dropbtn btn" style="color: white; font-size: 1rem">
+            <button class="dropbtn btn" style="color: white; font-size: 1rem" bp>
               <b id="nombreUsuarioDisplay">
                 <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="./PerfilUsuario.html">Mi Perfil</a>
-              <a href="#">Mis Sitios</a>
-              <a href="#">Tema</a>
+              <a href="./html/PerfilUsurio.html">Mi Perfil</a>
+              <a href="">Mis Sitios</a>
+              <a href="">Tema</a>
               <a href="#">Ayuda</a>
               <a href="#" id="logoutBtn">Cerrar sesión</a>
             </div>
@@ -109,79 +116,43 @@
   <div class="container" style="padding-top: 4.5%; padding-bottom:4%;">
     <form class="formulario" style="border-radius: 30px;">
       <a href="../index.html" class="back-button"><box-icon name="left-arrow-circle" color="#ffab2d"></box-icon></a>
-      <h1>Ingresa los datos de tu empresa</h1>
+      <h1 id="titulo-formulario">Ingresa los datos de tu empresa</h1>
       <div class="row">
         <div class="col col-x1-4 col-md-4 col-12">
-          <label for="">Nombre de la empresa</label>
-          <input id="nombreEmpresa" class="form-control" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  margin-top: 10px;
-                " />
+          <label id="label-nombre-empresa">Nombre de la empresa</label>
+          <input id="nombreEmpresa" class="form-control" type="text" placeholder="" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; margin-top: 10px;" />
 
-          <label for="" style="margin-top: 5%;">Dirección</label>
-          <input id="direccion" class="form-control" type="text" placeholder="" required="" style="
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  margin-top: 10px;
-                " />
+          <label id="label-direccion" style="margin-top: 5%;">Dirección</label>
+          <input id="direccion" class="form-control" type="text" placeholder="" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; margin-top: 10px;" />
 
-          <label for="" style="margin-top: 5%;">NIT</label>
-          <input id="nit" class="form-control" type="text" placeholder="" required="" style="
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  margin-top: 10px;
-                " />
+          <label id="label-nit" style="margin-top: 5%;">NIT</label>
+          <input id="nit" class="form-control" type="text" placeholder="" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; margin-top: 10px;" />
         </div>
         <div class="col col-x1-4 col-md-4 col-12">
+          <label id="label-nombre-representante">Nombre representante</label>
+          <input id="nombreRepresentante" class="form-control" type="text" placeholder="" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; margin-top: 10px;" />
 
-          <label for="">Nombre representante</label>
-          <input id="nombreRepresentante" class="form-control" type="text" placeholder="" required="" style="
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  margin-top: 10px;
-                " />
+          <label id="label-telefono" style="margin-top: 5%;">Teléfono</label>
+          <input id="telefono" class="form-control" type="number" placeholder="" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; margin-top: 10px;" />
 
-          <label for="" style="margin-top: 5%;">Teléfono</label>
-          <input id="telefono" class="form-control" type="number" placeholder="" required="" style="
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  margin-top: 10px;
-                  " />
-
-          <label for="" style="margin-top: 5%;">Servicios</label>
-          <input id="servicios" class="form-control" type="text" placeholder="" required="" style="
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  margin-top: 10px;
-                " />
+          <label id="label-servicios" style="margin-top: 5%;">Servicios</label>
+          <input id="servicios" class="form-control" type="text" placeholder="" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; margin-top: 10px;" />
         </div>
 
         <div class="col col-x1-4 col-md-4 col-12">
+          <label id="label-correo-electronico">Correo electrónico</label>
+          <input id="correoElectronico" class="form-control" type="email" placeholder="" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; margin-top: 10px;" />
 
-          <label for="">Correo electrónico</label>
-          <input id="correoElectronico" class="form-control" type="email" placeholder="" required="" style="
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  margin-top: 10px;
-                " />
-
-          <label for="" style="margin-top: 5%;">Tipo empresa</label>
-          <select id="tipoEmpresa" class="form-control" required="" style="
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  padding: 5px;
-                  margin-top: 10px;
-                ">
+          <label id="label-tipo-empresa" style="margin-top: 5%;">Tipo empresa</label>
+          <select id="tipoEmpresa" class="form-control" required=""
+            style="border-color: #ff9900; background-color: #1c1c1c; color: white; padding: 5px; margin-top: 10px;">
             <option value="" disabled selected>Selecciona una opción</option>
             <option value="hotel">Hotel</option>
             <option value="restaurante">Restaurante</option>
@@ -190,152 +161,16 @@
           </select>
 
           <button type="button" onclick="registroFormularioEmpresa()">Enviar solicitud</button>
-
         </div>
-        <!-- <div class="col col-x1-4 col-md-6 col-12">
-            <label for="correo,">Correo electrónico</label>
-            <input id="correoElectronico" class="form-control" type="email" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-          </div>
-
-          <div class="col col-x1-4 col-md-6 col-12">
-            <label for="dirección,">Dirección</label>
-            <input id="direccion" class="form-control" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />       
-          </div>
-
-          <div class="col col-x1-4 col-md-6 col-12">
-            <label for="telefono,">Teléfono</label>
-            <input id="telefono" class="form-control" type="number" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-          </div>
-
-          <div class="col col-x1-4 col-md-6 col-12">
-            <label for="tipo_empresa">Tipo empresa</label>
-            <select id="tipoEmpresa" class="form-control" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  padding: 5px;
-                ">
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="hotel">Hotel</option>
-              <option value="restaurante">Restaurante</option>
-              <option value="tienda">Tienda</option>
-              <option value="supermercado">Supermercado</option>
-            </select>            
-          </div>
-
-          <div class="col col-x1-4 col-md-6 col-12">
-            <label for="servicios,">Servicios</label>
-            <input id="servicios" class="form-control" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />       
-          </div> -->
-
-        <!-- <div class="columna1" style="margin-left: 15%">
-            <label for="nombre_empresa,">Nombre de la empresa</label>
-            <input  id="nombreEmpresa" class="input" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-            <label for="nombre_representante,">Nombre representante</label>
-            <input id="nombreRepresentante" class="input" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-            <label for="nit,">NIT</label>
-            <input id="nit" class="input" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-          </div>
-          <div class="columna2">
-            <label for="correo,">Correo electrónico</label>
-            <input id="correoElectronico" class="input" type="email" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-            <label for="dirección,">Dirección</label>
-            <input id="direccion" class="input" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-            <label for="telefono,">Teléfono</label>
-            <input id="telefono" class="input" type="number" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " />
-          </div>
-
-          <div class="columna3">
-            <label for="tipo_empresa">Tipo empresa</label>
-            <select id="tipoEmpresa" class="input" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                  padding: 5px;
-                ">
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="hotel">Hotel</option>
-              <option value="restaurante">Restaurante</option>
-              <option value="tienda">Tienda</option>
-              <option value="supermercado">Supermercado</option>
-            </select>
-
-            <label for="servicios,">Servicios</label>
-            <input id="servicios" class="input" type="text" placeholder="" required="" style="
-                  margin-top: 25px;
-                  border-color: #ff9900;
-                  background-color: #1c1c1c;
-                  color: white;
-                " /> 
-
-            <button type="button" onclick="registroFormularioEmpresa()">Registro empresa</button>
-          </div>-->
       </div>
       <div style="width: 85%; padding-left: 15%">
-        <h2 style="
-                color: white;
-                padding-bottom: 3%;
-                text-align: center;
-                font-size: 20px;
-                padding-top: 5%;
-              ">
-          Llena los campos con la información de tu empresa y envía una
-          solicitud para que puedas subir contenido con nosotros.
+        <h2 id="mensaje-formulario"
+          style="color: white; padding-bottom: 3%; text-align: center; font-size: 20px; padding-top: 5%;">Llena los
+          campos con la información de tu empresa y envía una solicitud para que puedas subir contenido con nosotros.
         </h2>
       </div>
     </form>
+
   </div>
 
 
@@ -348,30 +183,57 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-  <section id="contacto" style="margin-top:auto;">
-    <!--Footer-->
-    <div class="container-fluid" style="background-color: #1c1c1c;">
+  <section id="contacto" style="margin-top:auto; width:100%">
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: #262930;">
       <footer class="py-3">
         <ul class="nav border-bottom mb-3 justify-content-between">
           <div class="d-flex">
-            <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff' ></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo">
+              <a id="contact-title" class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="tel:3143049933">
+                <box-icon name='phone' color='#ffffff'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com">
+                <box-icon name='envelope' color='#ffffff'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="https://wa.me/573143049933">
+                <box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva">
+                <box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon>
+              </a>
+            </li>
           </div>
           <div class="d-flex">
-            <li class="nav-item-fo-P "><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
-                style="color: #feffff ; "><b>Pqrsfd</b></a></li>
-            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
-                class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+            <li class="nav-item-fo-P">
+              <a id="pqrsfd-link" href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                style="color: #feffff;">
+                <b>Pqrsfd</b>
+              </a>
+            </li>
+            <li class="nav-item-fo-P">
+              <a id="terms-link" href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
+                style="color: #1f8b9e;">
+                <b>Términos y condiciones</b>
+              </a>
+            </li>
           </div>
         </ul>
-        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+        <p id="footer-text" class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
       </footer>
     </div>
   </section>
 
+  <script src="/Front-end/Js/cambioIdiomaRegisEmpre.js"></script>
 
 </body>
 

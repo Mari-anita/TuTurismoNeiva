@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!--Box Icons-->
+    <!--Box Icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="../Js/bootstrap.js"></script>
@@ -22,7 +22,8 @@
 </head>
 
 <body style="display: flex; flex-direction:column; min-height:100vh;">
-    <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%;  z-index: 999;">
+    <nav class="navbar navbar-expand-lg bg-dark"
+        style="top: 0%; width: 100%; position: fixed; top: 0%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
         <div class="container-fluid" style="height: 56px;">
             <a class="navbar-brand" href="../index.html">
                 <img src="../Img/logo.png" alt="" width="10%">
@@ -35,116 +36,199 @@
                 <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
                     <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
                         <div class="dropdown">
-                            <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Inicio</b></button>
+                            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
+                                data-value="tittle" id="inisio"><b>Inicio</b></button>
                             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                                <a href="/Front-end/html/sitiosTuristicos.html">Sitios Turísticos</a>
+                                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects"
+                                    id="lugar-turistico" data-value="sitios">Sitios
+                                    Turísticos</a>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-                        <a id="nosotros" class="nav-link" href="../html/MisionVision.html"
-                            style="color: white; font-size: 25px"><b>Nosotros</b></a>
+                        <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
+                            style="color: white; font-size: 25px" data-section="projects"
+                            data-value="first-project-tittle" id="nosotros"><b>Nosotros</b></a>
                     </li>
                     <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-                        <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"><b>Contacto</b></a>
+                        <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"
+                            data-section="projects" data-value="second-project-tittle" id="contacto"><b>Contacto</b></a>
                     </li>
-                    <li class="nav-item dropdown" style="margin-top: 1.5%;">
-                        <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
+                    <li class="nav-item-S" style=" margin-top: 1.5%;">
+                        <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
+                    </li>
+                    <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
+                            style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
+                        <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
+                            data-value="three-project-tittle" id="idioma"><b>Idioma</b></button>
                         <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
                             <div class="flags_item" data-language="es">
-                                <img src="/Front-end/Icons/co.svg" alt="Español">
+                                <img src="/Front-end/Icons/co.svg" alt="Espanol">
                             </div>
                             <div class="flags_item" data-language="en">
-                                <img src="/Front-end/Icons/ingles.svg" alt="Inglés">
+                                <img src="/Front-end/Icons/ingles.svg" alt="ingles">
                             </div>
+                        </div>
+                    </li>
+                    <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
+                        <button class="dropbtn btn" style="color: white; font-size: 25px">
+                            <b>
+                                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+                            </b>
+                        </button>
+                        <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+                            <a href="../Front-end/html/RegistroUsuario.html" data-section="projects"
+                                data-value="registro" id="registro">Registrarse</a>
+
+                            <div class="dropdown-submenu">
+                                <a href="#" data-section="projects" data-value="tema" id="tema">Tema</a>
+
+                                <div class="submenu-content">
+                                    <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
+                                    <input type="checkbox" id="toggle">
+                                </div>
+                            </div>
+
+                            <a href="#" data-section="projects" data-value="ayuda" id="ayuda">Ayuda</a>
+                        </div>
+
+                    </li>
+                    <!-- autenticado -->
+                    <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+                        <button class="dropbtn btn" style="color: white; font-size: 1rem" bp>
+                            <b id="nombreUsuarioDisplay">
+                                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+                            </b>
+                        </button>
+                        <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+                            <a href="./html/PerfilUsurio.html">Mi Perfil</a>
+                            <a href="">Mis Sitios</a>
+                            <a href="">Tema</a>
+                            <a href="#">Ayuda</a>
+                            <a href="#" id="logoutBtn">Cerrar sesión</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="container formulario" style="border-radius:30px;">
         <a href="../index.html" class="back-button" style="margin-right: 10%; margin-bottom: 40%;">
             <box-icon name="left-arrow-circle" color="#ffab2d" style="margin: 30px 0 0 30%;"></box-icon>
-        </a>        
+        </a>
         <div style="width: 50%;  margin-left: 20%;">
             <form id="miFormulario">
                 <div class="row" style="margin-right: 0px; margin-left: 0px;">
                     <div class="col col-xl-7 col-12" style="margin-top: 20%; margin-right: 5%;">
-                        <label for="">Nombre completo</label>
+                        <label for="nombreRepresentanteLabel" id="nombre-label">Nombre completo</label>
                         <input id="nombreRepresentante" class="form-control" type="text" placeholder="" required=""
                             style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
 
-                        <label for="" style="margin-top: 5%;">Correo electrónico</label>
+                        <label for="correoElectronico" id="correo-label" style="margin-top: 5%;">Correo
+                            electrónico</label>
                         <input id="correoElectronico" class="form-control" type="email" placeholder="" required=""
                             style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white;" />
 
-                        <button type="button" class="BUTON" style="margin-top: 7%;"><a href="/Front-end/html/cambiarContrasena.html" style="text-decoration: none; color: white;">Cambiar contraseña</a></button>
+                        <button type="button" class="BUTON" style="margin-top: 7%;"><a
+                                href="/Front-end/html/cambiarContrasena.html" id="cambiar-contrasena-link"
+                                style="text-decoration: none; color: white;">Cambiar contraseña</a></button>
                     </div>
                     <div class="col col-xl-5 col-12 foto" style="width: 85%;">
                         <!-- Ícono de la cámara -->
                         <div id="camera-icon-container" style="text-align:center;">
-                            <box-icon name='camera' type='solid' flip='horizontal' color='#ff9900' class='camera-icon' onclick="document.getElementById('file-input').click();"></box-icon>
+                            <box-icon name='camera' type='solid' flip='horizontal' color='#ff9900' class='camera-icon'
+                                onclick="document.getElementById('file-input').click();"></box-icon>
                         </div>
-                    
+
                         <!-- Imagen de perfil -->
                         <img id="preview" style="display:none; max-width:100%;" />
-                    
-                        <h1 style="color: black;">TuTurismoNeiva</h1>
-                        <h3>tuturismoneiva@gmail.com</h3>
+
+                        <h1 id="profile-title" style="color: black;">TuTurismoNeiva</h1>
+                        <h3 id="profile-email">tuturismoneiva@gmail.com</h3>
                         <hr>
-                        <h4 style="cursor: pointer;" onclick="document.getElementById('file-input').click();">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" color="#ff9900" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                        <h4 style="cursor: pointer;" onclick="document.getElementById('file-input').click();"
+                            id="editar-foto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                color="#ff9900" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
                             </svg>
                             Editar foto de perfil
                         </h4>
-                    
-                        <input type="file" id="file-input" style="display: none;" accept="image/*" capture="environment" onchange="previewImage(event)">
-                        
-                        <h4 style="cursor: pointer;" onclick="confirmDelete();">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" color="#ff0000" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+
+                        <input type="file" id="file-input" style="display: none;" accept="image/*" capture="environment"
+                            onchange="previewImage(event)">
+
+                        <h4 style="cursor: pointer;" onclick="confirmDelete();" id="eliminar-foto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                color="#ff0000" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
                             </svg>
                             Eliminar foto de perfil
                         </h4>
-                        <button type="button" class="BUTON2" onclick="saveChanges()">Guardar cambios</button>
+                        <button type="button" class="BUTON2" onclick="saveChanges()" id="guardar-cambios-btn">Guardar
+                            cambios</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <section id="contacto" style="margin-top:auto; width:100%;">
-        <div class="container-fluid" style="background-color: #1c1c1c;">
+
+    <section id="contacto" style="margin-top:auto; width:100%">
+        <!-- Footer -->
+        <div class="container-fluid" style="background-color: #262930;">
             <footer class="py-3">
                 <ul class="nav border-bottom mb-3 justify-content-between">
                     <div class="d-flex">
-                        <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-                        <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
-                            color='#ffffff'></box-icon></a></li>
-                        <li class="nav-item-fo-I"><a class="nav-link px-1"
-                                href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff'></box-icon></a></li>
-                        <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon
-                                    name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-                        <li class="nav-item-fo-I"><a class="nav-link px-1"
-                                href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram'
-                                    type='logo' color='#ffffff'></box-icon></a></li>
+                        <li class="nav-item-fo">
+                            <a id="contact-title" class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a>
+                        </li>
+                        <li class="nav-item-fo-I">
+                            <a class="nav-link px-1" href="tel:3143049933">
+                                <box-icon name='phone' color='#ffffff'></box-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item-fo-I">
+                            <a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com">
+                                <box-icon name='envelope' color='#ffffff'></box-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item-fo-I">
+                            <a class="nav-link px-1" href="https://wa.me/573143049933">
+                                <box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item-fo-I">
+                            <a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva">
+                                <box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon>
+                            </a>
+                        </li>
                     </div>
                     <div class="d-flex">
-                        <li class="nav-item-fo-P"><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
-                                style="color: #feffff;"><b>Pqrsfd</b></a></li>
-                        <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
-                                class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+                        <li class="nav-item-fo-P">
+                            <a id="pqrsfd-link" href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                                style="color: #feffff;">
+                                <b>Pqrsfd</b>
+                            </a>
+                        </li>
+                        <li class="nav-item-fo-P">
+                            <a id="terms-link" href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
+                                class="nav-link px-2" style="color: #1f8b9e;">
+                                <b>Términos y condiciones</b>
+                            </a>
+                        </li>
                     </div>
                 </ul>
-                <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+                <p id="footer-text" class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
             </footer>
         </div>
     </section>
 
+    <script src="/Front-end/Js/cambioIdiomaPerfUsu.js"></script>
 </body>
 
 </html>
