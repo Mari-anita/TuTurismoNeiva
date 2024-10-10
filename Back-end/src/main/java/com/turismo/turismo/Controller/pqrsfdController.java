@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.HashMap;
 import com.turismo.turismo.interfaceService.IpqrsfdService;
 import com.turismo.turismo.models.Pqrsfd;
+import com.turismo.turismo.models.authResponse;
 import com.turismo.turismo.models.pqrsfdRegistroRequest;
 import com.turismo.turismo.models.pqrsfdRegistroResponse;
 import com.turismo.turismo.service.authService;
@@ -82,8 +83,16 @@ public class pqrsfdController {
         pqrsfdService.save(Pqrsfd);
         //envíar correo electronico
         
-        return new ResponseEntity<>(Pqrsfd, HttpStatus.OK);
+        authResponse response = new authResponse();
+       
+            response.setMensaje("Se registró correctamente");
+            //para envíar el correo electronico
+            emailService.enviarCorreoRadicadoPqrsfd(Pqrsfd.getCorreo(), Pqrsfd.getNombreApellido(), Pqrsfd.getCode());
+            
+        
+        return new ResponseEntity<Object>(Pqrsfd, HttpStatus.OK);
     }
+
 
     // @PostMapping("/enviarCorreo")
     // public ResponseEntity<Object> enviarCorreo(@RequestBody Pqrsfd Pqrsfd) {

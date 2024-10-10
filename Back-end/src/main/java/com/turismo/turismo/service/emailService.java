@@ -59,7 +59,7 @@ public class emailService {
             return "Error al envíar " + e.getMessage();
         }
     }
-    
+
     public String enviarCorreoCambioContra(String destinatario) {
         try {
             String asunto = "Restablece tu Contraseña en Tuturismo Neiva";
@@ -207,5 +207,63 @@ public class emailService {
             return false;
         }
 
+    }
+
+    public String enviarCorreoRadicadoPqrsfd( String correo, String nombreApellido, String code) {
+        try {
+            String asunto = "Confirmación de Radicado de PQRSFD.";
+            String cuerpo = ""
+                    + "<body style=\"font-family: Arial, sans-serif; \">\r\n"
+                    + "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js\"></script>"
+                    + "<div class=\"container\" style=\"width: 70%; background-color: #f4f4f4; margin: 0% 10% 0% 10%; \">\r\n"
+                    + "<div class=\"header\" style=\"background-color: #333; padding: 5px; text-align: center;\">\r\n"
+                    + " <img src=\"https://i.postimg.cc/vTxcSyPm/logo.png\" alt=\"TuTurismoNeiva Logo\" style=\"max-width: 100px; margin-right: 90%;\">\r\n"
+                    + "</div>\r\n"
+                    + "<div class=\"content\" style=\" text-align: center; color: #333;\">\r\n"
+                    + "<h1 style=\"font-size: 24px; font-weight: bold; margin-bottom: 20px;\">¡Hola"
+                    + "< style=\"font-size: 16px; margin-bottom: 20px;\">\n" + //
+                    "\n" + //
+                    "Estimado/a [Nombre del Usuario],\n" + //
+                    "\n" + //
+                    "Espero que se encuentre bien.\n" + //
+                    "\n" + //
+                    "Nos gustaría informarle que hemos recibido su solicitud registrada en nuestro sistema. Su PQRSFD ha sido asignado el número de radicado: "
+                    + code + ". Este número es importante para el seguimiento de su solicitud.\r\n"
+                    + //
+                    "\n" + //
+                    "Le agradecemos por contactarnos y le aseguramos que nuestro equipo está trabajando para resolver su requerimiento lo más pronto posible."
+                    + //
+                    "\n" + //
+                    "No olvides seguirnos en nuestras redes sociales.</p>\r\n"
+                    + "<br>TuTurismo Neiva\r\n"
+                    + "</div>\r\n"
+                    + "<div class=\"footer\" style=\"background-color: #333; color: #fff; padding: 10px; text-align: center; margin-top: 20px;\">\r\n"
+                    + "<a href=\"#\" style=\"color: #fff; text-decoration: none; margin: 0 10px;\">Términos y condiciones</a> | <a href=\"#\" style=\"color: #fff; text-decoration: none; margin: 0 10px;\">Política de privacidad</a>\r\n"
+                    + "<div>\r\n"
+                    + "<box-icon name='phone' type='solid' color='#ffffff'></box-icon>\r\n"
+                    + "<box-icon name='gmail' type='logo' color='#f7f5f5'></box-icon>\r\n"
+                    + "<box-icon name='instagram-alt' type='logo' color='#ffffff'></box-icon>\r\n"
+                    + "<box-icon name='tiktok' type='logo' color='#f9f7f7'></box-icon>\r\n"
+                    + "</div>\r\n"
+                    + "</div>\r\n"
+                    + "</div>\r\n"
+                    + " <script src=\"https://unpkg.com/boxicons@2.1.4/dist/boxicons.js\"></script>\r\n"
+                    + "    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\"\r\n"
+                    + "        integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\"\r\n"
+                    + "        crossorigin=\"anonymous\"></script>\r\n"
+                    + "\r\n"
+                    + "</body>";
+
+            var retorno = enviarCorreo(correo, asunto, cuerpo);
+            if (retorno) {
+                return "se envió correctamente";
+            } else {
+                return "No se pudo envíar";
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            return "Error al envíar " + e.getMessage();
+        }
     }
 }
