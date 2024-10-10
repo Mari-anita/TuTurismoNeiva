@@ -11,8 +11,6 @@
   <script src="/Front-end/Js/general.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -142,19 +140,14 @@
           <input class="regis" id="correo" type="email" placeholder="" required
             style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
             onfocusout="validarCorreo(this);" />
-          <label for="">Teléfono</label>
-          <input class="regis" id="telefono" type="text" placeholder="" required
-            style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
-            onfocusout="validarTelefono(this);" />
+            <div class="date-picker-container">
+              <label for="">Fecha de radicado</label>
+              <input id="custom-date" class="regis" required=""
+                  style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" readonly>
+          </div>
         </div>
 
         <div class="columna2" style="padding: 20px;">
-          <div class="date-picker-container">
-            <label for="fechaRadicado">Fecha de radicado</label>
-            <input id="custom-date" class="regis" placeholder="Selecciona una fecha" required=""
-              style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;">
-            <span class="calendar-icon">&#128197;</span>
-          </div>
           <label for="">Seleccione el motivo de su mensaje</label>
           <select id="tipoPeticion" class="form-control">
             <option value="" selected disabled>Seleccione un motivo</option>
@@ -169,11 +162,14 @@
           <label for="" style="color: white;">Mensaje</label>
           <div id="char-count" style="color: white;">Máximo 5000 caracteres</div>
           <textarea id="descripcionPeticion" class="regis" placeholder="" required
-            style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical;"
+            style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical; margin-top:20px;"
             maxlength="5000"></textarea>
 
-          <button class="LoginPqrsf" type="button" onclick="registrarPqr()"
-            style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
+        
+              <button class="LoginPqrsf" style="margin-left: 0.3%; margin-top:15px;" type="button" onclick="registrarPqr()">Registrar PQRSFD</button>
+              <button class="LoginPqrsf" style="margin-left: 0.3%; margin-top: 15px;" type="button">
+                <a href="/Front-end/html/ConsultarPqrs.html" style="text-decoration: none; color: white;">Consultar estado</a>
+            </button>
         </div>
       </div>
     </form>
