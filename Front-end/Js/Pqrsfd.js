@@ -242,14 +242,25 @@ function registrarPqr() {
 }
 
 function limpiarFormulario() {
-    // Limpiar todos los campos del formulario
+    // Reiniciar el campo de la fecha
+    const fechaCampo = document.getElementById("custom-date");
+    const fechaValor = fechaCampo.value; // Guardar el valor actual de la fecha
+
+    // Limpiar todos los campos del formulario excepto la fecha
     document.getElementById("pqrsfdForm").reset();
+
+    // Establecer nuevamente el valor de la fecha
+    fechaCampo.value = fechaValor;
+
     // Reiniciar clases de validación
     const inputs = document.querySelectorAll("#pqrsfdForm .form-control");
     inputs.forEach(input => {
-        input.className = "form-control"; // Reiniciar clase a la predeterminada
+        if (input.id !== "custom-date") { // Excluir el campo de la fecha
+            input.className = "form-control"; // Reiniciar clase a la predeterminada
+        }
     });
 }
+
 
 function consultarPqr(){
     //alert(id);

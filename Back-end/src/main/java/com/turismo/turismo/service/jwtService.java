@@ -106,9 +106,9 @@ public class jwtService {
 
     //SOL VAMOS A PERMITIRQUE EL ADMIN PUEDA MODIFICAR 
 
-    public boolean isAdmin(String token) {
-        String role = getRoleFromToken(token);
-        return role != null && role.contains("Administrador");  // Verificar si el rol es Administrador
-    }
+    // public boolean isAdmin(String token) {
+    //     String role = getRoleFromToken(token);
+    //     return role != null && role.contains("Administrador");  // Verificar si el rol es Administrador
+    // }
 
 }

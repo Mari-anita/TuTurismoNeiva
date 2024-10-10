@@ -223,7 +223,7 @@ public class emailService {
                     + "<h1 style=\"font-size: 24px; font-weight: bold; margin-bottom: 20px;\">¡Hola"
                     + "< style=\"font-size: 16px; margin-bottom: 20px;\">\n" + //
                     "\n" + //
-                    "Estimado/a [Nombre del Usuario],\n" + //
+                    "Estimado/a "+ nombreApellido +",\n" + //
                     "\n" + //
                     "Espero que se encuentre bien.\n" + //
                     "\n" + //
