@@ -55,10 +55,6 @@ public class pqrsfdController {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
 
-        if (Pqrsfd.getFechaRadicado().equals("")) {
-            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
-        }
-
         if (Pqrsfd.getTipoPeticion().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
@@ -78,6 +74,7 @@ public class pqrsfdController {
         codigo = codigo + consecutivo;
         Pqrsfd.setCode(codigo);
 
+        Pqrsfd.setFechaRadicado(new Date());
         pqrsfdService.save(Pqrsfd);
         //envíar correo electronico
         

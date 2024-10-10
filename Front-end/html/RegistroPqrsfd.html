@@ -125,9 +125,9 @@
           <label id="label-tipoDoc" for="">Tipo de documento</label>
           <select id="tipoDoc" class="form-control">
             <option value="" selected disabled>Seleccione una opción</option>
-            <option value="Tarjeta">Tarjeta de identidad</option>
-            <option value="Cedula">Cédula de ciudadanía</option>
-            <option value="Extranjeria">Cédula de extranjería</option>
+            <option value="TI">Tarjeta de identidad</option>
+            <option value="CC">Cédula de ciudadanía</option>
+            <option value="CE">Cédula de extranjería</option>
           </select>
 
           <label id="label-numDoc" for="">Número de documento</label>
@@ -147,7 +147,7 @@
             onfocusout="validarCorreo(this);" />
             <div class="date-picker-container">
               <label for="">Fecha de radicado</label>
-              <input id="custom-date" class="regis" required=""
+              <input id="custom-date" type="text" class="regis" required=""
                   style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;" readonly>
           </div>
         </div>
@@ -156,12 +156,12 @@
           <label for="">Seleccione el motivo de su mensaje</label>
           <select id="tipoPeticion" class="form-control">
             <option value="" selected disabled>Seleccione un motivo</option>
-            <option value="Quejas">Quejas</option>
-            <option value="Peticiones">Peticiones</option>
-            <option value="Reclamos">Reclamos</option>
-            <option value="Solicitudes">Solicitudes</option>
-            <option value="Felicitaciones">Felicitaciones</option>
-            <option value="Denuncias">Denuncias</option>
+            <option value="Q">Quejas</option>
+            <option value="P">Peticiones</option>
+            <option value="R">Reclamos</option>
+            <option value="S">Solicitudes</option>
+            <option value="F">Felicitaciones</option>
+            <option value="D">Denuncias</option>
           </select>
 
           <label id="label-mensaje" for="" style="color: white;">Mensaje</label>

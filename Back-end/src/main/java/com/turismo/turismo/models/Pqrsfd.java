@@ -2,6 +2,7 @@ package com.turismo.turismo.models;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -48,7 +49,7 @@ public class Pqrsfd {
     private String correo;
 
     @Column(name = "fechaRadicado", nullable = false, length = 20)
-    private Timestamp fechaRadicado;
+    private Date fechaRadicado;
 
     @Column(name = "tipoPeticion", nullable = false, length = 10)
     private String tipoPeticion;

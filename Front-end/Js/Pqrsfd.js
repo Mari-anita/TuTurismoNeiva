@@ -65,11 +65,9 @@ document.getElementById("correo").addEventListener("keydown", function (event) {
     }
 });
 
-  // Establecer la fecha actual al cargar la página
-  window.onload = function() {
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('custom-date').value = today; // Establece la fecha en el campo
-};
+//fecha fija
+var date=new Date();
+document.getElementById("custom-date").value=date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear(); 
 
 //Contador de caracteres
 document.addEventListener('DOMContentLoaded', () => {
@@ -179,7 +177,6 @@ function registrarPqr() {
         "numDoc": document.getElementById("numDoc").value,
         "nombreApellido": document.getElementById("nombreApellido").value,
         "correo": document.getElementById("correo").value,
-        "fechaRadicado": document.getElementById("custom-date").value,
         "tipoPeticion": document.getElementById("tipoPeticion").value,
         "descripcionPeticion": document.getElementById("descripcionPeticion").value
 
