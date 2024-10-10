@@ -1,0 +1,88 @@
+body {
+    width: 100%;
+    background: url('/Front-end/Img/Fondo.png') no-repeat center center fixed;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: -1;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+}
+
+.input-container {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 40px; /* Ajustado */
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Margen superior */
+}
+
+.regis {
+    border: 2px solid #ff9900; /* Borde original */
+    background-color: #1c1c1c;
+    color: white;
+    padding: 10px;
+    margin-right: 0.3%;
+    width: 70%; /* Ajusta según sea necesario */
+    box-sizing: border-box;
+    outline: none; /* Elimina el borde azul */
+    border-radius: 10px; /* Redondear las esquinas */
+}
+
+.regis:focus {
+    border-color: white; /* Cambia a blanco al enfocar */
+    box-shadow: none; /* Elimina cualquier sombra al enfocar */
+}
+
+
+button {
+    background-color: #ff9900;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 2%;
+}
+
+button:hover {
+    background-color: #c27503;
+}
+
+.nav-item:hover {
+    background-color: rgba(236, 166, 16, 0.973);
+    border-radius: 9px;
+    margin: 8px;
+}
+
+.back-button box-icon {
+    width: 34px; /* Ajusta el ancho */
+    height: 40px; /* Ajusta la altura */
+}

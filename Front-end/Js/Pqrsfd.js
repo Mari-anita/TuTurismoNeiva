@@ -1,6 +1,5 @@
 //validaciones de campos
 document.getElementById("numDoc").addEventListener("keypress", soloNumeros);
-document.getElementById("telefono").addEventListener("keypress", soloNumeros);
 document.getElementById("nombreApellido").addEventListener("keypress", soloLetras);
 
 //este metodo solo permite numeros
@@ -66,14 +65,11 @@ document.getElementById("correo").addEventListener("keydown", function (event) {
     }
 });
 
-//Color del icono de fecha
-flatpickr("#custom-date", {
-    dateFormat: "Y-m-d",
-});
-
-document.querySelector(".calendar-icon").addEventListener("click", function () {
-    document.querySelector("#custom-date")._flatpickr.open();
-});
+  // Establecer la fecha actual al cargar la página
+  window.onload = function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('custom-date').value = today; // Establece la fecha en el campo
+};
 
 //Contador de caracteres
 document.addEventListener('DOMContentLoaded', () => {
@@ -133,7 +129,6 @@ function listarPqrsfd() {
                 let celdaNumeroDoc = document.createElement("td")
                 let celdaNombreApe = document.createElement("td")
                 let celdaCorreo = document.createElement("td")
-                let celdaTelefono = document.createElement("td")
                 let celdaFecha = document.createElement("td")
                 let celdaMotivoMens = document.createElement("td")
                 let celdaMensaje = document.createElement("td")
@@ -143,7 +138,6 @@ function listarPqrsfd() {
                 celdaNumeroDoc.innerText = result[i]["numDoc"];
                 celdaNombreApe.innerText = result[i]["nombreApellido"];
                 celdaCorreo.innerText = result[i]["correo"];
-                celdaTelefono.innerText = result[i]["telefono"];
                 celdaFecha.innerText = result[i]["fechaRadicado"];
                 celdaMotivoMens.innerText = result[i]["tipoPeticion"];
                 celdaMensaje.innerText = result[i]["descripcionPeticion"];
@@ -153,7 +147,6 @@ function listarPqrsfd() {
                 trResgistro.appendChild(celdaNumeroDoc);
                 trResgistro.appendChild(celdaNombreApe);
                 trResgistro.appendChild(celdaCorreo);
-                trResgistro.appendChild(celdaTelefono);
                 trResgistro.appendChild(celdaFecha);
                 trResgistro.appendChild(celdaMotivoMens);
                 trResgistro.appendChild(celdaMensaje);
@@ -176,17 +169,16 @@ function listarPqrsfd() {
 }
 
 // Asegúrate de definir registrarPqrsfd antes
-var registrarPqrsfd = true; 
+var registrarPqrsfd = true;
 
 function registrarPqr() {
 
     let formData = {
-        
+
         "tipoDoc": document.getElementById("tipoDoc").value,
         "numDoc": document.getElementById("numDoc").value,
         "nombreApellido": document.getElementById("nombreApellido").value,
         "correo": document.getElementById("correo").value,
-        "telefono": document.getElementById("telefono").value,
         "fechaRadicado": document.getElementById("custom-date").value,
         "tipoPeticion": document.getElementById("tipoPeticion").value,
         "descripcionPeticion": document.getElementById("descripcionPeticion").value
@@ -194,67 +186,96 @@ function registrarPqr() {
     };
 
     // Define el método que vas a usar para la petición
-    var metodo = "POST" ;
-    var textoimprimir = registrarPqr ? "Felicidades, Registrado con éxito!" : "Felicidades, Guardado con éxito!";
+    var metodo = "POST";
 
     if (validarCampos()) {
         $.ajax({
             type: metodo,
-            url: urlPqrsfd ,
+            url: urlPqrsfd,
+            // header:{   //cuando requiere autenticación se debe envíar token
+            //     "Authorization": "Bearer "+token
+            // },
             contentType: "application/json",
             data: JSON.stringify(formData),
-            success: function (response) {
-                // Si el servidor devuelve un token, lo almacenamos
-                if (response.token) {
-                    // Guardar el token en localStorage
-                    localStorage.setItem('token', response.token);
+            success: function (result) {
+
+                // // Si el servidor devuelve un token, lo almacenamos
+                // if (response.token) {
+                //     // Guardar el token en localStorage
+                //     // localStorage.setItem('token', response.token);
 
 
-                    Swal.fire({
-                        title: "Éxito",
-                        text: textoimprimir,
-                        icon: "success"
-                    }).then(function () {
-                        // Aquí puedes agregar más acciones después del registro exitoso
-                        $('#exampleModal').modal('hide');
-                        listarPqrsfd();
-                         // Limpiar el formulario después de un registro exitoso
-                        limpiarFormulario();
-                        // Redirigir a una página protegida
-                        window.location.href = '/Front-end/html/HistorialPQRSD.html';
-                    });
-                } else {
-                    Swal.fire({
-                        title: "Error",
-                        text: "No se recibió un token del servidor.",
-                        icon: "error"
-                    });
-                }
-            },
-            error: function (xhr, status, error) {
+                //     Swal.fire({
+                //         title: "Éxito",
+                //         text: textoimprimir,
+                //         icon: "success"
+                //     }).then(function () {
+                //         // Aquí puedes agregar más acciones después del registro exitoso
+                //         $('#exampleModal').modal('hide');
+                //         listarPqrsfd();
+                //          // Limpiar el formulario después de un registro exitoso
+                //         limpiarFormulario();
+                //         // Redirigir a una página protegida
+                //         window.location.href = '/Front-end/html/HistorialPQRSD.html';
+                //     });
+                // } else {
+                //     Swal.fire({
+                //         title: "Error",
+                //         text: "No se recibió un token del servidor.",
+                //         icon: "error"
+                //     });
+                // }
                 Swal.fire({
-                    title: "Error",
-                    text: "No lograste registrar los datos",
-                    icon: "error"
-                });
-            }
-        });
+                    title: "¡Excelente!",
+                    text: "Se guardó correctamente, a su correo le llegará el número de radicado",
+                    icon: "success"
+                });limpiarFormulario()
+            },
+        })
     } else {
         Swal.fire({
-            title: "Error",
-            text: "¡Llene todos los campos correctamente!",
+            title: "¡Error!",
+            text: "Llene todos los campos correctamente",
             icon: "error"
         });
     }
 }
 
 function limpiarFormulario() {
-    // Limpiar todos los campos del formulario
+    // Reiniciar el campo de la fecha
+    const fechaCampo = document.getElementById("custom-date");
+    const fechaValor = fechaCampo.value; // Guardar el valor actual de la fecha
+
+    // Limpiar todos los campos del formulario excepto la fecha
     document.getElementById("pqrsfdForm").reset();
+
+    // Establecer nuevamente el valor de la fecha
+    fechaCampo.value = fechaValor;
+
     // Reiniciar clases de validación
     const inputs = document.querySelectorAll("#pqrsfdForm .form-control");
     inputs.forEach(input => {
-        input.className = "form-control"; // Reiniciar clase a la predeterminada
+        if (input.id !== "custom-date") { // Excluir el campo de la fecha
+            input.className = "form-control"; // Reiniciar clase a la predeterminada
+        }
+    });
+}
+
+
+function consultarPqr(){
+    //alert(id);
+    $.ajax({
+        url:urlPqrsfd,
+        type:"GET",
+        success: function(result){
+            document.getElementById("tipoDoc").value=result["tipoDoc"];
+            document.getElementById("numDoc").value=result["numDoc"];
+            document.getElementById("nombreApellido").value=result["nombreApellido"];
+            document.getElementById("correo").value=result["correo"];
+            document.getElementById("fechaRadicado").value=result["fechaRadicado"];
+            document.getElementById("tipoPeticion").value=result["tipoPeticion"];
+            document.getElementById("descripcionPeticion").value=result["descripcionPeticion"];
+        }
     });
 }
 
@@ -262,11 +283,10 @@ function limpiarFormulario() {
 function validarCampos() {
     var numDoc = document.getElementById("numDoc");
     var nombreApellido = document.getElementById("nombreApellido");
-    var telefono = document.getElementById("telefono");
     var descripcionPeticion = document.getElementById("descripcionPeticion");
 
     return validarNumDoc(numDoc) && validarNombreApe(nombreApellido) &&
-        validarTelefonoPqrsfd(telefono) && validarDescripMens(descripcionPeticion);
+        validarDescripMens(descripcionPeticion);
 }
 function validarNumDoc(cuadroNumDocu) {
     var valor = cuadroNumDocu.value;
@@ -295,22 +315,6 @@ function validarNombreApe(cuadroNombreApe) {
         cuadroNombreApe.className = "form-control is-valid";
     } else {
         cuadroNombreApe.className = "form-control is-invalid";
-    }
-    return valido;
-}
-
-//validación telefono
-function validarTelefonoPqrsfd(cuadroTelefonoPqrsfd) {
-    var valor = cuadroTelefonoPqrsfd.value;
-    var valido = true;
-    if (valor.length < 7 || valor.length > 16) {
-        valido = false
-    }
-
-    if (valido) {
-        cuadroTelefonoPqrsfd.className = "form-control is-valid";
-    } else {
-        cuadroTelefonoPqrsfd.className = "form-control is-invalid";
     }
     return valido;
 }
