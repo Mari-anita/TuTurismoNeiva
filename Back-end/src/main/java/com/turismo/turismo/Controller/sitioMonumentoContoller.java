@@ -30,7 +30,7 @@ public class sitioMonumentoContoller {
     private IsitioMonumentoService sitioMonumentoService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save(@RequestBody SitioMonumento SitioMonumento) {
+    public ResponseEntity<Object> save( SitioMonumento SitioMonumento,  @RequestParam("file") MultipartFile file) throws IOException  {
 
         // VALIDACIONES
 
@@ -71,6 +71,9 @@ public class sitioMonumentoContoller {
         if (SitioMonumento.getContactoSitioMonumento().equals("")) {
             return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
+
+        SitioMonumento.setImagen_base(Base64.getEncoder().encodeToString(file.getBytes()));
+
         sitioMonumentoService.save(SitioMonumento);
         return new ResponseEntity<>(SitioMonumento, HttpStatus.OK);
     }
