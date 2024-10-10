@@ -9,105 +9,107 @@
 
 // async function prueba(){
 //     let headersList = {
-        
-        
+
+
 //         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjanNhcmFzdHlAZ21haWwuY29tIiwiaWF0IjoxNzI4NDE1NzI5LCJleHAiOjE3Mjg0MTkzMjl9.KRdsvIgG4KoSDqbANdU9z2_bA_OrD2y_EgI9jnZgdck"
 //        }
-       
+
 //        let response = await fetch("http://10.192.92.92:8082/api/v1/usuario/obtenerNombreUsuario/", { 
 //          method: "GET",
 //          headers: headersList
 //        });
-       
+
 //        let data = await response.text();
 //        console.log(data);
-       
-// }
-obtenerNombreUsuario();
-async function obtenerNombreUsuario() {
-    // Obtener el token almacenado en localStorage
-    const token = localStorage.getItem('userToken');
-    console.log("ENTRO EN EL OBTENERNOMBRE"); // Depuración
 
-    // Verificar si el token existe antes de proceder
+// }
+
+
+// Definimos una función asíncrona llamada obtenerNombreUsuario
+// que es responsable de obtener el nombre del usuario autenticado
+// desde el servidor y actualizar la interfaz en base a esto.
+async function obtenerNombreUsuario() {
+    // Obtenemos el token almacenado en localStorage.
+    // Este token es clave para autenticar las peticiones del usuario.
+    const token = localStorage.getItem('userToken');
+    
+    // Si no hay token almacenado, significa que el usuario no está autenticado.
+    // Mostramos un error en la consola y terminamos la ejecución de la función.
     if (!token) {
         console.error("Token no encontrado. El usuario no está autenticado.");
-        return; // Detener la función si no hay token
+        return;
     }
 
+    // Intentamos realizar la petición al servidor
     try {
-        // Realizar la petición GET para obtener los datos del usuario
-        // const response = await fetch(urlusuario + 'obtenerNombreUsuario/', {
-            let response = await fetch("http://10.192.92.92:8082/api/v1/usuario/obtenerNombreUsuario/", { 
-            method: 'GET', // Método GET para obtener datos
+        // Realizamos una petición HTTP GET a la URL del servidor
+        // para obtener el nombre del usuario. Añadimos el token en
+        // el encabezado 'Authorization' para autenticar la petición.
+        const response = await fetch(urlObtenerusuario + "obtenerNombreUsuario/", {
+            method: 'GET', // Método de la petición
             headers: {
-                'Authorization': 'Bearer ' + token, // Incluir el token en la cabecera Authorization
+                'Authorization': 'Bearer ' + token, // Token de autenticación
                 'Content-Type': 'application/json' // Tipo de contenido
             }
         });
-        // let headersList = {
-        //     "Accept": "*/*",
-        //     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-        //     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTYW50aWFnb05hcnZhZXpAaG90bWFpbC5jb20iLCJpYXQiOjE3MjgzMzY1NTIsImV4cCI6MTcyODM0MDE1Mn0.MAvIVP8W1wJJpnYklWD_3w6Nu_9gDpGbAMu1FDWAZXs"
-        //    }
-           
-        //    let response = await fetch("http://10.192.66.48:8082/api/v1/usuario/obtenerNombreUsuario/", { 
-        //      method: "GET",
-        //      headers: headersList
-        //    });
-           
-           let data = await response.text();
-           console.log(data);
 
-        // Verificar si la respuesta fue exitosa
+        // Verificamos si la respuesta fue exitosa
         if (response.ok) {
-            const result =  JSON.parse(data); // Convertir la respuesta a JSON
-            console.log("Respuesta del servidor para obtenerNombreUsuario:", result); // Depuración
-            const nombreCompleto = result.nombreCompleto; // Obtener el nombre completo del authResponse
+            // Si la respuesta fue exitosa (status 200), procesamos los datos.
+            // Convertimos la respuesta en JSON.
+            const result = await response.json();
+            
+            // Obtenemos el campo 'nombreCompleto' de los datos recibidos.
+            const nombreCompleto = result.nombreCompleto;
 
-            console.log("Nombre Completo obtenido:", nombreCompleto); // Depuración
-
+            // Si el campo 'nombreCompleto' está vacío o no existe, mostramos un error.
             if (!nombreCompleto) {
-                console.error("El campo 'nombreCompleto' está vacío en la respuesta.");
-                alert("Error al obtener el nombre del usuario. Por favor, inténtelo de nuevo.");
-                return;
+                alert("Error al obtener el nombre del usuario.");
+                return; // Terminamos la función si no hay un nombre válido.
             }
-            // Guardar el nombre completo en localStorage
+
+            // Almacenamos el nombre completo del usuario en localStorage
+            // para poder acceder a esta información durante toda la sesión.
             localStorage.setItem('nombreCompleto', nombreCompleto);
-            // Actualizar la etiqueta <b id="nombreUsuarioDisplay"> con el nombre completo
-            const nombreDisplay = document.getElementById('nombreUsuarioDisplay');
-            if (nombreDisplay) {
-                nombreDisplay.textContent = nombreCompleto;
-            }
 
-            // Mostrar el menú de usuarios autenticados
-            const menuAuthenticate = document.getElementById('menuAuthenticate');
-            if (menuAuthenticate) {
-                menuAuthenticate.style.display = 'block';
-            }
-
-            // Ocultar el menú de usuarios no autenticados
-            const menuNotAuthenticate = document.getElementById('menuNotAuthenticate');
-            if (menuNotAuthenticate) {
-                menuNotAuthenticate.style.display = 'none';
-            }
+            // Actualizamos la interfaz de usuario con el nombre completo.
+            // Esto se realiza seleccionando el elemento HTML con el ID 'nombreUsuarioDisplay'
+            // y modificando su contenido de texto.
+            document.getElementById('nombreUsuarioDisplay').textContent = nombreCompleto;
+            
+            // Si el usuario está autenticado, mostramos el menú de usuario autenticado
+            // y ocultamos el menú para usuarios no autenticados.
+            document.getElementById('menuAuthenticate').style.display = 'block';
+            document.getElementById('menuNotAuthenticate').style.display = 'none';
 
         } else if (response.status === 401) {
-            // Si la respuesta es 401 Unauthorized, limpiar el almacenamiento y redirigir al login
-            alert("Token inválido o expirado. Por favor, inicie sesión nuevamente.");
-            localStorage.removeItem('userToken');
-            localStorage.removeItem('nombreCompleto');
-            window.location.href = "/Front-end/html/RegistroUsuario.html";
+            // Si la respuesta del servidor es 401 (Unauthorized), significa que el token
+            // es inválido o ha expirado. En ese caso, mostramos un mensaje al usuario,
+            // limpiamos el almacenamiento local y lo redirigimos a la página de login.
+            alert("Token inválido o expirado.");
+            localStorage.clear();  // Limpiamos todo el almacenamiento local.
+            window.location.href = "/Front-end/html/RegistroUsuario.html"; // Redirigimos al login.
         } else {
-            // Manejar otros estados de respuesta
-            console.error("DIF Error al obtener el nombre del usuario:", response.statusText);
-            alert("Error al obtener el nombre del usuario. Por favor, inténtelo de nuevo.");
+            // Si la respuesta del servidor tiene algún otro error (no 200 ni 401),
+            // mostramos un mensaje de error al usuario.
+            alert("Error al obtener el nombre del usuario.");
         }
     } catch (error) {
-        console.error("Error al intentar obtener el nombre del usuario:", error);
+        // Si ocurre algún error durante el proceso (problemas de conexión, etc.),
+        // lo capturamos aquí y mostramos un mensaje de error en la consola y al usuario.
+        console.error("Error al intentar obtener el nombre del usuario:", error.message || error);
+        console.error("Detalles del error:", error.stack);  // STACK: NOS DARA UN RASTO DEL ERROR 
         alert("Hubo un error al intentar obtener el nombre del usuario. Inténtelo de nuevo.");
+        console.log("Status de la respuesta:", response.status); //RESPONSE.STATUS: PARA VERIFICAR ALGUN ERROR DEL SERVIDOR
+        console.log("URL utilizada para la petición:", urlUsuario + 'obtenerNombreUsuario/'); //SI TENEMOS ERROR EN LA URL
+
     }
 }
+
+// Llamamos a la función obtenerNombreUsuario cuando se carga la página,
+// de modo que el nombre del usuario se obtenga y se muestre automáticamente
+// si el usuario está autenticado.
+
 
 // Función para verificar el estado de autenticación al cargar la página
 function verificacionLogin() {
@@ -115,7 +117,7 @@ function verificacionLogin() {
     var nombreCompleto = localStorage.getItem('nombreCompleto');
 
     // const isAuthenticated = userToken!="";
-    
+
     const isAuthenticated = userToken && nombreCompleto;
 
     if (!isAuthenticated) {
@@ -181,12 +183,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //CUANDO EL USUARIO YA ESTE AUTORIZADO, Y QUIERA IR A REGISTRO
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Obtener el token desde el localStorage
     const token = localStorage.getItem('userToken');
-    
+    const nombreCompleto = localStorage.getItem("nombreCompleto");
+
     // Verificar si el usuario tiene el token y si está en la página de registro
-    if (token && window.location.href === "http://127.0.0.1:5502/Front-end/html/RegistroUsuario.html") {
+    if (nombreCompleto && token && window.location.href === "http://127.0.0.1:5502/Front-end/html/RegistroUsuario.html") {
         // El usuario está autenticado y está intentando acceder a RegistroUsuario.html, redirigirlo al index.html
         window.location.href = "/Front-end/index.html";
     }
