@@ -1,6 +1,6 @@
 const translations = {
     es: {
-        inisio: "Inicio",
+        inisio: "<b>Inicio</b>",
         lugarTuristico: "Sitios Turísticos",
         nosotros: "Nosotros",
         contacto: "Contacto",
@@ -29,7 +29,7 @@ const translations = {
         iniciarSesion: "Iniciar sesión",
     },
     en: {
-        inisio: "Home",
+        inisio: "<b>Home</b>",
         lugarTuristico: "Tourist Sites",
         nosotros: "Us",
         contacto: "Contact",
@@ -61,27 +61,27 @@ const translations = {
 
 function changeLanguage(lang) {
     document.title = translations[lang].title;
-    document.getElementById('inisio').innerText = translations[lang].inisio;
-    document.getElementById('lugar-turistico').innerText = translations[lang].lugarTuristico;
-    document.getElementById('nosotros').innerText = translations[lang].nosotros;
-    document.getElementById('contacto').innerText = translations[lang].contacto;
-    document.getElementById('idioma').innerText = translations[lang].idioma;
-    document.getElementById('registro').innerText = translations[lang].registro;
-    document.getElementById('tema').innerText = translations[lang].tema;
-    document.getElementById('ayuda').innerText = translations[lang].ayuda;
+    document.getElementById('inisio').innerHTML = translations[lang].inisio;
+    document.getElementById('lugar-turistico').innerHTML = translations[lang].lugarTuristico;
+    document.getElementById('nosotros').innerHTML = translations[lang].nosotros;
+    document.getElementById('contacto').innerHTML = translations[lang].contacto;
+    document.getElementById('idioma').innerHTML = translations[lang].idioma;
+    document.getElementById('registro').innerHTML = translations[lang].registro;
+    document.getElementById('tema').innerHTML = translations[lang].tema;
+    document.getElementById('ayuda').innerHTML = translations[lang].ayuda;
 
     // Crear cuenta 
-    document.getElementById('crear-cuenta-title').innerText = translations[lang].crearCuentaTitle;
-    document.getElementById('iniciar-sesion-title').innerText = translations[lang].iniciarSesionTitle;
-    document.getElementById('terms-text').innerText = translations[lang].termsText;
+    document.getElementById('crear-cuenta-title').innerHTML = translations[lang].crearCuentaTitle;
+    document.getElementById('iniciar-sesion-title').innerHTML = translations[lang].iniciarSesionTitle;
+    document.getElementById('terms-text').innerHTML = translations[lang].termsText;
 
     // Nuevos elementos a traducir
     document.getElementById('nombreCompleto').setAttribute('placeholder', translations[lang].nombreCompleto);
     document.getElementById('correoElectronico').setAttribute('placeholder', translations[lang].correoElectronico);
     document.getElementById('contra').setAttribute('placeholder', translations[lang].contrasena);
     document.getElementById('coContra').setAttribute('placeholder', translations[lang].confirmarContrasena);
-    document.querySelector('.btnn').innerText = translations[lang].registrar; // Para el botón "Registrar"
-    document.getElementById('loginBtn').innerText = translations[lang].iniciarSesion; // Para el botón "Iniciar sesión"
+    document.querySelector('.btnn').innerHTML = translations[lang].registrar; // Para el botón "Registrar"
+    document.getElementById('loginBtn').innerHTML = translations[lang].iniciarSesion; // Para el botón "Iniciar sesión"
 
     function changeLanguage(lang) {
         // Otros cambios previos
