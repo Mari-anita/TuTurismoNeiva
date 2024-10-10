@@ -22,7 +22,152 @@
   <title>TuTurismoNeiva/SitiosTuristicos</title>
 </head>
 
-<body>
+<body style="display: flex; flex-direction:column; min-height:100vh; width:100%">
+  <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%; width: 100%; z-index: 999; background-color: #212529 !important;">
+    <div class="container-fluid" style="height: 56px;">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../Img/logo.png" alt="" width="10%">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <div class="dropdown">
+              <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
+                data-value="tittle"><b><a style="text-decoration: none; color: white;" href="/Front-end/index.html">Inicio</a></b></button>
+              <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios" style="text-decoration: none; color: white;" >Sitios
+                  Turísticos</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a id="nosotros" class="nav-link" href="../html/MisionVision.html" style="color: white; font-size: 25px"
+              data-section="projects" data-value="first-project-tittle"><b>Nosotros</b></a>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
+              data-value="second-project-tittle"><b>Contacto</b></a>
+          </li>
+          <li class="nav-item-S" style=" margin-top: 1.5%;">
+            <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
+          </li>
+          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
+              style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
+            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
+              data-value="three-project-tittle"><b>Idioma</b></button>
+            <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <div class="flags_item" data-language="es">
+                <img src="/Front-end/Icons/co.svg" alt="Espanol">
+              </div>
+              <div class="flags_item" data-language="en">
+                <img src="/Front-end/Icons/ingles.svg" alt="ingles">
+              </div>
+            </div>
+          </li>
+          <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px">
+              <b>
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px; ">
+              <a href="./RegistroUsuario.html" data-section="projects" data-value="registro" style="text-decoration:none; color:white">Registrarse</a>
+              <div class="dropdown-submenu">
+                <a href="#" data-section="projects" data-value="tema" style="text-decoration:none; color:white">Tema</a>
+                <div class="submenu-content">
+                  <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
+                  <input type="checkbox" id="toggle">
+                </div>
+              </div>
+              <a href="#" data-section="projects" data-value="ayuda" style="text-decoration:none; color:white">Ayuda</a>
+            </div>
+          </li>
+          <!-- autenticado -->
+          <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 1rem">
+              <b id="nombreUsuarioDisplay">
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="./PerfilUsurio.html">Mi Perfil</a>
+              <a href="#">Mis Sitios</a>
+              <a href="#">Tema</a>
+              <a href="#">Ayuda</a>
+              <a href="#" id="logoutBtn">Cerrar sesión</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid" style="margin-top: 4%;">
+    <div>
+      <div class="RCRC">
+        <h3 style="width: 50%; font-weight:bold; ">Sitios Turísticos</h3>
+        <div class="search-container">
+          <input type="search" placeholder="Buscar.." id="searchInput"><box-icon name='search-alt-2'
+            id="searchIcon"></box-icon>
+        </div>
+      </div>
+
+      <div style="display: flex; margin: 2% 0% 0% 10%;">
+        <div class="card">
+          <!-- Contenedor de imágenes para el carrusel -->
+          <div class="image-container-wrapper">
+            <div class="image-container">
+              <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/Front-end/Img/amantes.jpg" class="d-block imgcarru rounded-3" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/Front-end/Img/bailarinas.jpg" class="d-block imgcarru rounded-3" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/Front-end/Img/caracoli.jpg" class="d-block imgcarru rounded-3" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide"
+                  data-bs-slide="prev">
+                  <span aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide"
+                  data-bs-slide="next">
+                  <span aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Contenido de la tarjeta -->
+          <div class="card-body">
+            <div>
+              <h6>El Mohan</h6>
+              <p>Av.circunvalar con calle 10</p>
+            </div>
+            <!-- Botón para mostrar más detalles en un modal -->
+            <button type="button" class="btn" style="background-color: #FFBD59; border-radius:15px;">
+              <a href="/Front-end/html/detalleSitio.html" class="BTTLT">Más detalle</a>
+            </button>
+            <!-- Sección adicional de la tarjeta -->
+            <div class="CJULM">
+              <div class="votar"></div>
+              <i class="fa-regular fa-heart" id="heartIcon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
   <script src="/Front-end/Js/SitioTuristicos.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -31,6 +176,31 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <section id="contacto" style="margin-top:auto;">
+    <!--Footer-->
+    <div class="container-fluid" style="background-color: #0c0d0e;">
+      <footer class="py-3">
+        <ul class="nav border-bottom mb-3 justify-content-between">
+          <div class="d-flex">
+            <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff' ></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+          </div>
+          <div class="d-flex">
+            <li class="nav-item-fo-P "><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                style="color: #feffff ; "><b>Pqrsfd</b></a></li>
+            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
+                class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+          </div>
+        </ul>
+        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+      </footer>
+    </div>
+  </section>
+
 </body>
 
 </html>
