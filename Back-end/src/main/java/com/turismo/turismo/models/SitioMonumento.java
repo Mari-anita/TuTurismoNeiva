@@ -59,7 +59,7 @@ public class SitioMonumento {
 
     @Column( name="imagen_base", nullable = true, columnDefinition = "MEDIUMBLOB")
 	private String  imagen_base;
-	@Column( name="imagen_url", nullable = true, length = 35 )
+	@Column( name="imagen_url", nullable = true, length = 255 )
 	private String imagen_url;
 
     public SitioMonumento() {
@@ -205,7 +205,7 @@ public class SitioMonumento {
     }
 
     public void setImagen_url(String imagen_url) {
-        this.imagen_url = "data:image/jpeg;base64,"+ imagen_url;
+        this.imagen_url =  imagen_url;
     }
 
     

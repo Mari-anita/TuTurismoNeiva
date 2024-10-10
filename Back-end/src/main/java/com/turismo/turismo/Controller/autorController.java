@@ -37,7 +37,7 @@ public class autorController {
             return new ResponseEntity<>("El campo fecha de muerte es obligatorio", HttpStatus.BAD_REQUEST);
         }
 
-        if (Autor.getBibliografiaAutor().equals("")) {
+        if (Autor.getBiografiaAutor().equals("")) {
             return new ResponseEntity<>("El campo bibliografia es obligatorio", HttpStatus.BAD_REQUEST);
         }
 
@@ -81,7 +81,7 @@ public class autorController {
             Autor.setNombreCompletoAutor(AutorUpdate.getNombreCompletoAutor());
             Autor.setFechaNacimiento(AutorUpdate.getFechaNacimiento());
             Autor.setFechaMuerte(AutorUpdate.getFechaMuerte());
-            Autor.setBibliografiaAutor(AutorUpdate.getBibliografiaAutor());
+            Autor.setBiografiaAutor(AutorUpdate.getBiografiaAutor());
             Autor.setImagenAutor(AutorUpdate.getImagenAutor());
         
             autorService.save(Autor);

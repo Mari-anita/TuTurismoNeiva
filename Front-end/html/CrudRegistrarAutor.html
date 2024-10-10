@@ -2,110 +2,126 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Autor</title>
-    <script src="../Js/bootstrap.js"></script>
-    <link rel="stylesheet" href="/Front-end/Css/bootstrap.css">
-    <link rel="stylesheet" href="../Css/CrudRegistrarAutor.css">
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Autor</title>
+  <script src="../Js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/Front-end/Css/bootstrap.css">
+  <link rel="stylesheet" href="../Css/CrudRegistrarAutor.css">
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <style>
   .nav-item-fo-P>a>b:hover {
-      color: #ffbd59;
-    }
+    color: #ffbd59;
+  }
 </style>
+
 <body>
-    <div class="container" style="padding-left: 0; margin-left: 0">
-        <div class="sidebar" style="height: 93vh; background-color:#1c1c1c;">
-            <a href="../html/CrudListaAutores.html">
-                <li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
-                        color='#ffbd59' size="30px"></box-icon></li>
-            </a>
-            <li class="nav " style="align-items: center; width: 100%; height: 7%; margin-left: 30%"><box-icon
-                    name='user-circle' type='solid' color='#ffbd59' size="100px"></box-icon></li>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="logo" style="display: flex; justify-content: center;">Administrador</div>
-                    <ul class="menu">
-                      <br>
-                      <div class="icono">
-                        <li class="nav"><box-icon name='user' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                        <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%">
-                          Usuarios</li>
-                      </div>
-                      <div class="icono">
-                        <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                        <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%" ><a href="../html/CrudListaSitioMonumento.html" style="text-decoration: none; color:white">Sitios / Monumentos</a></li>
-                          
-                      </div>
-                      <div class="icono">
-                        <li class="nav"><box-icon name='book' color='#ffffff'></box-icon size="100px"></li>
-                        <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaAutores.html" style="text-decoration: none; color:white">Autores</a></li>
-                      </div>
-                      <div class="icono">
-                        <li class="nav"><box-icon name='chat' color='#ffffff'></box-icon size="100px"></li>
-                        <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaComentarios.html" style="text-decoration: none; color:white">Comentarios</a>
-                        </li>
-                      </div>
-                      <div class="icono">
-                        <li class="nav"><box-icon name='images' color='#ffffff'></box-icon size="100px"></li>
-                        <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%  "><a href="../html/CrudListaImagenes.html" style="text-decoration: none; color:white">Imágenes</a>
-                        </li>
-                      </div>
-                      <div class="icono">
-                        <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
-                        <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaPQRSFD.html" style="text-decoration: none; color:white">PQRSFD</a></li>
-                      </div>
-                      <div class="icono">
-                        <li class="nav"><box-icon name='building-house' color='#ffffff' size="25px"></box-icon></box-icon></li>
-                        <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaEmpresa.html" style="text-decoration: none; color:white">Empresa</a></li>
-                      </div>
-                    </ul>
-                  </div>
-
-        <div class="content">
-            <h2 class="fw-semibold">Registrar Autor</h2>
-            <br>
-            <div class="container-fluid" style="justify-content: center; ">
-                <div class="row">
-                    <div class="col-6">
-                        <label for="nombre">Nombre </label>
-                        <input class="form-control" type="text" id="nombre" aria-label="default input example">
-                        <br>
-                        <label for="difusion">Fecha difusión</label>
-                        <input class="form-control" type="date" id="difusion" aria-label="default input example">
-                        <br>
-                        <label for="imgAutor">Imagen autor</label>
-                        <input type="file" class="form-control" id="imgAutor" aria-describedby="inputGroupFileAddon04"
-                            aria-label="Upload">
-
-                    </div>
-
-                    <div class="col-6">
-                        <label for="nacimiento">Fecha nacimiento</label>
-                        <input class="form-control" type="date" id="nacimiento" aria-label="default input example">
-                        <br>
-                        <label for="biografia">Biografia</label>
-                        <input class="form-control" type="password" id="biografia" aria-label="default input example">
-                        <br>
-
-                    </div>
-                </div>
-            </div>
-            <div style="margin-left: 78%; margin-top: 30%">
-                <button type="button" class="btn btn-success">Registrar</button>
-                <button type="button" class="btn btn-secondary">Limpiar</button>
-            </div>
+  <div class="container" style="padding-left: 0; margin-left: 0">
+    <div class="sidebar" style="height: 93vh; background-color:#1c1c1c;">
+      <a href="../html/CrudListaAutores.html">
+        <li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
+            color='#ffbd59' size="30px"></box-icon></li>
+      </a>
+      <li class="nav " style="align-items: center; width: 100%; height: 7%; margin-left: 30%"><box-icon
+          name='user-circle' type='solid' color='#ffbd59' size="100px"></box-icon></li>
+      <br>
+      <br>
+      <br>
+      <div class="logo" style="display: flex; justify-content: center;">Administrador</div>
+      <ul class="menu">
+        <br>
+        <div class="icono">
+          <li class="nav"><box-icon name='user' color='#ffffff'></box-icon size="100px"></box-icon></li>
+          <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%">
+            Usuarios</li>
         </div>
+        <div class="icono">
+          <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon size="100px"></box-icon></li>
+          <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+              href="../html/CrudListaSitioMonumento.html" style="text-decoration: none; color:white">Sitios /
+              Monumentos</a></li>
+
+        </div>
+        <div class="icono">
+          <li class="nav"><box-icon name='book' color='#ffffff'></box-icon size="100px"></li>
+          <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+              href="../html/CrudListaAutores.html" style="text-decoration: none; color:white">Autores</a></li>
+        </div>
+        <div class="icono">
+          <li class="nav"><box-icon name='chat' color='#ffffff'></box-icon size="100px"></li>
+          <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+              href="../html/CrudListaComentarios.html" style="text-decoration: none; color:white">Comentarios</a>
+          </li>
+        </div>
+        <div class="icono">
+          <li class="nav"><box-icon name='images' color='#ffffff'></box-icon size="100px"></li>
+          <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%  "><a
+              href="../html/CrudListaImagenes.html" style="text-decoration: none; color:white">Imágenes</a>
+          </li>
+        </div>
+        <div class="icono">
+          <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
+          <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+              href="../html/CrudListaPQRSFD.html" style="text-decoration: none; color:white">PQRSFD</a></li>
+        </div>
+        <div class="icono">
+          <li class="nav"><box-icon name='building-house' color='#ffffff' size="25px"></box-icon></box-icon></li>
+          <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+              href="../html/CrudListaEmpresa.html" style="text-decoration: none; color:white">Empresa</a></li>
+        </div>
+      </ul>
     </div>
 
-    
-    <footer class="py-3" style="background-color: #1c1c1c;">
-      <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
-    </footer>
+    <div class="content">
+      <h2 class="fw-semibold">Registrar Autor</h2>
+      <br>
+      <div class="container-fluid" style="justify-content: center; ">
+        <div class="row">
+          <div class="col-6">
+            <label for="nombre">Nombre </label>
+            <input class="form-control" type="text" id="nombre" aria-label="default input example">
+            <br>
+            <label for="difusion">Fecha difusión</label>
+            <input class="form-control" type="date" id="difusion" aria-label="default input example">
+            <br>
+            <label for="imgAutor">Imagen autor</label>
+            <input type="file" class="form-control" id="imgAutor" aria-describedby="inputGroupFileAddon04"
+              aria-label="Upload">
+
+          </div>
+
+          <div class="col-6">
+            <label for="nacimiento">Fecha nacimiento</label>
+            <input class="form-control" type="date" id="nacimiento" aria-label="default input example">
+            <br>
+            <label for="biografia">Biografia</label>
+            <input class="form-control" type="text" id="biografia" aria-label="default input example">
+            <br>
+
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 78%; margin-top: 30%">
+        <button type="button" class="btn btn-success" onclick="registroFormularioAutor()">Registrar</button>
+        <button type="button" class="btn btn-secondary">Limpiar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/Front-end/Js/config.js"></script>
+  <script src="/Front-end/Js/registroAutor.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <footer class="py-3" style="background-color: #1c1c1c;">
+    <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+  </footer>
 </body>
 
 </html>

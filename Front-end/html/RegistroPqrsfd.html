@@ -8,14 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/Front-end/Css/pqrsfd.css" />
   <link rel="stylesheet" href="/Front-end/Css/general.css">
-  <script src="/Front-end/Js/general.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+<<<<<<< HEAD
+=======
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+>>>>>>> de20c8778db8e1f034b009de0cccf8b546920ac9
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Registro de Pqrsfd</title>
   <style>
     .navbar {
@@ -27,8 +26,9 @@
 </head>
 
 <body style="display: flex; flex-direction:column; min-height:100vh;">
-  <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%; z-index: 999;">
-    <div class="container-fluid" style="height: 72px; background-color:#1c1c1c;">
+  <nav class="navbar navbar-expand-lg bg-dark"
+    style="top: 0%; width: 100%; position: fixed; top: 0%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
+    <div class="container-fluid" style="height: 56px;">
       <a class="navbar-brand" href="../index.html">
         <img src="../Img/logo.png" alt="" width="10%">
       </a>
@@ -41,27 +41,30 @@
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
               <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
-                data-value="tittle"><b>Inicio</b></button>
+                data-value="tittle" id="inisio"><b>Inicio</b></button>
               <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" id="lugar-turistico"
+                  data-value="sitios">Sitios
                   Turísticos</a>
               </div>
             </div>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a id="nosotros" class="nav-link" href="../html/MisionVision.html" style="color: white; font-size: 25px"
-              data-section="projects" data-value="first-project-tittle"><b>Nosotros</b></a>
+            <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
+              style="color: white; font-size: 25px" data-section="projects" data-value="first-project-tittle"
+              id="nosotros"><b>Nosotros</b></a>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
-              data-value="second-project-tittle"><b>Contacto</b></a>
+              data-value="second-project-tittle" id="contacto"><b>Contacto</b></a>
           </li>
-          <li class="nav-item-S" style="margin-top: 1.5%;">
+          <li class="nav-item-S" style=" margin-top: 1.5%;">
             <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
           </li>
-          <li class="nav-item dropdown" style="margin-top: 1.5%;">
+          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
+              style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
             <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
-              data-value="three-project-tittle"><b>Idioma</b></button>
+              data-value="three-project-tittle" id="idioma"><b>Idioma</b></button>
             <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
               <div class="flags_item" data-language="es">
                 <img src="/Front-end/Icons/co.svg" alt="Espanol">
@@ -71,35 +74,40 @@
               </div>
             </div>
           </li>
-          <li id="menuNotAuthenticate" class="nav-item-U dropdown" style="margin-top: 1.5%;">
+          <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
             <button class="dropbtn btn" style="color: white; font-size: 25px">
               <b>
                 <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="./RegistroUsuario.html" data-section="projects" data-value="registro">Registrarse</a>
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro"
+                id="registro">Registrarse</a>
+
               <div class="dropdown-submenu">
-                <a href="#" data-section="projects" data-value="tema">Tema</a>
+                <a href="#" data-section="projects" data-value="tema" id="tema">Tema</a>
+
                 <div class="submenu-content">
                   <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
                   <input type="checkbox" id="toggle">
                 </div>
               </div>
-              <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
+
+              <a href="#" data-section="projects" data-value="ayuda" id="ayuda">Ayuda</a>
             </div>
+
           </li>
           <!-- autenticado -->
-          <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style="margin-top: 1.5%;">
-            <button class="dropbtn btn" style="color: white; font-size: 1rem">
+          <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 1rem" bp>
               <b id="nombreUsuarioDisplay">
                 <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="./PerfilUsurio.html">Mi Perfil</a>
-              <a href="#">Mis Sitios</a>
-              <a href="#">Tema</a>
+              <a href="./html/PerfilUsurio.html">Mi Perfil</a>
+              <a href="">Mis Sitios</a>
+              <a href="">Tema</a>
               <a href="#">Ayuda</a>
               <a href="#" id="logoutBtn">Cerrar sesión</a>
             </div>
@@ -109,17 +117,16 @@
     </div>
   </nav>
 
-
   <!-- Aquí se inserta el formulario -->
   <div class="container" style="padding-top: 2%; padding-bottom:2%;">
     <form id="pqrsfdForm" class="formulario" enctype="multipart/form-data">
       <a href="../index.html" class="back-button">
         <box-icon name="left-arrow-circle" color="#ffab2d"></box-icon>
       </a>
-      <h1 style="color: white;">Ingresa los datos de tu PQRSFD</h1>
+      <h1 id="pqrsfd-title" style="color: white;">Ingresa los datos de tu PQRSFD</h1>
       <div class="input-container">
         <div class="columna1" style="padding: 20px;">
-          <label for="">Tipo de documento</label>
+          <label id="label-tipoDoc" for="">Tipo de documento</label>
           <select id="tipoDoc" class="form-control">
             <option value="" selected disabled>Seleccione una opción</option>
             <option value="Tarjeta">Tarjeta de identidad</option>
@@ -127,19 +134,22 @@
             <option value="Extranjeria">Cédula de extranjería</option>
           </select>
 
-          <label for="">Numero de documento</label>
+          <label id="label-numDoc" for="">Número de documento</label>
           <input class="regis" id="numDoc" type="text" placeholder="" required
             style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
             onfocusout="validarNumeroDoc(this);" />
           <div id="errorNumDoc" style="color: orange; font-size: 1em;"></div>
-          <label for="">Nombre y apellido</label>
+
+          <label id="label-nombreApellido" for="">Nombre y apellido</label>
           <input class="regis" id="nombreApellido" type="text" placeholder="Nombre Completo" required
             style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
             onfocusout="validarNombre(this);" />
-          <label for="">Correo electrónico</label>
+
+          <label id="label-correo" for="">Correo electrónico</label>
           <input class="regis" id="correo" type="email" placeholder="" required
             style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
             onfocusout="validarCorreo(this);" />
+<<<<<<< HEAD
             <div class="date-picker-container">
               <label for="">Fecha de radicado</label>
               <input id="custom-date" class="regis" required=""
@@ -149,6 +159,24 @@
 
         <div class="columna2" style="padding: 20px;">
           <label for="">Seleccione el motivo de su mensaje</label>
+=======
+
+          <label id="label-telefono" for="">Teléfono</label>
+          <input class="regis" id="telefono" type="text" placeholder="" required
+            style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;"
+            onfocusout="validarTelefono(this);" />
+        </div>
+
+        <div class="columna2" style="padding: 20px;">
+          <div class="date-picker-container">
+            <label id="label-fechaRadicado" for="fechaRadicado">Fecha de radicado</label>
+            <input id="custom-date" class="regis" placeholder="Selecciona una fecha" required=""
+              style="margin-top: 5px; border-color: #ff9900; background-color: #1c1c1c; color: white;">
+            <span class="calendar-icon">&#128197;</span>
+          </div>
+
+          <label id="label-tipoPeticion" for="">Seleccione el motivo de su mensaje</label>
+>>>>>>> de20c8778db8e1f034b009de0cccf8b546920ac9
           <select id="tipoPeticion" class="form-control">
             <option value="" selected disabled>Seleccione un motivo</option>
             <option value="Quejas">Quejas</option>
@@ -159,52 +187,87 @@
             <option value="Denuncias">Denuncias</option>
           </select>
 
-          <label for="" style="color: white;">Mensaje</label>
+          <label id="label-mensaje" for="" style="color: white;">Mensaje</label>
           <div id="char-count" style="color: white;">Máximo 5000 caracteres</div>
           <textarea id="descripcionPeticion" class="regis" placeholder="" required
             style="margin-top: 10px; border-color: #ff9900; background-color: #1c1c1c; color: white; resize: vertical; margin-top:20px;"
             maxlength="5000"></textarea>
 
+<<<<<<< HEAD
         
               <button class="LoginPqrsf" style="margin-left: 0.3%; margin-top:15px;" type="button" onclick="registrarPqr()">Registrar PQRSFD</button>
               <button class="LoginPqrsf" style="margin-left: 0.3%; margin-top: 15px;" type="button">
                 <a href="/Front-end/html/ConsultarPqrs.html" style="text-decoration: none; color: white;">Consultar estado</a>
             </button>
+=======
+          <button id="submit-button" class="LoginPqrsf" type="button" onclick="registrarPqr()"
+            style="margin-left:0.5%; margin-top:2%;">Registrar PQRSFD</button>
+>>>>>>> de20c8778db8e1f034b009de0cccf8b546920ac9
         </div>
       </div>
     </form>
   </div>
 
-  <section id="contacto" style="margin-top:auto; width:100%;">
-    <!--Footer-->
-    <div class="container-fluid" style="background-color: #1c1c1c;">
+
+  <section id="contacto" style="margin-top:auto; width:100%">
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: #262930;">
       <footer class="py-3">
         <ul class="nav border-bottom mb-3 justify-content-between">
           <div class="d-flex">
-            <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
-                  color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
-                  name='envelope' color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon
-                  name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon
-                  class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo">
+              <a id="contact-title" class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="tel:3143049933">
+                <box-icon name='phone' color='#ffffff'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com">
+                <box-icon name='envelope' color='#ffffff'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="https://wa.me/573143049933">
+                <box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon>
+              </a>
+            </li>
+            <li class="nav-item-fo-I">
+              <a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva">
+                <box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon>
+              </a>
+            </li>
           </div>
           <div class="d-flex">
-            <li class="nav-item-fo-P"><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
-                style="color: #feffff;"><b>Pqrsfd</b></a></li>
-            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
-                class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
+            <li class="nav-item-fo-P">
+              <a id="pqrsfd-link" href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+                style="color: #feffff;">
+                <b>Pqrsfd</b>
+              </a>
+            </li>
+            <li class="nav-item-fo-P">
+              <a id="terms-link" href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank" class="nav-link px-2"
+                style="color: #1f8b9e;">
+                <b>Términos y condiciones</b>
+              </a>
+            </li>
           </div>
         </ul>
-        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+        <p id="footer-text" class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
       </footer>
     </div>
   </section>
+
+  <script src="/Front-end/Js/cambioIdiomaRegisPqrsfd.js"></script>
   <script src="../Js/config.js"></script>
   <script src="../Js/Pqrsfd.js"></script>
-
+  <script src="/Front-end/Js/general.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 </body>
 

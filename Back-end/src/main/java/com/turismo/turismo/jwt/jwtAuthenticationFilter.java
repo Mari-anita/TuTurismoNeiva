@@ -50,7 +50,8 @@ public class jwtAuthenticationFilter extends OncePerRequestFilter {
                 // Validar el token
                 if (jwtService.isTokenValid(Token, userDetails)) {
                     // Crear token de autenticación
-                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails,
+                            null, userDetails.getAuthorities());
                     authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                     // Establecer el contexto de seguridad
@@ -58,15 +59,21 @@ public class jwtAuthenticationFilter extends OncePerRequestFilter {
                     System.out.println("Autenticación exitosa para el usuario: " + correoElectronico);
                 } else {
                     System.out.println("Token inválido para el usuario: " + correoElectronico);
+                    UsernamePasswordAuthenticationToken authToken = null;
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }
         } catch (Exception e) {
             System.out.println("Error al procesar el token: " + e.getMessage());
+            UsernamePasswordAuthenticationToken authToken = null;
+            SecurityContextHolder.getContext().setAuthentication(authToken);
+            SecurityContextHolder.clearContext();
+            filterChain.doFilter(request, response);
+            return;
         }
 
         // Continuar con el filtro
         filterChain.doFilter(request, response);
-
 
     }
 
