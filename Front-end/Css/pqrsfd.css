@@ -125,36 +125,16 @@ input.regis {
     padding-right: 30px; /* Espacio para el icono */
 }
 
-.calendar-icon {
-    position: absolute;
-    right: 10%;
-    bottom: 6%;
-    transform: translateY(-50%);
-    color: white; /* Color del icono */
-    pointer-events: none; /* Para que no interfiera con el input */
-    font-size: 1.2em; /* Tamaño del icono */
-}
-
-/*posicionar icono basura*/
-.file-input-container {
-    position: relative; /* Para posicionar el icono de basura */
-    display: flex;
-    align-items: center; /* Centra el icono verticalmente */
-}
-
-.file-input-container input[type="file"] {
-    width: calc(100% - 30px); /* Deja espacio para el icono */
-    margin-bottom: 10px; /* Margen inferior para espaciar del siguiente elemento */
-}
-
-.trash-icon {
-    color: white; /* Color del icono */
-    font-size: 1.5em; /* Tamaño del icono */
-    margin-left: 5px; /* Espacio entre el input y el icono */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
-    margin-bottom: 3%;
-}
-
 .is-invalid {
     border-color: orange;
 }
+
+.button-container {
+       margin-top: 10%;
+}
+
+.button-consultar {
+    margin-top: 25%;
+    margin-left: 0.3%;
+}
+
