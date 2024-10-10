@@ -58,4 +58,3 @@ document.getElementById('searchInput').addEventListener('keydown', function(even
   }
 });
 
-JS

@@ -20,8 +20,8 @@ public class SitioMonumento {
     @Column(name="idSitioMonumento", nullable = false, length = 36)     //FILTRAR
     private String idSitioMonumento;
 
-    @Column(name="clasificacionSitioMonumento", nullable = false, length = 1)  //FILTRAR
-    private char clasificacionSitioMonumento;
+    @Column(name="calificacionSitioMonumento", nullable = false, length = 1)  //FILTRAR
+    private char calificacionSitioMonumento;
 
     @Column(name="nombreSitioMonumento", nullable = false, length = 60)  //FILTRAR
     private String nombreSitioMonumento;
@@ -29,8 +29,8 @@ public class SitioMonumento {
     @Column(name="ubicacionSitioMonumento", nullable = false, length = 60)
     private String ubicacionSitioMonumento;
 
-    @Column(name="calificacionSitioMonumento", nullable = false, length = 60)
-    private String calificacionSitioMonumento;
+    @Column(name="clasificacionSitioMonumento", nullable = false, length = 60)
+    private String clasificacionSitioMonumento;
 
     @Column(name="direccionSitioMonumento", nullable = false, length = 100)     //FILTRAR
     private String direccionSitioMonumento;
@@ -57,7 +57,7 @@ public class SitioMonumento {
     @Column(name="contactoSitioMonumento", nullable = false, length = 15)
     private String contactoSitioMonumento;
 
-    @Column( name="imagen_base", nullable = true, columnDefinition = "MEDIUMBLOB")
+    @Column( name="imagen_base", nullable = true, columnDefinition = "BLOB")
 	private String  imagen_base;
 	@Column( name="imagen_url", nullable = true, length = 255 )
 	private String imagen_url;
@@ -65,17 +65,17 @@ public class SitioMonumento {
     public SitioMonumento() {
     }
 
-    public SitioMonumento(String idSitioMonumento, char clasificacionSitioMonumento, String nombreSitioMonumento,
-            String ubicacionSitioMonumento, String calificacionSitioMonumento, String direccionSitioMonumento,
+    public SitioMonumento(String idSitioMonumento, String clasificacionSitioMonumento, String nombreSitioMonumento,
+            String ubicacionSitioMonumento, char calificacionSitioMonumento, String direccionSitioMonumento,
             String descripcionSitioMonumento, String detalladaSitioMonumento, Time horarioSitioMonumento,
             Date fechaCreacionSitioMonumento, Date fechaModificacionSitioMonumento,
             com.turismo.turismo.models.Autor autor, String contactoSitioMonumento, String imagen_base,
             String imagen_url) {
         this.idSitioMonumento = idSitioMonumento;
-        this.clasificacionSitioMonumento = clasificacionSitioMonumento;
+        this.calificacionSitioMonumento = calificacionSitioMonumento;
         this.nombreSitioMonumento = nombreSitioMonumento;
         this.ubicacionSitioMonumento = ubicacionSitioMonumento;
-        this.calificacionSitioMonumento = calificacionSitioMonumento;
+        this.clasificacionSitioMonumento = clasificacionSitioMonumento;
         this.direccionSitioMonumento = direccionSitioMonumento;
         this.descripcionSitioMonumento = descripcionSitioMonumento;
         this.detalladaSitioMonumento = detalladaSitioMonumento;
@@ -96,11 +96,11 @@ public class SitioMonumento {
         this.idSitioMonumento = idSitioMonumento;
     }
 
-    public char getClasificacionSitioMonumento() {
+    public String getClasificacionSitioMonumento() {
         return clasificacionSitioMonumento;
     }
 
-    public void setClasificacionSitioMonumento(char clasificacionSitioMonumento) {
+    public void setClasificacionSitioMonumento(String clasificacionSitioMonumento) {
         this.clasificacionSitioMonumento = clasificacionSitioMonumento;
     }
 
@@ -120,11 +120,11 @@ public class SitioMonumento {
         this.ubicacionSitioMonumento = ubicacionSitioMonumento;
     }
 
-    public String getCalificacionSitioMonumento() {
+    public char getCalificacionSitioMonumento() {
         return calificacionSitioMonumento;
     }
 
-    public void setCalificacionSitioMonumento(String calificacionSitioMonumento) {
+    public void setCalificacionSitioMonumento(char calificacionSitioMonumento) {
         this.calificacionSitioMonumento = calificacionSitioMonumento;
     }
 
