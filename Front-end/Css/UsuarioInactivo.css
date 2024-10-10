@@ -1,3 +1,4 @@
+/* Modo claro (por defecto) */
 body {
     width: 100%;
     content: "";
@@ -47,15 +48,12 @@ main {
 
 .back-button box-icon {
     width: 35px;
-    /* Aumenta el ancho del ícono */
     height: 35px;
-    /* Aumenta la altura del ícono */
 }
 
 .password-reset-container h1 {
     margin-top: 0;
     font-weight: bold;
-
 }
 
 .password-reset-container p {
@@ -86,6 +84,45 @@ form button:hover {
 
 .nav-item:hover {
     background-color: rgba(236, 166, 16, 0.973);
-    border-radius:8px;
+    border-radius: 8px;
     margin: 8px;
+}
+
+/* Estilos para modo oscuro */
+body.dark-mode {
+    background-image: url(/Front-end/Img/Fondo\ tema\ oscuro.png);
+    /* Imagen de fondo para modo oscuro */
+}
+
+header.dark-mode {
+    background-color: #333;
+    /* Cambiar a un color más oscuro */
+}
+
+.password-reset-container.dark-mode {
+    background-color: #333;
+    /* Cambiar el contenedor a un color más oscuro */
+    color: #ddd;
+    /* Cambiar el texto a un gris claro */
+}
+
+.back-button.dark-mode {
+    color: #ddd;
+    /* Cambiar el color del botón de regreso */
+}
+
+form button.dark-mode {
+    background-color: #555;
+    /* Botón en modo oscuro */
+    color: #fff;
+}
+
+form button.dark-mode:hover {
+    background-color: #444;
+    /* Hover en botón en modo oscuro */
+}
+
+.nav-item.dark-mode:hover {
+    background-color: rgba(100, 100, 100, 0.8);
+    /* Hover para los ítems de navegación en modo oscuro */
 }

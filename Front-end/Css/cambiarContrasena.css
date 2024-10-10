@@ -1,11 +1,16 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background: url('background-pattern.png') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-image: url(/Front-end/Img/Fondo.png);
+  /* Color de fondo para el modo claro */
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave */
 }
 
 .container {
@@ -16,6 +21,7 @@ body {
   border-radius: 10px;
   overflow: hidden;
   background-color: #333;
+  /* Color de fondo del contenedor */
   color: white;
 }
 
@@ -83,10 +89,9 @@ p {
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  padding: 5px;
-  background-color: #333;
+  background-color: #444;
+  /* Color de fondo para el campo de entrada */
   border: 1px solid #ff9900;
-  border-radius: 5px;
   color: #f5f5f5;
 }
 
@@ -206,98 +211,61 @@ p {
 
 .submenu-content a {
   display: block;
-  /* Hace que el enlace ocupe todo el ancho */
   padding: 10px 15px;
-  /* Añade espacio interno */
   text-align: center;
-  /* Centra el texto */
   min-width: 150px;
-  /* Define un ancho mínimo */
   border-radius: 5px;
-  /* Opcional: bordes redondeados */
   background-color: rgba(0, 0, 0, 0.8);
-  /* Color de fondo inicial */
   transition: background-color 0.3s;
-  /* Transición suave para el hover */
 }
 
 .submenu-content a:hover {
-  background-color: rgba(76, 72, 72, 0.3);
-  /* Color de fondo al pasar el ratón */
+  background-color: rgba(76, 72, 72, 0.9);
 }
 
-
-.submenu-content {
-  display: none;
-  position: absolute;
-  right: 100%;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 1px solid #ccc;
-  border-radius: 8%;
-  z-index: 1000;
+/* Estilos para el modo oscuro */
+.dark-mode {
+  background: url('background-pattern.png') no-repeat center center fixed;
+  background-size: cover;
+  background-image: url(/Front-end/Img/Fondo\ tema\ oscuro.png);
+  /* Fondo para el modo oscuro */
+  color: #ffffff;
+  /* Texto para el modo oscuro */
 }
 
-.dropdown-submenu:hover .submenu-content {
-  display: block;
+.dark-mode .container {
+  background-color: #1f1f1f;
+  /* Fondo del contenedor en modo oscuro */
 }
 
-#toggle {
-  display: none;
-}
-
-#label_toggle {
-  font-size: 3em;
-  color: rebeccapurple;
-  cursor: pointer;
-}
-
-body.dark {
-  background-color: black;
-  color: white;
-}
-
-body.dark .navbar {
-  background-color: #333;
-}
-
-body.dark .navbar-brand img {
-  filter: invert(1);
-}
-
-body.dark .dropdown-content {
-  background-color: #333;
-}
-
-body.dark .dropdown-content a {
-  color: white;
-}
-
-body.dark .dropdown-content a:hover {
+.dark-mode .input-group input {
   background-color: #444;
+  /* Fondo de entrada en modo oscuro */
+  color: #f5f5f5;
+  /* Texto en entrada en modo oscuro */
 }
 
-body.dark .container-fluid {
-  background-color: #333;
+.dark-mode .submit-button {
+  background-color: #ff9900;
+  /* Botón de envío en modo oscuro */
 }
 
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6 {
-  color: white;
+.dark-mode .dropdown-content {
+  background-color: #262930;
+  /* Fondo del dropdown en modo oscuro */
 }
 
-body.dark p {
-  color: #ccc;
+.dark-mode .dropdown-content a {
+  color: #ffffff;
+  /* Texto del dropdown en modo oscuro */
 }
 
-body.dark a {
-  color: #ccc;
+.dark-mode .dropdown-content a:hover {
+  background-color: #858483;
+  /* Fondo del dropdown en hover en modo oscuro */
 }
 
-body.dark a:hover {
-  color: white;
+.dark-mode .nav-item:hover {
+  background-color: #666666;
+  /* Fondo de nav-item en hover en modo oscuro */
 }
