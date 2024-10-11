@@ -2,23 +2,23 @@ package com.turismo.turismo.Controller;
 
 public class RecuperarContrasenaRequest {
 
-    private String nombreCompleto;
+    private String correoElectronico;
 
    public RecuperarContrasenaRequest() {
        super();
    }
 
-   public RecuperarContrasenaRequest(String nombreCompleto) {
+   public RecuperarContrasenaRequest(String correoElectronico) {
        super();
-       this.nombreCompleto = nombreCompleto;
+       this.correoElectronico = correoElectronico;
    }
 
-   public String getNombreCompleto() {
-       return nombreCompleto;
+   public String getCorreoElectronico() {
+       return correoElectronico;
    }
 
-   public void setNombreCompleto(String nombreCompleto) {
-       this.nombreCompleto = nombreCompleto;
+   public void setCorreoElectronico(String correoElectronico) {
+       this.correoElectronico = correoElectronico;
    }
     
     
