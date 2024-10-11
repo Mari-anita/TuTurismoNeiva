@@ -15,6 +15,9 @@ public interface Iusuario extends JpaRepository<Usuario, String> {
     @Query("SELECT U FROM Usuario U WHERE U.nombreCompleto LIKE %?1% OR U.correoElectronico LIKE %?1%")
     List<Usuario> Filtros(String filtros);
 
+    @Query("SELECT U FROM Usuario U WHERE U.nombreCompleto = :nombreCompleto")
+    Optional<Usuario> findByNombreCompleto(String nombreCompleto);
+
     @Query("SELECT U FROM Usuario U WHERE U.correoElectronico = ?1")
     Optional<Usuario> findBycorreoElectronico(String correoElectronico);
 

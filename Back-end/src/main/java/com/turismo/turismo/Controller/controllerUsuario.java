@@ -10,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.service.authService;
@@ -20,12 +19,15 @@ import com.turismo.turismo.interfaceService.IusuarioService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.security.Principal;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -157,6 +159,37 @@ public class controllerUsuario {
         emailService.enviarNotificacionCambioContra(user.getCorreoElectronico());
         return ResponseEntity.status(HttpStatus.OK).body("Contraseña cambiada exitosamente");
     }
+
+    @PostMapping("recuperarContrasena/")
+	public ResponseEntity<Map<String, String>> recuperarContrasena(@RequestBody RecuperarContrasenaRequest request) {
+	    Map<String, String> response = new HashMap<>();
+
+	    if (request.getNombreCompleto() == null || request.getNombreCompleto().isEmpty()) {
+	        response.put("message", "El correo es un campo obligatorio");
+	        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+	    }
+
+	    java.util.Optional<Usuario> optionalUsuario = usuarioService.findByNombreCompleto(request.getNombreCompleto());
+
+	    if (!optionalUsuario.isPresent()) {
+	        response.put("message", "El usuario no existe");
+	        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+	    }
+
+	    Usuario usuario = optionalUsuario.get();
+	    String token = UUID.randomUUID().toString();
+	    usuarioService.savePasswordResetToken(usuario, token);
+
+	    String enlace = "http://tuturismoneiva.com/html/index.html/recuperarContrasena.html?u=" + 
+	    	    Base64.getEncoder().encodeToString(usuario.getUsername().getBytes()) + 
+	    	    "&t=" + token;
+
+
+	    emailService. enviarNotificacionRecuperarContra(usuario.getUsername(), enlace);
+
+	    response.put("message", "Se ha enviado un enlace para recuperar la contraseña");
+	    return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 
     /*
      * CAMBIAR CONTRASEÑA

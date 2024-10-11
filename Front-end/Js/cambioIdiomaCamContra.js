@@ -1,5 +1,6 @@
 const translations = {
     es: {
+        title: "Cambiar Contraseña",
         inisio: "Inicio",
         lugarTuristico: "Sitios Turísticos",
         nosotros: "Nosotros",
@@ -15,10 +16,11 @@ const translations = {
         confirmPasswordLabel: "Confirmación contraseña nueva",
         submitButton: "Continuar",
         contactanos: "Contáctanos",
-        terminos: "Términos y condiciones",  
+        terminos: "Términos y condiciones",
         // footerText: "©2024 · TuTurismo Neiva"
     },
     en: {
+        title: "Change Password",
         inisio: "Home",
         lugarTuristico: "Tourist Sites",
         nosotros: "Us",

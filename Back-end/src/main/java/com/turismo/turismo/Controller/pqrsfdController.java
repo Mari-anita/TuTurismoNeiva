@@ -115,6 +115,12 @@ public class pqrsfdController {
         return new ResponseEntity<>(Pqrsfd, HttpStatus.OK);
     }
 
+    @GetMapping("/busqueda/{filtro}")
+	public ResponseEntity<Object> findFiltro(@PathVariable String filtro){
+	var listaPqrsfd=pqrsfdService.filtroPqrsfd(filtro); 
+	return new ResponseEntity<>(listaPqrsfd,HttpStatus.OK);
+	}
+
     @DeleteMapping("/eliminarPermanente/{id}")
     public ResponseEntity<Object> deleteForever(@PathVariable String id) {
         pqrsfdService.deleteForever(id);
