@@ -65,9 +65,22 @@ document.getElementById("correo").addEventListener("keydown", function (event) {
     }
 });
 
-//fecha fija
-var date=new Date();
-document.getElementById("custom-date").value=date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear(); 
+// Fecha actual
+var date = new Date();
+var day = date.getDate(); 
+var month = date.getMonth() + 1; 
+var year = date.getFullYear(); 
+
+// Formateamos el día y el mes para que siempre tengan dos dígitos
+if (day < 10) {
+  day = '0' + day;
+}
+if (month < 10) {
+  month = '0' + month;
+}
+
+// Asignamos la fecha al campo
+document.getElementById("custom-date").value = day + "/" + month + "/" + year;
 
 //Contador de caracteres
 document.addEventListener('DOMContentLoaded', () => {
