@@ -19,7 +19,7 @@
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 
-<body onload="listarPqrsfd();">
+<body onclick="consultarPqr();">
     <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%;">
         <div class="container-fluid" style="height: 56px; background-color:#1c1c1c">
           <a class="navbar-brand" href="../index.html">
@@ -108,7 +108,7 @@
         <h1><strong>Ingresa el número de radicado</strong></h1>
         <div class="input-row">
             <input id="texto" class="regis" type="text" placeholder="" required />
-            <button type="button" onclick="listarPqrsfd();">Consultar</button>
+            <button type="button" onclick="consultarPqr();">Consultar</button>
         </div>
         <br>
         <table class=" table table-hover table-striped table-dark" style="margin: 0% 0% 0% 0%;">
@@ -118,6 +118,7 @@
                   <th class="Center">Id usuario</th>
                   <th class="Center">Id contesta</th>
                   <th class="Center">Fecha radicado</th>
+                  <th class="Center">code</th>
                   <th class="Center">Estado</th>
                   <th class="Center">Acciones</th>
               </tr>
@@ -157,6 +158,7 @@
     </div>
   </section>
 
+  <script src="/Front-end/Js/config.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -110,12 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-var urlPqrsfd = "http://10.192.66.46:8082/api/v1/publico/Pqrsfd/"
+
 function listarPqrsfd() {
     //METODO PARA LISTAR LOS CLIENTES
     //SE CREA LA PETICION AJAX
 
-    var urlLocal = urlPqrsfd;
+    var urlLocal = url;
     var filtro = document.getElementById("texto").value
     if (filtro != "")
         urlLocal += "busqueda/" + filtro;
@@ -272,23 +272,71 @@ function limpiarFormulario() {
     });
 }
 
+/*
+function consultarPqr() {
+    var filtro = document.getElementById("texto").value.trim(); // Eliminar espacios en blanco
+    if (!filtro) {
+        alert("Por favor, ingresa un número de radicado.");
+        return; // Salir si el campo está vacío
+    }
 
-function consultarPqr(){
-    //alert(id);
+    var urlLocal = urlPqrsfd + "busqueda/" + filtro;
+
     $.ajax({
-        url:urlPqrsfd,
-        type:"GET",
-        success: function(result){
-            document.getElementById("tipoDoc").value=result["tipoDoc"];
-            document.getElementById("numDoc").value=result["numDoc"];
-            document.getElementById("nombreApellido").value=result["nombreApellido"];
-            document.getElementById("correo").value=result["correo"];
-            document.getElementById("fechaRadicado").value=result["fechaRadicado"];
-            document.getElementById("tipoPeticion").value=result["tipoPeticion"];
-            document.getElementById("descripcionPeticion").value=result["descripcionPeticion"];
+        url: urlLocal,
+        type: "GET",
+        success: function(result) {
+            var cuerpoTablaPqrsfd = document.getElementById("cuerpoTablaPqrsfd");
+            cuerpoTablaPqrsfd.innerHTML = ""; // Limpiar la tabla antes de llenar
+
+            // Verificar si hay resultados
+            if (result.length === 0) {
+                alert("No se encontraron resultados.");
+                return;
+            }
+
+            for (var i = 0; i < result.length; i++) {
+                var trRegistro = document.createElement("tr");
+
+                var celdaIdPqrsfd = document.createElement("td");
+                celdaIdPqrsfd.innerText = result[i]["idPeticion"];
+
+                var celdaIdUsuario = document.createElement("td");
+                celdaIdUsuario.innerText = result[i]["idUsuario"];
+
+                var celdaIdContesta = document.createElement("td");
+                celdaIdContesta.innerText = result[i]["idContesta"];
+
+                var celdaFechaRadicado = document.createElement("td");
+                celdaFechaRadicado.innerText = result[i]["fechaRadicado"];
+
+                var celdaCode = document.createElement("td");
+                celdaCode.innerText = result[i]["code"];
+
+                var celdaEstado = document.createElement("td");
+                celdaEstado.innerText = result[i]["estado"];
+
+                var celdaAcciones = document.createElement("td");
+                // Aquí puedes añadir botones o enlaces para acciones adicionales
+
+                trRegistro.appendChild(celdaIdPqrsfd);
+                trRegistro.appendChild(celdaIdUsuario);
+                trRegistro.appendChild(celdaIdContesta);
+                trRegistro.appendChild(celdaFechaRadicado);
+                trRegistro.appendChild(celdaCode);
+                trRegistro.appendChild(celdaEstado);
+                trRegistro.appendChild(celdaAcciones);
+
+                cuerpoTablaPqrsfd.appendChild(trRegistro);
+            }
+        },
+        error: function(error) {
+            alert("Error en la petición: " + error.responseText);
         }
     });
-}
+}*/
+
+
 
 //validación número de documento
 function validarCampos() {
