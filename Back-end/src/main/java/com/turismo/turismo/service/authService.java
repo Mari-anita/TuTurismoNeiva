@@ -192,6 +192,16 @@ public class authService implements IusuarioService {
     }
 
     @Override
+    public Optional<Usuario> findByNombreCompleto(String nombreCompleto) {
+        return dataUser.findByNombreCompleto(nombreCompleto);
+    }
+
+    @Override
+	public void savePasswordResetToken(Usuario usuario, String token) {
+		// TODO Auto-generated method stub
+	}
+
+    @Override
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico) {
         return dataUser.findByCorreoElectronico(correoElectronico);
     }

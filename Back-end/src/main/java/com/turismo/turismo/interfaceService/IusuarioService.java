@@ -19,6 +19,10 @@ public interface IusuarioService {
 
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico);
 
+    public Optional<Usuario>findByNombreCompleto(String Usuario);
+
+    public void savePasswordResetToken(Usuario usuario, String token);
+
     public boolean delete(String id);
 
     public authResponse registro(registroRequest request);
