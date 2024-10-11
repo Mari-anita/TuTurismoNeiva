@@ -1,6 +1,8 @@
 package com.turismo.turismo.models;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +18,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -27,12 +28,12 @@ public class Pqrsfd {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "idPeticion", nullable = false, length = 36)
-    private String idPeticion;        
+    private String idPeticion;
 
-    //Quien responde
+    // Quien responde
 
     @ManyToOne
-    @JoinColumn(name="idRespuesta")
+    @JoinColumn(name = "idRespuesta")
     private Respuesta Respuesta;
 
     @Column(name = "tipoDoc", nullable = false, length = 10)
@@ -48,7 +49,7 @@ public class Pqrsfd {
     private String correo;
 
     @Column(name = "fechaRadicado", nullable = false, length = 20)
-    private Timestamp fechaRadicado;
+    private Date fechaRadicado;
 
     @Column(name = "tipoPeticion", nullable = false, length = 10)
     private String tipoPeticion;
@@ -56,10 +57,17 @@ public class Pqrsfd {
     @Column(name = "descripcionPeticion", nullable = false, length = 500)
     private String descripcionPeticion;
 
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // private int consecutivo;
+
+    @Column(name = "code", nullable = false, length = 22)
+    private String code;
+
+   
 
     @Enumerated(EnumType.STRING)
-    private role role;  
+    private role role;
 
-
-    
 }
+
+

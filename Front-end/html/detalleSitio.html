@@ -17,6 +17,7 @@
   <!-- Incluye Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="/Front-end/Js/general.js"></script>
+  <script src="/Front-end/Js/detalleSitio.js"></script>
 
   <!-- Incluye Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -24,78 +25,80 @@
   <title>TuTurismoNeiva/Detalle</title>
 </head>
 
-<body style="width: 100%;">
-  <nav class="navbar navbar-expand-lg"
-  style=" top: 0%; width: 100%; background-color:#1c1c1c;">
-  <div class="container-fluid" style="height: 56px;">
-    <a class="navbar-brand" href="../index.html">
-      <img src="/Front-end/Img/logo.png" alt="" width="10%">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
-        <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-          <div class="dropdown">
-            <button class="dropbtn btn" style="color: white; font-size: 25px"><b><a style="color: white; text-decoration: none;" href="/Front-end/index.html">Inicio</a></b></button>
-            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="/Front-end/html/sitiosTuristicos.html" style="text-decoration: none; color: white;">Sitios Turísticos</a>
+<body >
+  <nav class="navbar navbar-expand-lg" style=" top: 0%; width: 100%; background-color:#1c1c1c;">
+    <div class="container-fluid" style="height: 56px;">
+      <a class="navbar-brand" href="../index.html">
+        <img src="/Front-end/Img/logo.png" alt="" width="10%">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <div class="dropdown">
+              <button class="dropbtn btn" style="color: white; font-size: 25px"><b><a
+                    style="color: white; text-decoration: none;" href="/Front-end/index.html">Inicio</a></b></button>
+              <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+                <a href="/Front-end/html/sitiosTuristicos.html" style="text-decoration: none; color: white;">Sitios
+                  Turísticos</a>
+              </div>
             </div>
-          </div>
-        </li>
-        <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-          <a id="nosotros" class="nav-link" href="/Front-end/html/MisionVision.html"
-            style="color: white; font-size: 25px"><b>Nosotros</b></a>
-        </li>
-        <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-          <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"><b>Contacto</b></a>
-        </li>
-        <li class="nav-item-S" style=" margin-top: 1.5%;">
-          <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
-        </li>
-        <li class="nav-item dropdown" style="margin-top: 1.5%;">
-          <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
-          <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-            <a href="#" style="text-decoration: none; color: white;">Español</a>
-            <a href="#" style="text-decoration: none; color: white;">Inglés</a>
-          </div>
-        </li>
-        <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
-          <button class="dropbtn btn" style="color: white; font-size: 25px">
-            <b>
-              <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
-            </b>
-          </button>
-          <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-            <a href="/Front-end/html/RegistroUsuario.html" style="text-decoration: none; color: white;">Registrarse</a>
-            <a href="#" style="text-decoration: none; color: white;">Ayuda</a>
-          </div>
-        </li>
-        <!-- autenticado -->
-        <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
-          <button class="dropbtn btn" style="color: white; font-size: 1rem">
-            <b id="nombreUsuarioDisplay">
-              <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
-            </b>
-          </button>
-          <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-            <a href="/Front-end/html/PerfilUsurio.html">Mi Perfil</a>
-            <a href="">Mis Sitios</a>
-            <a href="">Tema</a>
-            <a href="#">Ayuda</a>
-            <a href="#" id="logoutBtn">Cerrar sesión</a>
-          </div>
-        </li>
-      </ul>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a id="nosotros" class="nav-link" href="/Front-end/html/MisionVision.html"
+              style="color: white; font-size: 25px"><b>Nosotros</b></a>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px"><b>Contacto</b></a>
+          </li>
+          <li class="nav-item-S" style=" margin-top: 1.5%;">
+            <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
+          </li>
+          <li class="nav-item dropdown" style="margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px"><b>Idioma</b></button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="#" style="text-decoration: none; color: white;">Español</a>
+              <a href="#" style="text-decoration: none; color: white;">Inglés</a>
+            </div>
+          </li>
+          <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px">
+              <b>
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="/Front-end/html/RegistroUsuario.html"
+                style="text-decoration: none; color: white;">Registrarse</a>
+              <a href="#" style="text-decoration: none; color: white;">Ayuda</a>
+            </div>
+          </li>
+          <!-- autenticado -->
+          <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 1rem">
+              <b id="nombreUsuarioDisplay">
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="/Front-end/html/PerfilUsurio.html">Mi Perfil</a>
+              <a href="">Mis Sitios</a>
+              <a href="">Tema</a>
+              <a href="#">Ayuda</a>
+              <a href="#" id="logoutBtn">Cerrar sesión</a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
- 
+  </nav>
+
   <div class="container-fluid">
     <div class="col-12">
-      <a href="../html/sitiosTuristicos.html"><i class="fa-regular fa-circle-left" style="font-size: 2.8rem;"></i></a>
+      <a href="/Front-end/html/sitiosTuristicos.html"><i class="fa-regular fa-circle-left" style="font-size: 2.8rem;"></i></a>
     </div>
     <div style="width: 100%; display: flex;">
 
@@ -128,7 +131,8 @@
       </div>
       <div class="DESCRIP">
         <div>
-          <h4><b id="descripcion">Descripción</b><i class="fa-solid fa-volume-high" style="color: #FFBD59; margin: 1% 0% 0% 80%;"></i>
+          <h4><b id="descripcion">Descripción</b><i class="fa-solid fa-volume-high"
+              style="color: #FFBD59; margin: 1% 0% 0% 80%;"></i>
           </h4>
 
         </div>
@@ -145,51 +149,8 @@
     </div>
     <div>
       <h2 style="margin: 2% 0% 0% 4%;"><b id="sitiosSimilares">Sitios similares</b></h2>
-      <div class="card Cardos" style="margin: 0% 0% 0% 4%;">
-        <!-- Contenedor de imágenes para el carrusel -->
-        <div class="image-container-wrapper">
-          <div class="image-container">
-            <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="/Front-end/Img/mohan.jpg" class="d-block imgcarru rounded-3" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="/Front-end/Img/mohan.jpg" class="d-block imgcarru rounded-3" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="/Front-end/Img/mohan.jpg" class="d-block imgcarru rounded-3" alt="...">
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide"
-                data-bs-slide="prev">
-                <span aria-hidden="true"><i class="fa-solid fa-chevron-left"></i></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide"
-                data-bs-slide="next">
-                <span aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- Contenido de la tarjeta -->
-        <div class="card-body">
-          <div>
-            <h6 id="nombreSitiosSimilares">El Mohan</h6>
-            <p id="ubicacionSitiosSimilares">Av.circunvalar con calle 10</p>
-          </div>
-          <!-- Botón para mostrar más detalles en un modal -->
-          <button type="button" class="btn" style="background-color: #FFBD59; border-radius:15px;">
-            <a id="detalleSitiosSimilares" class="BTTLT">Más detalle</a>
-          </button>
-          <!-- Sección adicional de la tarjeta -->
-          <div class="CJULM">
-            <div class="votar"></div>
-            <i class="fa-regular fa-heart" id="heartIcon"></i>
-          </div>
-        </div>
+      <div class="container">
+        <div class="row" id="contenedorSitios"></div> <!-- Contenedor de las tarjetas -->
       </div>
     </div>
     <div class="DESCRIP DII" id="">
@@ -221,15 +182,19 @@
         <ul class="nav border-bottom mb-3 justify-content-between">
           <div class="d-flex">
             <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff' ></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
+                  color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                  name='envelope' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon
+                  name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon
+                  class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
           </div>
           <div class="d-flex">
-            <li class="nav-item-fo-P "><a href="../html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
+            <li class="nav-item-fo-P "><a href="/Front-end/html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
                 style="color: #feffff ; "><b>Pqrsfd</b></a></li>
-            <li class="nav-item-fo-P"><a href="../html/Docs/Terminos_y_Condiciones.pdf" target="_blank"
+            <li class="nav-item-fo-P"><a href="/Front-end/html/Docs/TerminosCondiciones.pdf" target="_blank"
                 class="nav-link px-2" style="color: #1f8b9e;"><b>Términos y condiciones</b></a></li>
           </div>
         </ul>
@@ -241,7 +206,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-    <script src="/Front-end/Js/detalleSitio.js"></script>
+  <script src="/Front-end/Js/detalleSitio.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

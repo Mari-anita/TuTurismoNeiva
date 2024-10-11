@@ -121,21 +121,21 @@ p {
 }
 
 .CIP {
-    /*CAJA DEL INPUT CONTRASEÑA*/
+    /CAJA DEL INPUT CONTRASEÑA/
     position: relative;
     display: inline-block;
     width: 100%;
 }
 
 .CIP>i {
-    /*OJO INPUT CONTRA*/
+    /OJO INPUT CONTRA/
     position: absolute;
-    /*POSICION DEL OJO DE CONTRASEÑA, ABSOLUTE PARA QUE QUEDE ENCIMA DEL INPUT*/
+    /POSICION DEL OJO DE CONTRASEÑA, ABSOLUTE PARA QUE QUEDE ENCIMA DEL INPUT/
     top: 42%;
-    /*HACE QUE BAJE EL 50% DE LA PARTE DE ARRIBA*/
+    /HACE QUE BAJE EL 50% DE LA PARTE DE ARRIBA/
     left: 27%;
     transform: translateY(-50%);
-    /*SUBE A LA MITAD*/
+    /SUBE A LA MITAD/
     cursor: pointer;
     color: black;
     /* Color del icono */
@@ -145,14 +145,14 @@ p {
     color: black;
     border: 2px solid #FFBD59;
     padding: 0.9rem 0.9rem;
-    /*HACE QUE EL INPUT SE ANCHE EL INPUT*/
+    /HACE QUE EL INPUT SE ANCHE EL INPUT/
     margin: 1% 0% 1% 0%;
     width: 30%;
-    /*TOMA TODO EL ANCHO DE LOS INPUT*/
+    /TOMA TODO EL ANCHO DE LOS INPUT/
     border-radius: 7px;
 }
 
-/*CONFIGURACION PARA EL NAV*/
+/CONFIGURACION PARA EL NAV/
 
 .dropbtn {
     color: white;

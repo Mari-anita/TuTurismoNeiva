@@ -15,4 +15,6 @@ public interface Ipqrsfd extends JpaRepository<Pqrsfd, String> {
 
     Optional<Pqrsfd> findTopByNumDocOrderByFechaRadicadoDesc(String numDoc);
 
+    
+
 }

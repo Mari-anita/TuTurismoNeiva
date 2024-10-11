@@ -7,11 +7,13 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.turismo.turismo.models.SitioMonumento;
 
-public interface IsitioMonumento extends CrudRepository< SitioMonumento, String> {
+public interface IsitioMonumento extends CrudRepository<SitioMonumento, String> {
 
+    // Filtrar por nombre del sitio o monumento
     @Query("SELECT SM FROM SitioMonumento SM WHERE SM.nombreSitioMonumento LIKE %?1%")
     List<SitioMonumento> FiltrarnombreSitioMonumento(String nombreSitioMonumento);
 
+    // Filtrar por dirección del sitio o monumento
     @Query("SELECT SM FROM SitioMonumento SM WHERE SM.direccionSitioMonumento LIKE %?1%")
     List<SitioMonumento> FiltrardireccionSitioMonumento(String direccionSitioMonumento);
 }

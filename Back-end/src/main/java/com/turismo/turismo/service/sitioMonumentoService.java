@@ -13,15 +13,15 @@ import com.turismo.turismo.models.SitioMonumento;
 @Service
 public class sitioMonumentoService implements IsitioMonumentoService {
 
-     @Autowired
+    @Autowired
     private IsitioMonumento data;
 
     @Override
-    public List <SitioMonumento> consultarSitioMonumento(){
+    public List<SitioMonumento> consultarSitioMonumento() {
         return (List<SitioMonumento>) data.findAll();
     }
 
-    @Override 
+    @Override
     public String save(SitioMonumento SitioMonumento) {
         data.save(SitioMonumento);
         return SitioMonumento.getIdSitioMonumento();
@@ -36,7 +36,7 @@ public class sitioMonumentoService implements IsitioMonumentoService {
     @Override
     public Optional<SitioMonumento> findOne(String id) {
         Optional<SitioMonumento> SitioMonumento = data.findById(id);
-        return SitioMonumento; 
+        return SitioMonumento;
     }
 
     @Override
@@ -59,10 +59,10 @@ public class sitioMonumentoService implements IsitioMonumentoService {
 
     @Override
     public int guardarImagenJson(SitioMonumento SitioMonumento) {
-        int res=0;
-        SitioMonumento =data.save(SitioMonumento);
-        if(SitioMonumento.equals(null)) {
-            res=1;
+        int res = 0;
+        SitioMonumento = data.save(SitioMonumento);
+        if (SitioMonumento.equals(null)) {
+            res = 1;
         }
         return res;
     }
