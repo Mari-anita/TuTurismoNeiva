@@ -164,12 +164,12 @@ public class controllerUsuario {
 	public ResponseEntity<Map<String, String>> recuperarContrasena(@RequestBody RecuperarContrasenaRequest request) {
 	    Map<String, String> response = new HashMap<>();
 
-	    if (request.getNombreCompleto() == null || request.getNombreCompleto().isEmpty()) {
+	    if (request.getCorreoElectronico() == null || request.getCorreoElectronico().isEmpty()) {
 	        response.put("message", "El correo es un campo obligatorio");
 	        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	    }
 
-	    java.util.Optional<Usuario> optionalUsuario = usuarioService.findByNombreCompleto(request.getNombreCompleto());
+	    java.util.Optional<Usuario> optionalUsuario = usuarioService.findBycorreoElectronico(request.getCorreoElectronico());
 
 	    if (!optionalUsuario.isPresent()) {
 	        response.put("message", "El usuario no existe");
@@ -180,7 +180,7 @@ public class controllerUsuario {
 	    String token = UUID.randomUUID().toString();
 	    usuarioService.savePasswordResetToken(usuario, token);
 
-	    String enlace = "http://tuturismoneiva.com/html/index.html/recuperarContrasena.html?u=" + 
+	    String enlace = "http://127.0.0.1:5502/Front-end/html/recuperarContrasena.html?u=" + 
 	    	    Base64.getEncoder().encodeToString(usuario.getUsername().getBytes()) + 
 	    	    "&t=" + token;
 

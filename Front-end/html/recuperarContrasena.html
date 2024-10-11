@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="/Front-end/Css/cambiarContrasena.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!--Box Icons-->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -116,7 +115,7 @@
       <img src="/Front-end/Img/logo.png" alt="Tu Turismo Neiva" class="logo">
     </div>
     <div class="form-section">
-      <h2 id="title-password">Cambiar contraseña</h2>
+      <h2 id="title-password">Recuperar contraseña</h2>
       <p id="text-parrafo">Asegúrate de elegir una contraseña robusta<br> para proteger tu cuenta de accesos no
         <br>autorizados.
       </p>
@@ -130,7 +129,7 @@
           <input type="password" id="confirmarContrasena" required>
           <i class="fa-regular fa-eye-slash toggle-password" data-target="confirmarContrasena"></i>
         </div>
-        <button type="submit" class="submit-button">Continuar</button>
+        <button type="submit" onclick="recuperarContrasena();" class="btn change-password submit-button">Continuar</button>
       </form>
     </div>
   </div>
@@ -186,7 +185,9 @@
       </footer>
     </div>
   </section>
+  <script src="/Front-end/Js/config.js"></script>
   <script src="/Front-end/Js/RecuperarContrasena.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
