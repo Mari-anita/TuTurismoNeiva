@@ -1,5 +1,6 @@
 const translations = {
     es: {
+        title: "Usuario Inactivo",
         inisio: "Inicio",
         lugarTuristico: "Sitios Turísticos",
         nosotros: "Nosotros",
@@ -17,6 +18,7 @@ const translations = {
         // footerText: "©2024 · TuTurismo Neiva",
     },
     en: {
+        title: "Inactive User",
         inisio: "Home",
         lugarTuristico: "Tourist Sites",
         nosotros: "Us",
@@ -37,6 +39,7 @@ const translations = {
 
 function changeLanguage(lang) {
     // Cambiar los textos del menú
+    document.title = translations[lang].title;
     document.getElementById('inisio').innerText = translations[lang].inisio;
     document.getElementById('lugar-turistico').innerText = translations[lang].lugarTuristico;
     document.getElementById('nosotros').innerText = translations[lang].nosotros;
