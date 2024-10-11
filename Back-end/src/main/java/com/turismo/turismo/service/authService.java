@@ -1,10 +1,7 @@
 package com.turismo.turismo.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,11 +18,8 @@ import com.turismo.turismo.models.Pqrsfd;
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.models.authResponse;
 import com.turismo.turismo.models.loginRequest;
-import com.turismo.turismo.models.pqrsfdRegistroRequest;
-import com.turismo.turismo.models.pqrsfdRegistroResponse;
 import com.turismo.turismo.models.registroRequest;
 import com.turismo.turismo.models.role;
-import java.time.Duration;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,8 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class authService implements IusuarioService {
 
-    @Autowired
-    private Ipqrsfd pqrsfdRepository;
+
     private final Ipqrsfd dataPqrsfd;
     private final Iusuario dataUser;
     private final jwtService jwtService;
@@ -116,12 +109,6 @@ public class authService implements IusuarioService {
     public Optional<Usuario> findBycorreoElectronico(String correoElectronico) {
         return dataUser.findByCorreoElectronico(correoElectronico);
     }
-
-    // Método que busca por numDoc
-    public Optional<Pqrsfd> findBynumDoc(String numDoc) {
-        return dataPqrsfd.findBynumDoc(numDoc); // Llamada al método del repositorio
-    }
-
     @Override
     public boolean delete(String id) {
         // TODO Auto-generated method stub

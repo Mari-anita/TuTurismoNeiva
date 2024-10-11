@@ -30,7 +30,8 @@ public class sitioMonumentoContoller {
     private IsitioMonumentoService sitioMonumentoService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save( SitioMonumento SitioMonumento,  @RequestParam("file") MultipartFile file) throws IOException  {
+    public ResponseEntity<Object> save(SitioMonumento SitioMonumento, @RequestParam("file") MultipartFile file)
+            throws IOException {
 
         // VALIDACIONES
 
@@ -111,6 +112,38 @@ public class sitioMonumentoContoller {
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    // Editar imagen de una categoría
+    // @PutMapping("/imagen/{id}")
+    // public ResponseEntity<Object> updateCategoriaImage(
+    //         @PathVariable String id,
+    //         @RequestParam("file") MultipartFile file) {
+    //     try {
+    //         // Buscar la categoría por su ID
+    //         var SitioMonumentoOptional = SitioMonumentoService.findOne(id);
+
+    //         // Verificar si la categoría existe
+    //         if (categoriaOptional.isPresent()) {
+    //             var categoria = categoriaOptional.get();
+
+    //             // Convertir la imagen a base64
+    //             String imagenBase64 = Base64.getEncoder().encodeToString(file.getBytes());
+
+    //             // Actualizar la imagen de la categoría
+    //             SitioMonumento.setImagen_base(imagenBase64);
+
+    //             // Guardar los cambios de la categoría
+    //             SitioMonumentoService.save(categoria);
+
+    //             return new ResponseEntity<>(categoria, HttpStatus.OK);
+    //         } else {
+    //             return new ResponseEntity<>("Error: Categoría no encontrada", HttpStatus.NOT_FOUND);
+    //         }
+    //     } catch (IOException e) {
+    //         return new ResponseEntity<>("Error al actualizar la imagen: " + e.getMessage(),
+    //                 HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    // }
 
     @GetMapping("/")
     public ResponseEntity<Object> findAll() {

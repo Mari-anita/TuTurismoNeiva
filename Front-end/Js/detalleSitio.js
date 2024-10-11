@@ -48,61 +48,58 @@ function Validarcoment(CuadroNumero) {
 function cargarSitio() {
     // Se hace una solicitud AJAX para obtener los datos de los sitios turísticos o monumentos
     $.ajax({
-        url: urlSitioMonumento,  // La URL desde donde se obtendrán los datos. Esta variable debe estar configurada con la URL adecuada
+        url: urlSitioMonumento,  // La URL desde donde se obtendrán los datos
         type: "GET",  // Tipo de solicitud HTTP (en este caso, GET, para obtener datos)
         success: function(result) {  // Función que se ejecuta si la solicitud es exitosa
             console.log(result);
             var contenedorSitios = document.getElementById("contenedorSitios");
             contenedorSitios.innerHTML = ""; // Limpiar el contenido previo del contenedor para evitar duplicados
 
-            // Recorre los resultados recibidos, que son un arreglo de sitios
+            // Recorre los resultados recibidos
             result.forEach(function(sitio) {
-                // Plantilla HTML para generar las tarjetas (cards) que contienen información de cada sitio
+                // Establecer valores predeterminados en caso de que alguna propiedad esté ausente
+                var imagen1 = sitio.imagen1 ? sitio.imagen1 : "ruta/default.jpg";  // Imagen por defecto si no hay imagen1
+                var imagen2 = sitio.imagen2 ? `<div class="carousel-item"><img src="${sitio.imagen2}" class="d-block w-100" alt="Imagen del sitio"></div>` : '';
+                var imagen3 = sitio.imagen3 ? `<div class="carousel-item"><img src="${sitio.imagen3}" class="d-block w-100" alt="Imagen del sitio"></div>` : '';
+                var nombreSitio = sitio.nombreSitioMonumento ? sitio.nombreSitioMonumento : "Nombre no disponible";  // Nombre por defecto
+                var descripcion = sitio.descripcion ? sitio.descripcion : "Descripción no disponible";  // Descripción por defecto
+
+                // Plantilla HTML para las tarjetas
                 var cardSitio = `
                     <div class="card" style="width: 18rem; margin: 15px;">
-                        <!-- Carrusel de imágenes del sitio -->
                         <div id="carouselSitio-${sitio.id}" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                                <!-- Primera imagen del carrusel, marcada como "active" para que sea la que se muestre por defecto -->
                                 <div class="carousel-item active">
-                                    <img src="${sitio.imagen1}" class="d-block w-100" alt="Imagen del sitio">
+                                    <img src="${imagen1}" class="d-block w-100" alt="Imagen del sitio">
                                 </div>
-                                <!-- Segunda imagen del carrusel -->
-                                <div class="carousel-item">
-                                    <img src="${sitio.imagen2}" class="d-block w-100" alt="Imagen del sitio">
-                                </div>
-                                <!-- Tercera imagen del carrusel -->
-                                <div class="carousel-item">
-                                    <img src="${sitio.imagen3}" class="d-block w-100" alt="Imagen del sitio">
-                                </div>
+                                ${imagen2}
+                                ${imagen3}
                             </div>
-                            <!-- Botón para retroceder a la imagen anterior del carrusel -->
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselSitio-${sitio.id}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <!-- Botón para avanzar a la siguiente imagen del carrusel -->
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselSitio-${sitio.id}" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
 
-                        <!-- Contenido de la tarjeta que incluye el título del sitio, su descripción y un botón -->
                         <div class="card-body">
-                            <h5 class="card-title">${sitio.nombre}</h5>  <!-- Nombre del sitio turístico -->
-                            <p class="card-text">${sitio.descripcion}</p> <!-- Descripción del sitio -->
-                            <a href="#" class="btn btn-primary">Ver más detalles</a>  <!-- Botón que podría llevar a más detalles -->
+                            <h5 class="card-title">${nombreSitio}</h5>
+                            <p class="card-text">${descripcion}</p>
+                            <a href="#" class="btn btn-primary">Ver más detalles</a>
                         </div>
                     </div>
                 `;
 
-                // Añade la tarjeta del sitio al contenedor principal
+                // Añade la tarjeta al contenedor
                 contenedorSitios.innerHTML += cardSitio;
             });
         },
-        error: function(error) {  // Función que se ejecuta si ocurre un error en la solicitud AJAX
-            alert("Error en la petición: " + error);  // Muestra una alerta con el mensaje de error
+        error: function(error) {  // Función en caso de error
+            alert("Error en la petición: " + error);
         }
     });
 }
+
