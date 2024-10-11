@@ -19,4 +19,6 @@ public interface IpqrsfdService {
     public Optional<Pqrsfd> findBynumDoc(String numDoc);
 
     public authResponse registroPqrsfd(pqrsfdRegistroRequest request);
+
+    public Object filtroPqrsfd(String filtro);
 }
