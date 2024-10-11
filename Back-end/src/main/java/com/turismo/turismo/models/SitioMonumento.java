@@ -59,8 +59,7 @@ public class SitioMonumento {
 
     @Column( name="imagen_base", nullable = true, columnDefinition = "MEDIUMBLOB")
 	private String  imagen_base;
-	@Column( name="imagen_url", nullable = true, length = 35 )
-	private String imagen_url;
+
 
     public SitioMonumento() {
     }
@@ -84,8 +83,8 @@ public class SitioMonumento {
         this.fechaModificacionSitioMonumento = fechaModificacionSitioMonumento;
         Autor = autor;
         this.contactoSitioMonumento = contactoSitioMonumento;
-        this.imagen_base = "data:image/jpeg;base64,"+ imagen_base;
-        this.imagen_url = imagen_url;
+        this.imagen_base = imagen_base;
+        // this.imagen_base = "data:image/jpeg;base64,"+ imagen_base;
     }
 
     public String getIdSitioMonumento() {
@@ -200,14 +199,4 @@ public class SitioMonumento {
         this.imagen_base = imagen_base;
     }
 
-    public String getImagen_url() {
-        return imagen_url;
-    }
-
-    public void setImagen_url(String imagen_url) {
-        this.imagen_url = "data:image/jpeg;base64,"+ imagen_url;
-    }
-
-    
-    
 }
