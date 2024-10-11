@@ -65,9 +65,22 @@ document.getElementById("correo").addEventListener("keydown", function (event) {
     }
 });
 
-//fecha fija
-var date=new Date();
-document.getElementById("custom-date").value=date.getDay()+"/"+date.getMonth()+"/"+date.getFullYear(); 
+// Fecha actual
+var date = new Date();
+var day = date.getDate(); 
+var month = date.getMonth() + 1; 
+var year = date.getFullYear(); 
+
+// Formateamos el día y el mes para que siempre tengan dos dígitos
+if (day < 10) {
+  day = '0' + day;
+}
+if (month < 10) {
+  month = '0' + month;
+}
+
+// Asignamos la fecha al campo
+document.getElementById("custom-date").value = day + "/" + month + "/" + year;
 
 //Contador de caracteres
 document.addEventListener('DOMContentLoaded', () => {
@@ -97,11 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+var urlPqrsfd = "http://10.192.66.46:8082/api/v1/publico/Pqrsfd/"
 function listarPqrsfd() {
     //METODO PARA LISTAR LOS CLIENTES
     //SE CREA LA PETICION AJAX
 
-    var urlLocal = url;
+    var urlLocal = urlPqrsfd;
     var filtro = document.getElementById("texto").value
     if (filtro != "")
         urlLocal += "busqueda/" + filtro;
@@ -150,7 +164,7 @@ function listarPqrsfd() {
                 trResgistro.appendChild(celdaMensaje);
 
                 trResgistro.appendChild(celdaOpcion)
-                cuerpoTablaPaciente.appendChild(trResgistro);
+                cuerpoTablaPqrsfd.appendChild(trResgistro);
 
 
                 //creamos un td por cada campo de resgistro

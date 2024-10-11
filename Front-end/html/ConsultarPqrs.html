@@ -19,7 +19,7 @@
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 
-<body>
+<body onload="listarPqrsfd();">
     <nav class="navbar navbar-expand-lg bg-dark" style="top: 0%;">
         <div class="container-fluid" style="height: 56px; background-color:#1c1c1c">
           <a class="navbar-brand" href="../index.html">
@@ -107,9 +107,25 @@
         <a href="./RegistroPqrsfd.html" class="back-button"><box-icon name="left-arrow-circle" color="#ffab2d"></box-icon></a>
         <h1><strong>Ingresa el número de radicado</strong></h1>
         <div class="input-row">
-            <input class="regis" type="text" placeholder="" required />
-            <button type="button" onclick="consultarPqr()">Consultar</button>
+            <input id="texto" class="regis" type="text" placeholder="" required />
+            <button type="button" onclick="listarPqrsfd();">Consultar</button>
         </div>
+        <br>
+        <table class=" table table-hover table-striped table-dark" style="margin: 0% 0% 0% 0%;">
+          <div class="colorTabla" >
+              <tr>
+                  <th class="Center">Id petición</th>
+                  <th class="Center">Id usuario</th>
+                  <th class="Center">Id contesta</th>
+                  <th class="Center">Fecha radicado</th>
+                  <th class="Center">Estado</th>
+                  <th class="Center">Acciones</th>
+              </tr>
+          </div>
+          <tbody id="cuerpoTablaPqrsfd">
+
+          </tbody>
+      </table>
     </div>
   </main>
   <section id="contacto">
@@ -119,10 +135,14 @@
         <ul class="nav border-bottom mb-3 justify-content-between">
           <div class="d-flex">
             <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' color='#ffffff'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff' ></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
+                  color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                  name='envelope' color='#ffffff'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon
+                  name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
+            <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon
+                  class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
 
           </div>
           <div class="d-flex">
@@ -143,7 +163,6 @@
     crossorigin="anonymous"></script>
   <!-- <script src="/Front-end/Js/cambiarIdiomas.js"></script> -->
   <script src="/Front-end/Js/cambioIdioma.js"></script>
-
+  <script src="/Front-end/Js/Pqrsfd.js"></script>
 </body>
-
 </html>

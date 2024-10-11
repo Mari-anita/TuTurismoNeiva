@@ -63,8 +63,6 @@ public class Pqrsfd {
     @Column(name = "code", nullable = false, length = 22)
     private String code;
 
-   
-
     @Enumerated(EnumType.STRING)
     private role role;
 
