@@ -131,18 +131,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             const body = { nuevaContrasena, confirmarContrasena };
             try {
-                const response = await fetch(urlCambioContrasena, {
+                const response = await fetch(urlCambiarContraseña, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': "Bearer" + token
+                        'Authorization': "Bearer " + token
                     },
                     body: JSON.stringify(body)
                 });
-                const responseData = await response.json();
+            
+                // Verifica si el tipo de contenido es JSON
+                const contentType = response.headers.get("content-type");
+                let responseData;
+                if (contentType && contentType.includes("application/json")) {
+                    responseData = await response.json();
+                } else {
+                    responseData = { message: await response.text() }; // Asigna el texto de respuesta si no es JSON
+                }
+            
                 if (!response.ok) {
                     throw new Error('Error al cambiar la contraseña: ' + (responseData.message || response.statusText));
                 }
+            
                 Swal.fire({
                     icon: 'success',
                     title: 'Éxito',
@@ -157,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     text: error.message
                 });
             }
-        }
+        }            
     
 // });
 
