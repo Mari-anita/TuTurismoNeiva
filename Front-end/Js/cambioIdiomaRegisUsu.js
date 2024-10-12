@@ -1,17 +1,18 @@
 const translations = {
     es: {
-        inisio: "<b>Inicio</b>",
+        title: "Registro Usuario",
+        inisio: "Inicio",
         lugarTuristico: "Sitios Turísticos",
-        nosotros: "<b>Nosotros</b>",
-        contacto: "<b>Contacto</b>",
-        idioma: "<b>Idioma</b>",
+        nosotros: "Nosotros",
+        contacto: "Contacto",
+        idioma: "Idioma",
         registro: "Registrarse",
         tema: "Tema",
         ayuda: "Ayuda",
         crearCuentaTitle: "Crear cuenta",
         iniciarSesionTitle: "Inicia Sesión",
         termsText: "Al hacer clic en 'Registrar', aceptas nuestros términos y condiciones.",
-        contactanos:"Contáctanos",
+        contactanos: "Contáctanos",
         terminos: "Términos y condiciones",
         // footerText: "©2024 · TuTurismo Neiva"
         nombreCompleto: "Nombre completo",
@@ -29,11 +30,12 @@ const translations = {
         iniciarSesion: "Iniciar sesión",
     },
     en: {
-        inisio: "<b>Home</b>",
+        title: "User Registration",
+        inisio: "Home",
         lugarTuristico: "Tourist Sites",
-        nosotros: "<b>Us</b>",
-        contacto: "<b>Contact</b>",
-        idioma: "<b>Language</b>",
+        nosotros: "Us",
+        contacto: "Contact",
+        idioma: "Language",
         registro: "User Registration",
         tema: "Theme",
         ayuda: "Help",
@@ -60,15 +62,16 @@ const translations = {
 };
 
 function changeLanguage(lang) {
+    // Cambiar los textos del menú
     document.title = translations[lang].title;
-    document.getElementById('inisio').innerHTML = translations[lang].inisio;
-    document.getElementById('lugar-turistico').innerHTML = translations[lang].lugarTuristico;
-    document.getElementById('nosotros').innerHTML = translations[lang].nosotros;
-    document.getElementById('contacto').innerHTML = translations[lang].contacto;
-    document.getElementById('idioma').innerHTML = translations[lang].idioma;
-    document.getElementById('registro').innerHTML = translations[lang].registro;
-    document.getElementById('tema').innerHTML = translations[lang].tema;
-    document.getElementById('ayuda').innerHTML = translations[lang].ayuda;
+    document.getElementById('inisio').innerHTML = `<b>${translations[lang].inisio}</b>`;
+    document.getElementById('lugar-turistico').innerHTML = `<b>${translations[lang].lugarTuristico}</b>`;
+    document.getElementById('nosotros').innerHTML = `<b>${translations[lang].nosotros}</b>`;
+    document.getElementById('contacto').innerHTML = `<b>${translations[lang].contacto}</b>`;
+    document.getElementById('idioma').innerHTML = `<b>${translations[lang].idioma}</b>`;
+    document.getElementById('registro').innerHTML = `<b>${translations[lang].registro}</b>`;
+    document.getElementById('tema').innerHTML = `<b>${translations[lang].tema}</b>`;
+    document.getElementById('ayuda').innerHTML = `<b>${translations[lang].ayuda}</b>`;
 
     // Crear cuenta 
     document.getElementById('crear-cuenta-title').innerHTML = translations[lang].crearCuentaTitle;
@@ -102,10 +105,9 @@ function changeLanguage(lang) {
 
 
     // Cambios en el footer
-    document.getElementById('contact-title').innerText = translations[lang].contactanos;
-    // document.getElementById('pqrsfd-link').innerText = translations[lang].pqrsfd;
-    document.getElementById('terms-link').innerText = translations[lang].terminos;
-    // document.getElementById('footer-text').innerText = translations[lang].footerText;
+    document.getElementById('contact-title').innerHTML = `<b>${translations[lang].contactanos}</b>`;
+    document.getElementById('pqrsfd-link').innerHTML = `<b>Pqrsfd</b>`;
+    document.getElementById('terms-link').innerHTML = `<b>${translations[lang].terminos}</b>`;
 }
 
 document.querySelectorAll('.flags_item').forEach(item => {

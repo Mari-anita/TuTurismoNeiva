@@ -43,14 +43,14 @@ const translations = {
 
 function changeLanguage(lang) {
     document.title = translations[lang].title;
-    document.getElementById('inisio').innerText = translations[lang].inisio;
-    document.getElementById('lugar-turistico').innerText = translations[lang].lugarTuristico;
-    document.getElementById('nosotros').innerText = translations[lang].nosotros;
-    document.getElementById('contacto').innerText = translations[lang].contacto;
-    document.getElementById('idioma').innerText = translations[lang].idioma;
-    document.getElementById('registro').innerText = translations[lang].registro;
-    document.getElementById('tema').innerText = translations[lang].tema;
-    document.getElementById('ayuda').innerText = translations[lang].ayuda;
+    document.getElementById('inisio').innerHTML = `<b>${translations[lang].inisio}</b>`;
+    document.getElementById('lugar-turistico').innerHTML = `<b>${translations[lang].lugarTuristico}</b>`;
+    document.getElementById('nosotros').innerHTML = `<b>${translations[lang].nosotros}</b>`;
+    document.getElementById('contacto').innerHTML = `<b>${translations[lang].contacto}</b>`;
+    document.getElementById('idioma').innerHTML = `<b>${translations[lang].idioma}</b>`;
+    document.getElementById('registro').innerHTML = `<b>${translations[lang].registro}</b>`;
+    document.getElementById('tema').innerHTML = `<b>${translations[lang].tema}</b>`;
+    document.getElementById('ayuda').innerHTML = `<b>${translations[lang].ayuda}</b>`;
     document.getElementById('title-password').innerText = translations[lang].titlePassword;
     document.getElementById('text-parrafo').innerText = translations[lang].textParrafo;
     document.getElementById('new-password-label').innerText = translations[lang].newPasswordLabel;
@@ -59,10 +59,9 @@ function changeLanguage(lang) {
     document.querySelector('.submit-button').innerText = translations[lang].submitButton;
 
     // Cambios en el footer
-    document.getElementById('contact-title').innerText = translations[lang].contactanos;
-    // document.getElementById('pqrsfd-link').innerText = translations[lang].pqrsfd;
-    document.getElementById('terms-link').innerText = translations[lang].terminos;
-    // document.getElementById('footer-text').innerText = translations[lang].footerText;
+    document.getElementById('contact-title').innerHTML = `<b>${translations[lang].contactanos}</b>`;
+    document.getElementById('pqrsfd-link').innerHTML = `<b>Pqrsfd</b>`;
+    document.getElementById('terms-link').innerHTML = `<b>${translations[lang].terminos}</b>`;
 }
 
 document.querySelectorAll('.flags_item').forEach(item => {

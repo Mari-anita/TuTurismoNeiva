@@ -1,5 +1,8 @@
-body{
+body {
     width: 100%;
+    background: url('background-pattern.png') no-repeat center center fixed;
+    background-size: cover;
+    background-image: url(/Front-end/Img/Fondo.png);
 }
 
 @media (max-width: 768px) {
@@ -15,25 +18,25 @@ body{
 /*TERMINA ENCABEZADO*/
 
 /*INICIO CONTAINER*/
-.form_title{ 
+.form_title {
     font-weight: bold;
     margin: 10% 0% 10% 0%;
 }
 
-.form_title2{ 
+.form_title2 {
     font-weight: bold;
     margin: 30% 0% 20% 0%;
     font-size: xxx-large;
 }
 
-.link{
+.link {
     color: #333;
     font-size: 0.9rem;
     margin: 1.5rem;
     text-decoration: none;
 }
 
-.container{ 
+.container {
     background-color: white;
     /*AQUI SE PONE LA FOTO*/
     border-radius: 0.7rem;
@@ -47,7 +50,7 @@ body{
     margin: 3% auto auto auto;
 }
 
-.container_form{
+.container_form {
     height: 100%;
     /*BAJA EL LOGIN HASTA QUE SALGA POR DENTRO DEL CONTAINER*/
     position: absolute;
@@ -58,7 +61,7 @@ body{
     /*DURACION EN LA QUE APAREZCA EL REGISTRAR Y LOGIN*/
 }
 
-.container-signin{
+.container-signin {
     left: 0;
     /*PEGAMOS LA CAJA AL LATERAL IZQUIERDO*/
     width: 50%;
@@ -67,12 +70,12 @@ body{
     /*QUEDA POR DEBAJO DEL REGISTRAR*/
 }
 
-.container.right-panel-active .container-signin{
+.container.right-panel-active .container-signin {
     transform: translateX(100%);
     /*MANDA AL CONTAINER Y EL INICIO SESION A LA POSICION 100 DE X*/
 }
 
-.container-signup{
+.container-signup {
     left: 0;
     /*HACE QUE SE MEPEGUE AL LATERAL IZQUIERDO*/
     width: 50%;
@@ -83,7 +86,7 @@ body{
     /*0OPASIDAD 0 : SE DESAPARECE */
 }
 
-.container.right-panel-active .container-signup{
+.container.right-panel-active .container-signup {
     animation: show 0.6;
     /*ESTA TRANSICIÓN MANDA A LA POSITION X 100*/
     opacity: 1;
@@ -95,7 +98,7 @@ body{
     /*QUE SE POSICIONE 5 VECES ENCIMA DE CUALQUIER COSA*/
 }
 
-.form{
+.form {
     /*PONER A PRUEBA ESE PADDING Y TEXT*/
     background-color: #26282E;
     display: flex;
@@ -125,7 +128,7 @@ body{
     /*COLOR AL PONER EL CURSOR ENCIMA DEL REGISTRO Y OLVIDE TU CONTRA
 }*/
 
-.btnn{
+.btnn {
     background-color: #FFBD59;
     border-radius: 20px;
     color: white;
@@ -141,13 +144,13 @@ body{
     transition: transform 80ms ease-in;
 }
 
-.btnn:hover{
+.btnn:hover {
     background-color: #26282E;
     color: white;
     border: 2px solid #FFBD59;
 }
 
-.input{
+.input {
     background-color: #26282E;
     color: white;
     border: 1px solid #FFBD59;
@@ -160,13 +163,15 @@ body{
     border-radius: 7px;
 }
 
-.CIP { /*CAJA DEL INPUT CONTRASEÑA*/
+.CIP {
+    /*CAJA DEL INPUT CONTRASEÑA*/
     position: relative;
     display: inline-block;
     width: 100%;
 }
 
-.CIP>i { /*OJO INPUT CONTRA*/
+.CIP>i {
+    /*OJO INPUT CONTRA*/
     position: absolute;
     /*POSICION DEL OJO DE CONTRASEÑA, ABSOLUTE PARA QUE QUEDE ENCIMA DEL INPUT*/
     top: 45%;
@@ -177,16 +182,20 @@ body{
     cursor: pointer;
     color: #ffffff;
     /* Color del icono */
-}                                                                                               
+}
 
 /*ANIMACION DE CONTRASEÑA*/
-@keyframes inputToggleAnimation {  /*HACE QUE EL INPUT HAGA SALTO AL UNDIR EN EL EYE*/
+@keyframes inputToggleAnimation {
+
+    /*HACE QUE EL INPUT HAGA SALTO AL UNDIR EN EL EYE*/
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }
@@ -199,7 +208,7 @@ body{
 /*FIN ANIMACION*/
 
 
-.container_overlay{
+.container_overlay {
     height: 100%;
     left: 50%;
     overflow: hidden;
@@ -215,13 +224,13 @@ body{
     /*HACE QUE TODA LA IMAGEN ENCAJE EN EL CONTAINER*/
 }
 
-.container.right-panel-active .container_overlay{
+.container.right-panel-active .container_overlay {
     transform: translateX(-100%);
     /*EL DCPBT QUEDABA ENCIMA DE TODO POR SU POSITION ABSOLUTE, ENTONCES
     EL TRANSFORM TRASLATE X -100 HACE QUE ESE CONTAINER SE DESPLIEGUE EN POSITION X NEGATIVO DE LA TABLA*/
 }
 
-.overlay{
+.overlay {
     /* background-color: #008997;
     background-image: url(/Front-end/Img/ImagenesTuTurismoNeivaREALES/fondoiglesia.jpg);
     background-attachment: fixed;
@@ -238,24 +247,26 @@ body{
     /*HACE QUE OCUPE EL ANCHO DE LOS DOS CONTAINER INICIO Y REGISTRO*/
 }
 
-.container.right-panel-active .overlay{
+.container.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
-.btnn:active { /**/
+.btnn:active {
+    /**/
     /*EL ACTIVE APLICA MIENTRAS EL USUARIO HACE CLIC EN UN BOTON Y MANTIENE PRESIONADO EL BOTO DEL MOUSE*/
     transform: scale(0.95);
     /*HACE UNA ANIMACION QUE PARECE QUE LA LETRA DE LOS BOTONES SE ESTE HUNDIENDO*/
 }
 
-.btnn:focus { /**/
+.btnn:focus {
+    /**/
     /*FOCUS: SE APLICA CUANDO EL USUARIO INTERACTUA CON LOS BOTONES Y PARA ESO VAMOS A USA JS*/
     outline: none;
     /*ELIMINA EL CONTORNO*/
 }
 
 
-.overlay_panel{
+.overlay_panel {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -271,39 +282,81 @@ body{
     width: 50%;
 }
 
-.overlay-left{
+.overlay-left {
     transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left{
+.container.right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
-.overlay-right{
+.overlay-right {
     right: 0;
     transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right{
+.container.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
 
 
-@keyframes show{
+@keyframes show {
+
     0%,
-    49.99%{
+    49.99% {
         opacity: 0;
         z-index: 1;
     }
+
     50%,
-    100%{
+    100% {
         opacity: 1;
         z-index: 5;
     }
-} 
+}
 
 /*FIN CONTAINER*/
 
-.form-select:focus-visible{
+.form-select:focus-visible {
     color: white !important;
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    background: url('background-pattern.png') no-repeat center center fixed;
+    background-size: cover;
+    background-image: url(/Front-end/Img/Fondo\ tema\ oscuro.png);
+    /* Fondo para el modo oscuro */
+}
+
+.password-reset-container.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+header.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+form button.dark-mode {
+    background-color: #444;
+    color: white;
+}
+
+.back-button.dark-mode {
+    background-color: #444;
+    color: white;
+}
+
+.nav-item.dark-mode {
+    background-color: #444;
+    color: white;
+}
+
+/* Estilos de los inputs en modo oscuro */
+.input.dark-mode {
+    background-color: #333;
+    color: white;
+    border-color: #FFBD59;
 }
