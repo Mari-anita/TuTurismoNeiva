@@ -8,6 +8,7 @@ var urlObtenerusuario = urlBase + "usuario/";
 var urlPqrsfd = urlBase + "publico/Pqrsfd/";
 var urlCambiarContraseña=urlBase + "usuario/cambiarContrasena/";
 var urlRecuperarContrasena= urlBase + "usuario/recuperarContrasena/";
+var urlCambioRecuperacionContrasena = urlBase + "usuario/cambioRecuperacionContrasena/";
 
 //Redireccion
 var urlRedireccion = "http://127.0.0.1:5502/";

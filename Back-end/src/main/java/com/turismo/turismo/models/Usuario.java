@@ -45,6 +45,9 @@ public class Usuario implements UserDetails {
     @Column(name = "coContra", nullable = false, length = 60)
     private String coContra;
 
+    @Column(name = "verificarContrasena")
+    private boolean verificarContrasena;
+
     @Enumerated(EnumType.STRING)
     private role role;
 

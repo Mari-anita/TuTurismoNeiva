@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             const body = { nuevaContrasena, confirmarContrasena };
             try {
-                const response = await fetch(urlCambiarContraseña, {
+                const response = await fetch(urlCambioRecuperacionContrasena, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

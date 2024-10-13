@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.turismo.turismo.models.Respuestica;
 import com.turismo.turismo.models.Usuario;
 import com.turismo.turismo.service.authService;
 import com.turismo.turismo.service.emailService;
@@ -189,6 +190,59 @@ public class controllerUsuario {
 
 	    response.put("message", "Se ha enviado un enlace para recuperar la contraseña");
 	    return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+    private boolean esContrasenaValida(String contraseña) {
+	    if (contraseña.length() < 8) {
+	        return false;
+	    }
+
+	    boolean tieneMayuscula = contraseña.chars().anyMatch(Character::isUpperCase);
+	    boolean tieneNumero = contraseña.chars().anyMatch(Character::isDigit);
+	    boolean tieneCaracterEspecial = contraseña.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*");
+
+	    return tieneMayuscula && tieneNumero && tieneCaracterEspecial;
+	}
+
+    @PutMapping("cambioRecuperacionContrasena/")
+	public ResponseEntity<Respuestica> cambiarContraseña(@RequestBody CambioRecuperaContrasenaRequest request) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    Usuario Usuario = (Usuario) auth.getPrincipal();
+	    var respuesta = new Respuestica("", "");
+
+	    String nuevaContrasena = request.getNuevaContrasena();
+
+	    if (passwordEncoder.matches(nuevaContrasena, Usuario.getPassword())) {
+	        respuesta.setStatus(HttpStatus.BAD_REQUEST.toString());
+	        respuesta.setMessage("La nueva contraseña no puede ser igual a la anterior");
+	        return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
+	    }
+
+	    if (!nuevaContrasena.equals(request.getConfirmarContrasena())) {
+	        respuesta.setStatus(HttpStatus.BAD_REQUEST.toString());
+	        respuesta.setMessage("La nueva contraseña y la confirmación no coinciden");
+	        return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
+	    }
+
+	    if (!esContrasenaValida(nuevaContrasena)) {
+	        respuesta.setStatus(HttpStatus.BAD_REQUEST.toString());
+	        respuesta.setMessage("La nueva contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.");
+	        return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
+	    }
+
+	    // Establecer la nueva contraseña
+	    Usuario.setContra(passwordEncoder.encode(nuevaContrasena));
+	    Usuario.setVerificarContrasena(false); //
+	    usuarioService.save(Usuario);
+
+	    // Enviar correo de confirmación
+	    emailService.enviarNotificacionCambioContra(Usuario.getUsername());
+
+	    // Configurar la respuesta de éxito
+	    respuesta.setStatus(HttpStatus.OK.toString());
+	    respuesta.setMessage("Cambio de contraseña exitoso");
+
+	    return new ResponseEntity<>(respuesta, HttpStatus.OK);
 	}
 
     /*
