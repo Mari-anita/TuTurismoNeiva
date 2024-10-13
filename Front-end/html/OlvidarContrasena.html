@@ -37,19 +37,20 @@
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <div class="dropdown">
               <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
-                data-value="tittle"><b><a style="text-decoration: none; color: white;"
-                    href="/Front-end/index.html">Inicio</a></b></button>
+                data-value="tittle"><b><a style="text-decoration: none; color: white;" href="/Front-end/index.html"
+                    id="inisio"><b>Inicio</b></a>
+                </b></button>
               <div class="dropdown-content" style="justify-content: center; font-size: 17px">
                 <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" id="lugar-turistico"
-                  data-value="sitios">Sitios
-                  Turísticos</a>
+                  data-value="sitios">Sitios Turísticos</a>
+
               </div>
             </div>
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-            <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
-              style="color: white; font-size: 25px" data-section="projects" data-value="first-project-tittle"
-              id="nosotros"><b>Nosotros</b></a>
+            <a id="nosotros" class="nav-link" href="/Front-end/html/MisionVision.html"
+              style="color: white; font-size: 25px"><b>Nosotros</b></a>
+
           </li>
           <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
             <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
@@ -60,8 +61,8 @@
           </li>
           <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
               style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
-            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
-              data-value="three-project-tittle" id="idioma"><b>Idioma</b></button>
+            <button class="dropbtn btn" style="color: white; font-size: 25px" id="idioma"><b>Idioma</b></button>
+
             <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
               <div class="flags_item" data-language="es">
                 <img src="/Front-end/Icons/co.svg" alt="Espanol">
@@ -85,10 +86,13 @@
                 <a href="#" data-section="projects" data-value="tema" id="tema">Tema</a>
 
                 <div class="submenu-content">
-                  <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
+                  <label for="toggle" id="label_toggle">
+                    <i class="fa-solid fa-moon"></i>
+                  </label>
                   <input type="checkbox" id="toggle">
                 </div>
               </div>
+
 
               <a href="#" data-section="projects" data-value="ayuda" id="ayuda">Ayuda</a>
             </div>
@@ -115,7 +119,7 @@
   </nav>
   <main style="margin-top: auto;">
     <div class="password-reset-container" style="width: 32%;">
-      <a href="#" class="back-button" id="back-button">
+      <a href="/Front-end/html/RegistroUsuario.html" class="back-button" id="back-button">
         <box-icon name="left-arrow-circle" color="#ffab2d"></box-icon>
       </a>
       <h1 id="forgot-password-title">¿Olvidaste tu contraseña?</h1>
@@ -133,12 +137,13 @@
 
   <section id="contacto" style="margin-top:auto; width:100%">
     <!-- Footer -->
-    <div class="container-fluid" style="background-color: #262930;">
+    <div class="container-fluid" style="background-color: #262930; margin-top: 2%">
       <footer class="py-3">
         <ul class="nav border-bottom mb-3 justify-content-between">
           <div class="d-flex">
             <li class="nav-item-fo">
               <a id="contact-title" class="nav-link px-2" style="color: white;"><b>Contáctanos</b></a>
+
             </li>
             <li class="nav-item-fo-I">
               <a class="nav-link px-1" href="tel:3143049933">
@@ -170,9 +175,7 @@
             </li>
             <li class="nav-item-fo-P">
               <a id="terms-link" href="../html/Docs/TerminosCondiciones.pdf" target="_blank" class="nav-link px-2"
-                style="color: #1f8b9e;">
-                <b>Términos y condiciones</b>
-              </a>
+                style="color: #1f8b9e;"><b>Términos y condiciones</b></a>
             </li>
           </div>
         </ul>
@@ -180,6 +183,7 @@
       </footer>
     </div>
   </section>
+  <script src="/Front-end/Js/tema.js"></script>
   <script src="/Front-end/Js/RecuperarContrasena.js"></script>
   <script src="/Front-end/Js/config.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
