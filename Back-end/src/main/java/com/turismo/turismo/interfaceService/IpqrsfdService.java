@@ -4,8 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.turismo.turismo.models.Pqrsfd;
-import com.turismo.turismo.models.authResponse;
-import com.turismo.turismo.models.pqrsfdRegistroRequest;
+
 
 public interface IpqrsfdService {
     public String save(Pqrsfd Pqrsfd);
@@ -17,8 +16,6 @@ public interface IpqrsfdService {
     public int deleteForever(String id);
 
     public Optional<Pqrsfd> findBynumDoc(String numDoc);
-
-    public authResponse registroPqrsfd(pqrsfdRegistroRequest request);
 
     public Object filtroPqrsfd(String filtro);
 }

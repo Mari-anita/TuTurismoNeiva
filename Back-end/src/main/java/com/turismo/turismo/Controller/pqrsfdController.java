@@ -18,8 +18,6 @@ import java.util.HashMap;
 import com.turismo.turismo.interfaceService.IpqrsfdService;
 import com.turismo.turismo.models.Pqrsfd;
 import com.turismo.turismo.models.authResponse;
-import com.turismo.turismo.models.pqrsfdRegistroRequest;
-import com.turismo.turismo.models.pqrsfdRegistroResponse;
 import com.turismo.turismo.service.authService;
 import com.turismo.turismo.service.emailService;
 
