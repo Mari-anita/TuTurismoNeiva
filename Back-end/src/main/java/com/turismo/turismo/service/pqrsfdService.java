@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.turismo.turismo.interfaceService.IpqrsfdService;
 import com.turismo.turismo.interfaces.Ipqrsfd;
 import com.turismo.turismo.models.Pqrsfd;
-import com.turismo.turismo.models.authResponse;
-import com.turismo.turismo.models.pqrsfdRegistroRequest;
 
 @Service
 public class pqrsfdService implements IpqrsfdService {
@@ -52,12 +50,5 @@ public class pqrsfdService implements IpqrsfdService {
 		List<Pqrsfd> listaPqrsfd=data.filtroPqrsfd(filtro);
 		return listaPqrsfd;
 	}
-
-    @Override
-    public authResponse registroPqrsfd(pqrsfdRegistroRequest request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registroPqrsfd'");
-    }
-
 
 }

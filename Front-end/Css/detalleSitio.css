@@ -206,3 +206,18 @@ p {
 .menuOculto {
     display: none;
 }
+
+.card{
+    border: 3px solid #FFBD59 !important;
+    border-radius: 20px !important;
+}
+
+.card-img-top{
+    margin: 5% 0% 0% 0% !important;
+}
+
+.btn-color{
+    background: #FFBD59 !important;
+    color: white !important;
+    border-radius: 20px !important;
+}
