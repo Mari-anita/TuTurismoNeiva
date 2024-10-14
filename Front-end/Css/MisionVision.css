@@ -39,8 +39,8 @@ body {
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    top: 100%; 
-    left: 0; 
+    top: 100%;
+    left: 0;
 }
 
 .dropdown-content a {
@@ -51,7 +51,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color:  #858483;
+    background-color: #858483;
 }
 
 .dropdown:hover .dropdown-content {
@@ -60,7 +60,7 @@ body {
 
 .nav-item:hover {
     background-color: #858483;
-    border-radius:8px;
+    border-radius: 8px;
     margin: 8px;
 }
 
@@ -68,21 +68,60 @@ body {
 .flags {
     width: 30%;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     gap: 50px;
-  }
-  
-  .flags_item {
-    margin: 0 10px; 
+}
+
+.flags_item {
+    margin: 0 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .flags_item img {
-    width: 50px; 
-    height: auto; 
+}
+
+.flags_item img {
+    width: 50px;
+    height: auto;
     display: block;
     cursor: pointer;
-  }
+}
+
+/* Estilos para modo oscuro
+body.dark-mode {
+    background-image: url(/Front-end/Img/Fondo\ tema\ oscuro.png);
+    /* Imagen de fondo para modo oscuro 
+}
+
+header.dark-mode {
+    background-color: #333;
+    /* Cambiar a un color más oscuro 
+}
+
+.password-reset-container.dark-mode {
+    background-color: #333;
+    /* Cambiar el contenedor a un color más oscuro *
+    color: #ddd;
+    /* Cambiar el texto a un gris claro 
+}
+
+.back-button.dark-mode {
+    color: #ddd;
+    /* Cambiar el color del botón de regreso *
+}
+
+form button.dark-mode {
+    background-color: #555;
+    /* Botón en modo oscuro *
+    color: #fff;
+}
+
+form button.dark-mode:hover {
+    background-color: #444;
+    /* Hover en botón en modo oscuro *
+}
+
+.nav-item.dark-mode:hover {
+    background-color: rgba(100, 100, 100, 0.8);
+    /* Hover para los ítems de navegación en modo oscuro *
+} */

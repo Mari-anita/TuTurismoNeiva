@@ -8,7 +8,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Asegura que el fondo cubra la pantalla completa */
+    min-height: 100vh;
+    /* Asegura que el fondo cubra la pantalla completa */
 }
 
 input::placeholder {
@@ -26,11 +27,15 @@ h1 {
 .container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Ajusta la alineación vertical */
+    align-items: flex-start;
+    /* Ajusta la alineación vertical */
     width: 100%;
-    padding-top: 8vh; /* Para evitar que el formulario se esconda debajo del encabezado */
-    padding-bottom: 50px; /* Asegura que haya espacio para el footer */
-    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+    padding-top: 8vh;
+    /* Para evitar que el formulario se esconda debajo del encabezado */
+    padding-bottom: 50px;
+    /* Asegura que haya espacio para el footer */
+    box-sizing: border-box;
+    /* Incluye el padding en el tamaño total */
 }
 
 .formulario {
@@ -38,9 +43,12 @@ h1 {
     background-color: #1c1c1c;
     padding: 30px;
     border-radius: 26px;
-    width: 80%; /* Ajusta el ancho del formulario */
-    max-width: 900px; /* Limita el ancho máximo para pantallas grandes */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Añade una sombra para dar profundidad */
+    width: 80%;
+    /* Ajusta el ancho del formulario */
+    max-width: 900px;
+    /* Limita el ancho máximo para pantallas grandes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Añade una sombra para dar profundidad */
 }
 
 .back-button box-icon {
@@ -50,7 +58,8 @@ h1 {
 
 .input-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en diferentes líneas si es necesario */
+    flex-wrap: wrap;
+    /* Permite que los elementos se ajusten en diferentes líneas si es necesario */
 }
 
 label {
@@ -75,14 +84,19 @@ label {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #333; /* Ajusta el fondo para que coincida con el tema oscuro */
-    color: white; /* Ajusta el color del texto */
-    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+    background-color: #333;
+    /* Ajusta el fondo para que coincida con el tema oscuro */
+    color: white;
+    /* Ajusta el color del texto */
+    box-sizing: border-box;
+    /* Incluye el padding en el tamaño total */
 }
 
 textarea {
-    height: 150px; /* Ajusta la altura del campo de texto */
-    resize: vertical; /* Permite que el usuario ajuste la altura */
+    height: 150px;
+    /* Ajusta la altura del campo de texto */
+    resize: vertical;
+    /* Permite que el usuario ajuste la altura */
 }
 
 .LoginPqrsf {
@@ -94,7 +108,7 @@ textarea {
     cursor: pointer;
 }
 
-form  .LoginPqrsf {
+form .LoginPqrsf {
     background-color: #ff9900;
     font-weight: bold;
     color: #fff;
@@ -105,7 +119,7 @@ form  .LoginPqrsf {
     margin: 0% 0% 0% 6%;
 }
 
-form  .LoginPqrsf:hover {
+form .LoginPqrsf:hover {
     background-color: #212529;
     border: 1px solid #ff9900;
 }
@@ -123,7 +137,8 @@ form  .LoginPqrsf:hover {
 }
 
 input.regis {
-    padding-right: 30px; /* Espacio para el icono */
+    padding-right: 30px;
+    /* Espacio para el icono */
 }
 
 
@@ -132,7 +147,7 @@ input.regis {
 }
 
 .button-container {
-       margin-top: 10%;
+    margin-top: 10%;
 }
 
 .button-consultar {
@@ -140,3 +155,41 @@ input.regis {
     margin-left: 0.3%;
 }
 
+/* Estilos para modo oscuro */
+body.dark-mode {
+    background-image: url(/Front-end/Img/Fondo\ tema\ oscuro.png);
+    /* Imagen de fondo para modo oscuro */
+}
+
+header.dark-mode {
+    background-color: #333;
+    /* Cambiar a un color más oscuro */
+}
+
+.password-reset-container.dark-mode {
+    background-color: #333;
+    /* Cambiar el contenedor a un color más oscuro */
+    color: #ddd;
+    /* Cambiar el texto a un gris claro */
+}
+
+.back-button.dark-mode {
+    color: #ddd;
+    /* Cambiar el color del botón de regreso */
+}
+
+form button.dark-mode {
+    background-color: #555;
+    /* Botón en modo oscuro */
+    color: #fff;
+}
+
+form button.dark-mode:hover {
+    background-color: #444;
+    /* Hover en botón en modo oscuro */
+}
+
+.nav-item.dark-mode:hover {
+    background-color: rgba(100, 100, 100, 0.8);
+    /* Hover para los ítems de navegación en modo oscuro */
+}

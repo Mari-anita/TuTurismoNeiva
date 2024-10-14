@@ -11,8 +11,7 @@ const translations = {
         ayuda: "Ayuda",
         titlePassword: "Cambiar Contraseña",
         textParrafo: "Asegúrate de elegir una contraseña robusta para proteger tu cuenta de accesos no autorizados",
-        currentPasswordLabel: "Contraseña actual",
-        newPasswordLabel: "Contraseña nueva",
+        newPasswordLabel: "Nueva Contraseña",
         confirmPasswordLabel: "Confirmación contraseña nueva",
         submitButton: "Continuar",
         contactanos: "Contáctanos",
@@ -31,7 +30,6 @@ const translations = {
         ayuda: "Help",
         titlePassword: "Change Password",
         textParrafo: "Make sure you choose a strong password to protect your account from unauthorized access",
-        currentPasswordLabel: "Current password",
         newPasswordLabel: "New Password",
         confirmPasswordLabel: "Confirm New Password",
         submitButton: "Continue",
@@ -54,7 +52,6 @@ function changeLanguage(lang) {
     document.getElementById('title-password').innerText = translations[lang].titlePassword;
     document.getElementById('text-parrafo').innerText = translations[lang].textParrafo;
     document.getElementById('new-password-label').innerText = translations[lang].newPasswordLabel;
-    document.getElementById('Current-password-label').innerText = translations[lang].currentPasswordLabel;
     document.getElementById('confirm-password-label').innerText = translations[lang].confirmPasswordLabel;
     document.querySelector('.submit-button').innerText = translations[lang].submitButton;
 

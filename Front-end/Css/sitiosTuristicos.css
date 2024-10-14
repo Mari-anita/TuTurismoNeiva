@@ -1,11 +1,30 @@
+body {
+    width: 100%;
+    content: "";
+    background: url('background-pattern.png') no-repeat center center fixed;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(/Front-end/Img/Fondo.png);
+    justify-content: center;
+}
+
+
+
 .RCRC {
     display: flex;
     justify-content: space-evenly;
 }
 
 
+
+
 .votar {
-    
+
     display: flex;
 }
 
@@ -48,37 +67,42 @@
 .card {
     width: 18rem;
     margin: 1rem;
-    position: relative; /* Necesario para posicionar los botones dentro de la tarjeta */
+    position: relative;
+    /* Necesario para posicionar los botones dentro de la tarjeta */
     border: 3px solid #ffbd59 !important;
     border-radius: 15px !important;
 }
 
 .image-container-wrapper {
-    position: relative; /* Posición relativa para los botones */
+    position: relative;
+    /* Posición relativa para los botones */
 }
 
 .image-container {
     display: flex;
-    overflow: hidden; /* Oculta el contenido que se desborda del contenedor */
+    overflow: hidden;
+    /* Oculta el contenido que se desborda del contenedor */
     width: 100%;
-    height: 200px; /* Ajusta la altura según sea necesario */
+    height: 200px;
+    /* Ajusta la altura según sea necesario */
 }
 
 .card-img-top {
-    min-width: 100%; /* Cada imagen ocupa el 100% del contenedor */
+    min-width: 100%;
+    /* Cada imagen ocupa el 100% del contenedor */
 }
 
-.imgcarru{
+.imgcarru {
     width: 70% !important;
     margin: 10% 0% 0% 14% !important;
 }
 
-.fa-solid{
+.fa-solid {
     color: #ff3e3e;
     font-size: 1.3rem;
 }
 
-.BTTLT{
+.BTTLT {
     text-decoration: none !important;
     text-transform: none;
     color: white !important;
@@ -106,3 +130,13 @@
     right: 10px;
     cursor: pointer;
 }
+
+/* Estilos para modo oscuro
+body.dark-mode {
+    background-image: url(/Front-end/Img/Fondo\ tema\ oscuro.png);
+    /* Imagen de fondo para modo oscuro 
+}
+
+.RCRC h3 {
+    color: #f0eaea;
+} */
