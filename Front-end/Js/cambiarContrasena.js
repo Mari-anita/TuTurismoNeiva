@@ -41,7 +41,7 @@ async function cambiarContrasena() {
     }
 
     try {
-        const response = await fetch(urlCambiarContraseña, {
+        const response = await fetch(urlCambiarContrasena, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
