@@ -109,12 +109,12 @@ function cargarSitio() {
     $.ajax({
         url: urlSitioMonumento,
         type: "GET",
-        success: function(result) {
+        success: function (result) {
             console.log(result);
             var contenedorSitios = document.getElementById("contenedorSitios");
             contenedorSitios.innerHTML = ""; // Limpiar contenido previo
 
-            result.forEach(function(sitio) {
+            result.forEach(function (sitio) {
                 var imagen = sitio.imagen_base ? `data:image/jpeg;base64,${sitio.imagen_base}` : "ruta/default.jpg"; // Imagen por defecto si no hay imagen
 
                 // Plantilla HTML para las tarjetas
@@ -132,8 +132,72 @@ function cargarSitio() {
                 contenedorSitios.innerHTML += cardSitio;
             });
         },
-        error: function(error) {
+        error: function (error) {
             alert("Error en la petición: " + error);
         }
     });
 }
+
+// Función para obtener el parámetro "id" de la URL
+function obtenerParametroUrl(nombre) {
+    // Crea un objeto URLSearchParams para analizar los parámetros de la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    // Obtiene el valor del parámetro con el nombre proporcionado
+    return urlParams.get(nombre);
+}
+
+// Función para cargar los detalles del SitioMonumento en la página
+function cargarDetalleSitio() {
+    // Obtiene el ID del SitioMonumento de los parámetros de la URL
+    var idSitio = obtenerParametroUrl("id");
+
+    // Verifica si el ID es válido
+    if (idSitio) {
+        // Realiza una solicitud AJAX para obtener la información del SitioMonumento
+        $.ajax({
+            url: urlSitioMonumento + `${idSitio}`, // Endpoint para obtener el SitioMonumento por ID
+            type: "GET", // Tipo de solicitud HTTP (GET)
+            success: function(result) { // Función de éxito
+                console.log(result);
+
+                // Asigna los valores recibidos a los elementos de la página
+                document.getElementById("nombreSitioMonumento").textContent = result.nombreSitioMonumento || "Nombre no disponible";
+                document.getElementById("descripcionSitioMonumento").textContent = result.descripcion || "Descripción no disponible";
+
+                // Maneja las imágenes del carrusel
+                var carouselInner = document.querySelector(".carousel-inner");
+                carouselInner.innerHTML = ""; // Limpia el contenido previo
+
+                // Añade la imagen principal al carrusel
+                var imagen1 = result.imagen1 || "ruta/default.jpg";
+                var carouselItem1 = `<div class="carousel-item active">
+                                        <img src="${imagen1}" class="d-block w-100" alt="Imagen del sitio">
+                                    </div>`;
+                carouselInner.innerHTML += carouselItem1;
+
+                // Añade las imágenes adicionales si están presentes
+                if (result.imagen2) {
+                    var carouselItem2 = `<div class="carousel-item">
+                                            <img src="${result.imagen2}" class="d-block w-100" alt="Imagen del sitio">
+                                        </div>`;
+                    carouselInner.innerHTML += carouselItem2;
+                }
+                if (result.imagen3) {
+                    var carouselItem3 = `<div class="carousel-item">
+                                            <img src="${result.imagen3}" class="d-block w-100" alt="Imagen del sitio">
+                                        </div>`;
+                    carouselInner.innerHTML += carouselItem3;
+                }
+            },
+            error: function(error) { // Función en caso de error
+                alert("Error al cargar el detalle del sitio: " + error);
+            }
+        });
+    } else {
+        // Muestra un mensaje si no se encuentra el ID en la URL
+        alert("ID de sitio no encontrado en la URL.");
+    }
+}
+
+// Llama a la función cargarDetalleSitio cuando la página haya terminado de cargarse
+window.onload = cargarDetalleSitio;

@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-var urlBase = "http:// 192.168.20.79:8082/api/v1/";
+
+var urlBase = "http://192.168.20.79:8082/api/v1/";
 // var urlBase = "http://82.112.245.162:8082/api/v1/";
-=======
-<<<<<<< HEAD
-//var urlBase = "http:// 192.168.20.79:8082/api/v1/";
-var urlBase = "http://192.168.73.177:8082/api/v1/";
-=======
-var urlBase = "http://10.192.92.85:8082/api/v1/";
-//var urlBase = "http://82.112.245.162:8082/api/v1/";
->>>>>>> b0896aad034fb43892bed4dd438264bba1661b9a
->>>>>>> f58941bb321b04fdf5ed18c3dfbbac296a5a2983
 var urlUsuario = urlBase + "Usuario/";
 var urlEmpresa = urlBase + "publico/Empresa/";
 var urlUsuarioPublico= urlBase + "publico/Usuario/";
