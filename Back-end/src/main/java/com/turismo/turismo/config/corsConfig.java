@@ -15,9 +15,9 @@ public class corsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.addAllowedOrigin("http://tuturismoneiva.com");
-        config.addAllowedOrigin("http://82.112.245.162:80");
+        // config.addAllowedOrigin("http://82.112.245.162:80");
         // permite solicitudes desde todos los origenes
-        // config.addAllowedOrigin("*");
+        config.addAllowedOrigin("*");
         // permite solicitudes con estos metodos HTTP
         config.addAllowedMethod("GET");
         config.addAllowedMethod("POST");

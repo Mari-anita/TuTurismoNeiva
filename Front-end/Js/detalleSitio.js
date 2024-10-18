@@ -119,11 +119,11 @@ function cargarSitio() {
 
                 // Plantilla HTML para las tarjetas
                 var cardSitio = `
-                    <div class="card" style="width: 15rem; margin: 1% 0% 0% 3%;">
+                    <div class="card DZNT" style="width: 15rem; margin: 1% 0% 0% 3%;">
                         <img src="${imagen}" class="card-img-top" alt="Imagen del sitio">
                         <div class="card-body">
                             <h5 class="card-title"><b>${sitio.nombreSitioMonumento}</b></h5>
-                            <p class="card-text">${sitio.descripcionSitioMonumento}</p>
+                            <p class="card-text">${sitio.direccionSitioMonumento}</p>
                             <a href="#" class="btn btn-color">Ver más detalles</a>
                         </div>
                     </div>

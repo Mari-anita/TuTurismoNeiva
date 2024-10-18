@@ -5,61 +5,64 @@ import java.sql.Time;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-
-@Entity(name="SitioMonumento")
+@Entity(name = "SitioMonumento")
 public class SitioMonumento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name="idSitioMonumento", nullable = false, length = 36)     //FILTRAR
+    @Column(name = "idSitioMonumento", nullable = false, length = 36) // FILTRAR
     private String idSitioMonumento;
 
-    @Column(name="calificacionSitioMonumento", nullable = false, length = 1)  //FILTRAR
+    @Column(name = "calificacionSitioMonumento", nullable = false, length = 1) // FILTRAR
     private char calificacionSitioMonumento;
 
-    @Column(name="nombreSitioMonumento", nullable = false, length = 60)  //FILTRAR
+    @Column(name = "nombreSitioMonumento", nullable = false, length = 60) // FILTRAR
     private String nombreSitioMonumento;
 
-    @Column(name="ubicacionSitioMonumento", nullable = false, length = 60)
+    @Column(name = "ubicacionSitioMonumento", nullable = false, length = 60)
     private String ubicacionSitioMonumento;
 
-    @Column(name="clasificacionSitioMonumento", nullable = false, length = 60)
+    @Column(name = "clasificacionSitioMonumento", nullable = false, length = 60)
     private String clasificacionSitioMonumento;
 
-    @Column(name="direccionSitioMonumento", nullable = false, length = 100)     //FILTRAR
+    @Column(name = "direccionSitioMonumento", nullable = false, length = 100) // FILTRAR
     private String direccionSitioMonumento;
 
-    @Column(name="descripcionSitioMonumento", nullable = false, length = 300)
+    @Column(name = "descripcionSitioMonumento", nullable = false, length = 300)
     private String descripcionSitioMonumento;
 
-    @Column(name="detalladaSitioMonumento", nullable = false, length = 120)
+    @Column(name = "detalladaSitioMonumento", nullable = false, length = 120)
     private String detalladaSitioMonumento;
 
-    @Column(name="horarioSitioMonumento", nullable = false, length = 60)
+    @Column(name = "horarioSitioMonumento", nullable = false, length = 60)
     private Time horarioSitioMonumento;
 
-    @Column(name="fechaCreacionSitioMonumento", nullable = false, length = 60)
+    @Column(name = "fechaCreacionSitioMonumento", nullable = false, length = 60)
     private Date fechaCreacionSitioMonumento;
 
-    @Column(name="fechaModificacionSitioMonumento", nullable = false, length = 60)
+    @Column(name = "fechaModificacionSitioMonumento", nullable = false, length = 60)
     private Date fechaModificacionSitioMonumento;
 
     @ManyToOne
-    @JoinColumn(name="idAutor")
+    @JoinColumn(name = "idAutor")
     private Autor Autor;
 
-    @Column(name="contactoSitioMonumento", nullable = false, length = 15)
+    @Column(name = "contactoSitioMonumento", nullable = false, length = 15)
     private String contactoSitioMonumento;
 
-    @Column( name="imagen_base", nullable = true, columnDefinition = "MEDIUMBLOB")
-	private String  imagen_base;
+    @Column(name = "imagen_base", nullable = true, columnDefinition = "MEDIUMBLOB")
+    private String imagen_base;
 
+    @Enumerated(EnumType.STRING)
+    private role role;
 
     public SitioMonumento() {
     }
