@@ -60,10 +60,6 @@
           <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
           <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaPQRSFD.html" style="text-decoration: none; color:white">PQRSFD</a></li>
         </div>
-        <div class="icono">
-          <li class="nav"><box-icon name='building-house' color='#ffffff' size="25px"></box-icon></box-icon></li>
-          <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaEmpresa.html" style="text-decoration: none; color:white">Empresa</a></li>
-        </div>
       </ul>
     </div>
 
@@ -74,19 +70,19 @@
         <div class="row">
           <div class="col-6">
             <label for="nombre">Nombre</label>
-            <input class="form-control" type="text" id="nombre" aria-label="default input example">
+            <input class="form-control" type="text" id="nombreSitioMonumento" aria-label="default input example">
             <br>
             <label for="ubicacion">Ubicación</label>
-            <input class="form-control" type="text" id="ubicación" aria-label="default input example">
+            <input class="form-control" type="text" id="ubicacionSitioMonumento" aria-label="default input example">
             <br>
             <label for="descripcion">Descripción</label>
-            <input class="form-control" type="email" id="descripción" aria-label="default input example">
+            <input class="form-control" type="email" id="descripcionSitioMonumento" aria-label="default input example">
             <br>
             <label for="horario">Horario</label>
-            <input class="form-control" type="time" id="horario" aria-label="default input example">
+            <input class="form-control" type="time" id="horarioSitioMonumento" aria-label="default input example">
             <br>
             <label for="creacion">Fecha creación</label>
-            <input class="form-control" type="date" id="creacion" aria-label="default input example">
+            <input class="form-control" type="date" id="fechaCreacionSitioMonumento" aria-label="default input example">
             <br>
             <label for="autor">Autor</label>
             <input class="form-control" type="text" id="autor" aria-label="default input example">
@@ -94,19 +90,22 @@
 
           <div class="col-6">
             <label for="direccion">Dirección</label>
-            <input class="form-control" type="text" id="contrasena" aria-label="default input example">
+            <input class="form-control" type="text" id="direccionSitioMonumento" aria-label="default input example">
             <br>
             <label for="calificacion">Calificación</label>
-            <input class="form-control" type="text" id="confirmarContrasena" aria-label="default input example">
+            <input class="form-control" type="text" id="calificacionSitioMonumento" aria-label="default input example">
             <br>
             <label for="detallada">Detallada</label>
-            <input class="form-control" type="text" id="detallada" aria-label="default input example">
+            <input class="form-control" type="text" id="detalladaSitioMonumento" aria-label="default input example">
             <br>
             <label for="contacto">Contacto</label>
-            <input class="form-control" type="text" id="contacto" aria-label="default input example">
+            <input class="form-control" type="text" id="contactoSitioMonumento" aria-label="default input example">
             <br>
             <label for="modificacion">Fecha modificación</label>
-            <input class="form-control" type="date" id="modificacion" aria-label="default input example">
+            <input class="form-control" type="date" id="fechaModificacionSitioMonumento" aria-label="default input example">
+            <br>
+            <label for="imgAutor">Imagen</label>
+            <input type="file" class="form-control" id="imgAutor" aria-describedby="inputGroupFileAddon04"aria-label="Upload">
             <br>
             <div style="margin-left: 50%; margin-top: 10%">
               <button type="button" class="btn btn-success" onclick="registrarSitios();">Registrar</button>

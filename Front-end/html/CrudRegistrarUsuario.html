@@ -59,10 +59,6 @@
           <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
           <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaPQRSFD.html" style="text-decoration: none; color:white">PQRSFD</a></li>
         </div>
-        <div class="icono">
-          <li class="nav"><box-icon name='building-house' color='#ffffff' size="25px"></box-icon></box-icon></li>
-          <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a href="../html/CrudListaEmpresa.html" style="text-decoration: none; color:white">Empresa</a></li>
-        </div>
       </ul>
     </div>
 
@@ -73,26 +69,20 @@
         <div class="row">
           <div class="col-6">
             <label for="nombre">Nombre completo</label>
-            <input class="form-control" type="text" id="nombre" aria-label="default input example">
-            <br>
-            <label for="telefono">Teléfono</label>
-            <input class="form-control" type="text" id="telefono" aria-label="default input example">
+            <input class="form-control" type="text" id="nombreCompleto" aria-label="default input example">
             <br>
             <label for="correo">Correo</label>
-            <input class="form-control" type="email" id="correo" aria-label="default input example">
+            <input class="form-control" type="email" id="correoElectronico" aria-label="default input example">
+            <br>
           </div>
 
           <div class="col-6">
             <label for="contrasena">Contraseña</label>
-            <input class="form-control" type="password" id="contrasena" aria-label="default input example">
+            <input class="form-control" type="password" id="contra" aria-label="default input example">
             <br>
             <label for="confirmarContrasena">Confirmar contraseña</label>
-            <input class="form-control" type="password" id="confirmarContrasena" aria-label="default input example">
-            <br>
-            <label for="estado">Estado</label>
-            <input class="form-control" type="text" id="estado" aria-label="default input example">
-            <br>
-            <div>
+            <input class="form-control" type="password" id="coContra" aria-label="default input example">
+            <div style="margin: 10% 0% 0% 55%;">
               <button type="button" class="btn btn-success" onclick="registroUsuario();">Registrar</button>
               <button type="button" class="btn btn-secondary">Limpiar</button>
             </div>
