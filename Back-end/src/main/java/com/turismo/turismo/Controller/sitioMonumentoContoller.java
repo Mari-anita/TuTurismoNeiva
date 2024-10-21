@@ -118,33 +118,35 @@ public class sitioMonumentoContoller {
     // Editar imagen de una categoría
     // @PutMapping("/imagen/{id}")
     // public ResponseEntity<Object> updateCategoriaImage(
-    //         @PathVariable String id,
-    //         @RequestParam("file") MultipartFile file) {
-    //     try {
-    //         // Buscar la categoría por su ID
-    //         var SitioMonumentoOptional = SitioMonumentoService.findOne(id);
+    // @PathVariable String id,
+    // @RequestParam("file") MultipartFile file) {
+    // try {
+    // // Buscar la categoría por su ID
+    // var SitioMonumentoOptional = SitioMonumentoService.findOne(id);
 
-    //         // Verificar si la categoría existe
-    //         if (categoriaOptional.isPresent()) {
-    //             var categoria = categoriaOptional.get();
+    // // Verificar si la categoría existe
+    // if (categoriaOptional.isPresent()) {
+    // var categoria = categoriaOptional.get();
 
-    //             // Convertir la imagen a base64
-    //             String imagenBase64 = Base64.getEncoder().encodeToString(file.getBytes());
+    // // Convertir la imagen a base64
+    // String imagenBase64 = Base64.getEncoder().encodeToString(file.getBytes());
 
-    //             // Actualizar la imagen de la categoría
-    //             SitioMonumento.setImagen_base(imagenBase64);
+    // // Actualizar la imagen de la categoría
+    // SitioMonumento.setImagen_base(imagenBase64);
 
-    //             // Guardar los cambios de la categoría
-    //             SitioMonumentoService.save(categoria);
+    // // Guardar los cambios de la categoría
+    // SitioMonumentoService.save(categoria);
 
-    //             return new ResponseEntity<>(categoria, HttpStatus.OK);
-    //         } else {
-    //             return new ResponseEntity<>("Error: Categoría no encontrada", HttpStatus.NOT_FOUND);
-    //         }
-    //     } catch (IOException e) {
-    //         return new ResponseEntity<>("Error al actualizar la imagen: " + e.getMessage(),
-    //                 HttpStatus.INTERNAL_SERVER_ERROR);
-    //     }
+    // return new ResponseEntity<>(categoria, HttpStatus.OK);
+    // } else {
+    // return new ResponseEntity<>("Error: Categoría no encontrada",
+    // HttpStatus.NOT_FOUND);
+    // }
+    // } catch (IOException e) {
+    // return new ResponseEntity<>("Error al actualizar la imagen: " +
+    // e.getMessage(),
+    // HttpStatus.INTERNAL_SERVER_ERROR);
+    // }
     // }
 
     @GetMapping("/")
@@ -166,8 +168,7 @@ public class sitioMonumentoContoller {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id,
-            @RequestBody SitioMonumento SitioMonumentoUpdate) {
+    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody SitioMonumento SitioMonumentoUpdate) {
         var SitioMonumento = sitioMonumentoService.findOne(id).get();
         if (SitioMonumento != null) {
 

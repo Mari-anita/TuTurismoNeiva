@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                correoElectronico: emailInput.value  
+                correoElectronico: emailInput.value  // Asegúrate de que el nombre del campo sea correcto
             })
         })
             .then(response => {
@@ -97,78 +97,62 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-    // Evento para cambiar la contraseña
-    // document.addEventListener('DOMContentLoaded', function () {
-        // Agrega el evento al botón de cambio de contraseña
-        function recuperarContrasena(){
-        // document.querySelector('.btn change-password.submit-button').addEventListener('click', function (event) {
-            event.preventDefault();  // Evitar que el formulario se envíe de forma predeterminada
+function capturarDatosRecuperarContrasena() {
+    event.preventDefault();  // Evitar que el formulario se envíe de forma predeterminada
 
-            const nuevaContrasena = document.getElementById('nuevaContrasena').value; // Captura el nuevo valor de la contraseña
-            const confirmarContrasena = document.getElementById('confirmarContrasena').value; // Captura la confirmación de la contraseña
+    const nuevaContrasena = document.getElementById('nuevaContrasena').value; // Captura el nuevo valor de la contraseña
+    const confirmarContrasena = document.getElementById('confirmarContrasena').value; // Captura la confirmación de la contraseña
+    const idSolicitud = document.getElementById('idSolicitud').value; // Captura el ID de solicitud del formulario
 
-            // Llama al método para cambiar la contraseña
-            recuperarContrasena(nuevaContrasena, confirmarContrasena);
+    // Llama al método para cambiar la contraseña
+    enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena, idSolicitud);
+}
+
+async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena, idSolicitud) {
+    if (nuevaContrasena !== confirmarContrasena) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Las contraseñas no coinciden.'
+        });
+        return;
+    }
+
+    const body = { nuevaContrasena }; // Enviamos solo la nueva contraseña
+    try {
+        const response = await fetch(`${urlCambioRecuperacionContrasena}${idSolicitud}`, { // Concatenamos idSolicitud aquí
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+
+        // Verifica si el tipo de contenido es JSON
+        const contentType = response.headers.get("content-type");
+        let responseData;
+        if (contentType && contentType.includes("application/json")) {
+            responseData = await response.json();
+        } else {
+            responseData = { message: await response.text() }; // Asigna el texto de respuesta si no es JSON
         }
 
-        async function recuperarContrasena(nuevaContrasena, confirmarContrasena) {
-            if (nuevaContrasena !== confirmarContrasena) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Las contraseñas no coinciden.'
-                });
-                return;
-            }
-            const token = localStorage.getItem('userToken');
-            if (!token) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'No se encontró un token de sesión.'
-                });
-                return;
-            }
-            const body = { nuevaContrasena, confirmarContrasena };
-            try {
-                const response = await fetch(urlCambioRecuperacionContrasena, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': "Bearer " + token
-                    },
-                    body: JSON.stringify(body)
-                });
-            
-                // Verifica si el tipo de contenido es JSON
-                const contentType = response.headers.get("content-type");
-                let responseData;
-                if (contentType && contentType.includes("application/json")) {
-                    responseData = await response.json();
-                } else {
-                    responseData = { message: await response.text() }; // Asigna el texto de respuesta si no es JSON
-                }
-            
-                if (!response.ok) {
-                    throw new Error('Error al cambiar la contraseña: ' + (responseData.message || response.statusText));
-                }
-            
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Éxito',
-                    text: responseData.message
-                });
-                await redirectAfterPasswordChange(token);
-                document.getElementById("modifyForm").reset();
-            } catch (error) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: error.message
-                });
-            }
-        }            
-    
-// });
+        if (!response.ok) {
+            throw new Error('Error al cambiar la contraseña: ' + (responseData.message || response.statusText));
+        }
 
-
+        Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: responseData.message
+        });
+        // Redirecciona o realiza otra acción después de un cambio exitoso
+        document.getElementById("modifyForm").reset();
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.message
+        });
+    }
+}

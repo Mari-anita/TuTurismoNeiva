@@ -28,7 +28,7 @@ public class usuarioService implements IusuarioService {
 	    RecuperarContrasena resetToken = new RecuperarContrasena();
 	    resetToken.setUsuario(usuario);
 	    resetToken.setToken(token);
-	    resetToken.setExpiryDate(LocalDateTime.now().plusHours(24)); // Cambiado a 24 horas
+	    resetToken.setExpiryDate(LocalDateTime.now().plusMinutes(15)); // Cambiado a 24 horas
 
 	    // Guarda el token en la base de datos
 	    tokenRepository.save(resetToken);

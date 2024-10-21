@@ -106,6 +106,8 @@ function soloLetras(event) {
     }
 }
 
+
+
 function letrasycorreo(event) {
     // Obtener el carácter presionado
     const caracter = event.key;
@@ -129,6 +131,53 @@ function clave(event) {
         event.preventDefault(); // Prevenimos la entrada
     }
 }
+
+
+function Iniciar() {
+    let correoElectronico = document.getElementById("correoElectronico").value;
+    let contra = document.getElementById("contra").value;
+ 
+    let formData = {
+        "correoElectronico": correoElectronico,
+        "contra": contra
+    };
+ 
+    $.ajax({
+        url: urlLogin,
+        type: "POST",
+        data: JSON.stringify(formData),
+        contentType: "application/json",
+        success: function (result) {
+            const token = result.token;
+            localStorage.setItem('authTokens', token); // Almacenar el token
+            localStorage.setItem('userRol', result.role);
+ 
+            const role = result.role;
+ 
+                            if (role === "Administrador") {
+                                window.location.href = "/Front-end/html/CrudListaUsuario.html";
+                            } else if (role === "Usuario") {
+                                window.location.href = "/Front-end/index.html";
+                            } else {
+                                Swal.fire({
+                                    title: "Error",
+                                    text: "Rol desconocido. Contacta con el administrador.",
+                                    icon: "error",
+                                    confirmButtonText: "Aceptar"
+                                });
+                            }
+        },
+        error: function (error) {
+            const errorMsg = error.responseJSON ? error.responseJSON.message : "Los datos ingresados son incorrectos.";
+            Swal.fire({
+                title: "Error de Validación",
+                text: "Acceso denegado",
+                icon: "error",
+                confirmButtonText: "Aceptar"
+            });
+        }
+    });
+ }
 
 
 //REGISTRAR USUARIO

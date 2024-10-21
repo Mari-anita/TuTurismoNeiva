@@ -22,14 +22,18 @@
 <style>
     .nav-item-fo-P>a>b:hover {
         color: #ffbd59;
-      }
+    }
 </style>
+
 <body onload="listarComentario()">
     <div class="container" style="padding-left: 0; margin-left: 0">
-        <div class="sidebar" style="height: 250vh; position: fixed; top: 0%; width: 18%; background-color:#1c1c1c; z-index: 999; /* Asegurarse de que esté por encima de otros elementos */" >
-            <a href="/Front-end/index.html"><li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
-                color='#ffbd59' size="30px"></box-icon></li></a>
-            
+        <div class="sidebar"
+            style="height: 250vh; position: fixed; top: 0%; width: 18%; background-color:#1c1c1c; z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
+            <a href="/Front-end/index.html">
+                <li class="nav" style="align-items: center; width: 100%; height: 7%;"><box-icon name='log-out-circle'
+                        color='#ffbd59' size="30px"></box-icon></li>
+            </a>
+
             <li class="nav " style="align-items: center; width: 100%; height: 7%; margin-left: 30%"><box-icon
                     name='user-circle' type='solid' color='#ffbd59' size="100px"></box-icon></li>
             <br>
@@ -40,40 +44,56 @@
                 <br>
                 <div class="icono">
                     <li class="nav"><box-icon name='user' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%;"><a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a></li>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%;">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a>
+                    </li>
                 </div>
                 <div class="icono">
-                    <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaSitioMonumento.html">Sitios / Monumentos</a></li>
+                    <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon
+                            size="100px"></box-icon></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white"
+                            href="../html/CrudListaSitioMonumento.html">Sitios / Monumentos</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='book' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a></li>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a>
+                    </li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='chat' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaComentarios.html">Comentarios</a></li>
+                    <li class="nav-item nav-link active"
+                        style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white"
+                            href="../html/CrudListaComentarios.html">Comentarios</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='images' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"> <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html"> Imágenes</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html">
+                            Imágenes</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a>
+                    </li>
                 </div>
             </ul>
             </ul>
         </div>
         <div class="content">
 
-            <div class=" mb-3" style="display: flex; margin: left 20%; position: fixed;left: 21%; top: 0%; width: 55%;   z-index: 999; /* Asegurarse de que esté por encima de otros elementos */ background-color: white; ">
+            <div class=" mb-3"
+                style="display: flex; margin: left 20%; position: fixed;left: 21%; top: 0%; width: 55%;   z-index: 999; /* Asegurarse de que esté por encima de otros elementos */ background-color: white; ">
                 <h2 style="margin: 2% 0% 0% 0%;">Comentarios Registrados</h2>
                 <div class="input-group" style="width: 40%; margin: 2% 0% 0% 11%">
-                    <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...."aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li></button>
-                    <button type="button" class="btn btn-success rounded" style="margin: 0% 0% 0% 7%; "><a
-                        href="" style="text-decoration: none; color: white;">Agregar</a></button>
+                    <input type="text" class="form-control" placeholder="Buscar...." aria-label="Buscar...."
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li>
+                    </button>
                 </div>
             </div>
             <table class=" table table-hover table-striped" style="margin: 2% 0% 0% 8%;">
@@ -90,7 +110,7 @@
                 <tbody id="cuerpoTabla"></tbody>
                 <!-- Las filas de la tabla se agregarán dinámicamente con JavaScript -->
             </table>
-            
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -101,14 +121,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    
+
     <footer class="py-3" style="background-color: #1c1c1c;">
-      <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
     </footer>
 </body>
 

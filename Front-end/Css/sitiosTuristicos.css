@@ -21,34 +21,6 @@ body {
 }
 
 
-
-
-.votar {
-
-    display: flex;
-}
-
-.fa-star {
-    color: #cccccc;
-    /* Color por defecto de las estrellas */
-    cursor: pointer;
-    /* Cambiar cursor a una mano al pasar sobre las estrellas */
-}
-
-.fa-star.filled {
-    color: gold;
-    /* Color de las estrellas llenas */
-}
-
-.stars-container {
-    display: flex;
-}
-
-.star {
-    margin: 0 2px;
-    /* Espacio entre las estrellas */
-}
-
 .fa-heart:hover {
     cursor: pointer;
     color: red;

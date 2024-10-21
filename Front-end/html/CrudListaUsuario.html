@@ -21,8 +21,9 @@
 <style>
     .nav-item-fo-P>a>b:hover {
         color: #ffbd59;
-      }
+    }
 </style>
+
 <body onload="listarUsuario()">
     <div class="container" style="padding-left: 0; margin-left: 0">
         <div class="sidebar" style="height: 250vh; background-color:#1c1c1c;">
@@ -41,27 +42,41 @@
                 <br>
                 <div class="icono">
                     <li class="nav"><box-icon name='user' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link active" style="display: flex; align-items: center; width: 100%; height: 7%;"><a style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a></li>
+                    <li class="nav-item nav-link active"
+                        style="display: flex; align-items: center; width: 100%; height: 7%;"><a
+                            style="text-decoration: none; color:white" href="../html/CrudListaUsuario.html">Usuarios</a>
+                    </li>
                 </div>
                 <div class="icono">
-                    <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon size="100px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaSitioMonumento.html">Sitios / Monumentos</a></li>
+                    <li class="nav"><box-icon type='solid' name='bank' color='#ffffff'></box-icon
+                            size="100px"></box-icon></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white"
+                            href="../html/CrudListaSitioMonumento.html">Sitios / Monumentos</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='book' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a></li>
+                    <li class="nav-item nav-link " style="display: flex; align-items: center; width: 100%; height: 7%">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaAutores.html">Autores</a>
+                    </li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='chat' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaComentarios.html">Comentarios</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white"
+                            href="../html/CrudListaComentarios.html">Comentarios</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='images' color='#ffffff'></box-icon size="100px"></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"> <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html"> Imágenes</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%">
+                        <a style="text-decoration: none; color:white" href="../html/CrudListaImagenes.html">
+                            Imágenes</a></li>
                 </div>
                 <div class="icono">
                     <li class="nav"><box-icon name='headphone' color='#ffffff' size="25px"></box-icon></li>
-                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a></li>
+                    <li class="nav-item nav-link" style="display: flex; align-items: center; width: 100%; height: 7%"><a
+                            style="text-decoration: none; color:white" href="../html/CrudListaPQRSFD.html"> PQRSFD</a>
+                    </li>
                 </div>
             </ul>
         </div>
@@ -73,65 +88,63 @@
                     <input type="text" class="form-control" id="Filtros" placeholder="Buscar por nombre o correo"
                         aria-label="Buscar...." aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary"
-                        onclick="return Filtros(document.getElementById('Filtros').value)"
-                        type="button" id="button-addon2"><a href="http://"></a>
+                        onclick="return Filtros(document.getElementById('Filtros').value)" type="button"
+                        id="button-addon2"><a href="http://"></a>
                         <li class="nav"><box-icon name='search' color='#ffbd59'></box-icon></box-icon></li>
                     </button>
-                    <button  type="button" class="btn btn-success rounded"
-                        style="margin: 0% 0% 0% 5%; "><a href="../html/CrudRegistrarUsuario.html" style="text-decoration: none; color: white;">Agregar</a></button>
                 </div>
             </div>
             <table class=" table table-hover table-striped >
-                <div class="colorTabla" style="margin: 0% 0% 0% 5%;">
-                    <tr>
-                        <th class="Center">ID</th>
-                        <th class="Center">Nombre Completo</th>
-                        <th class="Center">Correo Electronico</th>
-                        <th class="Center">Contraseña</th>
-                        <th class="Center">Confirmar Contraseña</th>
-                        <th class="Center">Acciones</th>
-                    </tr>
-                </div>
-                <tbody id="cuerpoTabla"></tbody>
-                <!-- Las filas de la tabla se agregarán dinámicamente con JavaScript -->
-            </table>
+                <div class=" colorTabla" style="margin: 0% 0% 0% 5%;">
+                <tr>
+                    <th class="Center">ID</th>
+                    <th class="Center">Nombre Completo</th>
+                    <th class="Center">Correo Electronico</th>
+                    <th class="Center">Contraseña</th>
+                    <th class="Center">Confirmar Contraseña</th>
+                    <th class="Center">Acciones</th>
+                </tr>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editUserModalLabel">Editar Usuario</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="editUserForm">
-                            <input type="hidden" id="editUserId">
-                            <div class="form-group">
-                                <label for="nombreCompleto">Nombre Completo:</label>
-                                <input type="text" class="form-control" id="nombreCompleto" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="correoElectronico">Correo Electrónico:</label>
-                                <input type="email" class="form-control" id="correoElectronico" required>
-                            </div>
-                            <div class="form-group CIP">
-                                <label for="contra">Contraseña:</label>
-                                <input type="password" class="form-control" id="contra" required>
-                                <i class="fa-regular fa-eye-slash"></i>
-                            </div>
-                            <div class="form-group CIP">
-                                <label for="coContra">Confirmar Contraseña:</label>
-                                <input type="password" class="form-control" id="coContra" required>
-                                <i class="fa-regular fa-eye-slash"></i>
-                            </div>
-                            <button type="submit" class="btn GCE" onclick="registroUsuario();" style="background-color: #FFBD59; margin: 5% 0% 2% 0%;">Guardar Cambios</button>
-                        </form>
-                    </div>
+        <tbody id="cuerpoTabla"></tbody>
+        <!-- Las filas de la tabla se agregarán dinámicamente con JavaScript -->
+        </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Editar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm">
+                        <input type="hidden" id="editUserId">
+                        <div class="form-group">
+                            <label for="nombreCompleto">Nombre Completo:</label>
+                            <input type="text" class="form-control" id="nombreCompleto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correoElectronico">Correo Electrónico:</label>
+                            <input type="email" class="form-control" id="correoElectronico" required>
+                        </div>
+                        <div class="form-group CIP">
+                            <label for="contra">Contraseña:</label>
+                            <input type="password" class="form-control" id="contra" required>
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </div>
+                        <div class="form-group CIP">
+                            <label for="coContra">Confirmar Contraseña:</label>
+                            <input type="password" class="form-control" id="coContra" required>
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </div>
+                        <button type="submit" class="btn GCE" onclick="registroUsuario();"
+                            style="background-color: #FFBD59; margin: 5% 0% 2% 0%;">Guardar Cambios</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
@@ -150,9 +163,9 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-     
+
     <footer class="py-3" style="background-color: #1c1c1c;">
-       <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
+        <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
     </footer>
 </body>
 

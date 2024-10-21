@@ -217,7 +217,7 @@ body {
     transition: transform 0.6s ease-in-out;
     width: 50%;
     z-index: 100;
-    background-image: url(/Front-end/Img/ImagenesTuTurismoNeivaREALES/fondoiglesia.jpg);
+    background-image: url(/Front-end/Img/ImagenesTuTurismoNeivaREALES/SitiosTuristicos/IglesiaCatedral.jpg);
     background-repeat: no-repeat;
     /*HACE QUE LA IMAGEN NO SE REPITA*/
     background-size: cover;
