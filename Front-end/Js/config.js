@@ -10,7 +10,7 @@ var urlObtenerusuario = urlBase + "usuario/";
 var urlPqrsfd = urlBase + "publico/Pqrsfd/";
 var urlCambiarContrasena = urlBase + "usuario/cambiarContrasena/";
 var urlRecuperarContrasena= urlBase + "publico/Usuario/recuperarContrasena/";
-var urlCambioRecuperacionContrasena = urlBase + "usuario/cambioRecuperacionContrasena/";
+var urlCambioRecuperacionContrasena = urlBase + "publico/Usuario/cambioRecuperacionContrasena/";
 
 //Redireccion
 var urlRedireccion = "http://127.0.0.1:5502/";

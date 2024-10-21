@@ -102,12 +102,13 @@ function capturarDatosRecuperarContrasena() {
 
     const nuevaContrasena = document.getElementById('nuevaContrasena').value; // Captura el nuevo valor de la contraseña
     const confirmarContrasena = document.getElementById('confirmarContrasena').value; // Captura la confirmación de la contraseña
+    const idSolicitud = document.getElementById('idSolicitud').value; // Captura el ID de solicitud del formulario
 
     // Llama al método para cambiar la contraseña
-    enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena); // Usa un nombre diferente
+    enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena, idSolicitud);
 }
 
-async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena) {
+async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena, idSolicitud) {
     if (nuevaContrasena !== confirmarContrasena) {
         Swal.fire({
             icon: 'error',
@@ -116,22 +117,13 @@ async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena
         });
         return;
     }
-    const token = localStorage.getItem('userToken');
-    if (!token) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'No se encontró un token de sesión.'
-        });
-        return;
-    }
-    const body = { nuevaContrasena, confirmarContrasena };
+
+    const body = { nuevaContrasena }; // Enviamos solo la nueva contraseña
     try {
-        const response = await fetch(urlCambioRecuperacionContrasena, {
+        const response = await fetch(`${urlCambioRecuperacionContrasena}${idSolicitud}`, { // Concatenamos idSolicitud aquí
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': "Bearer " + token
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(body)
         });
@@ -154,7 +146,7 @@ async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena
             title: 'Éxito',
             text: responseData.message
         });
-        await redirectAfterPasswordChange(token);
+        // Redirecciona o realiza otra acción después de un cambio exitoso
         document.getElementById("modifyForm").reset();
     } catch (error) {
         Swal.fire({
@@ -164,7 +156,3 @@ async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena
         });
     }
 }
-
-
-
-
