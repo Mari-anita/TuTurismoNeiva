@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                correoElectronico: emailInput.value
+                correoElectronico: emailInput.value  // Asegúrate de que el nombre del campo sea correcto
             })
         })
             .then(response => {

@@ -156,80 +156,70 @@ public class controllerPublicoUsuario {
     }
 
     @PutMapping("cambioRecuperacionContrasena/{idSolicitud}")
-    public ResponseEntity<Respuestica> cambiarContraseña(@PathVariable("idSolicitud") String idSolicitud, @RequestBody CambioRecuperaContrasenaRequest request) {
-    
+    public ResponseEntity<Respuestica> cambiarContraseña(@PathVariable("idSolicitud") String idSolicitud,
+            @RequestBody CambioRecuperaContrasenaRequest request) {
         // Buscar la solicitud por ID (usando el método findOne del service)
-        Optional<solicitudRecuperarContrasena> optionalSolicitud = solicitudRecuperarContrasenaService.findOne(idSolicitud);
-    
+        Optional<solicitudRecuperarContrasena> optionalSolicitud = solicitudRecuperarContrasenaService
+                .findOne(idSolicitud);
+
         if (!optionalSolicitud.isPresent()) {
             var respuesta = new Respuestica(HttpStatus.NOT_FOUND.toString(), "La solicitud no existe");
             return new ResponseEntity<>(respuesta, HttpStatus.NOT_FOUND);
         }
-    
+
         solicitudRecuperarContrasena solicitud = optionalSolicitud.get();
-    
+
         // Verificar que el estado de la solicitud sea true
         if (!solicitud.isEstado()) {
             var respuesta = new Respuestica(HttpStatus.BAD_REQUEST.toString(), "La solicitud ya ha sido utilizada");
             return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
         }
-    
-        // Verificar que la solicitud no tenga más de 24 horas
+
+        // Verificar que la solicitud no tenga más de 15 minutos
         Date ahora = new Date();
         long diffInMillies = Math.abs(ahora.getTime() - solicitud.getFechaHora().getTime());
-        long diffHoras = diffInMillies / (60 * 60 * 1000); // Conversión de milisegundos a horas
-        
-        if (diffHoras > 24) {
+        long diffMinutos = diffInMillies / (60 * 1000); // Conversión de milisegundos a minutos
+
+        if (diffMinutos > 15) {
             var respuesta = new Respuestica(HttpStatus.BAD_REQUEST.toString(), "La solicitud ha expirado");
             return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
         }
-    
-        // Verificar que el correo electrónico coincida con el usuario de la solicitud
-        Optional<Usuario> optionalUsuario = usuarioService.findBycorreoElectronico(request.getCorreoElectronico());
-        if (!optionalUsuario.isPresent()) {
-            var respuesta = new Respuestica(HttpStatus.NOT_FOUND.toString(), "Error en la petición");
-            return new ResponseEntity<>(respuesta, HttpStatus.NOT_FOUND);
-        }
-    
-        Usuario usuario = optionalUsuario.get();
-    
-        // Verificar que la nueva contraseña no sea igual a la anterior
+
+        // Obtener el usuario relacionado a la solicitud
+        Usuario usuario = solicitud.getUsuario();
+
         String nuevaContrasena = request.getNuevaContrasena();
         if (passwordEncoder.matches(nuevaContrasena, usuario.getPassword())) {
             var respuesta = new Respuestica(HttpStatus.BAD_REQUEST.toString(),
                     "La nueva contraseña no puede ser igual a la anterior");
             return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
         }
-    
-        // Verificar que la nueva contraseña y la confirmación coincidan
+
         if (!nuevaContrasena.equals(request.getConfirmarContrasena())) {
             var respuesta = new Respuestica(HttpStatus.BAD_REQUEST.toString(),
                     "La nueva contraseña y la confirmación no coinciden");
             return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
         }
-    
-        // Verificar que la nueva contraseña sea válida (mínimo 8 caracteres, etc.)
+
         if (!esContrasenaValida(nuevaContrasena)) {
             var respuesta = new Respuestica(HttpStatus.BAD_REQUEST.toString(),
                     "La nueva contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.");
             return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
         }
-    
-        // Cambiar la contraseña
+
         usuario.setContra(passwordEncoder.encode(nuevaContrasena));
         usuario.setVerificarContrasena(false);
         usuarioService.save(usuario);
-    
-        // Desactivar la solicitud para que no pueda volver a usarse
+
         solicitud.setEstado(false);
         solicitudRecuperarContrasenaService.save(solicitud);
-    
+
         emailService.enviarNotificacionCambioContra(usuario.getUsername());
-    
+
         var respuesta = new Respuestica(HttpStatus.OK.toString(), "Cambio de contraseña exitoso");
         return new ResponseEntity<>(respuesta, HttpStatus.OK);
     }
-    
+
 }
 
 /*

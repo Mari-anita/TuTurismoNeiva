@@ -1,5 +1,5 @@
 
-var urlBase = "http://10.192.66.60:8082/api/v1/";
+var urlBase = "http://10.192.92.96:8082/api/v1/";
 // var urlBase = "http://82.112.245.162:8082/api/v1/";
 var urlUsuario = urlBase + "Usuario/";
 var urlEmpresa = urlBase + "publico/Empresa/";
@@ -9,7 +9,7 @@ var urlSitioMonumento = urlBase + "SitioMonumento/"
 var urlObtenerusuario = urlBase + "usuario/";
 var urlPqrsfd = urlBase + "publico/Pqrsfd/";
 var urlCambiarContrasena = urlBase + "usuario/cambiarContrasena/";
-var urlRecuperarContrasena= urlBase + "usuario/recuperarContrasena/";
+var urlRecuperarContrasena= urlBase + "publico/Usuario/recuperarContrasena/";
 var urlCambioRecuperacionContrasena = urlBase + "usuario/cambioRecuperacionContrasena/";
 
 //Redireccion
