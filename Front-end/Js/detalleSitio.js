@@ -103,7 +103,7 @@ function Validarcoment(CuadroNumero) {
 //     });
 // }
 
-var urlSitioMonumento = "http://192.168.20.79:8082/api/v1/SitioMonumento/";
+var urlSitioMonumento = "http://10.192.66.60:8082/api/v1/SitioMonumento/";
 
 function cargarSitio() {
     $.ajax({
