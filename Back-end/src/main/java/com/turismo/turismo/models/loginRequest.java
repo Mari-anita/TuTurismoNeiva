@@ -13,4 +13,5 @@ public class loginRequest {
     private String correoElectronico;
     private String contra;
     private String token;
+    private String role;
 }

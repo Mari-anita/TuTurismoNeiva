@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -60,7 +61,19 @@ public class authService implements IusuarioService {
         Usuario usuario = findBycorreoElectronico(request.getCorreoElectronico()).orElseThrow();
         String Token = jwtService.getToken(usuario);
         // return authResponse.builder().Token(Token).build();
-        return authResponse.builder().Token(Token).mensaje("Acceso Permitido").emailExists(false).build();
+
+        // obtenesmos el rol del usuario
+        String role = usuario.getAuthorities().stream() 
+            .findFirst()
+            .map(GrantedAuthority::getAuthority)
+            .orElse("Usuario");
+
+        return authResponse.builder()
+        .Token(Token)
+        .mensaje("Acceso Permitido")
+        .emailExists(false)
+        .role(role)
+        .build();
     }
 
     // //METODO DUPLICADO DE INICIO D SESION, PARA VERIFICAR EL TOKEN
