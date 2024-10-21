@@ -11,17 +11,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.concurrent.ThreadLocalRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import com.turismo.turismo.interfaceService.IpqrsfdService;
 import com.turismo.turismo.models.Pqrsfd;
 import com.turismo.turismo.models.authResponse;
-import com.turismo.turismo.service.authService;
 import com.turismo.turismo.service.emailService;
 
-@RequestMapping("/api/v1/publico/Pqrsfd/")
+@RequestMapping("/api/v1/publico/Pqrsfd")
 @RestController
 public class pqrsfdController {
 
@@ -31,8 +28,8 @@ public class pqrsfdController {
     @Autowired
     private IpqrsfdService pqrsfdService;
 
-    @Autowired
-    private authService authService;
+    // @Autowired
+    // private authService authService;
 
     @PostMapping("/")
     public ResponseEntity<Object> save(@RequestBody Pqrsfd Pqrsfd) {
@@ -113,11 +110,11 @@ public class pqrsfdController {
         return new ResponseEntity<>(Pqrsfd, HttpStatus.OK);
     }
 
-    @GetMapping("/busqueda/{filtro}")
-	public ResponseEntity<Object> findFiltro(@PathVariable String filtro){
-	var listaPqrsfd=pqrsfdService.filtroPqrsfd(filtro); 
-	return new ResponseEntity<>(listaPqrsfd,HttpStatus.OK);
-	}
+    // @GetMapping("/busqueda/{filtro}")
+	// public ResponseEntity<Object> findFiltro(@PathVariable String filtro){
+	// var listaPqrsfd=pqrsfdService.filtroPqrsfd(filtro); 
+	// return new ResponseEntity<>(listaPqrsfd,HttpStatus.OK);
+	// }
 
     @DeleteMapping("/eliminarPermanente/{id}")
     public ResponseEntity<Object> deleteForever(@PathVariable String id) {
@@ -145,6 +142,5 @@ public class pqrsfdController {
             return new ResponseEntity<>("Error pqrsfd NO Encontrado", HttpStatus.BAD_REQUEST);
         }
     }
-
 
 }

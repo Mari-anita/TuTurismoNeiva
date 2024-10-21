@@ -67,16 +67,16 @@ document.getElementById("correo").addEventListener("keydown", function (event) {
 
 // Fecha actual
 var date = new Date();
-var day = date.getDate(); 
-var month = date.getMonth() + 1; 
-var year = date.getFullYear(); 
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
 
 // Formateamos el día y el mes para que siempre tengan dos dígitos
 if (day < 10) {
-  day = '0' + day;
+    day = '0' + day;
 }
 if (month < 10) {
-  month = '0' + month;
+    month = '0' + month;
 }
 
 // Asignamos la fecha al campo
@@ -180,8 +180,7 @@ function listarPqrsfd() {
     });
 }
 
-// Asegúrate de definir registrarPqrsfd antes
-var registrarPqrsfd = true;
+
 
 function registrarPqr() {
 
@@ -240,7 +239,7 @@ function registrarPqr() {
                     title: "¡Excelente!",
                     text: "Se guardó correctamente, a su correo le llegará el número de radicado",
                     icon: "success"
-                });limpiarFormulario()
+                }); limpiarFormulario()
             },
         })
     } else {
@@ -362,7 +361,6 @@ function validarNumDoc(cuadroNumDocu) {
     return valido;
 }
 
-//validación segundo nombre
 function validarNombreApe(cuadroNombreApe) {
     var valor = cuadroNombreApe.value;
     var valido = true;
@@ -394,4 +392,45 @@ function validarDescripMens(cuadroDescripMens) {
     return valido;
 }
 
+function consultarPqrPorCodigo() {
+    const codigo = document.getElementById('codigo').value;
+    const tbody = document.getElementById('cuerpoTablaPqrsfd');
 
+    // Aquí debes implementar la lógica para obtener los datos
+    fetch(`/api/consultarPqr?codigo=${codigo}`)
+        .then(response => response.json())
+        .then(data => {
+            tbody.innerHTML = ''; // Limpiar la tabla
+
+            if (data.length > 0) {
+                data.forEach(item => {
+                    const row = `
+                        <tr>
+                            <td>${item.idPeticion}</td>
+                            <td>${item.tipoDocumento}</td>
+                            <td>${item.numeroDocumento}</td>
+                            <td>${item.nombreCompleto}</td>
+                            <td>${item.correo}</td>
+                            <td>${item.motivo}</td>
+                            <td>${item.mensaje}</td>
+                            <td>${item.estado}</td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+
+                // Mostrar la tabla
+                document.querySelector('.table').style.display = 'table';
+            } else {
+                // Opcional: Manejar el caso donde no hay datos
+                alert('No se encontraron datos para el código ingresado.');
+                // Ocultar la tabla si no hay datos
+                document.querySelector('.table').style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('Error al consultar PQR:', error);
+            // Manejar errores
+            alert('Ocurrió un error al consultar la información.');
+        });
+}

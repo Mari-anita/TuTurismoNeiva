@@ -181,11 +181,11 @@ public class emailService {
         try {
             String asunto = "Confirmación de Radicado de PQRSFD.";
             String cuerpo = ""
-            + "<body style=\"font-family: Arial, sans-serif; \">\r\n"
+            + "<body style=\"font-family: Arial, sans-serif; padding: 20px;\">\r\n"
             + "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js\"></script>"
-            + "<div class=\"container\" style=\"width: 70%; background-color: #f4f4f4; margin: 0% 10% 0% 10%; \">\r\n"
+            + "<div class=\"container\" style=\"width: 50%; background-color: #f4f4f4; margin: 0% 10% 0% 10%; padding: 20px;\">\r\n"
             + "<div class=\"header\" style=\"background-color: #333; padding: 5px; text-align: center;\">\r\n"
-            + " <img src=\"https://i.postimg.cc/vTxcSyPm/logo.png\" alt=\"TuTurismoNeiva Logo\" style=\"max-width: 100px; margin-right: 90%;\">\r\n"
+            + " <img src=\"http://i.postimg.cc/vTxcSyPm/logo.png\" alt=\"TuTurismoNeiva Logo\" style=\"max-width: 80px; margin-right: 90%;\">\r\n"
             + "</div>\r\n"
             + "<div class=\"content\" style=\" text-align: center; color: #333;\">\r\n"
             + "<h1 style=\"font-size: 24px; margin-bottom: 20px;\">¡Hola"

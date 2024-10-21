@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.turismo.turismo.interfaceService.IimagenService;
 import com.turismo.turismo.models.Imagen;
 
-
 @RequestMapping("/api/v1/Imagen")
 @RestController
 public class imagenController {
@@ -24,10 +23,10 @@ public class imagenController {
     private IimagenService imagenService;
 
     @PostMapping("/")
-    public ResponseEntity<Object> save (@ModelAttribute("Imagen") Imagen Imagen) {
+    public ResponseEntity<Object> save(@ModelAttribute("Imagen") Imagen Imagen) {
 
-        if(Imagen.getImagen().equals("")){
-            return new ResponseEntity<>("Este campo es obligatorio",HttpStatus.BAD_REQUEST);
+        if (Imagen.getImagen().equals("")) {
+            return new ResponseEntity<>("Este campo es obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         imagenService.save(Imagen);
@@ -48,8 +47,8 @@ public class imagenController {
 
     @DeleteMapping("/eliminarPermanente/{id}")
     public ResponseEntity<Object> deleteForever(@PathVariable String id) {
-    imagenService.deleteForever(id);
-    return new ResponseEntity<>("Registro eliminado permanentemente", HttpStatus.OK);
+        imagenService.deleteForever(id);
+        return new ResponseEntity<>("Registro eliminado permanentemente", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -59,7 +58,7 @@ public class imagenController {
 
             Imagen.setSitioMonumento(ImagenUpdate.getSitioMonumento());
             Imagen.setImagen(ImagenUpdate.getImagen());
-            
+
             imagenService.save(Imagen);
             return new ResponseEntity<>(Imagen, HttpStatus.OK);
 
@@ -67,5 +66,4 @@ public class imagenController {
             return new ResponseEntity<>("Error autor NO Encontrado", HttpStatus.BAD_REQUEST);
         }
     }
-
 }

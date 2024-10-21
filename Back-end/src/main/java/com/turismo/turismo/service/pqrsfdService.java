@@ -45,10 +45,10 @@ public class pqrsfdService implements IpqrsfdService {
         return data.findBynumDoc(numDoc);
     }
 
-    @Override
-	public List<Pqrsfd> filtroPqrsfd(String filtro) {
-		List<Pqrsfd> listaPqrsfd=data.filtroPqrsfd(filtro);
-		return listaPqrsfd;
-	}
+    // @Override
+	// public List<Pqrsfd> filtroPqrsfd(String filtro) {
+	// 	List<Pqrsfd> listaPqrsfd=data.filtroPqrsfd(filtro);
+	// 	return listaPqrsfd;
+	// }
 
 }

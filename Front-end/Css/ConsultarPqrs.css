@@ -9,6 +9,10 @@ body {
     z-index: -1;
 }
 
+table{
+    display: none;
+}
+
 main {
     display: flex;
     justify-content: center;

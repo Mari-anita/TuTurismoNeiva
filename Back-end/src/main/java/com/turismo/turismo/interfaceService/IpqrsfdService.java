@@ -17,5 +17,5 @@ public interface IpqrsfdService {
 
     public Optional<Pqrsfd> findBynumDoc(String numDoc);
 
-    public Object filtroPqrsfd(String filtro);
+    // public Object filtroPqrsfd(String filtro);
 }
