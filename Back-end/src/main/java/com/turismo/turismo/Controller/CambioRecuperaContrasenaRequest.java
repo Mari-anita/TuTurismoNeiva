@@ -4,8 +4,9 @@ public class CambioRecuperaContrasenaRequest {
 
     private String nuevaContrasena;
 	private String confirmarContrasena;
-	   
-	   
+	private String correoElectronico;
+
+ 
 	public CambioRecuperaContrasenaRequest() {
 		super();
 	}
@@ -36,4 +37,14 @@ public class CambioRecuperaContrasenaRequest {
 	public void setConfirmarContrasena(String confirmarContrasena) {
 		this.confirmarContrasena = confirmarContrasena;
 	}
+
+	public String getCorreoElectronico() {
+		return confirmarContrasena;
+	}
+
+
+	public void setCorreoElectronico(String confirmarContrasena) {
+		this.confirmarContrasena = confirmarContrasena;
+	}
+
 }
