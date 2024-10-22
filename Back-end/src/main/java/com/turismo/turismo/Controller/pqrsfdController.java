@@ -110,6 +110,16 @@ public class pqrsfdController {
         return new ResponseEntity<>(Pqrsfd, HttpStatus.OK);
     }
 
+    @GetMapping("/codigo/{codigo}")
+    public ResponseEntity<Object> findByCodigo(@PathVariable String codigo) {
+        var pqrsfd = pqrsfdService.findByCodigo(codigo); // Asegúrate de usar el método correcto aquí
+        if (pqrsfd.isPresent()) {
+            return new ResponseEntity<>(pqrsfd.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Registro no encontrado", HttpStatus.NOT_FOUND);
+        }
+    }
+
     // @GetMapping("/busqueda/{filtro}")
 	// public ResponseEntity<Object> findFiltro(@PathVariable String filtro){
 	// var listaPqrsfd=pqrsfdService.filtroPqrsfd(filtro); 
