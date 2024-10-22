@@ -17,21 +17,19 @@ public class pqrsfdService implements IpqrsfdService {
     private Ipqrsfd data;
 
     @Override
-    public String save(Pqrsfd Pqrsfd) {
-        data.save(Pqrsfd);
-        return Pqrsfd.getIdPeticion();
+    public String save(Pqrsfd pqrsfd) {
+        data.save(pqrsfd);
+        return pqrsfd.getIdPeticion();
     }
 
     @Override
     public List<Pqrsfd> findAll() {
-        List<Pqrsfd> listaPqrsfd = (List<Pqrsfd>) data.findAll();
-        return listaPqrsfd;
+        return (List<Pqrsfd>) data.findAll();
     }
 
     @Override
     public Optional<Pqrsfd> findOne(String id) {
-        Optional<Pqrsfd> Pqrsfd = data.findById(id);
-        return Pqrsfd;
+        return data.findById(id);
     }
 
     @Override
@@ -45,10 +43,8 @@ public class pqrsfdService implements IpqrsfdService {
         return data.findBynumDoc(numDoc);
     }
 
-    // @Override
-	// public List<Pqrsfd> filtroPqrsfd(String filtro) {
-	// 	List<Pqrsfd> listaPqrsfd=data.filtroPqrsfd(filtro);
-	// 	return listaPqrsfd;
-	// }
-
+    @Override
+    public Optional<Pqrsfd> findByCodigo(String codigo) {  // Método agregado
+        return data.findByCode(codigo);
+    }
 }

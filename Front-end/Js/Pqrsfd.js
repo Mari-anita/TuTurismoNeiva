@@ -335,7 +335,23 @@ function consultarPqr() {
     });
 }*/
 
-
+function consultarPqrPorCodigo(codigo){
+    //alert(id);
+    $.ajax({
+        url:url+codigo,
+        type:"GET",
+        success: function(result){
+            document.getElementById("idPeticion").value=result["idPeticion"];
+            document.getElementById("tipoDoc").value=result["tipoDoc"];
+            document.getElementById("numDoc").value=result["numDoc"];
+            document.getElementById("nombreApellido").value=result["nombreApellido"];
+            document.getElementById("correo").value=result["correo"];
+            document.getElementById("fechaRadicado").value=result["fechaRadicado"];
+            document.getElementById("tipoPeticion").value=result["tipoPeticion"];
+            document.getElementById("descripcionPeticion").value=result["descripcionPeticion"];
+        }
+    });
+}
 
 //validación número de documento
 function validarCampos() {
@@ -346,6 +362,7 @@ function validarCampos() {
     return validarNumDoc(numDoc) && validarNombreApe(nombreApellido) &&
         validarDescripMens(descripcionPeticion);
 }
+
 function validarNumDoc(cuadroNumDocu) {
     var valor = cuadroNumDocu.value;
     var valido = true;
@@ -390,47 +407,4 @@ function validarDescripMens(cuadroDescripMens) {
         cuadroDescripMens.className = "form-control is-invalid";
     }
     return valido;
-}
-
-function consultarPqrPorCodigo() {
-    const codigo = document.getElementById('codigo').value;
-    const tbody = document.getElementById('cuerpoTablaPqrsfd');
-
-    // Aquí debes implementar la lógica para obtener los datos
-    fetch(`/api/consultarPqr?codigo=${codigo}`)
-        .then(response => response.json())
-        .then(data => {
-            tbody.innerHTML = ''; // Limpiar la tabla
-
-            if (data.length > 0) {
-                data.forEach(item => {
-                    const row = `
-                        <tr>
-                            <td>${item.idPeticion}</td>
-                            <td>${item.tipoDocumento}</td>
-                            <td>${item.numeroDocumento}</td>
-                            <td>${item.nombreCompleto}</td>
-                            <td>${item.correo}</td>
-                            <td>${item.motivo}</td>
-                            <td>${item.mensaje}</td>
-                            <td>${item.estado}</td>
-                        </tr>
-                    `;
-                    tbody.innerHTML += row;
-                });
-
-                // Mostrar la tabla
-                document.querySelector('.table').style.display = 'table';
-            } else {
-                // Opcional: Manejar el caso donde no hay datos
-                alert('No se encontraron datos para el código ingresado.');
-                // Ocultar la tabla si no hay datos
-                document.querySelector('.table').style.display = 'none';
-            }
-        })
-        .catch(error => {
-            console.error('Error al consultar PQR:', error);
-            // Manejar errores
-            alert('Ocurrió un error al consultar la información.');
-        });
 }

@@ -4,7 +4,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
 import com.turismo.turismo.models.Pqrsfd;
 
 @Repository
@@ -15,7 +14,6 @@ public interface Ipqrsfd extends JpaRepository<Pqrsfd, String> {
 
     Optional<Pqrsfd> findTopByNumDocOrderByFechaRadicadoDesc(String numDoc);
 
-    // @Query("SELECT P FROM Pqrsfd P WHERE P.code LIKE %?1%")
-    // List<Pqrsfd> filtroPqrsfd(String filtro);
-
+    // Método para buscar por código
+    Optional<Pqrsfd> findByCode(String code); // Agregado
 }

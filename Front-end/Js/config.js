@@ -1,4 +1,5 @@
 var urlBase = "http://10.192.92.96:8082/api/v1/";
+var urlBase = "http://10.192.64.84:8082/api/v1/";
 //var urlBase = "http://82.112.245.162:8082/api/v1/";
 var urlUsuario = urlBase + "Usuario/";
 var urlEmpresa = urlBase + "publico/Empresa/";
