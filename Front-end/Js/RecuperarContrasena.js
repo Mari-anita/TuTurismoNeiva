@@ -97,62 +97,109 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function capturarDatosRecuperarContrasena() {
-    event.preventDefault();  // Evitar que el formulario se envíe de forma predeterminada
 
-    const nuevaContrasena = document.getElementById('nuevaContrasena').value; // Captura el nuevo valor de la contraseña
-    const confirmarContrasena = document.getElementById('confirmarContrasena').value; // Captura la confirmación de la contraseña
-    const idSolicitud = document.getElementById('idSolicitud').value; // Captura el ID de solicitud del formulario
+document.addEventListener("DOMContentLoaded", () => {
+    // Función para capturar los datos del formulario de recuperación de contraseña
+    function capturarDatosRecuperarContrasena() {
+        // Obtener el valor de los inputs de contraseña y confirmación
+        const nuevaContra = document.getElementById('nuevaContrasena').value;
+        const confirmarContra = document.getElementById('confirmarContrasena').value;
 
-    // Llama al método para cambiar la contraseña
-    enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena, idSolicitud);
-}
+        // Extraer el ID de la solicitud desde la URL (parámetro t)
+        const urlParams = new URLSearchParams(window.location.search);
+        const idSolicitud = urlParams.get('t'); // 't' es el parámetro que contiene el ID de solicitud en la URL
 
-async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena, idSolicitud) {
-    if (nuevaContrasena !== confirmarContrasena) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Las contraseñas no coinciden.'
-        });
-        return;
-    }
-
-    const body = { nuevaContrasena }; // Enviamos solo la nueva contraseña
-    try {
-        const response = await fetch(`${urlCambioRecuperacionContrasena}${idSolicitud}`, { // Concatenamos idSolicitud aquí
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        });
-
-        // Verifica si el tipo de contenido es JSON
-        const contentType = response.headers.get("content-type");
-        let responseData;
-        if (contentType && contentType.includes("application/json")) {
-            responseData = await response.json();
-        } else {
-            responseData = { message: await response.text() }; // Asigna el texto de respuesta si no es JSON
+        // Verificamos si el ID de la solicitud fue capturado
+        if (!idSolicitud) {
+            console.error('ID de solicitud no encontrado en la URL');
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se encontró el ID de solicitud. Verifique el enlace de recuperación.'
+            });
+            return;
         }
 
-        if (!response.ok) {
-            throw new Error('Error al cambiar la contraseña: ' + (responseData.message || response.statusText));
+        console.log('nuevaContrasena:', nuevaContra);
+        console.log('confirmarContrasena:', confirmarContra);
+        console.log('idSolicitud:', idSolicitud);
+
+        // Llama al método para cambiar la contraseña, pasando las contraseñas y el ID de solicitud
+        enviarRecuperacionContrasena(nuevaContra, confirmarContra, idSolicitud);
+    }
+
+    // Función asincrónica para realizar la solicitud de cambio de contraseña
+    async function enviarRecuperacionContrasena(nuevaContrasena, confirmarContrasena, idSolicitud) {
+        // Verificar si las contraseñas coinciden
+        if (nuevaContrasena !== confirmarContrasena) {
+            console.log('Las contraseñas no coinciden');
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Las contraseñas no coinciden.'
+            });
+            return;
         }
 
-        Swal.fire({
-            icon: 'success',
-            title: 'Éxito',
-            text: responseData.message
-        });
-        // Redirecciona o realiza otra acción después de un cambio exitoso
-        document.getElementById("modifyForm").reset();
-    } catch (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.message
-        });
+        // Crear el cuerpo de la solicitud con la nueva contraseña y confirmación
+        const body = { nuevaContrasena, confirmarContrasena };
+
+        try {
+            // Realizar la solicitud HTTP PUT al servidor, incluyendo el ID de solicitud en la URL
+            const response = await fetch(`${urlCambioRecuperacionContrasena}${idSolicitud}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            console.log('Response status:', response.status);
+            console.log('Response headers:', response.headers);
+
+            // Verificar el tipo de contenido de la respuesta
+            const contentType = response.headers.get("content-type");
+            let responseData;
+            if (contentType && contentType.includes("application/json")) {
+                responseData = await response.json();  // Parsear la respuesta como JSON
+            } else {
+                responseData = { message: await response.text() };  // Si no es JSON, tomar el texto de la respuesta
+            }
+
+            console.log('Response data:', responseData);
+
+            // Verificar si la solicitud fue exitosa
+            if (!response.ok) {
+                throw new Error('Error al cambiar la contraseña: ' + (responseData.message || response.statusText));
+            }
+
+            // Mostrar mensaje de éxito
+            Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: responseData.message
+            });
+
+            // Limpiar el formulario después de un cambio exitoso
+            const form = document.getElementById("modifyForm");
+            if (form) {
+                form.reset(); // Asegúrate de que el formulario existe antes de intentar resetearlo
+            } else {
+                console.error('El formulario no se encontró.');
+            }
+        } catch (error) {
+            console.error('Error en el fetch:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: error.message
+            });
+        }
     }
-}
+
+    // // Añade el listener al botón de enviar
+    const submitButton = document.querySelector(".submit-button");
+    if (submitButton) {
+        submitButton.addEventListener("click", capturarDatosRecuperarContrasena);
+    }
+});

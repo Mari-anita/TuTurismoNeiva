@@ -102,7 +102,7 @@
               </b>
             </button>
             <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-              <a href="./html/PerfilUsurio.html">Mi Perfil</a>
+              <a href="/Front-end/html/PerfilUsuario.html">Mi Perfil</a>
               <a href="">Mis Sitios</a>
               <a href="">Tema</a>
               <a href="#">Ayuda</a>
@@ -124,18 +124,18 @@
       <p id="text-parrafo">Asegúrate de elegir una contraseña robusta<br> para proteger tu cuenta de accesos no
         <br>autorizados.
       </p>
-      <div class="input-group">
-        <label id="new-password-label" for="new-password">Nueva contraseña</label>
-        <input type="password" id="nuevaContrasena" required>
-        <i class="fa-regular fa-eye-slash toggle-password" data-target="nuevaContrasena"></i>
-      </div>
-      <div class="input-group">
-        <label id="confirm-password-label" for="confirm-password">Confirmar nueva contraseña</label>
-        <input type="password" id="confirmarContrasena" required>
-        <i class="fa-regular fa-eye-slash toggle-password" data-target="confirmarContrasena"></i>
-      </div>
-      <button type="submit" onclick="capturarDatosRecuperarContrasena();"
-        class="btn change-password submit-button">Continuar</button>
+      <form id="modifyForm"> 
+        <div class="input-group">
+          <label id="new-password-label" for="new-password">Nueva contraseña</label>
+          <input type="password" id="nuevaContrasena" required>
+          <i class="fa-regular fa-eye-slash toggle-password" data-target="nuevaContrasena"></i>
+        </div>
+        <div class="input-group">
+          <label id="confirm-password-label" for="confirm-password">Confirmar nueva contraseña</label>
+          <input type="password" id="confirmarContrasena" required>
+          <i class="fa-regular fa-eye-slash toggle-password" data-target="confirmarContrasena"></i>
+        </div>
+        <button type="submit" class="btn change-password submit-button">Continuar</button>
       </form>
     </div>
   </div>
@@ -194,7 +194,7 @@
   <script src="/Front-end/Js/cambioIdiomaCamContra.js"></script>
   <script src="/Front-end/Js/config.js"></script>
   <script src="/Front-end/Js/RecuperarContrasena.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
