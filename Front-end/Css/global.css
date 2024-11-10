@@ -1,0 +1,75 @@
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark p,
+body.dark a,
+body.dark ol,
+body.dark li,
+body.dark blockquote {
+    color: #e0e0e0 !important;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+    color: #ffffff !important;
+}
+
+body.dark h2 { color: #eeeeee !important; }
+body.dark h3 { color: #dddddd !important; }
+body.dark h4 { color: #cccccc !important; }
+body.dark h5 { color: #bbbbbb !important; }
+body.dark h6 { color: #aaaaaa !important; }
+
+body.dark a {
+    color: #fff !important;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark .container-fluid,
+body.dark select {
+    background-color: #333 !important;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+    color: #888;
+}
+
+body.dark button {
+    color: #ffffff;
+}
+
+body.dark blockquote {
+    border-left: 4px solid #bb86fc;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+body.dark .ulnav {
+    background-color: transparent !important;
+    border: none;
+}
+
+body.dark footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark .ulnav {
+    background-color: transparent !important;
+    border: none;
+}
+
+body.dark {
+    background-color: #1a1a1a !important;
+}

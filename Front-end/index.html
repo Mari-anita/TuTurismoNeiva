@@ -10,6 +10,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" type="image/png" href="/Front-end/Img/logo.png">
   <link rel="stylesheet" href="../Front-end/Css/bootstrap.css">
+  <link rel="stylesheet" href="../Front-end/Css/global.css">
   <script src="../Front-end/Js/bootstrap.js"></script>
   <!--Box Icons-->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -239,142 +240,97 @@
     cursor: pointer;
   }
 
-  body.dark {
-    background-color: black;
-    color: white;
-  }
 
-  body.dark .navbar {
-    background-color: #333;
-  }
-
-  body.dark .navbar-brand img {
-    filter: invert(1);
-  }
-
-  body.dark .dropdown-content {
-    background-color: #333;
-  }
-
-  body.dark .dropdown-content a {
-    color: white;
-  }
-
-  body.dark .dropdown-content a:hover {
-    background-color: #444;
-  }
-
-  body.dark .container-fluid {
-    background-color: #333;
-  }
-
-  body.dark h1,
-  body.dark h2,
-  body.dark h3,
-  body.dark h4,
-  body.dark h5,
-  body.dark h6 {
-    color: white;
-  }
-
-  body.dark p {
-    color: #ccc;
-  }
-
-  body.dark a {
-    color: #ccc;
-  }
-
-  body.dark a:hover {
-    color: white;
-  }
+  
 </style>
 
 <body onload="verificacionLogin()">
-    <nav class="navbar navbar-expand-lg bg-dark"
-      style="top: 0%; width: 100%; position: fixed; top: 0%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
-      <div class="container-fluid" style="height: 56px;">
-        <a class="navbar-brand" href="../Front-end/index.html">
-          <img src="../Front-end/Img/logo.png" alt="" width="10%">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
-            <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-              <div class="dropdown">
-                <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
-                data-value="tittle"><b><a style="text-decoration: none; color: white;" href="/Front-end/index.html">Inicio</a></b></button>
+  <nav class="navbar navbar-expand-lg bg-dark"
+    style="top: 0%; width: 100%; position: fixed; top: 0%;  z-index: 999; /* Asegurarse de que esté por encima de otros elementos */">
+    <div class="container-fluid ulnav" style="height: 56px;">
+      <a class="navbar-brand" href="../Front-end/index.html">
+        <img src="../Front-end/Img/logo.png" alt="" width="10%">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0 ms-auto">
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <div class="dropdown">
+              <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="profile"
+                data-value="tittle"><b><a style="text-decoration: none; color: white;"
+                    href="/Front-end/index.html">Inicio</a></b></button>
               <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                  <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios
-                    Turísticos</a>
+                <a href="/Front-end/html/sitiosTuristicos.html" data-section="projects" data-value="sitios">Sitios
+                  Turísticos</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
+              style="color: white; font-size: 25px" data-section="projects"
+              data-value="first-project-tittle"><b>Nosotros</b></a>
+          </li>
+          <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
+            <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
+              data-value="second-project-tittle"><b>Contacto</b></a>
+          </li>
+          <li class="nav-item-S" style=" margin-top: 1.5%;">
+            <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
+          </li>
+          <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
+              style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
+            <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
+              data-value="three-project-tittle"><b>Idioma</b></button>
+            <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <div class="flags_item" data-language="es">
+                <img src="/Front-end/Icons/co.svg" alt="Espanol">
+              </div>
+              <div class="flags_item" data-language="en">
+                <img src="/Front-end/Icons/ingles.svg" alt="ingles">
+              </div>
+            </div>
+          </li>
+          <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 25px">
+              <b>
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="../Front-end/html/RegistroUsuario.html" data-section="projects"
+                data-value="registro">Registrarse</a>
+              <div class="dropdown-submenu">
+                <a href="#" data-section="projects" data-value="tema">Tema</a>
+                <div class="submenu-content">
+                  <label for="toggle" id="label_toggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></label>
+                  <input type="checkbox" id="toggle">
                 </div>
               </div>
-            </li>
-            <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-              <a id="nosotros" class="nav-link" href="../Front-end/html/MisionVision.html"
-                style="color: white; font-size: 25px" data-section="projects"
-                data-value="first-project-tittle"><b>Nosotros</b></a>
-            </li>
-            <li class="nav-item" style="margin-right: 3%; margin-top: 1.5%;">
-              <a class="nav-link" href="#contacto" style="color: white; font-size: 25px" data-section="projects"
-                data-value="second-project-tittle"><b>Contacto</b></a>
-            </li>
-            <li class="nav-item-S" style=" margin-top: 1.5%;">
-              <box-icon name='world' color='#ffbd59' size="md" style="margin-top: 25%;"></box-icon>
-            </li>
-            <li class="nav-item dropdown" style="margin-top: 1.5%;"><i
-                style="color: #FFBD59; padding-right:10px; font-size: 25px;"></i>
-              <button class="dropbtn btn" style="color: white; font-size: 25px" data-section="projects"
-                data-value="three-project-tittle"><b>Idioma</b></button>
-              <div id="flags" class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <div class="flags_item" data-language="es">
-                  <img src="/Front-end/Icons/co.svg" alt="Espanol">
-                </div>
-                <div class="flags_item" data-language="en">
-                  <img src="/Front-end/Icons/ingles.svg" alt="ingles">
-                </div>
-              </div>
-            </li>
-            <li id="menuNotAuthenticate" class="nav-item-U dropdown" style=" margin-top: 1.5%;">
-              <button class="dropbtn btn" style="color: white; font-size: 25px">
-                <b>
-                  <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
-                </b>
-              </button>
-              <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <a href="../Front-end/html/RegistroUsuario.html" data-section="projects" data-value="registro">Registrarse</a>
-                <div class="dropdown-submenu">
-                  <a href="#" data-section="projects" data-value="tema">Tema</a>
-                  <div class="submenu-content">
-                    <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
-                    <input type="checkbox" id="toggle">
-                  </div>
-                </div>
-                <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
-              </div>
-            </li>
-            <!-- autenticado -->
-            <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
-              <button class="dropbtn btn" style="color: white; font-size: 1rem" bp>
-                <b id="nombreUsuarioDisplay">
-                  <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
-                </b>
-              </button>
-              <div class="dropdown-content" style="justify-content: center; font-size: 17px">
-                <a href="/Front-end/html/PerfilUsuario.html">Mi Perfil</a>
-                <a href="">Mis Sitios</a>
-                <a href="">Tema</a>
-                <a href="#">Ayuda</a>
-                <a href="#" id="logoutBtn">Cerrar sesión</a>
-              </div>
-            </li>
-          </ul>
-        </div>
+              <a href="#" data-section="projects" data-value="ayuda">Ayuda</a>
+            </div>
+          </li>
+          <!-- autenticado -->
+          <li id="menuAuthenticate" class="nav-item-U dropdown menuOculto" style=" margin-top: 1.5%;">
+            <button class="dropbtn btn" style="color: white; font-size: 1rem" bp>
+              <b id="nombreUsuarioDisplay">
+                <box-icon name='user-circle' type='solid' color='#ffbd59' size="39px"></box-icon>
+              </b>
+            </button>
+            <div class="dropdown-content" style="justify-content: center; font-size: 17px">
+              <a href="/Front-end/html/PerfilUsuario.html">Mi Perfil</a>
+              <a href="">Mis Sitios</a>
+              <a href="">Tema</a>
+              <a href="#">Ayuda</a>
+              <a href="#" id="logoutBtn">Cerrar sesión</a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <div class="container-fluid" style="background-color:white;padding: 12%;">
     <div class="row">
@@ -455,23 +411,23 @@
     <div class="row">
       <div class="col-6">
         <img loading="lazy"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Comunas_de_Neiva.svg/488px-Comunas_de_Neiva.svg.png"
-        alt="" style="margin-top: 7%; margin-left: 30%; width: 50%">
-    </div>
-    <div class="col-6" style="margin-top: 13%; margin-bottom: 10%">
-      <h1 style="color: white;" data-section="profile" data-value="ciudad"><b>Neiva - Huila</b></h1>
-      <div style=" width: 60%;">
-        <a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Informacion-del-Municipio.aspx"
-          style="color: white;font-size: 17px; text-decoration: none;" data-section="profile"
-          data-value="ubicación">Neiva está ubicada entre la cordillera Central
-          y Oriental, en una planicie sobre la margen oriental del río Magdalena,
-          en el valle del mismo nombre, cruzada por los Ríos Las Ceibas y el Río del Oro.</p></a>
-        <a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Informacion-del-Municipio.aspx"
-          style="color: white;font-size: 17px; text-decoration: none;" data-section="profile" data-value="division">Su
-          división política y administrativa se ha
-          estructurado a partir de 10 comunas con 117 barrios y 377 sectores en la zona urbana
-          y 8 corregimientos con 61 veredas y 21 sectores en la zona rural, con un área estimada de 4.594 y 150.706
-          Hectáreas respectivamente.</a>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Comunas_de_Neiva.svg/488px-Comunas_de_Neiva.svg.png"
+          alt="" style="margin-top: 7%; margin-left: 30%; width: 50%">
+      </div>
+      <div class="col-6" style="margin-top: 13%; margin-bottom: 10%">
+        <h1 style="color: white;" data-section="profile" data-value="ciudad"><b>Neiva - Huila</b></h1>
+        <div style=" width: 60%;">
+          <a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Informacion-del-Municipio.aspx"
+            style="color: white;font-size: 17px; text-decoration: none;" data-section="profile"
+            data-value="ubicación">Neiva está ubicada entre la cordillera Central
+            y Oriental, en una planicie sobre la margen oriental del río Magdalena,
+            en el valle del mismo nombre, cruzada por los Ríos Las Ceibas y el Río del Oro.</p></a>
+          <a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Informacion-del-Municipio.aspx"
+            style="color: white;font-size: 17px; text-decoration: none;" data-section="profile" data-value="division">Su
+            división política y administrativa se ha
+            estructurado a partir de 10 comunas con 117 barrios y 377 sectores en la zona urbana
+            y 8 corregimientos con 61 veredas y 21 sectores en la zona rural, con un área estimada de 4.594 y 150.706
+            Hectáreas respectivamente.</a>
         </div>
       </div>
     </div>
@@ -481,11 +437,16 @@
       <div class="row">
         <div class="col-6" style="padding-top: 10%;">
           <a href="/Front-end/html/RegistroPqrsfd.html" class="btn"
-            style="background-color:#ffbd59; width: 28%; height: 70%; margin-left: 64%;"><box-icon name='envelope' type='solid' animation='tada' color='#ffffff' size="90px" style="margin-top: 30%;"></box-icon></box-icon></a>
+            style="background-color:#ffbd59; width: 28%; height: 70%; margin-left: 64%;"><box-icon name='envelope'
+              type='solid' animation='tada' color='#ffffff' size="90px"
+              style="margin-top: 30%;"></box-icon></box-icon></a>
         </div>
         <div class="col-6" style="margin-top: 10%; margin-bottom: 5%">
-          <h1 style="width: 60%;" data-section="profile" data-value="empresa"><b>¿Tienes alguna sugerencia para mejorar nuestra página?</b></h1>
-          <p style="width: 55%; font-size: 20px;" data-section="profile" data-value="formulario"> Nos gustaría conocer tu opinión. Haz clic aquí para acceder al formulario y llena tu solicitud para ofrecerte una mejor experiencia.</p>
+          <h1 style="width: 60%;" data-section="profile" data-value="empresa"><b>¿Tienes alguna sugerencia para mejorar
+              nuestra página?</b></h1>
+          <p style="width: 55%; font-size: 20px;" data-section="profile" data-value="formulario"> Nos gustaría conocer
+            tu opinión. Haz clic aquí para acceder al formulario y llena tu solicitud para ofrecerte una mejor
+            experiencia.</p>
         </div>
       </div>
     </div>
@@ -495,13 +456,14 @@
         <div class="col-8">
           <h1 style="padding-left: 50%;" data-section="profile" data-value="movil"><b>¡Descubre nuestra aplicación
               móvil!</b></h1>
-          <p style="padding-left: 50%; font-size: 20px; width: 100%" data-section="profile" data-value="codigo">Haz clic a este botón para descargarla y disfrutar
+          <p style="padding-left: 50%; font-size: 20px; width: 100%" data-section="profile" data-value="codigo">Haz clic
+            a este botón para descargarla y disfrutar
             de toda la funcionalidad de nuestra página web desde tu dispositivo móvil.</p>
         </div>
         <div class="col-4">
           <a href="../Front-end/apk/TuTurismoNeiva.apk" download="TuTurismoNeiva.apk" class="btn"
-            style="background-color:#ffbd59; width: 28%; height: 90%; margin-top:1%;"><box-icon name='cloud-download' type='solid' animation='fade-up' 
-            color='#ffffff' size="90px" style="margin-top: 20%;"></box-icon></a>
+            style="background-color:#ffbd59; width: 28%; height: 90%; margin-top:1%;"><box-icon name='cloud-download'
+              type='solid' animation='fade-up' color='#ffffff' size="90px" style="margin-top: 20%;"></box-icon></a>
         </div>
       </div>
     </div>
@@ -512,24 +474,51 @@
         <footer class="py-3">
           <ul class="nav border-bottom mb-3 justify-content-between">
             <div class="d-flex">
-              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;" data-section="projects" data-value="contactanos"><b>Contáctanos</b></a></li>
-              <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone' color='#ffffff'></box-icon></a></li>
-              <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon name='envelope' color='#ffffff' ></box-icon></a></li>
-              <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
-              <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo' color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo"><a class="nav-link px-2" style="color: white;" data-section="projects"
+                  data-value="contactanos"><b>Contáctanos</b></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="tel:3143049933"><box-icon name='phone'
+                    color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="mailto:tuturismoneiva@gmail.com"><box-icon
+                    name='envelope' color='#ffffff'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1" href="https://wa.me/573143049933"><box-icon
+                    name='whatsapp' type='logo' color='#f7f7f7'></box-icon></a></li>
+              <li class="nav-item-fo-I"><a class="nav-link px-1"
+                  href="https://www.instagram.com/tuturismoneiva"><box-icon class="ig" name='instagram' type='logo'
+                    color='#ffffff'></box-icon></a></li>
             </div>
             <div class="d-flex">
               <li class="nav-item-fo-P "><a href="../Front-end/html/RegistroPqrsfd.html" class="nav-link px-2 pqrsfd"
                   style="color: #feffff ; "><b>Pqrsfd</b></a></li>
-              <li class="nav-item-fo-P"><a href="../Docs/TerminosCondiciones.pdf" target="_blank"
-                  class="nav-link px-2" style="color: #1f8b9e;" data-section="projects"
-                  data-value="terminos"><b>Términos y condiciones</b></a></li>
+              <li class="nav-item-fo-P"><a href="../Docs/TerminosCondiciones.pdf" target="_blank" class="nav-link px-2"
+                  style="color: #1f8b9e;" data-section="projects" data-value="terminos"><b>Términos y
+                    condiciones</b></a></li>
             </div>
           </ul>
           <p class="text-center" style="color: white;">©2024 · TuTurismo Neiva</p>
         </footer>
       </div>
     </section>
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        body.classList.toggle("dark");
+
+        // Guarda el tema en localStorage para recordar la preferencia del usuario
+        if (body.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      window.onload = function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.body.classList.add("dark");
+        }
+      }
+    </script>
+
 </body>
 
 </html>
